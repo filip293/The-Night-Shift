@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://rur0545n284g" path="res://Gas_station/Models/Gas_station.fbx" id="1_klkqd"]
 [ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://Player.gd" id="2_1c0n7"]
+[ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
+[ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
+[ext_resource type="AudioStream" uid="uid://b6ycsctiadjpe" path="res://Sounds/Plastic_003.wav" id="5_wk1nr"]
+[ext_resource type="AudioStream" uid="uid://b1m7kudq44fxb" path="res://Sounds/Plastic_004.wav" id="6_054il"]
+[ext_resource type="AudioStream" uid="uid://bpoow5hx2be81" path="res://Sounds/Plastic_005.wav" id="7_c7hx4"]
 
 [sub_resource type="Environment" id="Environment_sq8w8"]
 
@@ -30,6 +35,7 @@ shape = SubResource("BoxShape3D_1p4ks")
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1550198, 1.040114, 11.769007)
 script = ExtResource("2_1c0n7")
+footstep_sounds = Array[AudioStream]([ExtResource("3_qq1mn"), ExtResource("4_aebcy"), ExtResource("5_wk1nr"), ExtResource("6_054il"), ExtResource("7_c7hx4")])
 
 [node name="Neck" type="Node3D" parent="Player" unique_id=1220311483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4167844, -0.38557243)
@@ -42,5 +48,6 @@ shape = SubResource("CapsuleShape3D_1p4ks")
 
 [node name="Feet" type="AudioStreamPlayer3D" parent="Player" unique_id=1114823138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8658893, 0)
+unit_size = 0.2
 
 [node name="BaseTime" type="Timer" parent="." unique_id=1231765102]
