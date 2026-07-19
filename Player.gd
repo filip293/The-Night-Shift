@@ -18,6 +18,10 @@ var inmenu = true
 
 
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -69,3 +73,13 @@ func play_footstep_sound():
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+
+		
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and Globals.playerlookallow:
+		self.rotate_y(deg_to_rad(event.relative.x * Globals.mouse_sensitivity * -1))
+		
+		var camera_rot = neck.rotation_degrees
+		var rotation_to_apply_on_x_axis = (-event.relative.y * Globals.mouse_sensitivity);
+
+		camera_rot.x = clamp(camera_rot.x + rotation_to_apply_on_x_axis, -90, 70)
+		neck.rotation_degrees = camera_rot
