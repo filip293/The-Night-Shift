@@ -3,15 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://rur0545n284g" path="res://Gas_station/Models/Gas_station.fbx" id="1_klkqd"]
 [ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://Player.gd" id="2_1c0n7"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p4ks"]
+size = Vector3(291.77325, 0.49951172, 101.97122)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1p4ks"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c0n7"]
-albedo_color = Color(1, 1, 1, 0.21960784)
-roughness = 0.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c0n7"]
-albedo_color = Color(1, 1, 1, 0.21960784)
-roughness = 0.0
 
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 
@@ -19,6 +14,12 @@ roughness = 0.0
 
 [node name="Gas_station" parent="." unique_id=2020466613 instance=ExtResource("1_klkqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47392744, 0, -0.19157219)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Gas_station" unique_id=1209715511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gas_station/StaticBody3D" unique_id=1127986731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.96756, -0.25024414, -1.4591827)
+shape = SubResource("BoxShape3D_1p4ks")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1550198, 1.040114, 11.769007)
