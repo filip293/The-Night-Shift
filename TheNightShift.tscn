@@ -20,10 +20,10 @@ environment = SubResource("Environment_sq8w8")
 [node name="Map" parent="." unique_id=2020466613 instance=ExtResource("1_klkqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47392744, 0, -0.19157219)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Gas_station" unique_id=1779496828]
+[node name="MapFloor" type="StaticBody3D" parent="Map" unique_id=1779496828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47392744, 0, 0.19157219)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gas_station/StaticBody3D" unique_id=2010292977]
-
+[node name="MapCollision" type="CollisionShape3D" parent="Map/MapFloor" unique_id=2010292977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.96756, -0.25024414, -1.4591827)
 shape = SubResource("BoxShape3D_1p4ks")
 
