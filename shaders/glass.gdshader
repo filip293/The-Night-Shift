@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix, depth_draw_always;
+render_mode blend_mix, depth_draw_always, shadows_disabled;
 
 uniform vec4 albedo : source_color = vec4(1.0, 1.0, 1.0, 0.05);
 uniform float roughness : hint_range(0.0, 1.0) = 0.0;
