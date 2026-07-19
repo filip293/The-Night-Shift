@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd21vy8qqsenm"
-path.s3tc="res://.godot/imported/Toilets_Sing.png-9bd7dca1c73e41fedb931a221ef5c31c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Toilets_Sing.png-14cbda676a4dd3a9183c1ab9ad7e7455.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/Toilets_Sing.png"
-dest_files=["res://.godot/imported/Toilets_Sing.png-9bd7dca1c73e41fedb931a221ef5c31c.s3tc.ctex"]
+source_file="res://Gas_station/Textures/Toilets_Sing.png"
+dest_files=["res://.godot/imported/Toilets_Sing.png-14cbda676a4dd3a9183c1ab9ad7e7455.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3y618ach0su2"
-path.s3tc="res://.godot/imported/Fusible.png-ac4d0d8a4390c38455ebf0cd5d444a6b.s3tc.ctex"
+path.s3tc="res://.godot/imported/Fusible.png-a0947f8d3c2afcfc1fdda9df2fb13f3b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/Fusible.png"
-dest_files=["res://.godot/imported/Fusible.png-ac4d0d8a4390c38455ebf0cd5d444a6b.s3tc.ctex"]
+source_file="res://Gas_station/Textures/Fusible.png"
+dest_files=["res://.godot/imported/Fusible.png-a0947f8d3c2afcfc1fdda9df2fb13f3b.s3tc.ctex"]
 
 [params]
 

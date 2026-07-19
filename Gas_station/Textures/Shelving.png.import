@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dagrjbcwgpjdw"
-path.s3tc="res://.godot/imported/Shelving.png-3def3a1f132c02bb503db605135a6637.s3tc.ctex"
+path.s3tc="res://.godot/imported/Shelving.png-025f1de2401e685f2221bd283af27bdc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/Shelving.png"
-dest_files=["res://.godot/imported/Shelving.png-3def3a1f132c02bb503db605135a6637.s3tc.ctex"]
+source_file="res://Gas_station/Textures/Shelving.png"
+dest_files=["res://.godot/imported/Shelving.png-025f1de2401e685f2221bd283af27bdc.s3tc.ctex"]
 
 [params]
 

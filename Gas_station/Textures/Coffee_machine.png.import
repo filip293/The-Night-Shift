@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i1xwj5s3tpe8"
-path.s3tc="res://.godot/imported/Coffee_machine.png-87283b81e8a1e71addb09d4c67ee6691.s3tc.ctex"
+path.s3tc="res://.godot/imported/Coffee_machine.png-a84d2b4ac1ed3c2b40be39da3aa5294e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/Coffee_machine.png"
-dest_files=["res://.godot/imported/Coffee_machine.png-87283b81e8a1e71addb09d4c67ee6691.s3tc.ctex"]
+source_file="res://Gas_station/Textures/Coffee_machine.png"
+dest_files=["res://.godot/imported/Coffee_machine.png-a84d2b4ac1ed3c2b40be39da3aa5294e.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4db2ywukf1rp"
-path.s3tc="res://.godot/imported/ice_slush_machine.png-23a3d7b93e0606a29ef41b38a2bc9fd4.s3tc.ctex"
+path.s3tc="res://.godot/imported/ice_slush_machine.png-30c6d3fb7fbea7aacb14767b063cd0c6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/ice_slush_machine.png"
-dest_files=["res://.godot/imported/ice_slush_machine.png-23a3d7b93e0606a29ef41b38a2bc9fd4.s3tc.ctex"]
+source_file="res://Gas_station/Textures/ice_slush_machine.png"
+dest_files=["res://.godot/imported/ice_slush_machine.png-30c6d3fb7fbea7aacb14767b063cd0c6.s3tc.ctex"]
 
 [params]
 

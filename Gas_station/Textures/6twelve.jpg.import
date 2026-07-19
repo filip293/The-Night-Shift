@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx2ltbtoaclxy"
-path.s3tc="res://.godot/imported/6twelve.jpg-66d2b2752b2cdca078446571b23de677.s3tc.ctex"
+path.s3tc="res://.godot/imported/6twelve.jpg-44d724e1cf68a226d4a48238acdfa839.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/6twelve.jpg"
-dest_files=["res://.godot/imported/6twelve.jpg-66d2b2752b2cdca078446571b23de677.s3tc.ctex"]
+source_file="res://Gas_station/Textures/6twelve.jpg"
+dest_files=["res://.godot/imported/6twelve.jpg-44d724e1cf68a226d4a48238acdfa839.s3tc.ctex"]
 
 [params]
 

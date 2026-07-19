@@ -65,3 +65,7 @@ func play_footstep_sound():
 
 	current_footstep_index += 1
 	is_left_foot = !is_left_foot
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()

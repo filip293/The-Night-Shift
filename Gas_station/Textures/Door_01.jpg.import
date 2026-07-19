@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdrx13c72qqet"
-path.s3tc="res://.godot/imported/Door_01.jpg-3a02ef414a8939a4942319457389dd2e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Door_01.jpg-6c1b5a96839aa2b68ef1b3815954a271.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/Door_01.jpg"
-dest_files=["res://.godot/imported/Door_01.jpg-3a02ef414a8939a4942319457389dd2e.s3tc.ctex"]
+source_file="res://Gas_station/Textures/Door_01.jpg"
+dest_files=["res://.godot/imported/Door_01.jpg-6c1b5a96839aa2b68ef1b3815954a271.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clg3yryc14ix0"
-path.s3tc="res://.godot/imported/Management.png-324421b2b1435ada3b4981c83ce793f4.s3tc.ctex"
+path.s3tc="res://.godot/imported/Management.png-4ddf2fb32efa62193a654edcd368e922.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/Management.png"
-dest_files=["res://.godot/imported/Management.png-324421b2b1435ada3b4981c83ce793f4.s3tc.ctex"]
+source_file="res://Gas_station/Textures/Management.png"
+dest_files=["res://.godot/imported/Management.png-4ddf2fb32efa62193a654edcd368e922.s3tc.ctex"]
 
 [params]
 

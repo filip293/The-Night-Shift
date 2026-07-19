@@ -5,7 +5,13 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1p4ks"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c0n7"]
+albedo_color = Color(1, 1, 1, 0.21960784)
+roughness = 0.0
+
 [node name="Node3D" type="Node3D" unique_id=1654516073]
+
+[node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 
 [node name="Gas_station" parent="." unique_id=2020466613 instance=ExtResource("1_klkqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47392744, 0, -0.19157219)

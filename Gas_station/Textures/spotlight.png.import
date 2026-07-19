@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl58iwct60bm0"
-path.s3tc="res://.godot/imported/spotlight.png-9ad880ff9c6bd180b81cb959c6b6cd26.s3tc.ctex"
+path.s3tc="res://.godot/imported/spotlight.png-f7c1ea18a397ec4988e820326cb50063.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gas_station/textures/spotlight.png"
-dest_files=["res://.godot/imported/spotlight.png-9ad880ff9c6bd180b81cb959c6b6cd26.s3tc.ctex"]
+source_file="res://Gas_station/Textures/spotlight.png"
+dest_files=["res://.godot/imported/spotlight.png-f7c1ea18a397ec4988e820326cb50063.s3tc.ctex"]
 
 [params]
 
