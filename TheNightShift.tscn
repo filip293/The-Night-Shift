@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bw2njfn37y3nr"]
+
+[ext_resource type="PackedScene" uid="uid://rur0545n284g" path="res://Gas_station/Models/Gas_station.fbx" id="1_klkqd"]
+
+[node name="Node3D" type="Node3D" unique_id=1654516073]
+
+[node name="Gas_station" parent="." unique_id=2020466613 instance=ExtResource("1_klkqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47392744, 0, -0.19157219)
