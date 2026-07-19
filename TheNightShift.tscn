@@ -1,8 +1,27 @@
 [gd_scene format=3 uid="uid://bw2njfn37y3nr"]
 
 [ext_resource type="PackedScene" uid="uid://rur0545n284g" path="res://Gas_station/Models/Gas_station.fbx" id="1_klkqd"]
+[ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://Player.gd" id="2_1c0n7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1p4ks"]
 
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 
 [node name="Gas_station" parent="." unique_id=2020466613 instance=ExtResource("1_klkqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47392744, 0, -0.19157219)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1550198, 1.040114, 11.769007)
+script = ExtResource("2_1c0n7")
+
+[node name="Neck" type="Node3D" parent="Player" unique_id=1220311483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4167844, -0.38557243)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Neck" unique_id=1119632877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12260544, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1412452612]
+shape = SubResource("CapsuleShape3D_1p4ks")
+
+[node name="Feet" type="AudioStreamPlayer3D" parent="Player" unique_id=1114823138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8658893, 0)
