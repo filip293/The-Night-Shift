@@ -31,6 +31,10 @@ window/stretch/scale_mode="integer"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/post_processing/plugin.cfg")
+
 [input]
 
 Forward={
@@ -62,8 +66,9 @@ Right={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+lights_and_shadows/directional_shadow/size=1024
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
 textures/default_filters/anisotropic_filtering_level=0
 environment/ssao/quality=0
 environment/ssil/quality=0
