@@ -107,6 +107,54 @@ fetch_all() {
   git fetch --all --prune
 }
 
+# Fetches origin/<branch>, merges it in (with conflict handling) if origin has
+# moved ahead, THEN pushes. Prevents the "rejected, fetch first" error.
+# Assumes you are already checked out on <branch>.
+safe_push() {
+  local branch="$1"
+  echo -e "${CYAN}Checking origin/${branch} before pushing...${RESET}"
+  git fetch origin "$branch" 2>/dev/null
+
+  if ! git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+    # branch doesn't exist on origin yet, just push it
+    git push -u origin "$branch"
+    return $?
+  fi
+
+  local local_hash remote_hash base
+  local_hash=$(git rev-parse "$branch")
+  remote_hash=$(git rev-parse "origin/$branch")
+
+  if [[ "$local_hash" == "$remote_hash" ]]; then
+    echo -e "${GREEN}Already up to date with origin/${branch}.${RESET}"
+    return 0
+  fi
+
+  base=$(git merge-base "$branch" "origin/$branch")
+  if [[ "$base" == "$remote_hash" ]]; then
+    # origin has nothing local doesn't already have -> safe to push directly
+    git push origin "$branch"
+    return $?
+  fi
+
+  echo -e "${YELLOW}origin/${branch} has commits you don't have locally (someone else pushed). Merging them in first...${RESET}"
+  if git merge "origin/$branch" -m "Merge origin/$branch into $branch"; then
+    echo -e "${GREEN}Merged origin/${branch} cleanly.${RESET}"
+  else
+    if resolve_conflicts "origin/$branch"; then
+      if ! git commit --no-edit; then
+        echo -e "${RED}Commit failed after resolving — check 'git status' manually.${RESET}"
+        return 1
+      fi
+    else
+      echo -e "${YELLOW}Merge aborted — not pushing. Resolve manually and push when ready.${RESET}"
+      return 1
+    fi
+  fi
+
+  git push origin "$branch"
+}
+
 # Returns 0 if fully resolved, 1 if aborted
 resolve_conflicts() {
   local incoming_branch="$1"
@@ -185,7 +233,7 @@ do_merge() {
   fi
 
   read -rp "Push ${MAIN_BRANCH} to origin now? [y/N]: " p
-  [[ "$p" =~ ^[Yy]$ ]] && git push origin "$MAIN_BRANCH"
+  [[ "$p" =~ ^[Yy]$ ]] && safe_push "$MAIN_BRANCH"
   return 0
 }
 
@@ -200,7 +248,7 @@ sync_branch_from_main() {
       resolve_conflicts "$MAIN_BRANCH" && git commit --no-edit
     fi
     read -rp "Push ${branch} to origin? [y/N]: " p2
-    [[ "$p2" =~ ^[Yy]$ ]] && git push origin "$branch"
+    [[ "$p2" =~ ^[Yy]$ ]] && safe_push "$branch"
     git checkout "$MAIN_BRANCH"
   fi
 }
