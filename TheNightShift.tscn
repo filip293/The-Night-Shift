@@ -12,6 +12,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1p4ks"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p4ks"]
+size = Vector3(296.5027, 0.13220215, 102.04877)
+
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1212870510]
@@ -39,5 +42,78 @@ unit_size = 0.2
 
 [node name="BaseTime" type="Timer" parent="." unique_id=1231765102]
 
-[node name="Sketchfab_Scene" parent="." unique_id=248921455 instance=ExtResource("7_qq1mn")]
+[node name="Map" parent="." unique_id=248921455 instance=ExtResource("7_qq1mn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527891, 0, 4.56796)
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_001" parent_id_path=PackedInt32Array(248921455, 287839971) index="1" unique_id=440173933]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_002" parent_id_path=PackedInt32Array(248921455, 1223464962) index="1" unique_id=783154562]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_003" parent_id_path=PackedInt32Array(248921455, 1083095532) index="1" unique_id=905911191]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_004" parent_id_path=PackedInt32Array(248921455, 411164944) index="1" unique_id=1164783186]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_005" parent_id_path=PackedInt32Array(248921455, 63146319) index="1" unique_id=283534009]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_006" parent_id_path=PackedInt32Array(248921455, 685336742) index="1" unique_id=964693721]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_007" parent_id_path=PackedInt32Array(248921455, 153853005) index="1" unique_id=482117953]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_008" parent_id_path=PackedInt32Array(248921455, 163316564) index="1" unique_id=1359993496]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_009" parent_id_path=PackedInt32Array(248921455, 415208397) index="1" unique_id=135231178]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_010" parent_id_path=PackedInt32Array(248921455, 203912576) index="1" unique_id=1438407040]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_011" parent_id_path=PackedInt32Array(248921455, 813231947) index="1" unique_id=957014243]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_024" parent_id_path=PackedInt32Array(248921455, 68623200) index="1" unique_id=1373832477]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp" parent_id_path=PackedInt32Array(248921455, 23066600) index="1" unique_id=1726557036]
+transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+spot_range = 8.54
+spot_angle = 35.2
+
+[node name="Ground" type="StaticBody3D" parent="Map" unique_id=1435172573]
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Map/Ground" unique_id=1447098090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.026276, -0.055847168, -2.1390076)
+shape = SubResource("BoxShape3D_1p4ks")
+
+[editable path="Map"]
