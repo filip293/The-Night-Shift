@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://7twtr5nm0vuy" path="res://PSX_NIGHTSKY.hdr" id="1_aebcy"]
 [ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://Player.gd" id="2_1c0n7"]
 [ext_resource type="Script" uid="uid://bvqhrfw0ecawf" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_c7hx4"]
+[ext_resource type="Script" uid="uid://bc455vqhp1q0n" path="res://TitleScreen.gd" id="1_aebcy"]
+[ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://Player.gd" id="2_1c0n7"]
+[ext_resource type="FontFile" uid="uid://b1avx2eyat61b" path="res://Fonts/Station.ttf" id="2_wk1nr"]
 [ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
 [ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
 [ext_resource type="AudioStream" uid="uid://b6ycsctiadjpe" path="res://Sounds/Plastic_003.wav" id="5_wk1nr"]
@@ -55,6 +58,54 @@ metadata/_custom_type_script = "uid://dcnlel7767ud6"
 environment = SubResource("Environment_sq8w8")
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
+script = ExtResource("1_aebcy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TitleScreen" unique_id=533174369]
+
+[node name="Label" type="Label" parent="TitleScreen/CanvasLayer" unique_id=2127220323]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 120.0
+offset_right = 482.0
+offset_bottom = 350.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_wk1nr")
+theme_override_font_sizes/font_size = 200
+text = "The Night Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/CanvasLayer" unique_id=690722770]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.5
+offset_top = -103.5
+offset_right = 383.5
+offset_bottom = 215.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Start Shift" type="Button" parent="TitleScreen/CanvasLayer/VBoxContainer" unique_id=1296625753]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Start shift"
+flat = true
+
+[node name="Quit" type="Button" parent="TitleScreen/CanvasLayer/VBoxContainer" unique_id=367251053]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Quit"
+flat = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1550198, 1.040114, 23.926218)
@@ -235,5 +286,6 @@ shape = SubResource("BoxShape3D_1p4ks")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.460205, 2.4703026, -21.404999)
 size = Vector3(11.871582, 4.8390503, 14.311523)
 material = SubResource("FogMaterial_sq8w8")
+[connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
 
 [editable path="Map"]
