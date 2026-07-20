@@ -1,10 +1,10 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_always, shadows_disabled;
 
-uniform vec4 albedo : source_color = vec4(1.0, 1.0, 1.0, 0.05);
-uniform float roughness : hint_range(0.0, 1.0) = 0.0;
-uniform float refraction_strength : hint_range(-0.1, 0.1) = 0.02;
-uniform float fresnel_power : hint_range(0.1, 5.0) = 2.0;
+uniform vec4 albedo : source_color = vec4(255, 255, 255, 8);
+uniform float roughness : hint_range(0.0, 1.0) = 0.05;
+uniform float refraction_strength : hint_range(-0.1, 0.1) = 0.05;
+uniform float fresnel_power : hint_range(0.1, 5.0) = 2.2;
 uniform float edge_intensity : hint_range(0.0, 1.0) = 0.2;
 
 uniform sampler2D screen_tex : hint_screen_texture, filter_linear_mipmap;
