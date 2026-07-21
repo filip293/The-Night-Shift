@@ -20,6 +20,7 @@ var inmenu = true
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_018/SpotLight3D/Flicker".play("Flicker")
 
 
 func _physics_process(delta: float) -> void:
