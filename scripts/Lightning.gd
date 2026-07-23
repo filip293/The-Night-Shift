@@ -49,7 +49,7 @@ func _flash_sequence() -> void:
 	)
 
 func _schedule_next_strike() -> void:
-	var random_wait_time: float = randf_range(10.0, 30.0)
+	var random_wait_time: float = randf_range(180.0, 300.0)
 	get_tree().create_timer(random_wait_time).timeout.connect(trigger_lightning)
 
 func _reset_light() -> void:
