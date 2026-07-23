@@ -28,4 +28,4 @@ func _fade_volume(target_db: float) -> void:
 		if lightning_tween and lightning_tween.is_running():
 			lightning_tween.kill()
 		lightning_tween = create_tween()
-		lightning_tween.tween_property(lightning_audio, "volume_db", target_db, 0.05)
+		lightning_tween.tween_property(lightning_audio, "volume_db", target_db-20, 0.05)
