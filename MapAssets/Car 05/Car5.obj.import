@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bc4dsdguwl22m"
+path="res://.godot/imported/Car5.obj-cedd7ddf54d78a79b2f1fb1e0c6416dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Car5.obj-cedd7ddf54d78a79b2f1fb1e0c6416dd.mesh"]
+
+source_file="res://MapAssets/Car 05/Car5.obj"
+dest_files=["res://.godot/imported/Car5.obj-cedd7ddf54d78a79b2f1fb1e0c6416dd.mesh", "res://.godot/imported/Car5.obj-cedd7ddf54d78a79b2f1fb1e0c6416dd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
