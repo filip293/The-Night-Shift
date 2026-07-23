@@ -6,6 +6,7 @@ extends Node2D
 @onready var Map := $"../Map"
 @onready var PlayerCam := $"../Player/Neck/Camera"
 @onready var BGM := $BackgroundMusic
+@onready var Intro := $"../Intro"
 
 func _ready() -> void:
 	Player.process_mode = Node.PROCESS_MODE_DISABLED
@@ -29,6 +30,10 @@ func _on_start_pressed() -> void:
 	await $CanvasLayer/Animations.animation_finished
 	BGM.stop() # I might make it very quiet while the boss is calling...
 	BGM.autoplay = false
+	await get_tree().create_timer(2.0).timeout
+	Intro.start()
+	await Intro.finishedIntro
+	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
 	$CanvasLayer/Animations.play_backwards("fade")
 	await $CanvasLayer/Animations.animation_finished
