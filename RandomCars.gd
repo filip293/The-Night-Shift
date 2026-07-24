@@ -54,8 +54,9 @@ func _process(delta: float) -> void:
 		var car: Node3D = car_data["node"]
 		var drive_sound = car.get_node_or_null("DriveSound") as AudioStreamPlayer3D
 		
-		# Decelerate smoothly to 0 if gas station event is running, otherwise go to target speed
-		var target_speed: float = 0.0 if is_station_car_active == true else car_data["target_speed"]
+		# Cars always accelerate to their original target speed and finish passing, 
+		# even if the station car event becomes active.
+		var target_speed: float = car_data["target_speed"]
 		car_data["current_speed"] = lerp(car_data["current_speed"], target_speed, delta * 3.5)
 		
 		var speed: float = car_data["current_speed"]
@@ -105,7 +106,6 @@ func _process(delta: float) -> void:
 				var speed_ratio: float = speed / car_data["target_speed"]
 				drive_sound.pitch_scale = lerp(0.7, 1.3, speed_ratio)
 		else:
-			# If the car is stopped (e.g., due to stationcar event), stop the driving audio
 			if drive_sound and drive_sound.playing:
 				drive_sound.stop()
 		

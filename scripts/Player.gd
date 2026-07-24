@@ -19,6 +19,8 @@ var inmenu = true
 
 func _ready() -> void:
 	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_018/SpotLight3D/Flicker".play("Flicker")
+	await get_tree().create_timer(20).timeout
+	Globals.stationcar = true
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
