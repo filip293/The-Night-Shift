@@ -36002,6 +36002,7 @@ color = Color(0.033853278, 0.033853278, 0.033853274, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="InGame" unique_id=291288262]
 layer = 198
+visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="InGame/CanvasLayer" unique_id=1527159912]
 offset_left = 40.0
