@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 @export var footstep_sounds: Array[AudioStream]
 
-const SPEED = 2.0
+const SPEED = 20.0
 const FOOTSTEP_INTERVAL := 1.3 / SPEED
 const FOOT_OFFSET_X := 0.3 
 

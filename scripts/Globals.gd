@@ -6,6 +6,7 @@ signal timeend
 var mouse_sensitivity = 0.1
 var playermoveallow = true
 var playerlookallow = true
+var stationcar = false
 var player_keys: Array[String] = []
 
 func calltime(time) -> void:
