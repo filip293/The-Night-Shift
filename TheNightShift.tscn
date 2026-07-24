@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cc4axuslwmh08" path="res://map/gas_station_3.jpg" id="14_lvfn4"]
 [ext_resource type="Texture2D" uid="uid://b80gxsakrcvkx" path="res://map/gas_station_4.jpg" id="15_lk3e2"]
 [ext_resource type="Texture2D" uid="uid://bjkbsk6nsr0rm" path="res://map/gas_station_5.jpg" id="16_ygv6i"]
+[ext_resource type="Script" uid="uid://herx33nqv75a" path="res://RCastLogic.gd" id="17_61cw4"]
 [ext_resource type="Texture2D" uid="uid://kft1r60ydo65" path="res://map/gas_station_6.jpg" id="17_fniig"]
 [ext_resource type="Texture2D" uid="uid://b6noyfbaw22lv" path="res://map/gas_station_7.jpg" id="18_yppyl"]
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
@@ -73,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4gu8613up8q" path="res://map/gas_station_49.jpg" id="60_a4q2d"]
 [ext_resource type="Texture2D" uid="uid://cknvn8r3cdj11" path="res://map/gas_station_50.jpg" id="61_xlsl6"]
 [ext_resource type="Texture2D" uid="uid://o4so177pchks" path="res://map/gas_station_51.png" id="62_0fykh"]
+[ext_resource type="Script" uid="uid://d4imcilvwfcl0" path="res://Interactable.gd" id="62_l5miw"]
 [ext_resource type="Texture2D" uid="uid://csllu7sb08kww" path="res://map/gas_station_52.png" id="63_rexoo"]
 [ext_resource type="Texture2D" uid="uid://dt24umc240xwv" path="res://map/gas_station_53.png" id="64_kc0vc"]
 [ext_resource type="Texture2D" uid="uid://kv4prhqb2b2y" path="res://map/gas_station_54.png" id="65_ryxve"]
@@ -817,6 +819,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_45s5m")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_61cw4"]
+data = PackedVector3Array(6.9782996, 7.0662, 0.80899996, 6.7525997, 8.064899, 0.80899996, 6.7525997, 7.0662, 0.80899996, 6.9782996, 7.0662, 0.80899996, 6.9782996, 8.064899, 0.80899996, 6.7525997, 8.064899, 0.80899996, 5.3553, 4.62, 0.80899996, 5.3553, 4.8494, -1.7219, 5.3553, 4.8494, 0.80899996, 5.3553, 4.62, 0.80899996, 5.3553, 4.62, -1.7219, 5.3553, 4.8494, -1.7219, 4.3567, 4.8494, 0.80899996, 4.3567, 4.62, -1.7219, 4.3567, 4.62, 0.80899996, 4.3567, 4.8494, 0.80899996, 4.3567, 4.8494, -1.7219, 4.3567, 4.62, -1.7219, 4.3567, 4.8494, 0.80899996, 5.3553, 4.62, 0.80899996, 5.3553, 4.8494, 0.80899996, 4.3567, 4.8494, 0.80899996, 4.3567, 4.62, 0.80899996, 5.3553, 4.62, 0.80899996, 6.7525997, 8.5533, 2.1745, 6.7525997, 8.5533, -1.7219, 1.0878, 8.5533, -1.7219, 1.0878, 8.5533, -1.7219, -4.5771, 8.5533, -1.7219, 6.7525997, 8.5533, 2.1745, -4.5771, 8.5533, -1.7219, -4.5771, 8.5533, 2.1745, 6.7525997, 8.5533, 2.1745, -4.5771, 4.7908, -1.7219, -4.5771, 4.7187, 2.1745, -4.5771, 8.5533, 2.1745, -4.5771, 8.5533, 2.1745, -4.5771, 8.5533, -1.7219, -4.5771, 4.7908, -1.7219, 6.7525997, 4.7493997, 2.1745, 6.7525997, 4.7595997, -1.7219, 6.7525997, 7.0662, 0.80899996, 6.7525997, 7.0662, -1.7219, 6.7525997, 7.0662, 0.80899996, 6.7525997, 4.7595997, -1.7219, 6.7525997, 7.0662, 0.80899996, 6.7525997, 8.5533, 2.1745, 6.7525997, 4.7493997, 2.1745, 6.7525997, 7.0662, 0.80899996, 6.7525997, 8.064899, 0.80899996, 6.7525997, 8.5533, 2.1745, 6.7525997, 8.064899, 0.80899996, 6.7525997, 8.3091, -1.7219, 6.7525997, 8.5533, 2.1745, 6.7525997, 8.3091, -1.7219, 6.7525997, 8.5533, -1.7219, 6.7525997, 8.5533, 2.1745, 6.7525997, 8.3091, -1.7219, 6.7525997, 8.064899, 0.80899996, 6.7525997, 8.064899, -1.7219, -5.4329, 4.8494, 2.1745, -5.4329, 4.8494, -1.7219, 4.3567, 4.8494, -1.7219, 4.3567, 4.8494, -1.7219, 4.3567, 4.8494, 0.80899996, -5.4329, 4.8494, 2.1745, 4.3567, 4.8494, 0.80899996, 5.3553, 4.8494, 0.80899996, -5.4329, 4.8494, 2.1745, 6.7525997, 4.8494, 2.1745, -5.4329, 4.8494, 2.1745, 5.3553, 4.8494, 0.80899996, 6.7525997, 4.8494, -1.7219, 6.7525997, 4.8494, 2.1745, 5.3553, 4.8494, 0.80899996, 5.3553, 4.8494, 0.80899996, 5.3553, 4.8494, -1.7219, 6.7525997, 4.8494, -1.7219)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gs87"]
 resource_name = "Office_Ceiling"
@@ -29507,6 +29512,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_duh2i")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qklhp"]
+size = Vector3(0.9411322, 0.16159293, 2.529504)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_m2kh4"]
 _surfaces = [{
 "aabb": AABB(-0.036817946, -0.036817964, -0.115343675, 0.07363589, 0.07363589, 0.28191268),
@@ -35982,7 +35990,6 @@ color = Color(0.033853278, 0.033853278, 0.033853274, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="InGame" unique_id=291288262]
 layer = 198
-visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="InGame/CanvasLayer" unique_id=1527159912]
 offset_left = 40.0
@@ -35992,6 +35999,23 @@ offset_bottom = 128.0
 theme_override_fonts/normal_font = ExtResource("8_n57uf")
 theme_override_font_sizes/normal_font_size = 80
 text = "2:00 AM"
+
+[node name="Label" type="Label" parent="InGame/CanvasLayer" unique_id=756000603]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = -27.5
+offset_right = 47.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Door"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(-4.3626642e-08, 6.399148e-11, 1, 5.820766e-10, 1.0000007, -4.472156e-11, -1.0000007, -1.1641532e-10, -4.3713953e-08, 0.6791784, 1.0047945, -11.748428)
@@ -36004,6 +36028,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9203657, -0.035341263)
 [node name="Camera" type="Camera3D" parent="Player/Neck" unique_id=1119632877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12260544, 0)
 cull_mask = 1048573
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/Neck/Camera" unique_id=440477432 node_paths=PackedStringArray("label")]
+transform = Transform3D(0.9999987, 0.0010132034, 0.0013426644, 0.0013426638, 1.3438222e-06, -0.9999991, -0.0010132041, 0.99999934, -1.6592454e-08, 5.6266785e-05, 3.2186508e-05, -0.34218556)
+target_position = Vector3(0, -1.4, 0)
+collision_mask = 256
+script = ExtResource("17_61cw4")
+label = NodePath("../../../../InGame/CanvasLayer/Label")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1412452612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0)
@@ -36158,6 +36189,11 @@ shape = SubResource("ConcavePolygonShape3D_lk3e2")
 [node name="6twelve_BrickSmallPainted_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve" unique_id=1580885751]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_rkfhv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_BrickSmallPainted_0" unique_id=1584256727]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_BrickSmallPainted_0/StaticBody3D" unique_id=1797266621]
+shape = SubResource("ConcavePolygonShape3D_61cw4")
 
 [node name="6twelve_Office_Ceiling_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve" unique_id=719348559]
 gi_mode = 0
@@ -42435,8 +42471,12 @@ transform = Transform3D(100, 0, 0, 0, -2.8212997e-05, 100, 0, -100, -2.8212997e-
 gi_mode = 0
 mesh = SubResource("ArrayMesh_osqkc")
 
-[node name="Door_03" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1398930458]
+[node name="Door_03" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1419284396]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 572.01984, 136.8763, -1429.0345)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Door"
+object_type = 1
 
 [node name="Door_03_Metal_02_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_03" unique_id=1679796656]
 gi_mode = 0
@@ -42449,6 +42489,10 @@ mesh = SubResource("ArrayMesh_wnrpr")
 [node name="Door_03_Glass_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_03" unique_id=620584961]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_0iaa1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_03" unique_id=361337646]
+transform = Transform3D(1, 4.3655746e-11, 1.0700774e-11, 0, 1.0000002, 2.3283064e-10, -1.1155521e-11, 0, 1.0000002, 0.46675253, -0.041070938, 0.025504708)
+shape = SubResource("BoxShape3D_qklhp")
 
 [node name="Sauce_001" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=580806376]
 transform = Transform3D(100, 0, 0, 0, -2.8212997e-05, 100, 0, -100, -2.8212997e-05, 223.61485, 99.3274, -2431.9592)
