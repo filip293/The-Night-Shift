@@ -1785,6 +1785,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d66ig")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_61cw4"]
+size = Vector3(0.04704561, 0.9242199, 2.4891396)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85wmt"]
 resource_name = "Door"
 cull_mode = 2
@@ -1823,6 +1826,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cfhst")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l5miw"]
+size = Vector3(0.04704561, 0.9242199, 2.4891396)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_628u6"]
 resource_name = "Light"
@@ -31859,6 +31865,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5sa1s")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qklhp"]
+data = PackedVector3Array(-2.1367, -3.6265, -2.1211998, 2.0154, -3.6265, 1.0691, -2.1367, -3.6265, 1.0691, -2.1367, -3.6265, -2.1211998, 2.0154, -3.6265, -2.1211998, 2.0154, -3.6265, 1.0691, -2.1367, 3.7470999, 1.0691, 2.0154, 3.7470999, -2.1211998, -2.1367, 3.7470999, -2.1211998, -2.1367, 3.7470999, 1.0691, 2.0154, 3.7470999, 1.0691, 2.0154, 3.7470999, -2.1211998, 2.0154, -3.6265, -2.1211998, 2.0154, 3.7470999, 1.0691, 2.0154, -3.6265, 1.0691, 2.0154, -3.6265, -2.1211998, 2.0154, 3.7470999, -2.1211998, 2.0154, 3.7470999, 1.0691, -2.1367, 3.7470999, -2.1211998, -2.1367, 3.2587, -2.1211998, -2.1367, 3.2587, 0.40969998, -2.1367, 3.7470999, 1.0691, -2.1367, 3.7470999, -2.1211998, -2.1367, 3.2587, 0.40969998, -2.1367, 3.7470999, 1.0691, -2.1367, 3.2587, 0.40969998, -2.1367, 2.26, 0.40969998, -2.1367, -3.6265, 1.0691, -2.1367, 3.7470999, 1.0691, -2.1367, 2.26, 0.40969998, -2.1367, -3.6265, 1.0691, -2.1367, 2.26, 0.40969998, -2.1367, 2.26, -2.1211998, -2.1367, 2.26, -2.1211998, -2.1367, -3.6265, -2.1211998, -2.1367, -3.6265, 1.0691, 2.0154, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.1367, 3.7470999, -2.1211998, -2.1367, 3.7470999, -2.1211998, 2.0154, 3.7470999, -2.1211998, 2.0154, 3.8948, -2.1211998, 2.0154, 3.7470999, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.0154, 3.8948, -2.1211998, 2.0154, 3.7470999, -2.1211998, 2.0154, -3.6265, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.0154, -3.6265, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, 3.8948, -2.1211998, -2.1367, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.0154, -3.6265, -2.1211998, -2.1367, -3.8063, -2.1211998, 2.0154, -3.6265, -2.1211998, -2.1367, -3.6265, -2.1211998, -2.3035, 3.2587, -2.1211998, -2.1367, 3.2587, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.3035, 3.7470999, -2.1211998, -2.3035, 3.2587, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.3035, 3.8948, -2.1211998, -2.3035, 3.7470999, -2.1211998, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, -2.1211998, -2.1367, 2.26, -2.1211998, -2.3035, -3.6265, -2.1211998, -2.3035, -3.8063, -2.1211998, -2.1367, 2.26, -2.1211998, -2.1367, 2.26, -2.1211998, -2.3035, 2.26, -2.1211998, -2.3035, -3.6265, -2.1211998)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dso1"]
 resource_name = "Concrete_01"
 cull_mode = 2
@@ -33172,6 +33181,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h0noq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayo1f"]
+size = Vector3(0.047981407, 0.9426039, 2.5057898)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0sec"]
 resource_name = "Toilets_Sing"
@@ -36030,7 +36042,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12260544, 0)
 cull_mask = 1048573
 
 [node name="RayCast3D" type="RayCast3D" parent="Player/Neck/Camera" unique_id=440477432 node_paths=PackedStringArray("label")]
-transform = Transform3D(0.9999987, 0.0010132034, 0.0013426644, 0.0013426638, 1.3438222e-06, -0.9999991, -0.0010132041, 0.99999934, -1.6592454e-08, 5.6266785e-05, 3.2186508e-05, -0.34218556)
+transform = Transform3D(0.9999987, 0.0010132035, 0.0013426645, 0.0013426639, 1.3438224e-06, -0.9999991, -0.0010132041, 0.9999993, -1.659971e-08, 4.1007996e-05, 2.336502e-05, -0.25211385)
 target_position = Vector3(0, -1.4, 0)
 collision_mask = 256
 script = ExtResource("17_61cw4")
@@ -36434,19 +36446,37 @@ transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371
 gi_mode = 0
 mesh = SubResource("ArrayMesh_a7vdi")
 
-[node name="Door_02" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=492146870]
+[node name="Door_02" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=463378388]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 1033.1251, 141.26688, -2700.4387)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Door"
+object_type = 1
 
 [node name="Door_02_Door_01_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" unique_id=288099573]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_fi3lx")
 
-[node name="Door" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=678635220]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" unique_id=1495076485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44770527, -0.033486128)
+shape = SubResource("BoxShape3D_61cw4")
+
+[node name="Door" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1788677707]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 885.39124, 126.91011, -2457.4888)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Door"
+object_type = 1
+open_rotation_y = 0.0
+closed_rotation_y = 90.0
 
 [node name="Door_Door_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door" unique_id=1954405205]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_lk4rk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door" unique_id=1828293597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44770527, 0.1038903)
+shape = SubResource("BoxShape3D_l5miw")
 
 [node name="Lamp_001" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=979246042]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 627.4172, 401.80334, -1735.7303)
@@ -43094,6 +43124,11 @@ material = SubResource("FogMaterial_sq8w8")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_34ndw")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_TilesPlain_0" unique_id=1190852301]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_TilesPlain_0/StaticBody3D" unique_id=101392484]
+shape = SubResource("ConcavePolygonShape3D_qklhp")
+
 [node name="Bathrooms_Concrete_01_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms" unique_id=239347123]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_563cg")
@@ -43465,12 +43500,22 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 omni_range = 4.0
 
-[node name="Door_01" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=224083443]
-transform = Transform3D(-100, 3.8941438e-05, -2.9277503e-12, 1.2246466e-14, 7.54979e-06, 100, 3.8941438e-05, 100, -7.54979e-06, 2081.6785, 124.941, -2099.7449)
+[node name="Door_01" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1312088954]
+transform = Transform3D(-99.98485, -1.7452469, -7.628712e-08, 0, -4.3711416e-06, 100.00001, -1.7452471, 99.98483, 4.3704736e-06, 2081.6802, 124.941086, -2099.7449)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Door"
+object_type = 1
+open_rotation_y = 60.0
+closed_rotation_y = 179.0
 
 [node name="Door_01_Door_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_01" unique_id=1798208795]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_uyfg8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_01" unique_id=1579809336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45661074, 0.12238765)
+shape = SubResource("BoxShape3D_ayo1f")
 
 [node name="Toilets_Sing" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1712070806]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 2069.7039, 214.52716, -1917.6487)
