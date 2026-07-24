@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cr2sxw705mov8" path="res://Sounds/bgm.mp3" id="5_dl752"]
 [ext_resource type="AudioStream" uid="uid://b6ycsctiadjpe" path="res://Sounds/Plastic_003.wav" id="5_wk1nr"]
 [ext_resource type="AudioStream" uid="uid://b1m7kudq44fxb" path="res://Sounds/Plastic_004.wav" id="6_054il"]
+[ext_resource type="FontFile" uid="uid://chybldblxruc2" path="res://Fonts/Dialoegue Font.otf" id="6_ylvck"]
 [ext_resource type="AudioStream" uid="uid://bpoow5hx2be81" path="res://Sounds/Plastic_005.wav" id="7_c7hx4"]
 [ext_resource type="FontFile" uid="uid://coflg0jb5fl2j" path="res://Fonts/digital-7.ttf" id="8_n57uf"]
 [ext_resource type="AudioStream" uid="uid://2f52cvs4vbrq" path="res://Sounds/Rain.mp3" id="11_7kn7w"]
@@ -35861,6 +35862,37 @@ bbcode_enabled = true
 text = "(Working on making it interactive right now)"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Intro/Control" unique_id=1361143845]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -472.0
+offset_top = -436.0
+offset_right = 472.0
+offset_bottom = -234.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Button" type="Button" parent="Intro/Control/HBoxContainer" unique_id=260921808]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.10980392, 0.10980392, 0.10980392, 0.5568628)
+theme_override_fonts/font = ExtResource("6_ylvck")
+theme_override_font_sizes/font_size = 40
+text = "Option 1"
+flat = true
+
+[node name="Button2" type="Button" parent="Intro/Control/HBoxContainer" unique_id=967293851]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.10980392, 0.10980392, 0.10980392, 0.5568628)
+theme_override_fonts/font = ExtResource("6_ylvck")
+theme_override_font_sizes/font_size = 40
+text = "Option 2"
+flat = true
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
