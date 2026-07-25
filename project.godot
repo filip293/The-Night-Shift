@@ -47,6 +47,10 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/post_processing/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 Forward={
