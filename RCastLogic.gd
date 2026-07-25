@@ -31,8 +31,9 @@ func _physics_process(delta: float) -> void:
 			elif object_type == ObjectType.GENERIC:
 				var object_name = collider.whoami() if collider.has_method("whoami") else "Object"
 				target_text = "[E] Use " + object_name
-				if Input.is_action_just_pressed("Interact"):
-					collider.interact()
+				if Input.is_action_just_pressed("Interact") and object_name == "Broom":
+					$"../../../../BucketAndMop/StaticBody3D".visible = false
+					$"../../../Broom_Cylinder_005".visible = true
 
 	_animate_label(target_text)
 
