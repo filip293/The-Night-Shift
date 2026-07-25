@@ -94,10 +94,14 @@
 [ext_resource type="Script" uid="uid://c50dmi4t4n4fo" path="res://car_manager.gd" id="90_m2ggc"]
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="PackedScene" uid="uid://b4x62rjwhb302" path="res://MapAssets/SUV/suv.glb" id="91_m2ggc"]
+
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
 [ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
 [ext_resource type="Curve3D" uid="uid://d3r83ae70gb26" path="res://pathsCar/car2.tres" id="93_jtq2l"]
 [ext_resource type="AnimationLibrary" uid="uid://balxj2sfpw604" path="res://pathsCar/car2anim.res" id="94_d71h8"]
+
+[ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
+
 
 [sub_resource type="Resource" id="Resource_sq8w8"]
 script = ExtResource("2_c7hx4")
@@ -438,6 +442,66 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lf6uw")
+
+[sub_resource type="Animation" id="Animation_ywnit"]
+resource_name = "Bwoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bwooom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.17908859, -1.0148183, -0.1531356), Vector3(-0.17904949, -1.0147966, -0.37963253), Vector3(-0.17908859, -1.0148183, -0.1531356)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bwooom:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.26189473, -3.1414416, -0.0012195397), Vector3(-0.40194952, -3.1412566, -0.0012799752), Vector3(-0.26189473, -3.1414416, -0.0012195397)]
+}
+
+[sub_resource type="Animation" id="Animation_ir43x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bwooom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.17908859, -1.0148183, -0.1531356)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bwooom:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.26189473, -3.1414416, -0.0012195397)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xyid"]
+_data = {
+&"Bwoom": SubResource("Animation_ywnit"),
+&"RESET": SubResource("Animation_ir43x")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt77f"]
 resource_name = "AsphaltDamaged"
@@ -31870,6 +31934,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p8ymf")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l5miw"]
+data = PackedVector3Array(-2.3035, 3.7470999, -2.1211998, -2.3035, 3.8948, 1.2102, -2.3035, 3.7470999, 1.2102, -2.3035, 3.7470999, -2.1211998, -2.3035, 3.8948, -2.1211998, -2.3035, 3.8948, 1.2102, -2.3035, 3.7470999, -2.1211998, -2.3035, 3.7470999, 1.2102, -2.3035, 3.2587, 0.40969998, -2.3035, 3.2587, 0.40969998, -2.3035, 3.2587, -2.1211998, -2.3035, 3.7470999, -2.1211998, -2.3035, 2.26, 0.40969998, -2.3035, 3.2587, 0.40969998, -2.3035, 3.7470999, 1.2102, -2.3035, -3.6265, -2.1211998, -2.3035, 2.26, 0.40969998, -2.3035, 3.7470999, 1.2102, -2.3035, 2.26, -2.1211998, -2.3035, 2.26, 0.40969998, -2.3035, -3.6265, -2.1211998, -2.3035, 3.7470999, 1.2102, -2.3035, -3.6265, 1.2102, -2.3035, -3.6265, -2.1211998, -2.3035, -3.6265, 1.2102, -2.3035, -3.8063, -2.1211998, -2.3035, -3.6265, -2.1211998, -2.3035, -3.6265, 1.2102, -2.3035, -3.8063, 1.2102, -2.3035, -3.8063, -2.1211998, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, 1.2102, -2.1367, -3.8063, -2.1211998, -2.3035, -3.8063, -2.1211998, -2.3035, -3.8063, 1.2102, -2.1367, -3.8063, 1.2102, -2.3035, 3.8948, 1.2102, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, 1.2102, -2.3035, 3.8948, 1.2102, -2.3035, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, 2.0154, 3.8948, 1.2102, -2.1367, 3.8948, 1.2102, -2.1367, 3.8948, -2.1211998, 2.0154, 3.8948, -2.1211998, 2.0154, 3.8948, 1.2102, 2.0154, 3.8948, -2.1211998, 2.2029, 3.8948, 1.2102, 2.0154, 3.8948, 1.2102, 2.0154, 3.8948, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.2029, 3.8948, 1.2102, 2.2029, 3.8948, -2.1211998, 2.0154, 3.8948, -2.1211998, 2.0154, 3.8948, -2.3102999, 2.2029, 3.8948, -2.1211998, 2.0154, 3.8948, -2.3102999, 2.2029, 3.8948, -2.3102999, 2.0154, 3.8948, -2.1211998, -2.1367, 3.8948, -2.3102999, 2.0154, 3.8948, -2.3102999, 2.0154, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, -2.3102999, 2.2029, -3.6265, 1.2102, 2.2029, 3.7470999, -2.1211998, 2.2029, -3.6265, -2.1211998, 2.2029, -3.6265, -2.1211998, 2.2029, -3.8063, 1.2102, 2.2029, -3.6265, 1.2102, 2.2029, -3.6265, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, -3.8063, 1.2102, 2.2029, -3.6265, 1.2102, 2.2029, 3.7470999, 1.2102, 2.2029, 3.7470999, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, -3.6265, -2.1211998, 2.2029, -3.6265, -2.3102999, 2.2029, -3.8063, -2.1211998, 2.2029, -3.6265, -2.3102999, 2.2029, -3.8063, -2.3102999, 2.2029, -3.6265, -2.1211998, 2.2029, 3.7470999, -2.3102999, 2.2029, -3.6265, -2.3102999, 2.2029, -3.6265, -2.1211998, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.7470999, -2.3102999, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.8948, -2.3102999, 2.2029, 3.7470999, -2.3102999, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.2029, 3.8948, -2.3102999, 2.2029, 3.7470999, 1.2102, 2.2029, 3.8948, -2.1211998, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.7470999, 1.2102, 2.2029, 3.8948, 1.2102, 2.2029, 3.8948, -2.1211998, -2.1367, -3.8063, 1.2102, 2.0154, -3.8063, -2.1211998, -2.1367, -3.8063, -2.1211998, -2.1367, -3.8063, 1.2102, 2.0154, -3.8063, 1.2102, 2.0154, -3.8063, -2.1211998, 2.0154, -3.8063, 1.2102, 2.2029, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.0154, -3.8063, 1.2102, 2.2029, -3.8063, 1.2102, 2.2029, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, -3.8063, -2.3102999, 2.0154, -3.8063, -2.1211998, 2.2029, -3.8063, -2.3102999, 2.0154, -3.8063, -2.3102999, -2.1367, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.0154, -3.8063, -2.3102999, -2.1367, -3.8063, -2.1211998, 2.0154, -3.8063, -2.3102999, -2.1367, -3.8063, -2.3102999, -2.3035, 3.2587, -2.1211998, -2.1367, 3.2587, 0.40969998, -2.1367, 3.2587, -2.1211998, -2.3035, 3.2587, -2.1211998, -2.3035, 3.2587, 0.40969998, -2.1367, 3.2587, 0.40969998, -2.3035, 2.26, 0.40969998, -2.1367, 2.26, -2.1211998, -2.1367, 2.26, 0.40969998, -2.3035, 2.26, 0.40969998, -2.3035, 2.26, -2.1211998, -2.1367, 2.26, -2.1211998, -2.3035, 3.2587, 0.40969998, -2.1367, 2.26, 0.40969998, -2.1367, 3.2587, 0.40969998, -2.3035, 3.2587, 0.40969998, -2.3035, 2.26, 0.40969998, -2.1367, 2.26, 0.40969998, -2.1367, 3.8948, -2.1211998, -2.3035, 3.8948, -2.3102999, -2.1367, 3.8948, -2.3102999, -2.1367, 3.8948, -2.1211998, -2.3035, 3.8948, -2.1211998, -2.3035, 3.8948, -2.3102999, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, -2.3102999, -2.3035, -3.8063, -2.3102999, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, -2.1211998, -2.1367, -3.8063, -2.3102999)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vexmb"]
 resource_name = "Brick"
 cull_mode = 2
@@ -31910,9 +31977,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dliyw")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l5miw"]
-data = PackedVector3Array(-2.3035, 3.7470999, -2.1211998, -2.3035, 3.8948, 1.2102, -2.3035, 3.7470999, 1.2102, -2.3035, 3.7470999, -2.1211998, -2.3035, 3.8948, -2.1211998, -2.3035, 3.8948, 1.2102, -2.3035, 3.7470999, -2.1211998, -2.3035, 3.7470999, 1.2102, -2.3035, 3.2587, 0.40969998, -2.3035, 3.2587, 0.40969998, -2.3035, 3.2587, -2.1211998, -2.3035, 3.7470999, -2.1211998, -2.3035, 2.26, 0.40969998, -2.3035, 3.2587, 0.40969998, -2.3035, 3.7470999, 1.2102, -2.3035, -3.6265, -2.1211998, -2.3035, 2.26, 0.40969998, -2.3035, 3.7470999, 1.2102, -2.3035, 2.26, -2.1211998, -2.3035, 2.26, 0.40969998, -2.3035, -3.6265, -2.1211998, -2.3035, 3.7470999, 1.2102, -2.3035, -3.6265, 1.2102, -2.3035, -3.6265, -2.1211998, -2.3035, -3.6265, 1.2102, -2.3035, -3.8063, -2.1211998, -2.3035, -3.6265, -2.1211998, -2.3035, -3.6265, 1.2102, -2.3035, -3.8063, 1.2102, -2.3035, -3.8063, -2.1211998, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, 1.2102, -2.1367, -3.8063, -2.1211998, -2.3035, -3.8063, -2.1211998, -2.3035, -3.8063, 1.2102, -2.1367, -3.8063, 1.2102, -2.3035, 3.8948, 1.2102, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, 1.2102, -2.3035, 3.8948, 1.2102, -2.3035, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, 2.0154, 3.8948, 1.2102, -2.1367, 3.8948, 1.2102, -2.1367, 3.8948, -2.1211998, 2.0154, 3.8948, -2.1211998, 2.0154, 3.8948, 1.2102, 2.0154, 3.8948, -2.1211998, 2.2029, 3.8948, 1.2102, 2.0154, 3.8948, 1.2102, 2.0154, 3.8948, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.2029, 3.8948, 1.2102, 2.2029, 3.8948, -2.1211998, 2.0154, 3.8948, -2.1211998, 2.0154, 3.8948, -2.3102999, 2.2029, 3.8948, -2.1211998, 2.0154, 3.8948, -2.3102999, 2.2029, 3.8948, -2.3102999, 2.0154, 3.8948, -2.1211998, -2.1367, 3.8948, -2.3102999, 2.0154, 3.8948, -2.3102999, 2.0154, 3.8948, -2.1211998, -2.1367, 3.8948, -2.1211998, -2.1367, 3.8948, -2.3102999, 2.2029, -3.6265, 1.2102, 2.2029, 3.7470999, -2.1211998, 2.2029, -3.6265, -2.1211998, 2.2029, -3.6265, -2.1211998, 2.2029, -3.8063, 1.2102, 2.2029, -3.6265, 1.2102, 2.2029, -3.6265, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, -3.8063, 1.2102, 2.2029, -3.6265, 1.2102, 2.2029, 3.7470999, 1.2102, 2.2029, 3.7470999, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, -3.6265, -2.1211998, 2.2029, -3.6265, -2.3102999, 2.2029, -3.8063, -2.1211998, 2.2029, -3.6265, -2.3102999, 2.2029, -3.8063, -2.3102999, 2.2029, -3.6265, -2.1211998, 2.2029, 3.7470999, -2.3102999, 2.2029, -3.6265, -2.3102999, 2.2029, -3.6265, -2.1211998, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.7470999, -2.3102999, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.8948, -2.3102999, 2.2029, 3.7470999, -2.3102999, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.8948, -2.1211998, 2.2029, 3.8948, -2.3102999, 2.2029, 3.7470999, 1.2102, 2.2029, 3.8948, -2.1211998, 2.2029, 3.7470999, -2.1211998, 2.2029, 3.7470999, 1.2102, 2.2029, 3.8948, 1.2102, 2.2029, 3.8948, -2.1211998, -2.1367, -3.8063, 1.2102, 2.0154, -3.8063, -2.1211998, -2.1367, -3.8063, -2.1211998, -2.1367, -3.8063, 1.2102, 2.0154, -3.8063, 1.2102, 2.0154, -3.8063, -2.1211998, 2.0154, -3.8063, 1.2102, 2.2029, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.0154, -3.8063, 1.2102, 2.2029, -3.8063, 1.2102, 2.2029, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.2029, -3.8063, -2.1211998, 2.2029, -3.8063, -2.3102999, 2.0154, -3.8063, -2.1211998, 2.2029, -3.8063, -2.3102999, 2.0154, -3.8063, -2.3102999, -2.1367, -3.8063, -2.1211998, 2.0154, -3.8063, -2.1211998, 2.0154, -3.8063, -2.3102999, -2.1367, -3.8063, -2.1211998, 2.0154, -3.8063, -2.3102999, -2.1367, -3.8063, -2.3102999, -2.3035, 3.2587, -2.1211998, -2.1367, 3.2587, 0.40969998, -2.1367, 3.2587, -2.1211998, -2.3035, 3.2587, -2.1211998, -2.3035, 3.2587, 0.40969998, -2.1367, 3.2587, 0.40969998, -2.3035, 2.26, 0.40969998, -2.1367, 2.26, -2.1211998, -2.1367, 2.26, 0.40969998, -2.3035, 2.26, 0.40969998, -2.3035, 2.26, -2.1211998, -2.1367, 2.26, -2.1211998, -2.3035, 3.2587, 0.40969998, -2.1367, 2.26, 0.40969998, -2.1367, 3.2587, 0.40969998, -2.3035, 3.2587, 0.40969998, -2.3035, 2.26, 0.40969998, -2.1367, 2.26, 0.40969998, -2.1367, 3.8948, -2.1211998, -2.3035, 3.8948, -2.3102999, -2.1367, 3.8948, -2.3102999, -2.1367, 3.8948, -2.1211998, -2.3035, 3.8948, -2.1211998, -2.3035, 3.8948, -2.3102999, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, -2.3102999, -2.3035, -3.8063, -2.3102999, -2.3035, -3.8063, -2.1211998, -2.1367, -3.8063, -2.1211998, -2.1367, -3.8063, -2.3102999)
 
 [sub_resource type="FogMaterial" id="FogMaterial_sq8w8"]
 density = -10.82
@@ -36086,6 +36150,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dsa0m")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sbuq"]
+size = Vector3(2, 2, 0.001)
+
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 transform = Transform3D(1, -9.5291e-05, 0.00016457436, 9.509707e-05, 0.9999993, 0.0011779503, -0.0001646865, -0.0011779347, 0.9999993, 0, 0, 0)
 
@@ -36308,7 +36375,7 @@ cull_mask = 1048573
 
 [node name="RayCast3D" type="RayCast3D" parent="Player/Neck/Camera" unique_id=440477432 node_paths=PackedStringArray("label")]
 transform = Transform3D(0.9999987, 0.0010132035, 0.0013426645, 0.0013426639, 1.3438224e-06, -0.9999991, -0.0010132041, 0.9999993, -1.659971e-08, 4.1007996e-05, 2.336502e-05, -0.25211385)
-target_position = Vector3(0, -1.4, 0)
+target_position = Vector3(0, -2, 0)
 collision_mask = 256
 script = ExtResource("17_61cw4")
 label = NodePath("../../../../InGame/CanvasLayer/Label")
@@ -36349,10 +36416,13 @@ volume_db = -20.0
 script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
-[node name="Broom_Cylinder_005" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.64999944, -0.00076727656, -9.4847106e-05, -0.0007656702, 0.6278353, 0.16829216, -0.00010704346, 0.16829222, -0.6278358, -0.17908859, -1.0148183, -0.1531356)
+[node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
+transform = Transform3D(-0.64999944, -0.0007672768, -9.484713e-05, -0.00076567015, 0.6278354, 0.16829225, -0.00010704358, 0.16829225, -0.6278358, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
+
+[node name="Bwoom" type="AnimationPlayer" parent="Player" unique_id=590887079]
+libraries/ = SubResource("AnimationLibrary_5xyid")
 
 [node name="Map" type="Node3D" parent="." unique_id=248921455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527891, 0, 4.56796)
@@ -36720,6 +36790,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Door_02_Door_01_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" unique_id=288099573]
 gi_mode = 0
@@ -43374,16 +43446,20 @@ mesh = SubResource("ArrayMesh_jyt7d")
 [node name="Bathrooms" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=333024322]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 2300.4717, 224.57085, -1777.8448)
 
-[node name="Bathrooms_Brick_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms" unique_id=923671273]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms" unique_id=1147802606]
+transform = Transform3D(1, 1.4551915e-11, 1.0658141e-11, 0, 1.0000001, 1.1641532e-10, -3.8795633e-12, 0, 1.0000001, 0, 0, 0)
+collision_layer = 257
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/StaticBody3D" unique_id=794363709]
+transform = Transform3D(1, -1.4551915e-11, -2.576428e-11, -2.910383e-11, 0.9999999, -2.3283064e-10, 1.06155085e-11, 2.3283064e-10, 0.99999976, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_l5miw")
+
+[node name="Bathrooms_Brick_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/StaticBody3D" unique_id=923671273]
+transform = Transform3D(1, -1.4551915e-11, -1.11981535e-11, -1.4551915e-11, 0.9999999, -1.1641532e-10, 1.0629719e-11, 1.1641532e-10, 0.9999998, 0, 0, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_w3wyq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Brick_0" unique_id=1339455510]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Brick_0/StaticBody3D" unique_id=794363709]
-shape = SubResource("ConcavePolygonShape3D_l5miw")
-
-[node name="FogVolume" type="FogVolume" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Brick_0" unique_id=929895628]
+[node name="FogVolume" type="FogVolume" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/StaticBody3D/Bathrooms_Brick_0" unique_id=929895628]
 transform = Transform3D(1, 0, 0, 0, -4.371138e-08, 1, 0, -1, -4.371138e-08, 0.044607162, 0.040208817, -2.0494986)
 size = Vector3(4.451294, 4.8390503, 7.4707603)
 material = SubResource("FogMaterial_sq8w8")
@@ -43437,8 +43513,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = -50.0
-closed_rotation_y = -179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Toilet_cubicles_Door_Bathrooms_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilet_cubicles_Door" unique_id=314761339]
 gi_mode = 0
@@ -43478,8 +43554,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = -50.0
-closed_rotation_y = -179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Toilet_cubicles_Door_001_Bathrooms_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilet_cubicles_Door_001" unique_id=334949958]
 gi_mode = 0
@@ -43507,8 +43583,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = -50.0
-closed_rotation_y = -179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Toilet_cubicles_Door_002_Bathrooms_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilet_cubicles_Door_002" unique_id=1983900342]
 gi_mode = 0
@@ -43536,8 +43612,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = -50.0
-closed_rotation_y = -179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Toilet_cubicles_Door_003_Bathrooms_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilet_cubicles_Door_003" unique_id=177398659]
 gi_mode = 0
@@ -43565,8 +43641,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = -50.0
-closed_rotation_y = -179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Toilet_cubicles_Door_004_Bathrooms_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilet_cubicles_Door_004" unique_id=1345355336]
 gi_mode = 0
@@ -43594,8 +43670,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = -50.0
-closed_rotation_y = -179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Toilet_cubicles_Door_005_Bathrooms_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilet_cubicles_Door_005" unique_id=1963530639]
 gi_mode = 0
@@ -43834,8 +43910,8 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Door"
 object_type = 1
-open_rotation_y = 60.0
-closed_rotation_y = 179.0
+open_rotation_y = -90.0
+closed_rotation_y = -180.0
 
 [node name="Door_01_Door_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_01" unique_id=1798208795]
 gi_mode = 0
@@ -44666,7 +44742,7 @@ shape = SubResource("BoxShape3D_5xyid")
 transform = Transform3D(0.8, -1.7347235e-18, 1.7347235e-18, -1.732013e-18, 0.8000001, 0, 0, 0, 0.8000001, -0.15202332, 0, 0)
 collision_layer = 257
 script = ExtResource("62_l5miw")
-whoami_value = "Broom"
+whoami_value = "Mop"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BucketAndMop/StaticBody3D" unique_id=583001622]
 transform = Transform3D(-6.9938224e-08, 3.257128e-10, 1.6, -4.1934528e-10, 1.6, -3.257128e-10, -1.6, -4.1934525e-10, -6.9938224e-08, -0.68439674, 2.1994355, 0.40210152)
@@ -44676,9 +44752,125 @@ shape = SubResource("BoxShape3D_7pwrw")
 transform = Transform3D(-6.9938224e-08, 3.257128e-10, 1.6, -4.1934528e-10, 1.6, -3.257128e-10, -1.6, -4.1934525e-10, -6.9938224e-08, -2.2375374, 0.13083541, 0.40210152)
 mesh = SubResource("ArrayMesh_0uahw")
 
-[node name="Puddle" type="MeshInstance3D" parent="." unique_id=947930174]
-transform = Transform3D(0.23396575, 7.275958e-12, 7.588596e-12, -2.2311042e-12, 1.7724233e-08, 0.23396581, -7.275958e-12, -0.23396581, 1.7695129e-08, 13.878842, 0.12490095, -14.806509)
+[node name="Puddle1" type="StaticBody3D" parent="." unique_id=166360063 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player")]
+transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.0000007, -5.820766e-10, 0, -1.1641532e-10, 1.0000007, 13.863859, 0.118258186, -14.813167)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+open_rotation_y = null
+closed_rotation_y = null
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../Player/Bwoom")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Puddle1" unique_id=947930174]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
 mesh = SubResource("ArrayMesh_ywnit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puddle1" unique_id=94188028]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle2" type="StaticBody3D" parent="." unique_id=1015901080 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player")]
+transform = Transform3D(0.70710677, 0.0008607909, -0.70710695, -0.00080508384, 1.0000005, 0.00041225675, 0.7071066, 0.0002777697, 0.707108, 13.185173, 0.11934973, -15.684987)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+open_rotation_y = null
+closed_rotation_y = null
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../Player/Bwoom")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Puddle2" unique_id=2118591126]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_ywnit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puddle2" unique_id=1889627982]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle3" type="StaticBody3D" parent="." unique_id=446790260 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player")]
+transform = Transform3D(0.25881872, 0.0012082983, -0.9659264, -0.0010673294, 0.99999976, 0.00096493063, 0.9659259, 0.00078121753, 0.25882074, 13.066805, 0.12130294, -13.240591)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+open_rotation_y = null
+closed_rotation_y = null
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../Player/Bwoom")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Puddle3" unique_id=2113731354]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_ywnit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puddle3" unique_id=1381270095]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle4" type="StaticBody3D" parent="." unique_id=1414865207 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player")]
+transform = Transform3D(0.8660257, 0.0006017165, -0.5000001, -0.00057623564, 1.000001, 0.0002053628, 0.5000005, 0.00011026708, 0.8660273, 13.869345, 0.11939291, -11.683888)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+open_rotation_y = null
+closed_rotation_y = null
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../Player/Bwoom")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Puddle4" unique_id=167810312]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_ywnit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puddle4" unique_id=1847203532]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle5" type="StaticBody3D" parent="." unique_id=769928271 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player")]
+transform = Transform3D(0.965927, -0.00030163594, 0.25881997, 0.00030811556, 1.0000011, 1.5523518e-05, -0.25881845, 6.4750435e-05, 0.96592766, 14.433629, 0.1184051, -10.890838)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+open_rotation_y = null
+closed_rotation_y = null
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../Player/Bwoom")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Puddle5" unique_id=1387382489]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_ywnit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puddle5" unique_id=1110479428]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle6" type="StaticBody3D" parent="." unique_id=141363419 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player")]
+transform = Transform3D(0.70710814, -0.0008050843, 0.7071083, 0.00086079014, 1.0000012, 0.000277769, -0.7071067, 0.00041225826, 0.7071083, 14.11183, 0.12113395, -13.181443)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+open_rotation_y = null
+closed_rotation_y = null
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../Player/Bwoom")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Puddle6" unique_id=2127636401]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_ywnit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puddle6" unique_id=2003153485]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
 
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
