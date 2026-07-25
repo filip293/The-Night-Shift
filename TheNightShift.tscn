@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://chybldblxruc2" path="res://Fonts/Dialoegue Font.otf" id="6_ylvck"]
 [ext_resource type="AudioStream" uid="uid://bpoow5hx2be81" path="res://Sounds/Plastic_005.wav" id="7_c7hx4"]
 [ext_resource type="FontFile" uid="uid://coflg0jb5fl2j" path="res://Fonts/digital-7.ttf" id="8_n57uf"]
+[ext_resource type="Script" uid="uid://374vdsmmtpmt" path="res://TaskManager.gd" id="10_l5miw"]
 [ext_resource type="AudioStream" uid="uid://2f52cvs4vbrq" path="res://Sounds/Rain.mp3" id="11_7kn7w"]
 [ext_resource type="Texture2D" uid="uid://c8k5jen1166cx" path="res://map/gas_station_0.jpg" id="11_d0c5r"]
 [ext_resource type="Texture2D" uid="uid://bpufhvqlalrhc" path="res://map/gas_station_1.jpg" id="12_7kn7w"]
@@ -36000,9 +36001,11 @@ color = Color(0.033853278, 0.033853278, 0.033853274, 1)
 
 [node name="InGame" type="Node2D" parent="." unique_id=1471065880]
 
+[node name="TaskManager" type="Node" parent="InGame" unique_id=1681924834]
+script = ExtResource("10_l5miw")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="InGame" unique_id=291288262]
 layer = 198
-visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="InGame/CanvasLayer" unique_id=1527159912]
 offset_left = 40.0
@@ -36029,6 +36032,14 @@ theme_override_font_sizes/font_size = 20
 text = "Door"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TaskName" type="Label" parent="InGame/CanvasLayer" unique_id=1320348604]
+offset_left = 38.0
+offset_top = 115.0
+offset_right = 621.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 55
+text = "Task goes here."
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(-4.3626642e-08, 6.399148e-11, 1, 5.820766e-10, 1.0000007, -4.472156e-11, -1.0000007, -1.1641532e-10, -4.3713953e-08, 0.6791784, 1.0047945, -11.748428)
@@ -43687,7 +43698,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 591002609) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 2108005290) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
