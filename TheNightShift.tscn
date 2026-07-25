@@ -90,24 +90,14 @@
 [ext_resource type="Script" uid="uid://dq48vxi0x83vh" path="res://scripts/Rain.gd" id="76_eqbcs"]
 [ext_resource type="PackedScene" uid="uid://b5p15ipyjn7j3" path="res://MapAssets/Trash.glb" id="79_ygv6i"]
 [ext_resource type="Script" uid="uid://ccrs7rk1n5g71" path="res://RandomCars.gd" id="86_g7npq"]
-[ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
-[ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
-[ext_resource type="Texture2D" uid="uid://cianmpi3txhf4" path="res://MapAssets/Cars/Car1_5Car 1_Car 1 mat_Diffuse.png" id="87_7pwrw"]
-[ext_resource type="Texture2D" uid="uid://bovrwbga81i0u" path="res://MapAssets/Cars/Car1_Emissive.png" id="88_jtq2l"]
-[ext_resource type="Texture2D" uid="uid://3d8lkxkgpsif" path="res://MapAssets/Cars/Car1_4Car 1_Car 1 mat_Diffuse.png" id="89_d71h8"]
 [ext_resource type="Curve3D" uid="uid://dw1ncrubui364" path="res://pathsCar/car1.tres" id="90_ayo1f"]
-[ext_resource type="AudioStream" uid="uid://d2rt5kkcdqxkk" path="res://Sounds/Driving.mp3" id="90_jtq2l"]
 [ext_resource type="Script" uid="uid://c50dmi4t4n4fo" path="res://car_manager.gd" id="90_m2ggc"]
-[ext_resource type="Texture2D" uid="uid://cmx6mlcihjpau" path="res://MapAssets/Cars/Car2_5Car 1_Car 1 mat_Diffuse.png" id="90_ylvck"]
+[ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="PackedScene" uid="uid://b4x62rjwhb302" path="res://MapAssets/SUV/suv.glb" id="91_m2ggc"]
-[ext_resource type="Texture2D" uid="uid://cxv7rb3hb1och" path="res://MapAssets/Cars/Car2_Emissive.png" id="91_yr7gk"]
-[ext_resource type="Texture2D" uid="uid://dwua3a6210ttp" path="res://MapAssets/Cars/Car2_4Car 1_Car 1 mat_Diffuse.png" id="92_61cw4"]
-[ext_resource type="Texture2D" uid="uid://cdyie16n5ahg" path="res://MapAssets/Cars/Car3_5Car 1_Car 1 mat_Diffuse.png" id="93_l5miw"]
-[ext_resource type="Texture2D" uid="uid://chplaafd7pcf7" path="res://MapAssets/Cars/Car3_Emissive.png" id="94_qklhp"]
-[ext_resource type="Texture2D" uid="uid://qk61a48m47ry" path="res://MapAssets/Cars/Car3_4Car 1_Car 1 mat_Diffuse.png" id="95_ayo1f"]
-[ext_resource type="Texture2D" uid="uid://e5qms5reofbu" path="res://MapAssets/Cars/Car4_5Car 1_Car 1 mat_Diffuse.png" id="96_m2ggc"]
-[ext_resource type="Texture2D" uid="uid://dgrre3hmnaduh" path="res://MapAssets/Cars/Car4_Emissive.png" id="97_6h75a"]
-[ext_resource type="Texture2D" uid="uid://cwoukfa0lg7cv" path="res://MapAssets/Cars/Car4_4Car 1_Car 1 mat_Diffuse.png" id="98_6sbuq"]
+[ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
+[ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
+[ext_resource type="Curve3D" uid="uid://d3r83ae70gb26" path="res://pathsCar/car2.tres" id="93_jtq2l"]
+[ext_resource type="AnimationLibrary" uid="uid://balxj2sfpw604" path="res://pathsCar/car2anim.res" id="94_d71h8"]
 
 [sub_resource type="Resource" id="Resource_sq8w8"]
 script = ExtResource("2_c7hx4")
@@ -33938,96 +33928,6 @@ points = PackedVector3Array(-0.016170474, -0.02713165, 0.00015740859, -0.0026018
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l5miw"]
 points = PackedVector3Array(-0.023401838, -0.020799467, 0.0073968326, -0.0116445385, -0.01175238, 0.0073968326, -0.012548946, -0.012657318, 0.010107931, -0.031547617, -0.01175238, 0.0073968326, -0.015262169, -0.023514284, 0.0028714295, -0.01707302, -0.017182013, 0.014632182, -0.031547617, -0.013563409, 0.0028714295, -0.010738093, -0.012657318, 0.0028714295, -0.013453353, -0.021703254, 0.010107931, -0.02792795, -0.01175238, 0.011917631, -0.015447651, -0.0109, 0.012376483, -0.010738093, -0.019893376, 0.0055871317, -0.01978828, -0.023514284, 0.0028714295, -0.01978828, -0.021703254, 0.010107931, -0.031547617, -0.014467197, 0.0064919824, -0.015262169, -0.013563409, 0.014632182, -0.030787718, -0.012181888, 0.0033008957, -0.010738093, -0.01808465, 0.008301683, -0.028832357, -0.013563409, 0.0110127805, -0.018883873, -0.023514284, 0.0073968326, -0.01978828, -0.016277075, 0.014632182, -0.023401838, -0.021703254, 0.0037774309, -0.010738093, -0.019893376, 0.0028714295, -0.013453353, -0.023514284, 0.0055871317, -0.018883873, -0.012657318, 0.014632182, -0.015262169, -0.016277075, 0.014632182, -0.0116445385, -0.01175238, 0.0064919824, -0.023401838, -0.021703254, 0.0055871317, -0.030641172, -0.013563409, 0.00920308, -0.029736765, -0.01175238, 0.0110127805, -0.0116445385, -0.021703254, 0.0055871317, -0.0116445385, -0.021703254, 0.0037774309)
 
-[sub_resource type="Animation" id="Animation_6h75a"]
-resource_name = "ENTER"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow3D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.329]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PathFollow3D/suv:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_6sbuq"]
-resource_name = "EXIT"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow3D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.329, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PathFollow3D/suv:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_rq0r2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow3D/suv:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PathFollow3D:progress_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.33]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_22s6k"]
-_data = {
-&"ENTER": SubResource("Animation_6h75a"),
-&"EXIT": SubResource("Animation_6sbuq"),
-&"RESET": SubResource("Animation_rq0r2")
-}
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdeu1"]
 resource_name = "Camera"
 cull_mode = 2
@@ -44114,7 +44014,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1673251711) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
@@ -44132,22 +44032,64 @@ shape = SubResource("ConvexPolygonShape3D_l5miw")
 script = ExtResource("90_m2ggc")
 
 [node name="FirstCar" type="Path3D" parent="Map" unique_id=1403763454]
-transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.0000007, -5.820766e-10, 0, -1.1641532e-10, 1.0000007, 69.39586, -0.03721081, 22.107548)
+transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.0000007, -5.820766e-10, 0, -1.1641532e-10, 1.0000007, 69.396, 0.01, 22.108)
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.9999994, 0, 1.5099572e-07, 0, 1, 0, -1.5099572e-07, 0, -0.9999994, -59, 0, -19.798641)
-progress = 79.19998
+transform = Transform3D(0.9999993, 0, 0, 0, 1, 0, 0, 0, 0.9999993, -59, 0, -19.971722)
+progress = 78.95998
 
 [node name="suv" parent="Map/FirstCar/PathFollow3D" unique_id=1962371007 instance=ExtResource("91_m2ggc")]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
+
+[node name="FLWheel" parent="Map/FirstCar/PathFollow3D/suv" index="0" unique_id=438496544]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, 1.0772562)
+
+[node name="FRWheel" parent="Map/FirstCar/PathFollow3D/suv" index="1" unique_id=1628434737]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, 1.0772562)
+
+[node name="RLWheel" parent="Map/FirstCar/PathFollow3D/suv" index="3" unique_id=1307737661]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
+
+[node name="RRWheel" parent="Map/FirstCar/PathFollow3D/suv" index="4" unique_id=1683484970]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, -0.6042478)
 
 [node name="IdleMotor" type="AudioStreamPlayer3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=1691897011]
 
 [node name="BeepBeep" type="AudioStreamPlayer3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=521461129]
 
 [node name="Animations" type="AnimationPlayer" parent="Map/FirstCar" unique_id=286949358]
-libraries/ = SubResource("AnimationLibrary_22s6k")
+libraries/ = ExtResource("92_7pwrw")
+
+[node name="SecondCar" type="Path3D" parent="Map" unique_id=122978283]
+transform = Transform3D(1, 4.5275814e-11, 3.162477e-20, -4.5275783e-11, 1.0000007, 1.1641532e-10, -2.6353955e-20, -1.1641532e-10, 1.0000007, 69.396, 0.01, 22.108)
+curve = ExtResource("93_jtq2l")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Map/SecondCar" unique_id=681389406]
+transform = Transform3D(0.9999988, 0, 0, 0, 1, 0, 0, 0, 0.9999988, -67, 0, -19.886051)
+progress = 86.87997
+
+[node name="suv" parent="Map/SecondCar/PathFollow3D" unique_id=1912021793 instance=ExtResource("91_m2ggc")]
+transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
+
+[node name="FLWheel" parent="Map/SecondCar/PathFollow3D/suv" index="0" unique_id=438496544]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, 1.0772562)
+
+[node name="FRWheel" parent="Map/SecondCar/PathFollow3D/suv" index="1" unique_id=1628434737]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, 1.0772562)
+
+[node name="RLWheel" parent="Map/SecondCar/PathFollow3D/suv" index="3" unique_id=1307737661]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
+
+[node name="RRWheel" parent="Map/SecondCar/PathFollow3D/suv" index="4" unique_id=1683484970]
+transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, -0.6042478)
+
+[node name="IdleMotor" type="AudioStreamPlayer3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=1200791966]
+
+[node name="BeepBeep" type="AudioStreamPlayer3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=223437408]
+
+[node name="Animations" type="AnimationPlayer" parent="Map/SecondCar" unique_id=529236531]
+libraries/ = ExtResource("94_d71h8")
 
 [node name="Camera1" type="SubViewport" parent="." unique_id=1717272481]
 canvas_item_default_texture_filter = 0
@@ -44746,3 +44688,5 @@ mesh = SubResource("ArrayMesh_ywnit")
 [connection signal="body_exited" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0/Area3D" method="_on_body_exited"]
 
 [editable path="Map/Extras/Trash"]
+[editable path="Map/FirstCar/PathFollow3D/suv"]
+[editable path="Map/SecondCar/PathFollow3D/suv"]
