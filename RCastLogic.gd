@@ -26,11 +26,9 @@ func _physics_process(delta: float) -> void:
 			target_text = "Mopping..."
 			active_puddle.mop_tick(delta)
 			
-			# If the puddle finished and was deleted during this tick, clear the state
 			if not is_instance_valid(active_puddle):
 				target_text = ""
 		else:
-			# Player let go of the E key before finishing
 			active_puddle.cancel_mopping()
 			active_puddle = null
 			
@@ -51,25 +49,58 @@ func _physics_process(delta: float) -> void:
 			elif object_type == ObjectType.GENERIC:
 				var object_name = collider.whoami() if collider.has_method("whoami") else "Object"
 				
-				# Initialize has_cans dynamically in Globals if it doesn't exist
-				if not "has_cans" in Globals:
-					Globals.set("has_cans", false)
-				var has_cans = Globals.get("has_cans")
+				# Ensure variables are initialized if not already declared in Globals
+				if not "has_crate" in Globals: Globals.set("has_crate", false)
+				if not "crate_delivered" in Globals: Globals.set("crate_delivered", false)
+				if not "has_cans" in Globals: Globals.set("has_cans", false)
+				if not "cans_restocked" in Globals: Globals.set("cans_restocked", false)
 				
-				if object_name == "Take cans":
-					if has_cans:
-						target_text = "Already carrying cans"
+				var has_crate = Globals.get("has_crate")
+				var crate_delivered = Globals.get("crate_delivered")
+				var has_cans = Globals.get("has_cans")
+				var cans_restocked = Globals.get("cans_restocked")
+				
+				if object_name == "Take crate":
+					if crate_delivered:
+						target_text = "Crate already delivered"
+					elif has_crate:
+						target_text = "Already carrying crate"
 					else:
-						target_text = "[E] Take cans"
+						target_text = "[E] Take crate"
 						if Input.is_action_just_pressed("Interact"):
-							Globals.set("has_cans", true)
+							Globals.set("has_crate", true)
 							collider.interact()
 							
+				elif object_name == "Take cans":
+					if not crate_delivered:
+						if has_crate:
+							target_text = "[E] Place crate"
+							if Input.is_action_just_pressed("Interact"):
+								Globals.set("has_crate", false)
+								Globals.set("crate_delivered", true)
+								collider.interact()
+						else:
+							target_text = "I need to bring the crate here first."
+					else:
+						# Crate is delivered, now handle taking cans
+						if cans_restocked:
+							target_text = "Empty crate"
+						elif has_cans:
+							target_text = "Already carrying cans"
+						else:
+							target_text = "[E] Take cans"
+							if Input.is_action_just_pressed("Interact"):
+								Globals.set("has_cans", true)
+								collider.interact()
+								
 				elif object_name == "Restock cans":
-					if has_cans:
+					if cans_restocked:
+						target_text = "Shelf is stocked"
+					elif has_cans:
 						target_text = "[E] Restock cans"
 						if Input.is_action_just_pressed("Interact"):
 							Globals.set("has_cans", false)
+							Globals.set("cans_restocked", true)
 							collider.interact()
 					else:
 						target_text = "I need to get cans first."
@@ -82,7 +113,6 @@ func _physics_process(delta: float) -> void:
 						collider.interact()
 				
 				else:
-					# Default generic interaction
 					target_text = "[E] Use " + object_name
 					if Input.is_action_just_pressed("Interact"):
 						collider.interact()

@@ -160,15 +160,21 @@ func _on_interact_generic() -> void:
 	if not Engine.is_editor_hint():
 		print("Interacted with generic object: ", whoami_value)
 		
-		# Place your visual changes here!
-		if whoami_value == "Take cans":
-			# Example: Hide visual cans inside the storage bin
-			# $CanMesh.visible = false 
-			pass
+		if whoami_value == "Take crate":
+			# Delete or hide the outside crate node
+			queue_free()
+			
+		elif whoami_value == "Take cans":
+			# This node gets interacted with twice. Let's look at the current global state:
+			if Globals.get("crate_delivered") and not Globals.get("has_cans"):
+				$"../../../Cans3".visible = true
+				$"../../../Cans2".visible = true
+			elif Globals.get("has_cans"):
+				$"../../../Cans2".visible = false
 			
 		elif whoami_value == "Restock cans":
+			$"../../../Cans2".visible = false
 			$"../../../Cans".visible = true
-			pass
 
 func whoami() -> String:
 	return whoami_value
