@@ -7,6 +7,7 @@ extends Node2D
 @onready var PlayerCam := $"../Player/Neck/Camera"
 @onready var BGM := $BackgroundMusic
 @onready var Intro := $"../Intro"
+@onready var TaskManager: Node = $"../InGame/TaskManager"
 
 func _ready() -> void:
 	Player.process_mode = Node.PROCESS_MODE_DISABLED
@@ -41,3 +42,4 @@ func _on_start_pressed() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Player.process_mode = Node.PROCESS_MODE_INHERIT
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
+	TaskManager.next_task()

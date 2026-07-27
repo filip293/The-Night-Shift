@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://b1avx2eyat61b" path="res://Fonts/Station.ttf" id="2_wk1nr"]
 [ext_resource type="Environment" uid="uid://dconbv55cgg4i" path="res://Env/Env.tres" id="3_d71h8"]
 [ext_resource type="AudioStream" uid="uid://crc1rd6iub5xh" path="res://Sounds/ringtone.mp3" id="3_ietea"]
-[ext_resource type="Script" uid="uid://d0qibcmo5o5gt" path="res://introseq.gd" id="3_mvkfx"]
+[ext_resource type="Script" uid="uid://d0qibcmo5o5gt" path="res://scripts/introseq.gd" id="3_mvkfx"]
 [ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
 [ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
 [ext_resource type="AudioStream" uid="uid://cr2sxw705mov8" path="res://Sounds/bgm.mp3" id="5_dl752"]
@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://b1m7kudq44fxb" path="res://Sounds/Plastic_004.wav" id="6_054il"]
 [ext_resource type="AudioStream" uid="uid://bpoow5hx2be81" path="res://Sounds/Plastic_005.wav" id="7_c7hx4"]
 [ext_resource type="FontFile" uid="uid://coflg0jb5fl2j" path="res://Fonts/digital-7.ttf" id="8_n57uf"]
-[ext_resource type="Script" uid="uid://374vdsmmtpmt" path="res://TaskManager.gd" id="10_l5miw"]
+[ext_resource type="Script" uid="uid://374vdsmmtpmt" path="res://scripts/TaskManager.gd" id="10_l5miw"]
 [ext_resource type="AudioStream" uid="uid://2f52cvs4vbrq" path="res://Sounds/Rain.mp3" id="11_7kn7w"]
 [ext_resource type="Texture2D" uid="uid://c8k5jen1166cx" path="res://map/gas_station_0.jpg" id="11_d0c5r"]
 [ext_resource type="Texture2D" uid="uid://bpufhvqlalrhc" path="res://map/gas_station_1.jpg" id="12_7kn7w"]
@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cc4axuslwmh08" path="res://map/gas_station_3.jpg" id="14_lvfn4"]
 [ext_resource type="Texture2D" uid="uid://b80gxsakrcvkx" path="res://map/gas_station_4.jpg" id="15_lk3e2"]
 [ext_resource type="Texture2D" uid="uid://bjkbsk6nsr0rm" path="res://map/gas_station_5.jpg" id="16_ygv6i"]
-[ext_resource type="Script" uid="uid://herx33nqv75a" path="res://RCastLogic.gd" id="17_61cw4"]
+[ext_resource type="Script" uid="uid://herx33nqv75a" path="res://scripts/RCastLogic.gd" id="17_61cw4"]
 [ext_resource type="Texture2D" uid="uid://kft1r60ydo65" path="res://map/gas_station_6.jpg" id="17_fniig"]
 [ext_resource type="Texture2D" uid="uid://b6noyfbaw22lv" path="res://map/gas_station_7.jpg" id="18_yppyl"]
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
@@ -74,7 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4gu8613up8q" path="res://map/gas_station_49.jpg" id="60_a4q2d"]
 [ext_resource type="Texture2D" uid="uid://cknvn8r3cdj11" path="res://map/gas_station_50.jpg" id="61_xlsl6"]
 [ext_resource type="Texture2D" uid="uid://o4so177pchks" path="res://map/gas_station_51.png" id="62_0fykh"]
-[ext_resource type="Script" uid="uid://d4imcilvwfcl0" path="res://Interactable.gd" id="62_l5miw"]
+[ext_resource type="Script" uid="uid://d4imcilvwfcl0" path="res://scripts/Interactable.gd" id="62_l5miw"]
 [ext_resource type="Texture2D" uid="uid://csllu7sb08kww" path="res://map/gas_station_52.png" id="63_rexoo"]
 [ext_resource type="Texture2D" uid="uid://dt24umc240xwv" path="res://map/gas_station_53.png" id="64_kc0vc"]
 [ext_resource type="Texture2D" uid="uid://kv4prhqb2b2y" path="res://map/gas_station_54.png" id="65_ryxve"]
@@ -89,9 +89,9 @@
 [ext_resource type="Texture2D" uid="uid://dlwtjwefb2g3r" path="res://map/gas_station_63.png" id="74_3j2pq"]
 [ext_resource type="Script" uid="uid://dq48vxi0x83vh" path="res://scripts/Rain.gd" id="76_eqbcs"]
 [ext_resource type="PackedScene" uid="uid://b5p15ipyjn7j3" path="res://MapAssets/Trash.glb" id="79_ygv6i"]
-[ext_resource type="Script" uid="uid://ccrs7rk1n5g71" path="res://RandomCars.gd" id="86_g7npq"]
+[ext_resource type="Script" uid="uid://ccrs7rk1n5g71" path="res://scripts/RandomCars.gd" id="86_g7npq"]
 [ext_resource type="Curve3D" uid="uid://dw1ncrubui364" path="res://pathsCar/car1.tres" id="90_ayo1f"]
-[ext_resource type="Script" uid="uid://c50dmi4t4n4fo" path="res://car_manager.gd" id="90_m2ggc"]
+[ext_resource type="Script" uid="uid://c50dmi4t4n4fo" path="res://scripts/car_manager.gd" id="90_m2ggc"]
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="PackedScene" uid="uid://b4x62rjwhb302" path="res://MapAssets/SUV/suv.glb" id="91_m2ggc"]
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
@@ -36586,7 +36586,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6499997, -0.00076727686, -9.484711e-05, -0.00076567044, 0.62783545, 0.16829224, -0.00010704362, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
+transform = Transform3D(-0.64999986, -0.00076727686, -9.484711e-05, -0.0007656707, 0.62783545, 0.16829224, -0.00010704365, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -44729,7 +44729,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 591002609) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
@@ -44758,16 +44758,16 @@ progress = 78.95998
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
 visible = false
 
-[node name="FLWheel" parent="Map/FirstCar/PathFollow3D/suv" index="0" unique_id=819074540]
+[node name="FLWheel" parent="Map/FirstCar/PathFollow3D/suv" index="0" unique_id=1910295335]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, 1.0772562)
 
-[node name="FRWheel" parent="Map/FirstCar/PathFollow3D/suv" index="1" unique_id=2121455635]
+[node name="FRWheel" parent="Map/FirstCar/PathFollow3D/suv" index="1" unique_id=1640564015]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, 1.0772562)
 
-[node name="RLWheel" parent="Map/FirstCar/PathFollow3D/suv" index="3" unique_id=324248950]
+[node name="RLWheel" parent="Map/FirstCar/PathFollow3D/suv" index="3" unique_id=1211332463]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
 
-[node name="RRWheel" parent="Map/FirstCar/PathFollow3D/suv" index="4" unique_id=1435101158]
+[node name="RRWheel" parent="Map/FirstCar/PathFollow3D/suv" index="4" unique_id=1307686902]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, -0.6042478)
 
 [node name="IdleMotor" type="AudioStreamPlayer3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=1691897011]
@@ -44793,16 +44793,16 @@ progress = 86.87997
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
 visible = false
 
-[node name="FLWheel" parent="Map/SecondCar/PathFollow3D/suv" index="0" unique_id=819074540]
+[node name="FLWheel" parent="Map/SecondCar/PathFollow3D/suv" index="0" unique_id=1910295335]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, 1.0772562)
 
-[node name="FRWheel" parent="Map/SecondCar/PathFollow3D/suv" index="1" unique_id=2121455635]
+[node name="FRWheel" parent="Map/SecondCar/PathFollow3D/suv" index="1" unique_id=1640564015]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, 1.0772562)
 
-[node name="RLWheel" parent="Map/SecondCar/PathFollow3D/suv" index="3" unique_id=324248950]
+[node name="RLWheel" parent="Map/SecondCar/PathFollow3D/suv" index="3" unique_id=1211332463]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
 
-[node name="RRWheel" parent="Map/SecondCar/PathFollow3D/suv" index="4" unique_id=1435101158]
+[node name="RRWheel" parent="Map/SecondCar/PathFollow3D/suv" index="4" unique_id=1307686902]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, -0.6042478)
 
 [node name="IdleMotor" type="AudioStreamPlayer3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=1200791966]
@@ -45408,6 +45408,7 @@ collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
 object_type = 2
+puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")
 mop_duration = 5.0
@@ -45426,6 +45427,7 @@ collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
 object_type = 2
+puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")
 mop_duration = 5.0
@@ -45444,6 +45446,7 @@ collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
 object_type = 2
+puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")
 mop_duration = 5.0
@@ -45462,6 +45465,7 @@ collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
 object_type = 2
+puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")
 mop_duration = 5.0
@@ -45480,6 +45484,7 @@ collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
 object_type = 2
+puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")
 mop_duration = 5.0
@@ -45498,6 +45503,7 @@ collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
 object_type = 2
+puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")
 mop_duration = 5.0

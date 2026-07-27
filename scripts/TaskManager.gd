@@ -1,0 +1,24 @@
+extends Node
+
+@onready var task_name: Label = $"../CanvasLayer/TaskName"
+
+const TASKS: Array[String] = [
+	"NO TASK ASSIGNED",
+	"Sweep the aisles",
+	"Clean the restroom",
+	"Restock the cans"
+]
+
+func _ready() -> void:
+	if not "task_idx" in Globals:
+		Globals.task_idx = 1
+	_update_task_ui()
+
+func next_task() -> void:
+	if Globals.task_idx < TASKS.size() - 1:
+		Globals.task_idx += 1
+		_update_task_ui()
+
+func _update_task_ui() -> void:
+	if task_name:
+		task_name.text = TASKS[Globals.task_idx]
