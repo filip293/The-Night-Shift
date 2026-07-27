@@ -29,7 +29,9 @@ func _on_start_pressed() -> void:
 	$CanvasLayer.visible = false
 	$CanvasLayer/Animations.play("fade")
 	await $CanvasLayer/Animations.animation_finished
-	BGM.stop() # I might make it very quiet while the boss is calling...
+	var tween := create_tween()
+	tween.tween_property(BGM, "volume_db", -80.0, 3)
+	tween.tween_callback(BGM.stop)
 	BGM.autoplay = false
 	await get_tree().create_timer(2.0).timeout
 	#Intro.start()
@@ -43,3 +45,5 @@ func _on_start_pressed() -> void:
 	Player.process_mode = Node.PROCESS_MODE_INHERIT
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
 	TaskManager.next_task()
+	$"../InGame/CanvasLayer/RichTextLabel".visible = true
+	$"../InGame/CanvasLayer/TaskName".visible = true

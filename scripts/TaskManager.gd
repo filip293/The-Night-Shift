@@ -22,3 +22,6 @@ func next_task() -> void:
 func _update_task_ui() -> void:
 	if task_name:
 		task_name.text = TASKS[Globals.task_idx]
+	if Globals.task_idx == 3:
+		$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Crate2".visible = true
+		$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Crate2/CollisionShape3D".disabled = false

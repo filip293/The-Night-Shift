@@ -77,11 +77,11 @@ func start() -> void:
 	await get_tree().create_timer(1.0).timeout
 	
 	await boss_say(1, "The kid that was supposed to work tonight bailed on me")
-	await player_choose("Who bailed?", "That sucks...")
+	await player_choose("So?", "That sucks...")
 	await get_tree().create_timer(1.0).timeout
 	
 	await boss_say(2, "I need you to get up and cover for him, youll be working the night shift")
-	await player_choose("On my way", "Do I have to?")
+	await player_choose("Can't, im walking my fih", "I'm kind of busy")
 	await get_tree().create_timer(1.0).timeout
 	
 	await boss_say(3, "I couldnt care less what youre up to, get to the store... NOW")

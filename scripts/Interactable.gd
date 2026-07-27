@@ -18,11 +18,13 @@ enum PuddleType { DIRT_SWEEP, LIQUID_MOP }
 @export var audio_player: AudioStreamPlayer3D
 @export var open_sound: AudioStream
 @export var close_sound: AudioStream
+@export var close_sound_delay: float = 1.0
 
 # --- Puddle Settings ---
 @export_group("Puddle Settings")
 @export var puddle_mesh: MeshInstance3D
 @export var mop_animation_player: AnimationPlayer
+@export var audio_player_mop: AudioStreamPlayer3D
 @export var mopping_sound: AudioStream
 @export var mop_duration: float = 1.5
 
@@ -40,11 +42,11 @@ func _ready() -> void:
 			add_to_group("puddles")
 
 func _validate_property(property: Dictionary) -> void:
-	var door_properties = ["open_rotation_y", "closed_rotation_y", "audio_player", "open_sound", "close_sound"]
+	var door_properties = ["open_rotation_y", "closed_rotation_y", "audio_player", "open_sound", "close_sound", "close_sound_delay"]
 	if property.name in door_properties and object_type != ObjectType.DOOR:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
-	var puddle_properties = ["puddle_type", "puddle_mesh", "mop_animation_player", "mopping_sound", "mop_duration"]
+	var puddle_properties = ["puddle_type", "puddle_mesh", "mop_animation_player","audio_player_mop", "mopping_sound", "mop_duration"]
 	if property.name in puddle_properties and object_type != ObjectType.PUDDLE:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 
@@ -73,10 +75,16 @@ func _toggle_door() -> void:
 			audio_player.play()
 		door_tween.tween_property(self, "rotation_degrees:y", final_target_y, 1.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	else: 
-		if audio_player and close_sound:
-			audio_player.stream = close_sound
-			audio_player.play()
+		# Animate the door rotation over 1.5 seconds
 		door_tween.tween_property(self, "rotation_degrees:y", final_target_y, 1.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		
+		# Play the closing sound near the end of the animation
+		door_tween.parallel().tween_callback(
+			func():
+				if audio_player and close_sound:
+					audio_player.stream = close_sound
+					audio_player.play()
+		).set_delay(close_sound_delay)
 
 func start_mopping() -> void:
 	if Engine.is_editor_hint() or is_being_mopped:
@@ -87,9 +95,13 @@ func start_mopping() -> void:
 	if "playermoveallow" in Globals: Globals.playermoveallow = false
 	if "playerlookallow" in Globals: Globals.playerlookallow = false
 
-	if audio_player and mopping_sound:
-		audio_player.stream = mopping_sound
-		audio_player.play()
+	if audio_player_mop and mopping_sound:
+		# Automatically reconnect the finished signal so it loops while mopping
+		if not audio_player_mop.finished.is_connected(_on_mop_audio_finished):
+			audio_player_mop.finished.connect(_on_mop_audio_finished)
+		
+		audio_player_mop.stream = mopping_sound
+		audio_player_mop.play()
 
 	if mop_animation_player and mop_animation_player.has_animation("Bwoom"):
 		var anim = mop_animation_player.get_animation("Bwoom")
@@ -100,6 +112,10 @@ func start_mopping() -> void:
 	if puddle_mesh and puddle_mesh.get_active_material(0) and not puddle_mesh.material_override:
 		var mat = puddle_mesh.get_active_material(0).duplicate()
 		puddle_mesh.material_override = mat
+
+func _on_mop_audio_finished() -> void:
+	if is_being_mopped and audio_player_mop:
+		audio_player_mop.play()
 
 func mop_tick(delta: float) -> void:
 	if not is_being_mopped:
@@ -123,7 +139,7 @@ func cancel_mopping() -> void:
 	if "playermoveallow" in Globals: Globals.playermoveallow = true
 	if "playerlookallow" in Globals: Globals.playerlookallow = true
 
-	if audio_player: audio_player.stop()
+	if audio_player_mop: audio_player_mop.stop()
 	if mop_animation_player: mop_animation_player.stop()
 
 func _finish_mopping() -> void:
@@ -142,7 +158,7 @@ func _finish_mopping() -> void:
 	if "playermoveallow" in Globals: Globals.playermoveallow = true
 	if "playerlookallow" in Globals: Globals.playerlookallow = true
 
-	if audio_player: audio_player.stop()
+	if audio_player_mop: audio_player_mop.stop()
 	if mop_animation_player: mop_animation_player.stop()
 
 	queue_free()
@@ -160,6 +176,7 @@ func _on_interact_generic() -> void:
 		elif whoami_value == "Restock cans":
 			$"../../../Cans2".visible = false
 			$"../../../Cans".visible = true
+			$"../../../Cans4".visible = false
 
 func whoami() -> String:
 	return whoami_value
