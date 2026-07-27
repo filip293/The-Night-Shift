@@ -5,7 +5,10 @@ var playermoveallow = true
 var playerlookallow = true
 var stationcar = false
 var task_idx = 0
+var has_crate: bool = false
+var crate_delivered: bool = false
 var has_cans: bool = false
+var cans_restocked: bool = false
 var player_keys: Array[String] = []
 
 func calltime(time: float) -> Signal:
