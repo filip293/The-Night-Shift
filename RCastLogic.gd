@@ -77,10 +77,23 @@ func _physics_process(delta: float) -> void:
 				elif object_name == "Mop":
 					target_text = "[E] Use Mop"
 					if Input.is_action_just_pressed("Interact"):
-						$"../../../../BucketAndMop/StaticBody3D".visible = false
-						$"../../../Bwooom".visible = true
+						if $"../../../../BucketAndMop/StaticBody3D".visible:
+							$"../../../../BucketAndMop/StaticBody3D".visible = false
+							$"../../../Bwooom".visible = true
+						else:
+							$"../../../../BucketAndMop/StaticBody3D".visible = true
+							$"../../../Bwooom".visible = false
 						collider.interact()
 				
+				elif object_name == "Broom":
+					target_text = "[E] Grab Broom"
+					if Input.is_action_just_pressed("Interact"):
+						if $"../../../../Bwoom2".visible:
+							$"../../../../Bwoom2".visible = false
+							$"../../../Bwoom2".visible = true
+						else:
+							$"../../../../Bwoom2".visible = true
+							$"../../../Bwoom2".visible = false
 				else:
 					# Default generic interaction
 					target_text = "[E] Use " + object_name
@@ -97,6 +110,16 @@ func _physics_process(delta: float) -> void:
 						collider.start_mopping()
 				else:
 					target_text = "I need a mop first."
+					
+				var has_broom = $"../../../Bwoom2".visible
+				
+				if has_broom:
+					target_text = "[E] Clean dirt"
+					if Input.is_action_just_pressed("Interact"):
+						active_puddle = collider
+						#collider.start_brushing()
+				else:
+					target_text = "I need a broom first."
 
 	_animate_label(target_text)
 
