@@ -131,6 +131,16 @@ func _physics_process(delta: float) -> void:
 						collider.interact()
 					
 			elif object_type == ObjectType.PUDDLE:
+				var has_broom = $"../../../Bwoom2".visible
+				
+				if has_broom:
+					target_text = "[E] Clean dirt"
+					if Input.is_action_just_pressed("Interact"):
+						active_puddle = collider
+						#collider.start_brushing()
+				else:
+					target_text = "I need a broom first."
+					
 				var has_mop = $"../../../Bwooom".visible
 				
 				if has_mop:
@@ -141,15 +151,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					target_text = "I need a mop first."
 					
-				var has_broom = $"../../../Bwoom2".visible
 				
-				if has_broom:
-					target_text = "[E] Clean dirt"
-					if Input.is_action_just_pressed("Interact"):
-						active_puddle = collider
-						#collider.start_brushing()
-				else:
-					target_text = "I need a broom first."
 
 	_animate_label(target_text)
 
