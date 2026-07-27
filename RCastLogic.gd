@@ -50,10 +50,42 @@ func _physics_process(delta: float) -> void:
 					
 			elif object_type == ObjectType.GENERIC:
 				var object_name = collider.whoami() if collider.has_method("whoami") else "Object"
-				target_text = "[E] Use " + object_name
-				if Input.is_action_just_pressed("Interact") and object_name == "Mop":
-					$"../../../../BucketAndMop/StaticBody3D".visible = false
-					$"../../../Bwooom".visible = true
+				
+				# Initialize has_cans dynamically in Globals if it doesn't exist
+				if not "has_cans" in Globals:
+					Globals.set("has_cans", false)
+				var has_cans = Globals.get("has_cans")
+				
+				if object_name == "Take cans":
+					if has_cans:
+						target_text = "Already carrying cans"
+					else:
+						target_text = "[E] Take cans"
+						if Input.is_action_just_pressed("Interact"):
+							Globals.set("has_cans", true)
+							collider.interact()
+							
+				elif object_name == "Restock cans":
+					if has_cans:
+						target_text = "[E] Restock cans"
+						if Input.is_action_just_pressed("Interact"):
+							Globals.set("has_cans", false)
+							collider.interact()
+					else:
+						target_text = "I need to get cans first."
+						
+				elif object_name == "Mop":
+					target_text = "[E] Use Mop"
+					if Input.is_action_just_pressed("Interact"):
+						$"../../../../BucketAndMop/StaticBody3D".visible = false
+						$"../../../Bwooom".visible = true
+						collider.interact()
+				
+				else:
+					# Default generic interaction
+					target_text = "[E] Use " + object_name
+					if Input.is_action_just_pressed("Interact"):
+						collider.interact()
 					
 			elif object_type == ObjectType.PUDDLE:
 				var has_mop = $"../../../Bwooom".visible

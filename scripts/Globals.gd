@@ -5,6 +5,7 @@ var playermoveallow = true
 var playerlookallow = true
 var stationcar = false
 var task_idx = 0
+var has_cans: bool = false
 var player_keys: Array[String] = []
 
 func calltime(time: float) -> Signal:

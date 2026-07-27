@@ -1,4 +1,3 @@
-@tool
 extends StaticBody3D
 
 @export var whoami_value: String = "Object"
@@ -46,7 +45,6 @@ func interact() -> void:
 			_toggle_door()
 		ObjectType.GENERIC:
 			_on_interact_generic()
-		# Puddle is now handled continuously by the Raycast via start_mopping()
 
 func _toggle_door() -> void:
 	if Engine.is_editor_hint() or (door_tween and door_tween.is_running()):
@@ -161,6 +159,16 @@ func _finish_mopping() -> void:
 func _on_interact_generic() -> void:
 	if not Engine.is_editor_hint():
 		print("Interacted with generic object: ", whoami_value)
+		
+		# Place your visual changes here!
+		if whoami_value == "Take cans":
+			# Example: Hide visual cans inside the storage bin
+			# $CanMesh.visible = false 
+			pass
+			
+		elif whoami_value == "Restock cans":
+			$"../../../Cans".visible = true
+			pass
 
 func whoami() -> String:
 	return whoami_value
