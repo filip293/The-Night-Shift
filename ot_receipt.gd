@@ -18,6 +18,8 @@ var pressed_r = false
 
 func _ready() -> void:
 	sprite.texture = frame_21
+	
+	Globals.TASKCHANGED.connect(_on_globals_taskchanged)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ReceiptOpen"):

@@ -5,7 +5,6 @@ extends RayCast3D
 
 @onready var task_mgr: Node = $"../../../../InGame/TaskManager"
 
-
 enum ObjectType { GENERIC, DOOR, PUDDLE }
 
 var label_tween: Tween
@@ -26,14 +25,17 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("Interact"):
 			target_text = "Cleaning..."
 			active_puddle.mop_tick(delta)
-			if not is_instance_valid(active_puddle):
+			
+			# If puddle was queue_free'd during mop_tick or finished mopping
+			if not is_instance_valid(active_puddle) or not active_puddle.is_being_mopped:
+				active_puddle = null
 				target_text = ""
 		else:
 			active_puddle.cancel_mopping()
 			active_puddle = null
 			
 		_animate_label(target_text)
-		return
+		return # Stop here while active cleaning is happening
 
 	# 2. Raycast checking
 	if is_colliding():
@@ -67,7 +69,6 @@ func _physics_process(delta: float) -> void:
 								$"../../../../Bwoom2".visible = true
 								$"../../../Bwoom2".visible = false
 								
-								
 								if task_mgr and task_mgr.has_method("next_task"):
 									task_mgr.next_task()
 								else:
@@ -81,6 +82,7 @@ func _physics_process(delta: float) -> void:
 						if Input.is_action_just_pressed("Interact"):
 							$"../../../../Bwoom2".visible = false
 							$"../../../Bwoom2".visible = true
+							# Keep collision enabled for returning later, or manage layer appropriately
 
 				# TASK 2: Mop
 				elif object_name == "Mop" and current_task == 2:
@@ -123,7 +125,7 @@ func _physics_process(delta: float) -> void:
 							target_text = "[E] Take crate"
 							if Input.is_action_just_pressed("Interact"):
 								Globals.set("has_crate", true)
-								collider.interact() # queue_free() automatically removes its collision
+								collider.interact()
 
 					elif object_name == "Take cans":
 						if not crate_delivered:
@@ -138,7 +140,6 @@ func _physics_process(delta: float) -> void:
 						else:
 							if cans_restocked:
 								target_text = "Empty crate"
-								# Turn off collision layer 9 on the empty crate
 								collider.set_collision_layer_value(9, false)
 							elif has_cans:
 								target_text = "Already carrying cans"
@@ -151,7 +152,6 @@ func _physics_process(delta: float) -> void:
 					elif object_name == "Restock cans":
 						if cans_restocked:
 							target_text = "Shelf is stocked"
-							# Turn off collision layer 9 on the shelf
 							collider.set_collision_layer_value(9, false)
 						elif has_cans:
 							target_text = "[E] Restock cans"
@@ -159,12 +159,8 @@ func _physics_process(delta: float) -> void:
 								Globals.set("has_cans", false)
 								Globals.set("cans_restocked", true)
 								collider.interact()
-								
-								# 1. Turn off collision layer 9 for the shelf so you can't interact anymore
 								collider.set_collision_layer_value(9, false)
 								
-								# 2. Advance to Task 4 (or next sequence)
-								var task_mgr = get_node_or_null("/root/TaskManager")
 								if task_mgr and task_mgr.has_method("next_task"):
 									task_mgr.next_task()
 								else:
@@ -185,7 +181,6 @@ func _physics_process(delta: float) -> void:
 					
 				if object_name == "Car2":
 					target_text = "[E] Fuel car"
-					
 					if Input.is_action_just_pressed("Interact"):
 						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_03/Fuel_pump_03_Fuel_pump_0/Pump2".play()
 						Globals.stationcar = true
@@ -202,7 +197,7 @@ func _physics_process(delta: float) -> void:
 				var p_type = collider.puddle_type if "puddle_type" in collider else 0
 
 				# Task 1: Dirt sweeping
-				if current_task == 1 and p_type == 0: # DIRT_SWEEP
+				if current_task == 1 and p_type == 0:
 					if broom_held:
 						target_text = "[E] Sweep dirt"
 						if Input.is_action_just_pressed("Interact"):
@@ -212,7 +207,7 @@ func _physics_process(delta: float) -> void:
 						target_text = "I need a broom first."
 
 				# Task 2: Puddle mopping
-				elif current_task == 2 and p_type == 1: # LIQUID_MOP
+				elif current_task == 2 and p_type == 1:
 					if mop_held:
 						target_text = "[E] Mop Puddle"
 						if Input.is_action_just_pressed("Interact"):

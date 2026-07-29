@@ -145,7 +145,6 @@ func cancel_mopping() -> void:
 func _finish_mopping() -> void:
 	is_being_mopped = false
 	
-	# Immediately remove from respective group
 	if puddle_type == PuddleType.DIRT_SWEEP:
 		remove_from_group("dirt")
 	else:
