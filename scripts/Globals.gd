@@ -5,12 +5,21 @@ var playermoveallow = true
 var playerlookallow = true
 var stationcar = false
 var task_idx: int = 0
+var chk_task: int = 0
 var has_crate: bool = false
 var crate_delivered: bool = false
 var has_cans: bool = false
 var cans_restocked: bool = false
 var player_keys: Array[String] = []
 
+signal TASKCHANGED
+
+func _physics_process(delta: float) -> void:
+	if chk_task != task_idx:
+		TASKCHANGED.emit()
+		print("Task changed!")
+	chk_task = task_idx
+	
 func calltime(time: float) -> Signal:
 	var timer := Timer.new()
 	timer.process_mode = Node.PROCESS_MODE_ALWAYS

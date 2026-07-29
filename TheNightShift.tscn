@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bw2njfn37y3nr"]
 
+[ext_resource type="Script" uid="uid://dd1yobt5cerai" path="res://scripts/Globals.gd" id="1_7e3ks"]
 [ext_resource type="Script" uid="uid://dcnlel7767ud6" path="res://addons/post_processing/node/post_process.gd" id="1_054il"]
 [ext_resource type="Script" uid="uid://bc455vqhp1q0n" path="res://scripts/TitleScreen.gd" id="1_aebcy"]
 [ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://scripts/Player.gd" id="2_1c0n7"]
@@ -32,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://b80gxsakrcvkx" path="res://map/gas_station_4.jpg" id="15_lk3e2"]
 [ext_resource type="Texture2D" uid="uid://bjkbsk6nsr0rm" path="res://map/gas_station_5.jpg" id="16_ygv6i"]
 [ext_resource type="Script" uid="uid://herx33nqv75a" path="res://scripts/RCastLogic.gd" id="17_61cw4"]
+[ext_resource type="Script" uid="uid://6qmtqur0d5bj" path="res://ot_receipt.gd" id="17_caos5"]
 [ext_resource type="Texture2D" uid="uid://kft1r60ydo65" path="res://map/gas_station_6.jpg" id="17_fniig"]
 [ext_resource type="Texture2D" uid="uid://b6noyfbaw22lv" path="res://map/gas_station_7.jpg" id="18_yppyl"]
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
@@ -36572,6 +36574,9 @@ size = Vector3(0.0362088, 0.036208943, 1.2285349)
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 transform = Transform3D(1, -9.5291e-05, 0.00016457436, 9.509707e-05, 0.9999993, 0.0011779503, -0.0001646865, -0.0011779347, 0.9999993, 0, 0, 0)
 
+[node name="GLOBALS" type="Node" parent="." unique_id=799061585]
+script = ExtResource("1_7e3ks")
+
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=638400386]
 script = ExtResource("1_054il")
 configuration = SubResource("Resource_sq8w8")
@@ -36793,6 +36798,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525]
+visible = false
 script = ExtResource("12_kc0vc")
 fade_duration = 2.0
 hidden_color = Color(1, 1, 1, 0)
@@ -36875,6 +36881,19 @@ vertical_alignment = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="InGame/Receipt" unique_id=218759315]
 
+[node name="OTReceipt" type="Node2D" parent="InGame" unique_id=1810872007 node_paths=PackedStringArray("sprite")]
+position = Vector2(1562, -143)
+script = ExtResource("17_caos5")
+sprite = NodePath("Sprite2D")
+frame_21 = ExtResource("12_0fykh")
+frame_22 = ExtResource("13_rexoo")
+frame_23 = ExtResource("14_kc0vc")
+print_offset = Vector2(0, -400)
+print_duration = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="InGame/OTReceipt" unique_id=1230397516]
+scale = Vector2(0.42, 0.42)
+
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(-4.3626642e-08, 6.399148e-11, 1, 5.820766e-10, 1.0000007, -4.472156e-11, -1.0000007, -1.1641532e-10, -4.3713953e-08, 0.6791784, 1.0047945, -11.748428)
 script = ExtResource("2_1c0n7")
@@ -36931,7 +36950,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500001, -0.00076727686, -9.484711e-05, -0.00076567096, 0.62783545, 0.16829224, -0.00010704369, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
+transform = Transform3D(-0.65000015, -0.00076727686, -9.484711e-05, -0.000765671, 0.62783545, 0.16829224, -0.0001070437, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -46239,6 +46258,7 @@ mesh = SubResource("ArrayMesh_iwili")
 transform = Transform3D(1.4901161e-08, -0.9999999, -1.5646219e-07, 5.5879354e-09, -1.6391277e-07, 0.99999994, -0.99999994, -1.4901161e-08, -1.7695129e-08, 0, 0.750386, 9.536743e-07)
 shape = SubResource("BoxShape3D_22s6k")
 
+[connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="on_task_changed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_entered"]
