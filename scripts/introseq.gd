@@ -85,7 +85,6 @@ func start() -> void:
 	await get_tree().create_timer(1.0).timeout
 	
 	await boss_say(3, "I couldnt care less what youre up to, get to the store... NOW")
-	await player_choose("Fine", "Ugh, okay")
 
 #MAIN DIALOGUE///////////////////////////////////////////////////////
 

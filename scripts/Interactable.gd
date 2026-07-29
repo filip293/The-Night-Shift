@@ -167,10 +167,12 @@ func _on_interact_generic() -> void:
 	if not Engine.is_editor_hint():
 		if whoami_value == "Take crate":
 			queue_free()
+			$/root/Node3D/Player/Crate.visible = true
 		elif whoami_value == "Take cans":
 			if Globals.get("crate_delivered") and not Globals.get("has_cans"):
 				$"../../../Cans3".visible = true
 				$"../../../Cans2".visible = true
+				$/root/Node3D/Player/Crate.visible = false
 			elif Globals.get("has_cans"):
 				$"../../../Cans2".visible = false
 		elif whoami_value == "Restock cans":
