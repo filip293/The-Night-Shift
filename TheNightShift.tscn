@@ -373,6 +373,14 @@ _data = {
 &"startup": SubResource("Animation_ietea")
 }
 
+[sub_resource type="Animation" id="Animation_7e3ks"]
+resource_name = "slide_down_slice"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y87xx"]
+_data = {
+&"slide_down_slice": SubResource("Animation_7e3ks")
+}
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1p4ks"]
 radius = 0.3647461
 height = 2.375
@@ -36888,11 +36896,12 @@ sprite = NodePath("Sprite2D")
 frame_21 = ExtResource("12_0fykh")
 frame_22 = ExtResource("13_rexoo")
 frame_23 = ExtResource("14_kc0vc")
-print_offset = Vector2(0, -400)
-print_duration = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="InGame/OTReceipt" unique_id=1230397516]
 scale = Vector2(0.42, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InGame/OTReceipt" unique_id=1165498305]
+libraries/ = SubResource("AnimationLibrary_y87xx")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 transform = Transform3D(-4.3626642e-08, 6.399148e-11, 1, 5.820766e-10, 1.0000007, -4.472156e-11, -1.0000007, -1.1641532e-10, -4.3713953e-08, 0.6791784, 1.0047945, -11.748428)
@@ -36950,8 +36959,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000015, -0.00076727686, -9.484711e-05, -0.000765671, 0.62783545, 0.16829224, -0.0001070437, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
-
+transform = Transform3D(-0.6500002, -0.00076727686, -9.484711e-05, -0.0007656711, 0.62783545, 0.16829224, -0.00010704371, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -45385,7 +45393,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 591002609) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
@@ -45417,15 +45425,11 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Car1"
 
-
 [node name="FLWheel" type="MeshInstance3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=438496544]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, 1.0772562)
 mesh = SubResource("ArrayMesh_5354l")
 
-
 [node name="FRWheel" type="MeshInstance3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=1628434737]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, 1.0772562)
 mesh = SubResource("ArrayMesh_ar0mh")
 
@@ -45438,12 +45442,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71565115, 0.07618606)
 shape = SubResource("BoxShape3D_ryxve")
 
 [node name="RLWheel" type="MeshInstance3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=1307737661]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
 mesh = SubResource("ArrayMesh_p8upn")
 
 [node name="RRWheel" type="MeshInstance3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=1683484970]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, -0.6042478)
 mesh = SubResource("ArrayMesh_ietvt")
 
@@ -45475,12 +45477,10 @@ script = ExtResource("62_l5miw")
 whoami_value = "Car2"
 
 [node name="FLWheel" type="MeshInstance3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=1602021100]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, 1.0772562)
 mesh = SubResource("ArrayMesh_5354l")
 
 [node name="FRWheel" type="MeshInstance3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=1741279339]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, 1.0772562)
 mesh = SubResource("ArrayMesh_ar0mh")
 
@@ -45493,12 +45493,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71565115, 0.07618606)
 shape = SubResource("BoxShape3D_caos5")
 
 [node name="RLWheel" type="MeshInstance3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=691588580]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
 mesh = SubResource("ArrayMesh_p8upn")
 
 [node name="RRWheel" type="MeshInstance3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=523647409]
-
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, -0.521813, 0.24429658, -0.6042478)
 mesh = SubResource("ArrayMesh_ietvt")
 
