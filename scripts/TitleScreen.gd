@@ -34,8 +34,8 @@ func _on_start_pressed() -> void:
 	tween.tween_callback(BGM.stop)
 	BGM.autoplay = false
 	await get_tree().create_timer(2.0).timeout
-	#Intro.start()
-	#await Intro.finishedIntro
+	Intro.start()
+	await Intro.finishedIntro
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
 	$CanvasLayer/Animations.play_backwards("fade")
