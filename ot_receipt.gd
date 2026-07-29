@@ -1,8 +1,12 @@
 extends Node2D
 class_name OTReceipt
 
-var time := 0
+var time = 0
+signal clicked_r 
+var pressed_r = false
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var new_task_alert: Label = $"../CanvasLayer/CanvasLayer/NewTaskAlert"
 
 @export_group("References")
 @export var sprite: Sprite2D
@@ -15,23 +19,32 @@ var time := 0
 func _ready() -> void:
 	sprite.texture = frame_21
 
-
-func on_task_changed() -> void:
-	if time != 0:
-		_animate_receipt()
-	time += 1
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ReceiptOpen"):
+		pressed_r = true
 
 func _animate_receipt() -> void:
 	if not sprite:
 		return
-		
+	
+	animation_player.play("RESET")
+	pressed_r = false
 	if Globals.task_idx == 1:
 		sprite.texture = frame_21
 	elif Globals.task_idx == 2:
 		sprite.texture = frame_22
 	elif Globals.task_idx == 3:
 		sprite.texture = frame_23
-		
+	print("Playing animation!")
+	animation_player.play("slide_down_slice")
+	await animation_player.animation_finished
 	
-	
-	
+	while !pressed_r:
+		new_task_alert.visible = true
+		await Globals.calltime(1.0)
+		new_task_alert.visible = false
+		await Globals.calltime(1.0)
+
+func _on_globals_taskchanged() -> void:
+	print("Caught it!")
+	_animate_receipt()

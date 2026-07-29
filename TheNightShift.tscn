@@ -25,7 +25,6 @@
 [ext_resource type="Script" uid="uid://cjim0s61maq0e" path="res://receipt.gd" id="12_kc0vc"]
 [ext_resource type="AudioStream" uid="uid://cqr2wrmew7ep4" path="res://Sounds/Lightning.mp3" id="12_lk3e2"]
 [ext_resource type="Texture2D" uid="uid://bj6qcg3w65wjb" path="res://map/gas_station_2.png" id="13_eqbcs"]
-[ext_resource type="FontFile" uid="uid://by5rno271kgtr" path="res://Fonts/OCR-B.ttf" id="13_kc0vc"]
 [ext_resource type="Texture2D" uid="uid://75vqxcrbcj54" path="res://MapAssets/Frame 22.png" id="13_rexoo"]
 [ext_resource type="Script" uid="uid://xmmqp4cxhdxw" path="res://scripts/Lightning.gd" id="13_ygv6i"]
 [ext_resource type="Texture2D" uid="uid://cpoevdd1ip34t" path="res://MapAssets/Frame 23.png" id="14_kc0vc"]
@@ -36625,6 +36624,7 @@ size = Vector3(0.0362088, 0.036208943, 1.2285349)
 transform = Transform3D(1, -9.5291e-05, 0.00016457436, 9.509707e-05, 0.9999993, 0.0011779503, -0.0001646865, -0.0011779347, 0.9999993, 0, 0, 0)
 
 [node name="GLOBALS" type="Node" parent="." unique_id=799061585]
+process_mode = 3
 script = ExtResource("1_7e3ks")
 
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=638400386]
@@ -36830,6 +36830,16 @@ text = "Task goes here."
 [node name="CanvasLayer" type="CanvasLayer" parent="InGame/CanvasLayer" unique_id=903571100]
 layer = 200
 
+[node name="NewTaskAlert" type="Label" parent="InGame/CanvasLayer/CanvasLayer" unique_id=691076870]
+visible = false
+offset_left = 1560.0
+offset_top = 952.0
+offset_right = 1875.0
+offset_bottom = 1045.0
+theme_override_font_sizes/font_size = 32
+text = "NEW TASK RECEIVED
+HOLD [R] TO VIEW"
+
 [node name="Label" type="Label" parent="InGame/CanvasLayer/CanvasLayer" unique_id=756000603]
 anchors_preset = 8
 anchor_left = 0.5
@@ -36866,66 +36876,15 @@ color = Color(0, 0, 0, 0.3137255)
 position = Vector2(960, 960)
 texture = ExtResource("12_0fykh")
 
-[node name="Label" type="Label" parent="InGame/Receipt/Frame21" unique_id=597147510]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -878.0
-offset_top = -542.5
-offset_right = -47.0
-offset_bottom = -279.5
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("13_kc0vc")
-theme_override_font_sizes/font_size = 80
-text = "CLEAN UP
-THE AISLES"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Frame22" type="Sprite2D" parent="InGame/Receipt" unique_id=593619494]
 visible = false
 position = Vector2(960, 960)
 texture = ExtResource("13_rexoo")
 
-[node name="Label" type="Label" parent="InGame/Receipt/Frame22" unique_id=695282376]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -878.0
-offset_top = -542.5
-offset_right = -47.0
-offset_bottom = -279.5
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("13_kc0vc")
-theme_override_font_sizes/font_size = 80
-text = "CLEAN THE
-RESTROOMS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Frame23" type="Sprite2D" parent="InGame/Receipt" unique_id=1950938635]
 visible = false
 position = Vector2(960, 960)
 texture = ExtResource("14_kc0vc")
-
-[node name="Label" type="Label" parent="InGame/Receipt/Frame23" unique_id=2024088017]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -878.0
-offset_top = -542.5
-offset_right = -47.0
-offset_bottom = -279.5
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("13_kc0vc")
-theme_override_font_sizes/font_size = 80
-text = "RESTOCK
-THE CANS"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="InGame/Receipt" unique_id=1255870422]
 
@@ -46314,7 +46273,7 @@ mesh = SubResource("ArrayMesh_iwili")
 transform = Transform3D(1.4901161e-08, -0.9999999, -1.5646219e-07, 5.5879354e-09, -1.6391277e-07, 0.99999994, -0.99999994, -1.4901161e-08, -1.7695129e-08, 0, 0.750386, 9.536743e-07)
 shape = SubResource("BoxShape3D_22s6k")
 
-[connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="on_task_changed"]
+[connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_entered"]
