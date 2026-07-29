@@ -171,7 +171,30 @@ func _physics_process(delta: float) -> void:
 									Globals.task_idx += 1
 						else:
 							target_text = "I need to get cans first."
-
+					
+				if object_name == "Car1":
+					target_text = "[E] Fuel car"
+					if Input.is_action_just_pressed("Interact"):
+						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_01/Fuel_pump_01_Fuel_pump_0/Pump1".play()
+						Globals.stationcar = true
+						await $"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_01/Fuel_pump_01_Fuel_pump_0/Pump1".finished
+						await Globals.calltime(2.0)
+						$"../../../../Map/FirstCar/Animations".play("EXIT")
+						await Globals.calltime(5.0)
+						Globals.stationcar = false
+					
+				if object_name == "Car2":
+					target_text = "[E] Fuel car"
+					
+					if Input.is_action_just_pressed("Interact"):
+						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_03/Fuel_pump_03_Fuel_pump_0/Pump2".play()
+						Globals.stationcar = true
+						await $"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_03/Fuel_pump_03_Fuel_pump_0/Pump2".finished
+						await Globals.calltime(2.0)
+						$"../../../../Map/SecondCar/Animations".play("EXIT")
+						await Globals.calltime(5.0)
+						Globals.stationcar = false
+						
 			# --- PUDDLES & DIRT ---
 			elif object_type == ObjectType.PUDDLE:
 				var broom_held = $"../../../Bwoom2".visible
