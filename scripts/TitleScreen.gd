@@ -47,3 +47,4 @@ func _on_start_pressed() -> void:
 	TaskManager.next_task()
 	$"../InGame/CanvasLayer/RichTextLabel".visible = true
 	$"../InGame/CanvasLayer/TaskName".visible = true
+	Globals.in_game = true
