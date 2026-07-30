@@ -95,6 +95,7 @@ func start() -> void:
 	
 	$Control.visible = false
 	finishedIntro.emit()
+	Globals.in_game = true
 
 func boss_say(idx: int, text: String) -> void:
 	Subtitles.text = "[center]%s[/center]" % text
