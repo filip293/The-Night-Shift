@@ -37000,7 +37000,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500005, -0.00076727686, -9.484711e-05, -0.00076567143, 0.62783545, 0.16829224, -0.00010704376, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
+transform = Transform3D(-0.6500006, -0.00076727686, -9.484711e-05, -0.0007656715, 0.62783545, 0.16829224, -0.000107043765, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -37923,16 +37923,23 @@ mesh = SubResource("ArrayMesh_r17x2")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 528.9161, 158.56163, -2798.4304)
 
 [node name="Shelf_Metal_Metal_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Shelf_Metal" unique_id=1813329393]
+transform = Transform3D(1, 1.4551915e-11, -3.907985e-12, -1.4551915e-11, 1.0000001, 0, -3.907985e-12, 1.1641532e-10, 1, 0, 0, 0)
+visible = false
 gi_mode = 0
 mesh = SubResource("ArrayMesh_pul4b")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Shelf_Metal/Shelf_Metal_Metal_0" unique_id=150615378]
-visible = false
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Shelf_Metal" unique_id=150615378]
+transform = Transform3D(1, 1.4551915e-11, 1.0658141e-11, 0, 1.0000001, 1.1641532e-10, -3.8795633e-12, 0, 1.0000001, 0, 0, 0)
 collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Take cans"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Shelf_Metal/Shelf_Metal_Metal_0/StaticBody3D" unique_id=552938008]
+[node name="Shelf_Metal_Metal_1" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Shelf_Metal/StaticBody3D" unique_id=1497565550]
+transform = Transform3D(1, 1.4551915e-11, -1.8474111e-11, -2.910383e-11, 1, -1.1641532e-10, 3.3395509e-12, 2.3283064e-10, 0.9999998, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_pul4b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Shelf_Metal/StaticBody3D" unique_id=552938008]
 shape = SubResource("ConvexPolygonShape3D_ir43x")
 
 [node name="Checker" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=512472136]
@@ -45434,7 +45441,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
