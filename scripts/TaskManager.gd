@@ -1,7 +1,5 @@
 extends Node
 
-
-
 const TASKS: Array[String] = [
 	"NO TASK ASSIGNED",
 	"Sweep the aisles",

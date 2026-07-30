@@ -44,6 +44,7 @@ func _on_start_pressed() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Player.process_mode = Node.PROCESS_MODE_INHERIT
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
+	Globals.task_idx = 0
 	TaskManager.next_task()
 	$"../InGame/CanvasLayer/RichTextLabel".visible = true
 	Globals.in_game = true
