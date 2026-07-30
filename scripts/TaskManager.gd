@@ -87,11 +87,11 @@ func _update_task_highlights() -> void:
 			if not has_crate:
 				_glow_by_name("Take crate")
 			_glow_by_name("Take cans")
-		elif not cans_restocked:
-			if not has_cans:
-				_glow_by_name("Take cans")
-			else:
-				_glow_by_name("Restock cans")
+		#elif not cans_restocked:
+			#if not has_cans:
+				#_glow_by_name("Take cans")
+			#else:
+				#_glow_by_name("Restock cans")
 
 # Case-insensitive and space-trimmed string matching
 func _glow_by_name(target_whoami: String) -> void:
