@@ -10,6 +10,7 @@ var has_crate: bool = false
 var crate_delivered: bool = false
 var has_cans: bool = false
 var cans_restocked: bool = false
+var in_game: bool = false
 var player_keys: Array[String] = []
 
 signal TASKCHANGED

@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var modulator := $CanvasModulate
 @export var fade_duration: float
 
@@ -16,7 +17,7 @@ func _ready() -> void:
 	modulator.color = hidden_color
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ReceiptOpen"):
+	if event.is_action_pressed("ReceiptOpen") and Globals.in_game:
 		if Globals.task_idx == 1: 
 			sprite.texture = task1
 		elif Globals.task_idx == 2: 
