@@ -130,6 +130,9 @@
 [ext_resource type="Texture2D" uid="uid://dgrre3hmnaduh" path="res://MapAssets/Cars/Car4_Emissive.png" id="109_rbd34"]
 [ext_resource type="Texture2D" uid="uid://cwoukfa0lg7cv" path="res://MapAssets/Cars/Car4_4Car 1_Car 1 mat_Diffuse.png" id="110_6rjwa"]
 [ext_resource type="AudioStream" uid="uid://cj4xt7v00kkf2" path="res://Sounds/Mop.mp3" id="117_wi8tb"]
+[ext_resource type="Texture2D" uid="uid://bdhlgkmj30j7m" path="res://MapAssets/Ice/Ice_0.png" id="131_86nqj"]
+[ext_resource type="Texture2D" uid="uid://dpvf8jqxno2jv" path="res://MapAssets/Ice/Ice_1.png" id="132_d4lju"]
+[ext_resource type="Texture2D" uid="uid://xepw48ceqi34" path="res://MapAssets/Ice/Ice_2.png" id="133_lm7bh"]
 
 [sub_resource type="Resource" id="Resource_sq8w8"]
 script = ExtResource("2_c7hx4")
@@ -36620,6 +36623,54 @@ size = Vector3(0.121078126, 0.38147587, 1.4548526)
 [sub_resource type="BoxShape3D" id="BoxShape3D_22s6k"]
 size = Vector3(0.0362088, 0.036208943, 1.2285349)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8k4jg"]
+resource_name = "mat_DecalFuel"
+transparency = 2
+alpha_scissor_threshold = 0.1508576
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.5527715, 0.83810043, 0.9999998, 0.40392157)
+albedo_texture = ExtResource("131_86nqj")
+metallic_texture = ExtResource("132_d4lju")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("132_d4lju")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("133_lm7bh")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cxqn3"]
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
+"format": 34359783425,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "mat_DecalFuel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgD8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3j2pq"]
+resource_name = "Sketchfab_Scene_������������������_163_mat_DecalFuel_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359783543,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_8k4jg"),
+"name": "mat_DecalFuel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgD8AAAAA/3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_cxqn3")
+
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 transform = Transform3D(1, -9.5291e-05, 0.00016457436, 9.509707e-05, 0.9999993, 0.0011779503, -0.0001646865, -0.0011779347, 0.9999993, 0, 0, 0)
 
@@ -46256,6 +46307,12 @@ mesh = SubResource("ArrayMesh_iwili")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Bwoom2" unique_id=1741044169]
 transform = Transform3D(1.4901161e-08, -0.9999999, -1.5646219e-07, 5.5879354e-09, -1.6391277e-07, 0.99999994, -0.99999994, -1.4901161e-08, -1.7695129e-08, 0, 0.750386, 9.536743e-07)
 shape = SubResource("BoxShape3D_22s6k")
+
+[node name="Ice2" type="Node3D" parent="." unique_id=1495232050]
+transform = Transform3D(0.7798858, 0.00012843673, 7.4164906e-05, -7.431614e-05, 0.00091871415, 0.77988565, 0.00012834925, -0.77988565, 0.0009187262, -0.059379682, 0.12968788, -20.1978)
+
+[node name="Ice" type="MeshInstance3D" parent="Ice2" unique_id=1459932895]
+mesh = SubResource("ArrayMesh_3j2pq")
 
 [connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
