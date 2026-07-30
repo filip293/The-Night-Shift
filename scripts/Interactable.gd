@@ -2,6 +2,7 @@ extends StaticBody3D
 
 @export var whoami_value: String = "Object"
 
+
 enum ObjectType { GENERIC, DOOR, PUDDLE }
 @export var object_type: ObjectType = ObjectType.GENERIC:
 	set(value):
@@ -233,15 +234,15 @@ func _on_interact_generic() -> void:
 			$/root/Node3D/Player/Crate.visible = true
 		elif whoami_value == "Take cans":
 			if Globals.get("crate_delivered") and not Globals.get("has_cans"):
-				$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans3".visible = true
-				$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans2".visible = true
+				$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans3.visible = true
+				$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans2.visible = true
 				$/root/Node3D/Player/Crate.visible = false
 			elif Globals.get("has_cans"):
-				$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans2".visible = false
+				$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans2.visible = false
 		elif whoami_value == "Restock cans":
-			$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans2".visible = false
-			$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans".visible = true
-			$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans4".visible = false
+			$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans2.visible = false
+			$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans.visible = true
+			$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Cans4.visible = false
 
 func whoami() -> String:
 	return whoami_value
