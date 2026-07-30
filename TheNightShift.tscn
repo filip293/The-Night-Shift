@@ -36850,7 +36850,7 @@ vertical_alignment = 1
 
 [node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite")]
 script = ExtResource("12_kc0vc")
-fade_duration = 2.0
+fade_duration = 0.2
 sprite = NodePath("Sprite2D")
 task1 = ExtResource("14_86nqj")
 task2 = ExtResource("15_d4lju")
@@ -45390,7 +45390,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
