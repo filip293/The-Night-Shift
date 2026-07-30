@@ -46,4 +46,3 @@ func _on_start_pressed() -> void:
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
 	TaskManager.next_task()
 	$"../InGame/CanvasLayer/RichTextLabel".visible = true
-	$"../InGame/CanvasLayer/TaskName".visible = true

@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 			target_text = "Cleaning..."
 			active_puddle.mop_tick(delta)
 			
-			# If puddle was queue_free'd during mop_tick or finished mopping
 			if not is_instance_valid(active_puddle) or not active_puddle.is_being_mopped:
 				active_puddle = null
 				target_text = ""
@@ -35,12 +34,16 @@ func _physics_process(delta: float) -> void:
 			active_puddle = null
 			
 		_animate_label(target_text)
-		return # Stop here while active cleaning is happening
+		return
 
 	# 2. Raycast checking
 	if is_colliding():
 		var collider = get_collider()
-		if collider and collider.has_method("interact") and "object_type" in collider:
+		
+		# Ignore items held in the player's hands
+		if collider and collider.has_method("is_held_by_player") and collider.is_held_by_player():
+			pass
+		elif collider and collider.has_method("interact") and "object_type" in collider:
 			var object_type = collider.object_type
 			
 			if not "task_idx" in Globals:
@@ -82,7 +85,6 @@ func _physics_process(delta: float) -> void:
 						if Input.is_action_just_pressed("Interact"):
 							$"../../../../Bwoom2".visible = false
 							$"../../../Bwoom2".visible = true
-							# Keep collision enabled for returning later, or manage layer appropriately
 
 				# TASK 2: Mop
 				elif object_name == "Mop" and current_task == 2:
@@ -196,7 +198,6 @@ func _physics_process(delta: float) -> void:
 				var mop_held = $"../../../Bwooom".visible
 				var p_type = collider.puddle_type if "puddle_type" in collider else 0
 
-				# Task 1: Dirt sweeping
 				if current_task == 1 and p_type == 0:
 					if broom_held:
 						target_text = "[E] Sweep dirt"
@@ -206,7 +207,6 @@ func _physics_process(delta: float) -> void:
 					else:
 						target_text = "I need a broom first."
 
-				# Task 2: Puddle mopping
 				elif current_task == 2 and p_type == 1:
 					if mop_held:
 						target_text = "[E] Mop Puddle"
@@ -218,7 +218,7 @@ func _physics_process(delta: float) -> void:
 
 	_animate_label(target_text)
 
-func _animate_label(new_text: String):
+func _animate_label(new_text: String) -> void:
 	if current_displayed_text == new_text:
 		return
 
@@ -226,9 +226,9 @@ func _animate_label(new_text: String):
 
 	if label_tween and label_tween.is_valid():
 		label_tween.kill()
-	
+
 	label_tween = create_tween()
-	
+
 	if new_text == "":
 		label_tween.tween_property(label, "modulate:a", 0.0, 0.2)
 		label_tween.tween_callback(func(): label.text = "")
