@@ -1,6 +1,6 @@
 extends Node
 
-@onready var task_name: Label = $"../CanvasLayer/TaskName"
+
 
 const TASKS: Array[String] = [
 	"NO TASK ASSIGNED",
@@ -20,8 +20,6 @@ func next_task() -> void:
 		_update_task_ui()
 
 func _update_task_ui() -> void:
-	if task_name:
-		task_name.text = TASKS[Globals.task_idx]
 	if Globals.task_idx == 3:
 		$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Crate2".visible = true
 		$"../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Crate2/CollisionShape3D".disabled = false
