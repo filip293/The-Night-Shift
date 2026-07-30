@@ -140,7 +140,7 @@ script = ExtResource("2_c7hx4")
 ChromaticAberration = true
 StrenghtCA = 3.3
 Pixelate = true
-PixelatePixelSize = 4
+PixelatePixelSize = 2
 metadata/_custom_type_script = "uid://bvqhrfw0ecawf"
 
 [sub_resource type="Animation" id="Animation_mvkfx"]
