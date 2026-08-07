@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
 [ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
 [ext_resource type="AudioStream" uid="uid://cr2sxw705mov8" path="res://Sounds/bgm.mp3" id="5_dl752"]
+[ext_resource type="Script" uid="uid://dptyl21sv3svu" path="res://Credits.gd" id="5_lm7bh"]
 [ext_resource type="AudioStream" uid="uid://b6ycsctiadjpe" path="res://Sounds/Plastic_003.wav" id="5_wk1nr"]
 [ext_resource type="AudioStream" uid="uid://b1m7kudq44fxb" path="res://Sounds/Plastic_004.wav" id="6_054il"]
 [ext_resource type="AudioStream" uid="uid://bpoow5hx2be81" path="res://Sounds/Plastic_005.wav" id="7_c7hx4"]
@@ -142,6 +143,43 @@ StrenghtCA = 3.3
 Pixelate = true
 PixelatePixelSize = 2
 metadata/_custom_type_script = "uid://bvqhrfw0ecawf"
+
+[sub_resource type="Animation" id="Animation_8k4jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4000)]
+}
+
+[sub_resource type="Animation" id="Animation_3j2pq"]
+resource_name = "Scroll"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 4000), Vector2(0, -4500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ms8p1"]
+_data = {
+&"RESET": SubResource("Animation_8k4jg"),
+&"Scroll": SubResource("Animation_3j2pq")
+}
 
 [sub_resource type="Animation" id="Animation_mvkfx"]
 length = 10.0
@@ -38565,6 +38603,127 @@ metadata/_custom_type_script = "uid://dcnlel7767ud6"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1212870510]
 environment = ExtResource("3_d71h8")
 
+[node name="Credits" type="Node2D" parent="." unique_id=1452497378]
+script = ExtResource("5_lm7bh")
+
+[node name="Credits" type="CanvasLayer" parent="Credits" unique_id=1745282005]
+layer = 1000
+
+[node name="ColorRect" type="ColorRect" parent="Credits/Credits" unique_id=994377106]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/Credits" unique_id=102085085]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4000.0
+offset_bottom = 8498.011
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "CREDITS
+
+Created By
+Squaapi & TheSpectre
+
+Game Director
+Squaapi & TheSpectre
+
+Creative Director
+Squaapi & TheSpectre
+
+Executive Producer
+Squaapi & TheSpectre
+
+Game Design
+Squaapi & TheSpectre
+
+Programming
+Squaapi & TheSpectre
+
+Gameplay Programming
+Squaapi & TheSpectre
+
+AI Programming
+Squaapi & TheSpectre
+
+UI Programming
+Squaapi & TheSpectre
+
+Technical Direction
+Squaapi & TheSpectre
+
+Story & Lore
+Squaapi & TheSpectre
+
+Writing & Dialogue
+Squaapi & TheSpectre
+
+Level Design
+Squaapi & TheSpectre
+
+Puzzle Design
+Squaapi & TheSpectre
+
+Horror Design
+Squaapi & TheSpectre
+
+Lighting
+Squaapi & TheSpectre
+
+Animation
+Squaapi & TheSpectre
+
+Visual Effects
+Squaapi & TheSpectre
+
+Sound Design
+Squaapi & TheSpectre
+
+Audio Implementation
+Squaapi & TheSpectre
+
+Quality Assurance
+Squaapi & TheSpectre
+
+Playtesting
+Squaapi & TheSpectre
+
+Optimization
+Squaapi & TheSpectre
+
+Project Management
+Squaapi & TheSpectre
+
+Special Thanks
+Our Friends, Family, and Everyone Who Supported the Project
+
+Made With
+Godot Engine
+
+
+
+
+
+
+
+
+
+
+
+
+Thank You For Playing
+"
+horizontal_alignment = 1
+
+[node name="Scroll" type="AnimationPlayer" parent="Credits/Credits" unique_id=2084800574]
+libraries/ = SubResource("AnimationLibrary_ms8p1")
+
 [node name="Camera" type="Node3D" parent="." unique_id=526891940]
 process_mode = 3
 transform = Transform3D(1, -9.529101e-05, 0.00016457438, 9.509707e-05, 0.9999994, 0.0011779504, -0.0001646865, -0.0011779348, 0.9999994, -0.2532692, 1.9343245, -6.7285566)
@@ -38879,7 +39038,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000063, -0.00076727686, -9.484711e-05, -0.0007656716, 0.62783545, 0.16829224, -0.00010704378, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
+transform = Transform3D(-0.6500007, -0.00076727686, -9.484711e-05, -0.00076567166, 0.62783545, 0.16829224, -0.00010704379, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -47320,7 +47479,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
