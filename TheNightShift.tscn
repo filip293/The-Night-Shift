@@ -37285,6 +37285,22 @@ text = "Door"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="InGame/CanvasLayer" unique_id=1057066665]
+
+[node name="Budget" type="RichTextLabel" parent="InGame/CanvasLayer/CanvasLayer2" unique_id=266782913]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 45.0
+offset_top = -417.5
+offset_right = 457.0
+offset_bottom = -276.5
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "$0/$500"
+
 [node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite")]
 script = ExtResource("12_kc0vc")
 fade_duration = 0.2
@@ -45818,7 +45834,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
@@ -46555,6 +46571,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
+object_type = 2
 puddle_type = 1
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../Player/Bwoom")

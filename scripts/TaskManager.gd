@@ -9,6 +9,7 @@ const TASKS: Array[String] = [
 
 @onready var broom_held_node: Node = $"../../Player/Bwoom2"
 @onready var mop_held_node: Node = $"../../Player/Bwooom"
+@onready var budget_label: RichTextLabel = $"../CanvasLayer/CanvasLayer2/Budget"
 
 func _ready() -> void:
 	if not "task_idx" in Globals:
@@ -21,6 +22,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_update_task_highlights()
+	_update_budget_ui()
 
 func next_task() -> void:
 	if Globals.task_idx < TASKS.size() - 1:
@@ -37,6 +39,11 @@ func _update_task_ui() -> void:
 			crate.visible = true
 			var col = crate.get_node_or_null("CollisionShape3D")
 			if col: col.disabled = false
+
+func _update_budget_ui() -> void:
+	if budget_label:
+		budget_label.bbcode_enabled = true
+		budget_label.text = "[font_size=32]$%d/[b]$500[/b][/font_size]" % Globals.earned_money
 
 func _update_task_highlights() -> void:
 	var task = Globals.task_idx

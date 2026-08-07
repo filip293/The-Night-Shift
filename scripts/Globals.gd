@@ -13,6 +13,7 @@ var cans_restocked: bool = false
 var in_game: bool = false
 var jumpscare_impending: bool = false
 var player_keys: Array[String] = []
+var earned_money: int = 0
 
 signal TASKCHANGED
 

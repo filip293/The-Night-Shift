@@ -35,8 +35,10 @@ func _animate_receipt() -> void:
 		sprite.texture = frame_21
 	elif Globals.task_idx == 2:
 		sprite.texture = frame_22
+		Globals.earned_money += 170
 	elif Globals.task_idx == 3:
 		sprite.texture = frame_23
+		Globals.earned_money += 120
 	print("Playing animation!")
 	animation_player.play("slide_down_slice")
 	await animation_player.animation_finished
