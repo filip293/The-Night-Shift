@@ -12,6 +12,7 @@ var has_cans: bool = false
 var cans_restocked: bool = false
 var in_game: bool = false
 var player_keys: Array[String] = []
+var earned_money: int = 0
 
 signal TASKCHANGED
 
