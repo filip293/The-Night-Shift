@@ -191,6 +191,9 @@ func _physics_process(delta: float) -> void:
 						$"../../../../Map/SecondCar/Animations".play("EXIT")
 						await Globals.calltime(5.0)
 						Globals.stationcar = false
+				
+				if object_name == "LockedDoor":
+					target_text = "Door is locked."
 						
 			# --- PUDDLES & DIRT ---
 			elif object_type == ObjectType.PUDDLE:
