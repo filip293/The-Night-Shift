@@ -127,6 +127,8 @@ func _physics_process(delta: float) -> void:
 							target_text = "[E] Take crate"
 							if Input.is_action_just_pressed("Interact"):
 								Globals.set("has_crate", true)
+								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Door"._toggle_door(true)
+								Globals.jumpscare_impending = true
 								collider.interact()
 
 					elif object_name == "Take cans":

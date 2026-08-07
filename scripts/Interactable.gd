@@ -128,10 +128,23 @@ func interact() -> void:
 		ObjectType.GENERIC:
 			_on_interact_generic()
 
-func _toggle_door() -> void:
+func _toggle_door(other: bool = false) -> void:
 	if Engine.is_editor_hint() or (door_tween and door_tween.is_running()):
 		return
-
+	
+	if Globals.jumpscare_impending and self.whoami_value == "DoorSpecific":
+		$/root/Node3D/Monster.visible = true
+		$/root/Node3D/Player.walk_speed = 1.0
+		Globals.calltime(3.0)
+		$/root/Node3D/Monster/AnimationPlayer.play("run")
+		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
+		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		$/root/Node3D/Credits.ShowCredits()
+	
+	if other and self.is_open:
+		_toggle_door()
+	
 	is_open = not is_open
 	door_tween = create_tween()
 
