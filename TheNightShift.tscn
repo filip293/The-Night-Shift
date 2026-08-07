@@ -62,8 +62,6 @@
 [ext_resource type="Texture2D" uid="uid://oexs0lepi8sn" path="res://map/gas_station_28.jpg" id="39_yr7gk"]
 [ext_resource type="Texture2D" uid="uid://ccrmg557ax0ml" path="res://map/gas_station_29.jpg" id="40_61cw4"]
 [ext_resource type="Texture2D" uid="uid://dq5y5uvic4pbw" path="res://map/gas_station_30.jpg" id="41_l5miw"]
-[ext_resource type="AudioStream" uid="uid://cgrqwrjw6x50r" path="res://Sounds/MetalDoorOpen.mp3" id="41_ml8w7"]
-[ext_resource type="AudioStream" uid="uid://cauf4xr75o48q" path="res://Sounds/MetalDoorClose.mp3" id="42_4e8dr"]
 [ext_resource type="AudioStream" uid="uid://devh0rqvuunck" path="res://Sounds/DoorOpen.mp3" id="42_nl73c"]
 [ext_resource type="Texture2D" uid="uid://kpdyusvx7ugd" path="res://map/gas_station_31.jpg" id="42_qklhp"]
 [ext_resource type="Texture2D" uid="uid://bkge875angk51" path="res://map/gas_station_32.jpg" id="43_ayo1f"]
@@ -37868,15 +37866,11 @@ transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371
 gi_mode = 0
 mesh = SubResource("ArrayMesh_a7vdi")
 
-[node name="Door_02" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=463378388 node_paths=PackedStringArray("audio_player")]
+[node name="Door_02" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=463378388]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 1033.1251, 141.26688, -2700.4387)
 collision_layer = 257
 script = ExtResource("62_l5miw")
-whoami_value = "Door"
-object_type = 1
-audio_player = NodePath("Door")
-open_sound = ExtResource("41_ml8w7")
-close_sound = ExtResource("42_4e8dr")
+whoami_value = "LockedDoor"
 
 [node name="Door_02_Door_01_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" unique_id=288099573]
 transform = Transform3D(-1, -1.3665704e-07, 0.00019019416, -3.114692e-07, -0.9999975, -0.0023559867, 0.00019019397, -0.0023559872, 0.9999976, 0.00014567375, 0.8846226, 0.0010421276)
@@ -37887,16 +37881,11 @@ mesh = SubResource("ArrayMesh_fi3lx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44770527, -0.033486128)
 shape = SubResource("BoxShape3D_61cw4")
 
-[node name="Door" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" unique_id=993037838]
-transform = Transform3D(1.0000001, 0, 0, -1.4551915e-11, 1, -1.2434498e-11, 0, 2.0889956e-12, 1.0000002, 6.2942505e-05, 0.37911272, 3.6120415e-05)
-volume_db = 10.0
-unit_size = 0.6
-
 [node name="Door" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1788677707 node_paths=PackedStringArray("audio_player")]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 885.39124, 126.91011, -2457.4888)
 collision_layer = 257
 script = ExtResource("62_l5miw")
-whoami_value = "Door"
+whoami_value = "DoorSpecific"
 object_type = 1
 open_rotation_y = 0.0
 closed_rotation_y = 90.0
