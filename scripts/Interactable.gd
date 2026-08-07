@@ -135,14 +135,8 @@ func _toggle_door(other: bool = false) -> void:
 	if Globals.jumpscare_impending and self.whoami_value == "DoorSpecific":
 		$/root/Node3D/Monster.visible = true
 		$/root/Node3D/Player.walk_speed = 1.0
-		Globals.calltime(3.0)
-		$/root/Node3D/Monster/AnimationPlayer.play("run")
-		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
-		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
-		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
-		$/root/Node3D/Credits.ShowCredits()
 	
-	if other and self.is_open:
+	if other and !is_open:
 		_toggle_door()
 	
 	is_open = not is_open
@@ -166,7 +160,15 @@ func _toggle_door(other: bool = false) -> void:
 					audio_player.stream = close_sound
 					audio_player.play()
 		).set_delay(close_sound_delay)
-
+	
+	if Globals.jumpscare_impending:
+		await Globals.calltime(5.0)
+		$/root/Node3D/Monster/AnimationPlayer.play("run")
+		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
+		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		$/root/Node3D/Credits.ShowCredits()
+		
 func start_mopping() -> void:
 	if Engine.is_editor_hint() or is_being_mopped:
 		return

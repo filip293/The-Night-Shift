@@ -37402,7 +37402,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500008, -0.00076727686, -9.484711e-05, -0.0007656718, 0.62783545, 0.16829224, -0.00010704381, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
+transform = Transform3D(-0.6500009, -0.00076727686, -9.484711e-05, -0.00076567184, 0.62783545, 0.16829224, -0.000107043816, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -45834,7 +45834,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
@@ -46716,7 +46716,7 @@ transform = Transform3D(0.7798858, 0.00012843673, 7.4164906e-05, -7.431614e-05, 
 mesh = SubResource("ArrayMesh_3j2pq")
 
 [node name="Monster" type="Node3D" parent="." unique_id=2004601232]
-transform = Transform3D(0.40550056, 3.8990052e-05, 0.06057598, 3.2793396e-05, 0.41000044, -0.00048342053, -0.060576048, 0.00048296037, 0.40550062, -0.2674095, 0.13283183, -20.346338)
+transform = Transform3D(0.40550056, 3.899006e-05, 0.06057598, 3.2793418e-05, 0.4100005, -0.0004834206, -0.060576055, 0.00048296043, 0.40550068, -0.26691023, 0.13640334, -23.378338)
 visible = false
 
 [node name="Armature" type="Node3D" parent="Monster" unique_id=986811896]
