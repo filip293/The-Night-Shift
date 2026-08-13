@@ -586,7 +586,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lf6uw")
 
-[sub_resource type="Animation" id="Animation_ywnit"]
+[sub_resource type="Animation" id="Animation_d4lju"]
 resource_name = "Bwoom"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -598,7 +598,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.17908859, -1.0148183, -0.1531356), Vector3(-0.17904949, -1.0147966, -0.37963253), Vector3(-0.17908859, -1.0148183, -0.1531356)]
+"values": [Vector3(-0.17908764, -1.0148182, -0.1531356), Vector3(-0.17904949, -1.0147969, -0.37602872), Vector3(-0.17908764, -1.0148182, -0.1531356)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -610,10 +610,10 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.26189473, -3.1414416, -0.0012195397), Vector3(-0.40194952, -3.1412566, -0.0012799752), Vector3(-0.26189473, -3.1414416, -0.0012195397)]
+"values": [Vector3(-0.45916405, -3.141175, -0.001314071), Vector3(-0.6121424, -3.1409304, -0.0014393085), Vector3(-0.45916405, -3.141175, -0.001314071)]
 }
 
-[sub_resource type="Animation" id="Animation_ir43x"]
+[sub_resource type="Animation" id="Animation_lm7bh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -625,7 +625,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.17908859, -1.0148183, -0.1531356)]
+"values": [Vector3(-0.17908764, -1.0148182, -0.1531356)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -637,7 +637,67 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.26189473, -3.1414416, -0.0012195397)]
+"values": [Vector3(-0.45916405, -3.141175, -0.001314071)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8k4jg"]
+_data = {
+&"Bwoom": SubResource("Animation_d4lju"),
+&"RESET": SubResource("Animation_lm7bh")
+}
+
+[sub_resource type="Animation" id="Animation_ywnit"]
+resource_name = "Bwoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bwoom2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.218, -0.87, -0.737), Vector3(-0.2179699, -0.8699837, -0.90787953), Vector3(-0.218, -0.87, -0.737)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bwoom2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.4537856, 0, 0), Vector3(0.60209227, 0.00019786097, 4.5224293e-05), Vector3(0.4537856, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ir43x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bwoom2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.218, -0.87, -0.737)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bwoom2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4537856, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5xyid"]
@@ -31721,6 +31781,54 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_t0jih")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4lju"]
+resource_name = "mat_DecalFuel"
+transparency = 3
+alpha_hash_scale = 2.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0, 0, 1, 1)
+albedo_texture = ExtResource("91_ccbeu")
+roughness = 0.0
+roughness_texture_channel = 1
+normal_texture = ExtResource("92_xjyhy")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dsa0m"]
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
+"format": 34359783425,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "mat_DecalFuel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgD8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lm7bh"]
+resource_name = "Sketchfab_Scene_������������������_163_mat_DecalFuel_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359783543,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_d4lju"),
+"name": "mat_DecalFuel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgD8AAAAA/3//f////7//f/9/////v/9//3////+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dsa0m")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sbuq"]
+size = Vector3(2, 2, 0.001)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ubpb"]
 resource_name = "Carpet"
 cull_mode = 2
@@ -36620,20 +36728,6 @@ normal_enabled = true
 normal_texture = ExtResource("92_xjyhy")
 metadata/_gltf_primary_texture_coord = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dsa0m"]
-_surfaces = [{
-"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
-"format": 34359783425,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"name": "mat_DecalFuel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAPwAAgL8AAAAAAACAvwAAgD8AAAAA")
-}]
-blend_shape_mode = 0
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_ywnit"]
 resource_name = "Sketchfab_Scene_������������������_163_mat_DecalFuel_0"
 _surfaces = [{
@@ -36651,9 +36745,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dsa0m")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6sbuq"]
-size = Vector3(2, 2, 0.001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rq0r2"]
 size = Vector3(0.121078126, 0.38147587, 1.4548526)
@@ -37402,15 +37493,18 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500009, -0.00076727686, -9.484711e-05, -0.00076567184, 0.62783545, 0.16829224, -0.000107043816, 0.16829227, -0.62783575, -0.17908859, -1.0148183, -0.1531356)
+transform = Transform3D(-0.6500008, -0.00073383807, -0.00024333794, -0.0007656778, 0.58267486, 0.28807932, -0.00010710267, 0.2880795, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
-[node name="Bwoom" type="AnimationPlayer" parent="Player" unique_id=590887079]
+[node name="Bwoom" type="AnimationPlayer" parent="Player" unique_id=1495661529]
+libraries/ = SubResource("AnimationLibrary_8k4jg")
+
+[node name="Bwoom3" type="AnimationPlayer" parent="Player" unique_id=1173477255]
 libraries/ = SubResource("AnimationLibrary_5xyid")
 
 [node name="Bwoom2" type="StaticBody3D" parent="Player" unique_id=1047156611]
-transform = Transform3D(1.17, 0, 0, 0, 1.051589, -0.5128942, 0, 0.5128942, 1.051589, -0.218, -0.87, -0.737)
+transform = Transform3D(1.17, 0, 0, 0, 1.051589, -0.5128943, 0, 0.5128942, 1.0515891, -0.218, -0.87, -0.737)
 visible = false
 script = ExtResource("62_l5miw")
 whoami_value = "Broom"
@@ -44927,6 +45021,126 @@ mesh = SubResource("ArrayMesh_otcn0")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_o5ffa")
 
+[node name="Puddle1" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=75023644 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
+transform = Transform3D(1, -0.00025986574, 6.928342e-05, -6.928335e-05, -1.7695129e-08, 1.0000008, -0.00025986557, -1.0000008, -3.410969e-08, -0.82043004, -3.3343754, 0.014731027)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
+audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
+mopping_sound = ExtResource("117_wi8tb")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle1" unique_id=778208016]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_lm7bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle1" unique_id=1478991657]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle2" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=489766201 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
+transform = Transform3D(0.70715636, 0.00060094503, -0.7070585, 0.70705855, 0.00027769257, 0.7071575, 0.0006212762, -1.0000008, -0.00022849842, 1.3929498, -0.038360596, 0.018221684)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
+audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
+mopping_sound = ExtResource("117_wi8tb")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle2" unique_id=823343011]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_lm7bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle2" unique_id=1524343152]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle3" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=1480895281 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
+transform = Transform3D(0.25888628, 0.00094848726, -0.9659094, 0.9659085, 0.0007811183, 0.25888777, 0.001000046, -1.0000002, -0.0007139581, -2.0535839, -0.14020157, 0.016128756)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
+audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
+mopping_sound = ExtResource("117_wi8tb")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle3" unique_id=1866352034]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_lm7bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle3" unique_id=62703303]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle4" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=1931115185 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
+transform = Transform3D(0.86606115, 0.00034185871, -0.49994084, 0.49994045, 0.000110208755, 0.86606294, 0.0003511301, -1.0000013, -7.543655e-05, -0.016484976, 3.1529217, 0.011135124)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
+audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
+mopping_sound = ExtResource("117_wi8tb")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle4" unique_id=1359591061]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_lm7bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle4" unique_id=986024816]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle5" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=1123216776 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
+transform = Transform3D(0.9659099, -0.0005635279, 0.25888574, -0.25887144, -0.012327115, 0.9658352, 0.0026470656, -0.99992555, -0.012052757, 4.4117517, 1.3376675, 0.011393197)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
+audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
+mopping_sound = ExtResource("117_wi8tb")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle5" unique_id=706432393]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_lm7bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle5" unique_id=377075281]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
+[node name="Puddle6" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=37289336 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
+transform = Transform3D(0.70705944, -0.0010649224, 0.7071577, -0.70715696, 0.00041229656, 0.7070606, -0.0010445303, -1.0000011, -0.00046155648, 2.2492795, -2.7836924, 0.009717636)
+collision_layer = 256
+script = ExtResource("62_l5miw")
+whoami_value = "Puddle"
+object_type = 2
+puddle_mesh = NodePath("Puddle")
+mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
+audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
+mopping_sound = ExtResource("117_wi8tb")
+mop_duration = 5.0
+
+[node name="Puddle" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle6" unique_id=1247131878]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006642796, 0.0066518784)
+mesh = SubResource("ArrayMesh_lm7bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0/Puddle6" unique_id=347219694]
+transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-08, 0.23396574, -1.8189894e-11, -0.23396574, 1.7840648e-08, 0.014986992, 0.006643966, 0.0066518784)
+shape = SubResource("BoxShape3D_6sbuq")
+
 [node name="Carpet_001" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=969788124]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 464.8507, 12.453079, -2653.1143)
 
@@ -45834,7 +46048,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1418187495) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 591002609) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
