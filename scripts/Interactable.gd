@@ -162,7 +162,9 @@ func _toggle_door(other: bool = false) -> void:
 		).set_delay(close_sound_delay)
 	
 	if Globals.jumpscare_impending:
+		$/root/Node3D/Monster/Idle.play("Idle")
 		await Globals.calltime(5.0)
+		$/root/Node3D/Monster/AnimationPlayer.play("RESET")
 		$/root/Node3D/Monster/AnimationPlayer.play("run")
 		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
 		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")

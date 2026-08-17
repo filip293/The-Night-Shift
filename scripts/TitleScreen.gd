@@ -34,8 +34,8 @@ func _on_start_pressed() -> void:
 	tween.tween_callback(BGM.stop)
 	BGM.autoplay = false
 	await get_tree().create_timer(2.0).timeout
-	#Intro.start()
-	#await Intro.finishedIntro
+	Intro.start()
+	await Intro.finishedIntro
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
 	$CanvasLayer/Animations.play_backwards("fade")
@@ -45,7 +45,8 @@ func _on_start_pressed() -> void:
 	Player.process_mode = Node.PROCESS_MODE_INHERIT
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
 	Globals.task_idx = 0
-	TaskManager.next_task()
 	$"../InGame/CanvasLayer/RichTextLabel".visible = true
 	$"../InGame/CanvasLayer/CanvasLayer2/Budget".visible = true
 	Globals.in_game = true
+	await get_tree().create_timer(5.0).timeout
+	TaskManager.next_task()

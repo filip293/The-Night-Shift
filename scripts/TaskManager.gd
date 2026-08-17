@@ -72,15 +72,10 @@ func _update_task_highlights() -> void:
 	# TASK 2: Mop & Puddles
 	elif task == 2:
 		var mop_held = mop_held_node and mop_held_node.visible
-		var puddles_left = get_tree().get_nodes_in_group("puddles").size()
 		
 		if not mop_held:
 			_glow_by_name("Mop")
-		elif puddles_left > 0:
-			for puddle in get_tree().get_nodes_in_group("puddles"):
-				_set_task_target(puddle, true)
-		else:
-			_glow_by_name("Mop")
+		# Puddles are no longer highlighted here
 
 	# TASK 3: Crate, Cans, Shelf
 	elif task == 3:
