@@ -885,7 +885,7 @@ shader_parameter/puddle_threshold = 0.338000016055
 shader_parameter/puddle_softness = 0.0430000020425
 shader_parameter/drop_speed = 7.72400036363012
 shader_parameter/drop_density = 20.0000009025
-shader_parameter/ripple_intensity = 0.4650000220875
+shader_parameter/ripple_intensity = 0.8210000389975
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_obgan"]
 _surfaces = [{
