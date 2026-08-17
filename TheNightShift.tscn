@@ -37094,6 +37094,18 @@ tracks/11/path = NodePath("Armature/Skeleton3D:mixamorig_Spine")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = PackedFloat32Array(0, 1, 0.46687776, 0.0515787, -0.02991145, 0.88230956, 2, 1, 0.4276835, 0.052473973, -0.028640423, 0.9019496, 4, 1, 0.46687776, 0.0515787, -0.02991145, 0.88230956)
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0011790729, 0.14828944, 7.998402e-05)]
+}
 
 [sub_resource type="Animation" id="Animation_vrn5h"]
 length = 0.001
@@ -37174,6 +37186,18 @@ tracks/10/path = NodePath("Armature/Skeleton3D:mixamorig_Spine")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, 0.46687776, 0.0515787, -0.02991145, 0.88230956)
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0011790729, 0.14828944, 7.998402e-05)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4f0w"]
 _data = {
@@ -37239,7 +37263,7 @@ Game Design
 Squaapi & TheSpectre
 
 Programming
-Squaapi & TheSpectre
+Spectre & TheSquaapi
 
 Gameplay Programming
 Squaapi & TheSpectre
@@ -37251,7 +37275,7 @@ UI Programming
 Squaapi & TheSpectre
 
 Technical Direction
-Squaapi & TheSpectre
+ipaauqS & ertcepSehT
 
 Story & Lore
 Squaapi & TheSpectre
@@ -37260,7 +37284,7 @@ Writing & Dialogue
 Squaapi & TheSpectre
 
 Level Design
-Squaapi & TheSpectre
+Squaaa
 
 Puzzle Design
 Squaapi & TheSpectre
@@ -37272,25 +37296,25 @@ Lighting
 Squaapi & TheSpectre
 
 Animation
-Squaapi & TheSpectre
+Hopes and prayers
 
 Visual Effects
-Squaapi & TheSpectre
+I'm not sure
 
 Sound Design
-Squaapi & TheSpectre
+!Squaapi & !TheSpectre
 
 Audio Implementation
 Squaapi & TheSpectre
 
 Quality Assurance
-Squaapi & TheSpectre
+None
 
 Playtesting
 Squaapi & TheSpectre
 
 Optimization
-Squaapi & TheSpectre
+🙏
 
 Project Management
 Squaapi & TheSpectre
@@ -37812,6 +37836,7 @@ mesh = SubResource("ArrayMesh_y7j8r")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Plaster_0" unique_id=651155702]
 visible = false
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Plaster_0/StaticBody3D" unique_id=511433585]
 shape = SubResource("ConcavePolygonShape3D_lvfn4")
@@ -37822,6 +37847,7 @@ mesh = SubResource("ArrayMesh_uh20l")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Concrete_0" unique_id=1749274637]
 visible = false
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Concrete_0/StaticBody3D" unique_id=1690376864]
 shape = SubResource("ConcavePolygonShape3D_lk3e2")
@@ -45234,7 +45260,6 @@ transform = Transform3D(0.70715636, 0.00060094503, -0.7070585, 0.70705855, 0.000
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
-object_type = 2
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
 audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
@@ -45254,7 +45279,6 @@ transform = Transform3D(0.25888628, 0.00094848726, -0.9659094, 0.9659085, 0.0007
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
-object_type = 2
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
 audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
@@ -45274,7 +45298,6 @@ transform = Transform3D(0.86606115, 0.00034185871, -0.49994084, 0.49994045, 0.00
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
-object_type = 2
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
 audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
@@ -45294,7 +45317,6 @@ transform = Transform3D(0.9659099, -0.0005635279, 0.25888574, -0.25887144, -0.01
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
-object_type = 2
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
 audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
@@ -45314,7 +45336,6 @@ transform = Transform3D(0.70705944, -0.0010649224, 0.7071577, -0.70715696, 0.000
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
-object_type = 2
 puddle_mesh = NodePath("Puddle")
 mop_animation_player = NodePath("../../../../../../../Player/Bwoom3")
 audio_player_mop = NodePath("../../../../../../../Player/Bwoom2/AudioStreamPlayer3D")
@@ -47119,7 +47140,8 @@ transform = Transform3D(2.2067137, 8.271806e-25, -1.928316e-25, 0, 1.8383746, 1.
 mesh = SubResource("ArrayMesh_3j2pq")
 
 [node name="Monster" type="Node3D" parent="." unique_id=2004601232]
-transform = Transform3D(-0.099188015, -0.0006943302, -0.3978213, 0, 0.41000026, -0.0007155858, 0.39782146, -0.00017311594, -0.09918798, -0.26693228, 0.13624543, -23.244287)
+transform = Transform3D(0.40550056, 3.899015e-05, 0.06057615, 3.279344e-05, 0.4100006, -0.0004834206, -0.060576085, 0.00048296052, 0.40550074, -0.26693228, 0.13624543, -23.244287)
+visible = false
 
 [node name="Armature" type="Node3D" parent="Monster" unique_id=986811896]
 transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, -0.01, 0, 0.01, -4.3711387e-10, 0, 0, 0)
