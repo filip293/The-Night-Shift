@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://bb6177m5vludn" path="res://map/gas_station_20.jpg" id="31_54ol5"]
 [ext_resource type="Texture2D" uid="uid://dynvjwk7xal4j" path="res://map/gas_station_21.jpg" id="32_ywnit"]
 [ext_resource type="Texture2D" uid="uid://dqws5jkae3bim" path="res://map/gas_station_22.jpg" id="33_ir43x"]
+[ext_resource type="Shader" uid="uid://i3y5vfh0fhrh" path="res://shaders/Ground.gdshader" id="33_ms8p1"]
 [ext_resource type="AudioStream" uid="uid://db0arpksttc6q" path="res://Sounds/gas_pump.wav" id="33_ryxve"]
 [ext_resource type="Texture2D" uid="uid://l8mpqr3koyxf" path="res://map/gas_station_23.png" id="34_5xyid"]
 [ext_resource type="Texture2D" uid="uid://n4swu370200m" path="res://map/gas_station_24.png" id="35_7pwrw"]
@@ -870,12 +871,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ueim")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt77f"]
-resource_name = "AsphaltDamaged"
-cull_mode = 2
-albedo_texture = ExtResource("11_d0c5r")
-texture_filter = 0
-metadata/_gltf_primary_texture_coord = 0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ms8p1"]
+render_priority = 0
+shader = ExtResource("33_ms8p1")
+shader_parameter/base_color = Color(0.18717623, 0.18717608, 0.18717614, 1)
+shader_parameter/puddle_color = Color(0.05, 0.05, 0.05, 1)
+shader_parameter/texture_albedo = ExtResource("11_d0c5r")
+shader_parameter/texture_normal = ExtResource("11_d0c5r")
+shader_parameter/puddle_noise = ExtResource("11_d0c5r")
+shader_parameter/dry_roughness = 0.0
+shader_parameter/wet_roughness = 0.05
+shader_parameter/puddle_threshold = 0.338000016055
+shader_parameter/puddle_softness = 0.0430000020425
+shader_parameter/drop_speed = 7.72400036363012
+shader_parameter/drop_density = 20.0000009025
+shader_parameter/ripple_intensity = 0.4650000220875
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_obgan"]
 _surfaces = [{
@@ -899,7 +909,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_xt77f"),
+"material": SubResource("ShaderMaterial_ms8p1"),
 "name": "AsphaltDamaged",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -38540,6 +38550,7 @@ shape = SubResource("ConvexPolygonShape3D_ccbeu")
 
 [node name="Crate2" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=411766514]
 transform = Transform3D(7000.0005, 1.1527092, 0.64507043, -0.64638585, 7.989459, 6999.9956, 1.1519791, -6999.996, 7.989565, 658.4392, 35.68874, -960.2821)
+visible = false
 collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Take crate"
@@ -46249,6 +46260,7 @@ transform = Transform3D(3.588812e-08, -0.8210243, -0.5708932, 2.4954545e-08, -0.
 light_color = Color(0.47609282, 0.121185906, 0.66288584, 1)
 light_energy = 0.2
 light_indirect_energy = 0.658
+light_specular = 0.0
 shadow_enabled = true
 
 [node name="Extras" type="Node3D" parent="Map" unique_id=1184279049]
