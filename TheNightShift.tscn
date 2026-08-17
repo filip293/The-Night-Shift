@@ -37497,7 +37497,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500009, -0.00073383795, -0.00024333794, -0.00076567783, 0.5826748, 0.28807932, -0.00010710268, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000093, -0.00073383795, -0.00024333794, -0.0007656779, 0.5826748, 0.28807932, -0.000107102685, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -37528,6 +37528,8 @@ volume_db = -15.0
 transform = Transform3D(100, 0, -7.450581e-09, 2.2351742e-08, -1.1920962e-05, 99.99999, 0, -100, -1.1921818e-05, 0.00018310547, 0.00010621548, -1.1141757)
 visible = false
 mesh = SubResource("ArrayMesh_yr7gk")
+
+[node name="JumpscareAndDrone" type="AudioStreamPlayer3D" parent="Player" unique_id=82289038]
 
 [node name="Map" type="Node3D" parent="." unique_id=248921455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527891, 0, 4.56796)
@@ -47893,6 +47895,7 @@ libraries/ = ExtResource("134_lm7bh")
 [connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
+[connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/JumpscareTrigger" to="Monster2" method="_on_jumpscare_trigger_body_entered"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0/Area3D" method="_on_body_entered"]
