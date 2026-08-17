@@ -109,6 +109,7 @@
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
 [ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
+[ext_resource type="Shader" uid="uid://dwq11yc5gon0l" path="res://shaders/Neon.gdshader" id="93_8k4jg"]
 [ext_resource type="AudioStream" uid="uid://8836liklyh85" path="res://Sounds/car-horn-sound-effect.mp3" id="93_d71h8"]
 [ext_resource type="Curve3D" uid="uid://d3r83ae70gb26" path="res://pathsCar/car2.tres" id="93_jtq2l"]
 [ext_resource type="AnimationLibrary" uid="uid://balxj2sfpw604" path="res://pathsCar/car2anim.res" id="94_d71h8"]
@@ -905,6 +906,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_obgan")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ftei"]
+size = Vector3(1, 92.069336, 18.518555)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tteh"]
 resource_name = "Asphalt"
@@ -30089,6 +30093,16 @@ shadow_mesh = SubResource("ArrayMesh_g43od")
 [sub_resource type="BoxShape3D" id="BoxShape3D_eqbcs"]
 size = Vector3(4.3293533, 7.603241, 3.453827)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_1p4ks"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pttfp"]
+render_priority = 28
+shader = ExtResource("93_8k4jg")
+shader_parameter/main_texture = ExtResource("65_ryxve")
+shader_parameter/glow_intensity = 18.1950008167625
+shader_parameter/saturation_boost = 4.5710001696225
+shader_parameter/black_threshold = 0.21600001026
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywdbd"]
 resource_name = "Bathrooms"
 cull_mode = 2
@@ -31347,45 +31361,6 @@ shadow_mesh = SubResource("ArrayMesh_h0noq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ayo1f"]
 size = Vector3(0.047981407, 0.9426039, 2.5057898)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0sec"]
-resource_name = "Toilets_Sing"
-cull_mode = 2
-albedo_texture = ExtResource("65_ryxve")
-texture_filter = 0
-metadata/_gltf_primary_texture_coord = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_gf5np"]
-_surfaces = [{
-"aabb": AABB(-0.010923424, -0.25351208, -0.51414657, 0.02184679, 0.50702417, 1.0254244),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
-"name": "Toilets_Sing",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAD//wAAAAAAAAAA//8AAAAA/////wAAAAAAAAAAAAD//wAA//8AAP////8AAAAA////////AAD//wAAAAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_1jx46"]
-resource_name = "Sketchfab_Scene_Toilets_Sing_Toilets_Sing_0"
-_surfaces = [{
-"aabb": AABB(-0.010923424, -0.25351208, -0.51414657, 0.02184679, 0.50702417, 1.0254244),
-"attribute_data": PackedByteArray("wghcAjz37vzCCO78PPdcAoEkmkTwTiJugSQibvBOmkTAWwQ6sheFgcBbhYGyFwQ6wVQNNIYV8XHBVPFxhhUNNDIVjG9AXjBMQF6MbzIVMExAXoxvMhUwTDIVjG9AXjBM"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_c0sec"),
-"name": "Toilets_Sing",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAD//wAAVNUAAAAA//9U1QAA/////1TVAAAAAAAAVNUAAAAAAAD/v///AAD///+/AAAAAP///7///wAAAAD/v///AAAAAKoq////////qir//wAA//+qKv////8AAKoq/////wAA/z8AAP//////P/////////8/AAD//wAA/z8AAAAAAAAAgP////8AAACA//8AAAAAAIAAAP//AAAAgP//AAD//wAAAAD/////AAAAAAAA//8AAP///////wAAqqpUVaqqVFWqqlRVqapUVf7//3/+//9//v//f/7//39UVaqqVFWpqlRVqapVVaqqAAD/fwAA/38AAP9/AAD/f/9/////f////3////9////+//9//v//f////3/+//9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_gf5np")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkxok"]
 resource_name = "Fusible"
@@ -37497,7 +37472,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500009, -0.00073383795, -0.00024333794, -0.00076567783, 0.5826748, 0.28807932, -0.00010710268, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000093, -0.00073383795, -0.00024333794, -0.0007656779, 0.5826748, 0.28807932, -0.000107102685, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -37546,6 +37521,25 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 [node name="AsphaltDamaged_AsphaltDamaged_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/AsphaltDamaged" unique_id=1123752459]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_18xqy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/AsphaltDamaged" unique_id=186321265]
+transform = Transform3D(1, 4.3655746e-11, 1.0700774e-11, 0, 1.0000002, 2.3283064e-10, -1.1155521e-11, 0, 1.0000002, 20.57745, -0.0033864975, -0.0019608464)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/AsphaltDamaged/StaticBody3D" unique_id=603860920]
+transform = Transform3D(1, 1.4551915e-11, -6.295693e-10, 0, 1.0000001, 1.1641532e-10, -6.442491e-10, 1.0244548e-08, 1.0000001, 1.2803345, 4.3909016, 8.759158)
+shape = SubResource("BoxShape3D_5ftei")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/AsphaltDamaged/StaticBody3D" unique_id=1561504402]
+transform = Transform3D(-3.472087e-08, 0.99999934, 0.0012732105, -0.99999946, 1.3441895e-06, -0.0010830146, -0.0010830169, -0.0012731993, 0.99999857, -22.555508, 35.638615, 8.79824)
+shape = SubResource("BoxShape3D_5ftei")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/AsphaltDamaged/StaticBody3D" unique_id=1055245329]
+transform = Transform3D(-3.4764525e-08, 0.99999934, 0.0012732105, -0.99999946, 1.3441895e-06, -0.0010830144, -0.0010830169, -0.0012731993, 0.9999984, -22.565874, -27.266544, 8.724133)
+shape = SubResource("BoxShape3D_5ftei")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/AsphaltDamaged/StaticBody3D" unique_id=97901404]
+transform = Transform3D(1, 1.4551915e-11, -6.295693e-10, 0, 1.0000001, 1.1641532e-10, -6.442491e-10, 1.0244548e-08, 1.0000001, -43.735138, 4.3983107, 8.763448)
+shape = SubResource("BoxShape3D_5ftei")
 
 [node name="Sidewalk" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1220481314]
 transform = Transform3D(4.3312575e-05, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.3312575e-05, -1.9095836e-12, 1304.6669, 10.877085, 386.84763)
@@ -44490,6 +44484,11 @@ lightning_audio = NodePath("../../../../../../../Player/Lightning")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03122902, 0.041931152, -0.31102324)
 shape = SubResource("BoxShape3D_eqbcs")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms" unique_id=1734233531]
+transform = Transform3D(9.105861e-09, -1.0007662, -0.00052623573, -0.26436892, 1.3452809e-06, -0.0006187366, -0.0003366441, -0.0010838485, 0.48589754, -2.3056574, 1.5403366, -0.39580166)
+mesh = SubResource("PlaneMesh_1p4ks")
+surface_material_override/0 = SubResource("ShaderMaterial_pttfp")
+
 [node name="Toilet_cubicles" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=274906588]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 2425.995, 144.63763, -1544.3818)
 
@@ -44938,10 +44937,6 @@ unit_size = 0.6
 
 [node name="Toilets_Sing" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1712070806]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 2069.7039, 214.52716, -1917.6487)
-
-[node name="Toilets_Sing_Toilets_Sing_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Toilets_Sing" unique_id=291782334]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_1jx46")
 
 [node name="Camera_02" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=268349291]
 transform = Transform3D(7.54979e-06, 3.1391646e-05, -100, -100, 2.3314684e-13, -7.54979e-06, -2.126077e-12, 100, 3.1391646e-05, -74.504425, 349.27692, -2728.9336)
@@ -46061,7 +46056,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1393469802) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
