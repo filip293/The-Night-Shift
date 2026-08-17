@@ -37701,7 +37701,7 @@ mesh = SubResource("ArrayMesh_iwili")
 volume_db = -15.0
 
 [node name="Crate" type="MeshInstance3D" parent="Player" unique_id=2012936887]
-transform = Transform3D(86.73, 2.3109579e-15, 1.0101518e-22, 0, -3.7910888e-06, 86.73, 2.3109579e-15, -86.73, -3.7910888e-06, 0.00018310547, 0.00010621548, -1.1141757)
+transform = Transform3D(70, 1.8651797e-15, 8.15296e-23, 0, -3.059797e-06, 70, 1.8651797e-15, -70, -3.059797e-06, 0.00018310547, 0.00010621548, -1.1141757)
 visible = false
 mesh = SubResource("ArrayMesh_yr7gk")
 
@@ -38539,8 +38539,7 @@ mesh = SubResource("ArrayMesh_j0btb")
 shape = SubResource("ConvexPolygonShape3D_ccbeu")
 
 [node name="Crate2" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=411766514]
-transform = Transform3D(10000.002, 1.6468682, 0.95097196, -0.95291144, 11.778181, 9999.997, 1.6457444, -9999.998, 11.778334, 658.4406, 50.933567, -960.26404)
-visible = false
+transform = Transform3D(7000.0005, 1.1527092, 0.64507043, -0.64638585, 7.989459, 6999.9956, 1.1519791, -6999.996, 7.989565, 658.4392, 35.68874, -960.2821)
 collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "Take crate"
