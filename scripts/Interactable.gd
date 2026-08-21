@@ -169,6 +169,7 @@ func _toggle_door(other: bool = false) -> void:
 		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
 		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
 		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		await Globals.calltime(3.0)
 		$/root/Node3D/Credits.ShowCredits()
 		
 func start_mopping() -> void:
