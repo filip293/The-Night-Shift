@@ -24,6 +24,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_start_pressed() -> void:
+	$CanvasLayer/ControlNode/VBoxContainer/Start.disabled = true
+	$CanvasLayer/ControlNode/VBoxContainer/Quit.disabled = true
 	$CanvasLayer/Animations.play("fadetitle")
 	await $CanvasLayer/Animations.animation_finished
 	$CanvasLayer.visible = false
