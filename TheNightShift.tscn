@@ -157,6 +157,7 @@
 [ext_resource type="Texture2D" uid="uid://bdhlgkmj30j7m" path="res://MapAssets/Ice/Ice_0.png" id="131_86nqj"]
 [ext_resource type="Texture2D" uid="uid://dpvf8jqxno2jv" path="res://MapAssets/Ice/Ice_1.png" id="132_d4lju"]
 [ext_resource type="AudioStream" uid="uid://bstcgpeqm7vbo" path="res://Sounds/Radio/10Song.mp3" id="132_pkcgn"]
+[ext_resource type="AudioStream" uid="uid://dn2jhbqii8d16" path="res://Sounds/click.mp3" id="133_1xca5"]
 [ext_resource type="Texture2D" uid="uid://xepw48ceqi34" path="res://MapAssets/Ice/Ice_2.png" id="133_lm7bh"]
 [ext_resource type="AnimationLibrary" uid="uid://d3syyibse6b8k" path="res://monsterAnim/AnimLib.res" id="134_3j2pq"]
 [ext_resource type="Texture2D" uid="uid://cnf028t0tp85d" path="res://characters/Monster_Image_70_001.png" id="134_d4lju"]
@@ -34350,6 +34351,9 @@ stream_16 = ExtResource("122_8yufy")
 stream_17 = ExtResource("123_nfb5k")
 stream_18 = ExtResource("124_v3nl5")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xca5"]
+size = Vector3(0.6172547, 0.3607233, 0.61218065)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1p4ks"]
 size = Vector3(296.5027, 0.13220215, 102.04877)
 
@@ -37622,12 +37626,13 @@ offset_top = -417.5
 offset_right = 457.0
 offset_bottom = -276.5
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("15_wa347")
+theme_override_fonts/bold_font = ExtResource("15_g7py6")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "$0/$500"
 
 [node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite", "task_desc")]
-visible = false
 script = ExtResource("12_kc0vc")
 fade_duration = 0.2
 slide_duration = 0.45
@@ -46343,11 +46348,17 @@ light_volumetric_fog_energy = 2.0
 shadow_blur = 0.1
 omni_range = 5.0857973
 
-[node name="Radio_01_Radio_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=890777201]
-transform = Transform3D(-33.71008, 36.927353, 0.05131013, -0.035434082, -0.101821214, 49.99989, 36.927353, 33.70997, 0.09481774, 823.60205, 132.455, -1706.3075)
+[node name="Radio" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=2037015349]
+transform = Transform3D(-33.71008, 36.927357, 0.051310137, -0.03543409, -0.10182123, 49.99989, 36.927353, 33.70997, 0.09481776, 823.6021, 132.455, -1706.3076)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Radio"
+
+[node name="Radio_01_Radio_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio" unique_id=890777201]
+transform = Transform3D(1, 2.9802322e-08, -1.7462298e-10, 5.9604645e-08, 0.99999994, -5.820766e-11, 1.7462298e-10, 5.820766e-11, 1, 1.9073486e-06, -1.9073486e-06, 0)
 mesh = SubResource("ArrayMesh_tcjmu")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio_01_Radio_0" unique_id=986548547]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0" unique_id=986548547]
 transform = Transform3D(2.0405235, 1.8957376, 0.16593623, 0.40466177, -0.19452101, -2.7538166, -1.8594642, 2.0379975, -0.4171984, 0.106220245, -0.11639595, -0.0001487732)
 stream = SubResource("AudioStreamPlaylist_r1k6x")
 volume_db = -31.574
@@ -46355,6 +46366,14 @@ autoplay = true
 panning_strength = 2.2
 emission_angle_enabled = true
 emission_angle_degrees = 40.6
+
+[node name="Click" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0" unique_id=667775081]
+stream = ExtResource("133_1xca5")
+volume_db = -30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio" unique_id=1284459088]
+transform = Transform3D(1, 2.9802322e-08, -1.7462298e-10, 5.9604645e-08, 0.99999994, -5.820766e-11, 1.7462298e-10, 5.820766e-11, 1, 0.0015706122, -1.9072609e-06, 0.09796822)
+shape = SubResource("BoxShape3D_1xca5")
 
 [node name="Ground" type="StaticBody3D" parent="Map" unique_id=1435172573]
 
@@ -46444,6 +46463,7 @@ parameters/looping = true
 
 [node name="BeepBeep" type="AudioStreamPlayer3D" parent="Map/FirstCar/PathFollow3D/suv" unique_id=521461129]
 stream = ExtResource("93_d71h8")
+volume_db = -10.0
 
 [node name="Animations" type="AnimationPlayer" parent="Map/FirstCar" unique_id=286949358]
 libraries/ = ExtResource("92_7pwrw")
@@ -46496,6 +46516,7 @@ parameters/looping = true
 
 [node name="BeepBeep" type="AudioStreamPlayer3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=223437408]
 stream = ExtResource("93_d71h8")
+volume_db = -10.0
 
 [node name="Animations" type="AnimationPlayer" parent="Map/SecondCar" unique_id=529236531]
 libraries/ = ExtResource("94_d71h8")

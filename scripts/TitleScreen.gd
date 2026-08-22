@@ -40,7 +40,7 @@ func _on_start_pressed() -> void:
 	#await Intro.finishedIntro
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
-	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio_01_Radio_0/AudioStreamPlayer3D".play()
+	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D".play()
 	$CanvasLayer/Animations.play_backwards("fade")
 	await $CanvasLayer/Animations.animation_finished
 	$BlackScreen.visible = false

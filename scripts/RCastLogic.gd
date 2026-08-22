@@ -196,7 +196,22 @@ func _physics_process(delta: float) -> void:
 				
 				if object_name == "LockedDoor":
 					target_text = "Door is locked."
-						
+				
+				if object_name == "Radio":
+					if Globals.radio_playing:
+						target_text = "[E] Turn off radio"
+						if Input.is_action_just_pressed("Interact"):
+							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/Click.play()
+							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D.stop()
+							Globals.radio_playing = false
+					else:
+						target_text = "[E] Turn on radio"
+						if Input.is_action_just_pressed("Interact"):
+							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/Click.play()
+							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D.play()
+							Globals.radio_playing = true
+								
+					
 			# --- PUDDLES & DIRT ---
 			elif object_type == ObjectType.PUDDLE:
 				var broom_held = $"../../../Bwoom2".visible

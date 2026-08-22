@@ -29,7 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			task_desc.text = """
 			Pick up the broom from
 			the staff room and sweep
-			the dirt off the floor.
+			the dirt off the
+			gas station floor.
 			"""
 		elif Globals.task_idx == 2: 
 			sprite.texture = task2
