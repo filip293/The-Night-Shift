@@ -13458,7 +13458,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000194, -0.00073383795, -0.00024333794, -0.0007656791, 0.5826748, 0.28807932, -0.00010710285, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.650002, -0.00073383795, -0.00024333794, -0.0007656792, 0.5826748, 0.28807932, -0.00010710287, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
