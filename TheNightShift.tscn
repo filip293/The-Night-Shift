@@ -15413,8 +15413,8 @@ mesh = SubResource("ArrayMesh_oexj8")
 
 [node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_024" unique_id=1373832477]
 transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+light_color = Color(1, 0.9425, 0.77, 1)
 light_volumetric_fog_energy = 0.0
-light_projector = ExtResource("30_xjyhy")
 light_size = 0.1
 shadow_opacity = 0.8
 shadow_blur = 0.1
@@ -15442,8 +15442,8 @@ mesh = SubResource("ArrayMesh_3kxvi")
 
 [node name="OmniLight3D" type="SpotLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp" unique_id=1726557036]
 transform = Transform3D(1, 0, 2.3306323e-17, 0, 1, 7.866578e-23, 0, 7.866578e-23, 1, 0, 0, -0.12701797)
+light_color = Color(1, 0.9425, 0.77, 1)
 light_volumetric_fog_energy = 0.0
-light_projector = ExtResource("30_xjyhy")
 light_size = 0.1
 shadow_opacity = 0.8
 shadow_blur = 0.1
