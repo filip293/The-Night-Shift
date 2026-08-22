@@ -907,6 +907,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ueim")
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_sq8w8"]
+size = Vector3(12.570651, 0.06118335, 3.8863804)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ms8p1"]
 render_priority = 0
 shader = ExtResource("33_ms8p1")
@@ -13455,7 +13458,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500019, -0.00073383795, -0.00024333794, -0.00076567905, 0.5826748, 0.28807932, -0.000107102846, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000194, -0.00073383795, -0.00024333794, -0.0007656791, 0.5826748, 0.28807932, -0.00010710285, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -13499,6 +13502,18 @@ transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, 0, 
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
 [node name="RootNode" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx" unique_id=373503404]
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1882306053]
+transform = Transform3D(100.00001, 2.0489097e-08, 1.2842065e-09, -1.907756e-08, -1.6152859e-05, 100.00007, 0, -100.00013, -1.6093254e-05, 346.01062, 207.55336, -2454.1394)
+occluder = SubResource("BoxOccluder3D_sq8w8")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=637709066]
+transform = Transform3D(-4.362315e-06, -100.00014, -6.657501e-10, -4.2691827e-06, 5.524271e-09, 100.00007, -100.000046, 4.367903e-06, -4.2542815e-06, -162.28735, 207.01154, -1953.1305)
+occluder = SubResource("BoxOccluder3D_sq8w8")
+
+[node name="OccluderInstance3D3" type="OccluderInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=2056945785]
+transform = Transform3D(-4.351139e-06, -100.00014, -6.9667294e-10, -4.120171e-06, 1.2974851e-08, 100.00007, -100.00012, 4.367903e-06, -4.068017e-06, 1042.504, 207.2135, -2221.8584)
+occluder = SubResource("BoxOccluder3D_sq8w8")
 
 [node name="AsphaltDamaged" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=38212622]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 850.74536, 0, -741.4892)
@@ -16630,7 +16645,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 2116333938) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1393469802) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")

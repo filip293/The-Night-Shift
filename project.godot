@@ -42,7 +42,7 @@ window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 window/dpi/allow_hidpi=false
-window/vsync/vsync_mode=0
+window/vsync/vsync_mode=3
 window/scale=1.0
 
 [editor]
@@ -118,6 +118,7 @@ textures/decals/filter=0
 textures/light_projectors/filter=0
 environment/volumetric_fog/use_filter=0
 lights_and_shadows/tighter_shadow_caster_culling=false
+occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=3
 lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=0
 lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=0
