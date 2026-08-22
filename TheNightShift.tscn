@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
 [ext_resource type="AudioStream" uid="uid://bscwh83mkmvxy" path="res://Sounds/print.mp3" id="19_y87xx"]
 [ext_resource type="Texture2D" uid="uid://kis52ga1aqdx" path="res://map/gas_station_9.jpg" id="20_ietea"]
+[ext_resource type="AudioStream" uid="uid://d2qbwmj7ue4pi" path="res://Sounds/paper.mp3" id="21_ml62m"]
 [ext_resource type="Texture2D" uid="uid://dtucvkv3idlwb" path="res://map/gas_station_10.jpg" id="21_mvkfx"]
 [ext_resource type="Texture2D" uid="uid://d1e0e5i288i5b" path="res://map/gas_station_11.jpg" id="22_n57uf"]
 [ext_resource type="Texture2D" uid="uid://qk3g7jpwmqed" path="res://map/gas_station_12.jpg" id="23_6e2wq"]
@@ -37697,6 +37698,7 @@ position = Vector2(960, 960)
 texture = ExtResource("14_86nqj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="InGame/Receipt" unique_id=1255870422]
+stream = ExtResource("21_ml62m")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="InGame/Receipt" unique_id=218759315]
 
@@ -37775,7 +37777,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000135, -0.00073383795, -0.00024333794, -0.0007656784, 0.5826748, 0.28807932, -0.00010710276, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500015, -0.00073383795, -0.00024333794, -0.0007656786, 0.5826748, 0.28807932, -0.00010710279, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -46382,7 +46384,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 71387194) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1393469802) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")

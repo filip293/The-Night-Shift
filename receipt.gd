@@ -25,6 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif Globals.task_idx == 3:
 			sprite.texture = task3
 		animate_to(visible_color)
+		$AudioStreamPlayer.play()
 	elif event.is_action_released("ReceiptOpen"):
 		animate_to(hidden_color)
 
