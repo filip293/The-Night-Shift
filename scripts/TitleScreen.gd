@@ -24,8 +24,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_start_pressed() -> void:
-	$CanvasLayer/ControlNode/VBoxContainer/Start.disabled = true
-	$CanvasLayer/ControlNode/VBoxContainer/Quit.disabled = true
+	$CanvasLayer/VBoxContainer/Start.disabled = true
+	$CanvasLayer/VBoxContainer/Quit.disabled = true
 	$CanvasLayer/Animations.play("fadetitle")
 	await $CanvasLayer/Animations.animation_finished
 	$CanvasLayer.visible = false
@@ -40,6 +40,7 @@ func _on_start_pressed() -> void:
 	#await Intro.finishedIntro
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
+	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio_01_Radio_0/AudioStreamPlayer3D".play()
 	$CanvasLayer/Animations.play_backwards("fade")
 	await $CanvasLayer/Animations.animation_finished
 	$BlackScreen.visible = false

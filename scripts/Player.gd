@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
 @export_group("Movement & Physics")
-@export var walk_speed: float = 4.5
+@export var walk_speed: float = 3.0
 @export var acceleration: float = 12.0 # Higher values = snappier, lower = heavier
 @export var deceleration: float = 14.0
 
 @export_group("AAA Camera Juice")
-@export var head_bob_frequency: float = 2.5
+@export var head_bob_frequency: float = 1.7
 @export var head_bob_amplitude: float = 0.05
 @export var camera_roll_amount: float = 1.2
 
@@ -17,7 +17,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $Neck/Camera
 @onready var footstep_player: AudioStreamPlayer3D = $Feet
 
-const FOOTSTEP_INTERVAL: float = 0.45
+const FOOTSTEP_INTERVAL: float = 0.6
 const FOOT_OFFSET_X: float = 0.25
 const MAX_PITCH_RAD: float = deg_to_rad(85.0)
 

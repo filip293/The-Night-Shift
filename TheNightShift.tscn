@@ -134,9 +134,29 @@
 [ext_resource type="Texture2D" uid="uid://e5qms5reofbu" path="res://MapAssets/Cars/Car4_5Car 1_Car 1 mat_Diffuse.png" id="108_36hyk"]
 [ext_resource type="Texture2D" uid="uid://dgrre3hmnaduh" path="res://MapAssets/Cars/Car4_Emissive.png" id="109_rbd34"]
 [ext_resource type="Texture2D" uid="uid://cwoukfa0lg7cv" path="res://MapAssets/Cars/Car4_4Car 1_Car 1 mat_Diffuse.png" id="110_6rjwa"]
+[ext_resource type="Texture2D" uid="uid://dthx454rd3vie" path="res://MapAssets/radio_Image_23.png" id="113_6i2b5"]
+[ext_resource type="AudioStream" uid="uid://cehw6rpcssfw2" path="res://Sounds/Radio/1Song.mp3" id="114_kj47f"]
+[ext_resource type="AudioStream" uid="uid://c2gp2gbacs3xf" path="res://Sounds/Radio/2Song.mp3" id="115_1xca5"]
+[ext_resource type="AudioStream" uid="uid://1kedd4qg7yhj" path="res://Sounds/Radio/11Song.mp3" id="116_8q2lc"]
+[ext_resource type="AudioStream" uid="uid://bl751aoa37mcq" path="res://Sounds/Radio/12Song.mp3" id="117_6rkv3"]
 [ext_resource type="AudioStream" uid="uid://cj4xt7v00kkf2" path="res://Sounds/Mop.mp3" id="117_wi8tb"]
+[ext_resource type="AudioStream" uid="uid://bt1nc3jbsb1qt" path="res://Sounds/Radio/13Song.mp3" id="118_krf3k"]
+[ext_resource type="AudioStream" uid="uid://chhxvqv2cs4dd" path="res://Sounds/Radio/14Song.mp3" id="119_jl68e"]
+[ext_resource type="AudioStream" uid="uid://b4grpsdt8ents" path="res://Sounds/Radio/15Song.mp3" id="120_cbjmt"]
+[ext_resource type="AudioStream" uid="uid://dvxcl5pvvuwbr" path="res://Sounds/Radio/16Song.mp3" id="121_rhhmh"]
+[ext_resource type="AudioStream" uid="uid://th617u2xmbpl" path="res://Sounds/Radio/17Song.mp3" id="122_8yufy"]
+[ext_resource type="AudioStream" uid="uid://shbivbkymkaw" path="res://Sounds/Radio/18Song.mp3" id="123_nfb5k"]
+[ext_resource type="AudioStream" uid="uid://g42sie8i1cik" path="res://Sounds/Radio/19Song.mp3" id="124_v3nl5"]
+[ext_resource type="AudioStream" uid="uid://mu50218tv1do" path="res://Sounds/Radio/3Song.mp3" id="125_orf22"]
+[ext_resource type="AudioStream" uid="uid://dnose74dv1n7s" path="res://Sounds/Radio/4Song.mp3" id="126_kh518"]
+[ext_resource type="AudioStream" uid="uid://wkab6ocpsneq" path="res://Sounds/Radio/5Song.mp3" id="127_n0vft"]
+[ext_resource type="AudioStream" uid="uid://bvenca81qjvbx" path="res://Sounds/Radio/6Song.mp3" id="128_k741j"]
+[ext_resource type="AudioStream" uid="uid://dikp8c2e3o3pd" path="res://Sounds/Radio/7Song.mp3" id="129_noa1t"]
+[ext_resource type="AudioStream" uid="uid://baxgi3uajl7ws" path="res://Sounds/Radio/8Song.mp3" id="130_ihlne"]
+[ext_resource type="AudioStream" uid="uid://f7h2djn3aj24" path="res://Sounds/Radio/9Song.mp3" id="131_66e14"]
 [ext_resource type="Texture2D" uid="uid://bdhlgkmj30j7m" path="res://MapAssets/Ice/Ice_0.png" id="131_86nqj"]
 [ext_resource type="Texture2D" uid="uid://dpvf8jqxno2jv" path="res://MapAssets/Ice/Ice_1.png" id="132_d4lju"]
+[ext_resource type="AudioStream" uid="uid://bstcgpeqm7vbo" path="res://Sounds/Radio/10Song.mp3" id="132_pkcgn"]
 [ext_resource type="Texture2D" uid="uid://xepw48ceqi34" path="res://MapAssets/Ice/Ice_2.png" id="133_lm7bh"]
 [ext_resource type="AnimationLibrary" uid="uid://d3syyibse6b8k" path="res://monsterAnim/AnimLib.res" id="134_3j2pq"]
 [ext_resource type="Texture2D" uid="uid://cnf028t0tp85d" path="res://characters/Monster_Image_70_001.png" id="134_d4lju"]
@@ -226,7 +246,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ControlNode/Label:theme_override_colors/font_color")
+tracks/0/path = NodePath("Control/Label/Label2:theme_override_colors/font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -238,7 +258,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ControlNode/Label/Label2:theme_override_colors/font_color")
+tracks/1/path = NodePath("Control/Label:theme_override_colors/font_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -250,19 +270,19 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ControlNode/Label:position")
+tracks/2/path = NodePath("VBoxContainer/Start:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(113, -600)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ControlNode/VBoxContainer/Start:modulate")
+tracks/3/path = NodePath("VBoxContainer/Quit:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -274,14 +294,14 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ControlNode/VBoxContainer/Quit:modulate")
+tracks/4/path = NodePath("Control/Label:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(100, -185)]
 }
 
 [sub_resource type="Animation" id="Animation_n57uf"]
@@ -320,11 +340,11 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ControlNode/Label:theme_override_colors/font_color")
+tracks/0/path = NodePath("Control/Label/Label2:theme_override_colors/font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 1.7333333),
+"times": PackedFloat32Array(1.9499998, 2.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -332,11 +352,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ControlNode/Label/Label2:theme_override_colors/font_color")
+tracks/1/path = NodePath("Control/Label:theme_override_colors/font_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.9499998, 2.15),
+"times": PackedFloat32Array(1, 1.7333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -344,7 +364,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = false
-tracks/2/path = NodePath("ControlNode/VBoxContainer/Start:theme_override_colors/font_color")
+tracks/2/path = NodePath("VBoxContainer/Start:theme_override_colors/font_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -356,7 +376,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = false
-tracks/3/path = NodePath("ControlNode/VBoxContainer/Quit:theme_override_colors/font_color")
+tracks/3/path = NodePath("VBoxContainer/Quit:theme_override_colors/font_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -392,23 +412,23 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ControlNode/Label:position")
+tracks/6/path = NodePath("VBoxContainer/Start:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.93333334, 1.1333333, 1.3333334, 1.5333333, 1.7333333, 1.74),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.1994162, 2.2502363),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(113, -600), Vector2(113, -214.71924), Vector2(113, -145.62817), Vector2(113, -133.23834), Vector2(113, -131.01648), Vector2(113, -131)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ControlNode/VBoxContainer/Start:modulate")
+tracks/7/path = NodePath("VBoxContainer/Quit:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(2.1994162, 2.2502363),
+"times": PackedFloat32Array(2.2997015, 2.4006643),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -416,14 +436,14 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ControlNode/VBoxContainer/Quit:modulate")
+tracks/8/path = NodePath("Control/Label:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(2.2997015, 2.4006643),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.94702226, 0.9803556, 1.0136889, 1.0470222, 1.0803556, 1.113689, 1.1470222, 1.1803555, 1.213689, 1.2470223, 1.2803556, 1.3136889, 1.3470223, 1.3803556, 1.4136889, 1.4470222, 1.4803556, 1.5136889, 1.5470222, 1.5803556, 1.613689, 1.6335236),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(100, -185), Vector2(100, -125.77928), Vector2(100, -69.5056), Vector2(100, -16.178955), Vector2(100, 34.200684), Vector2(100, 81.63327), Vector2(100, 126.118835), Vector2(100, 167.65732), Vector2(100, 206.24884), Vector2(100, 241.89328), Vector2(100, 274.5907), Vector2(100, 304.3411), Vector2(100, 331.14447), Vector2(100, 355.0008), Vector2(100, 375.9101), Vector2(100, 393.87238), Vector2(100, 408.88763), Vector2(100, 420.9558), Vector2(100, 430.07697), Vector2(100, 436.25116), Vector2(100, 439.4782), Vector2(100, 440)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mvkfx"]
@@ -8897,38 +8917,6 @@ albedo_texture = ExtResource("44_m2ggc")
 texture_filter = 0
 metadata/_gltf_primary_texture_coord = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2h46w"]
-_surfaces = [{
-"aabb": AABB(-0.15071394, -0.124721095, -0.008805268, 0.30142787, 0.24944219, 0.009370968),
-"format": 34896613377,
-"index_count": 30,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABQACAAEAAwAGAAUABAACAAcABgAEAAcABQAHAAIABgAHAAUA"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD//wAAAAAAAP///////wAA/////wAAAAD//wAA//8AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_5fg2e"]
-resource_name = "Sketchfab_Scene_Management_001_Management_0"
-_surfaces = [{
-"aabb": AABB(-0.15071394, -0.124721095, -0.008805268, 0.30142787, 0.24944219, 0.009370968),
-"attribute_data": PackedByteArray("mpomq7GbOo6xmyarmpo6jpqaKq6xmzeLsZsqrpqaN4uamjqOsZsmq7GbOo6amiarmpo3i7GbKq6xmzeLmpoqruS1N4v4mCqu5LUqrviYN4s="),
-"format": 34896613399,
-"index_count": 30,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
-"material": SubResource("StandardMaterial3D_nltbn"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 20,
-"vertex_data": PackedByteArray("AAAAAAAA/78AAP//////vwAAAAD///+/AAD//wAA/78AAP//AABU1f///////1TVAAD/////VNX/////AABU1f////8AAAAA//8AAP//AAD///////8AAP//AAAAAAAA//8AAAAAqioAAAAA//+qKv//AAD//6oqAAAAAAAAqir/////////PwAAAAD///8/AAD//////z///wAA////P/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqq/7//f/+//3//v/9//7//f6oqVNWqKlTVqipU1aoqVNX/////////////////////")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2h46w")
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_u7a8h"]
 _surfaces = [{
 "aabb": AABB(-0.13057612, -0.124721095, -0.008770824, 0.26115224, 0.24944219, 0.009370968),
@@ -8992,104 +8980,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q7y70")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_vglxp"]
-_surfaces = [{
-"aabb": AABB(-0.13344713, -0.30760762, -0.39401567, 0.21936333, 0.61521524, 0.70722735),
-"format": 34896613377,
-"index_count": 192,
-"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQAAAAIAAUABQAJAAYABQAIAAkAAAAKAAgABwAKAAAACAALAAkABgAMAAcABwAMAAoABgAJAAwADAANAAoACgAOAAgACAAOAAsACgANAA4ACQALAA8ACQAPAAwADgAPAAsADAAPAA0ADgANAA8AEAARABIAEgATABAAEAAUABEAFQAUABAAEwAVABAAFAAWABEAEQAWABcAFAAYABYAFwAWABgAGQAYABQAFQAZABQAFwAYABoAGQAaABgAEQAXABsAGwAXABoAGwAaABkAEgARABsAHAAbABkAEgAbABwAHAAZABUAEgAcAB0AHQAcABUAEgAdAB4AEgAeABMAHQAVAB8AEwAfABUAIAAdAB8AIQATAB4AIgAeAB0AIQAeACIAIgAdACAAIwATACEAIgAjACEAIwAfABMAIgAgACMAIAAfACMA"),
-"lods": [0.37031406, PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQAAAAIAAUABQAJAAYABQAIAAkAAAAKAAgABwAKAAAACAALAAkABgAMAAcABwAMAAoABgAJAAwADAANAAoACgAOAAgACAAOAAsACgANAA4ACQALAA8ACQAPAAwADgAPAAsADAAPAA0ADgANAA8A")],
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 36,
-"vertex_data": PackedByteArray("OS33VAgOAAA5LQerZOoAADkt91Rk6gAAoXgHq2TqAAChePdUZOoAADktB6sIDgAAoXgHqwgOAAChePdUCA4AAAAAds0IDgAAk8F2zQgOAAAAAIgyCA4AAJPBds0AAAAAk8GIMggOAAAAAIgyAAAAAAAAds0AAAAAk8GIMgAAAAAH2f////8AAA6m1sJ6kgAAB9n//xpwAAD///////8AAA6m1sKe3QAAB9kAAP//AAAOctbCepIAAA5yKD16kgAADnLWwp7dAAAOpig9nt0AAA5yKD2e3QAADqYoPXqSAAAH2QAAGnAAAP//AAAacAAA/////xpwAAD//wAA//8AAP//1whedwAA//9J+Yz4AAD//0n5XncAAP//1wiM+AAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_5m2il"]
-resource_name = "Sketchfab_Scene_Management_003_Management_0"
-_surfaces = [{
-"aabb": AABB(-0.13344713, -0.30760762, -0.39401567, 0.21936333, 0.61521524, 0.70722735),
-"attribute_data": PackedByteArray("ZrtiaUGY8AFmu/ABQZhiaamjIAYmrvloqaP5aCauIAaguyAGCpr5aKC7+WgKmiAGJq4gBqmj+WgmrvloqaMgBiauMkVNuC0WJq6cI16dLRZNuKFSqaOcI6mjMkVenaFSJq4yRamjnCOpozJFJq6cI/uswAivpjRF+6w0Ra+mwAhenaFSTbgtFk24oVJenS0W+6w0Ra+mwAj7rMAIr6Y0RfusgxmvpnI0+6xyNK+mgxn7rHI0r6aDGfusgxmvpnI0X5TwAfZg6hrTUPABPITqGmwyBfa/LHmybDJ5sr8sBfY8VBpx4JBJ0+CQGnFflFxuX5Tm1jxUSdPTUObW01Bcbraz9vNjuWqwtrNqsGO59vPaRfpyLUCE2y1A+nLaRYTbnzb6cks8hNtLPPpynzaE21P1zufm/DexU/U3seb8zufTUHpqPISBUV+Uemr2YIFRX5R6ajyE6hpflPABPISBUdNQ8AH2YIFR01B6avZg6hpIv87njuI3sY7izudIvzexYe36cvP0kalh7ZGp8/T6ctNQyNplWA7+01AO/mVYyNr72qlkjeJjQfvaY0GN4qlk4JAacdNQXG48VBpxX5Rcbg=="),
-"format": 34896613399,
-"index_count": 192,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEgARABMAEAAUABEAEgATABUAFgAUABAAFQATABcAFgAXABQAFQAXABYAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOQA7ADoAOQA8ADsAPQA8ADkAOAA9ADkAPQA+ADwAOAA+AD0AOAA/AD4AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0A"),
-"lods": [0.37031406, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEgARABMAEAAUABEAEgATABUAFgAUABAAFQATABcAFgAXABQAFQAXABYAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A")],
-"material": SubResource("StandardMaterial3D_nltbn"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 112,
-"vertex_data": PackedByteArray("OS33VAgOVNU5LQerZOpU1Tkt91Rk6lTVOS0HqwgOVNU5LQerCA7/v6F4B6tk6v+/OS0Hq2Tq/7+heAerCA7/v6F4B6sIDqoqoXj3VGTqqiqheAerZOqqKqF491QIDqoqoXj3VAgO/z85LfdUZOr/P6F491Rk6v8/OS33VAgO/z+heAerCA7+f5PBiDIIDv5/oXj3VAgO/n8AAIgyCA7+f5PBds0IDv5/OS33VAgO/n85LQerCA7+fwAAds0IDv5/oXgHq2Tq/n85LfdUZOr+fzktB6tk6v5/oXj3VGTq/n+TwXbNCA4AAJPBiDIAAAAAk8GIMggOAACTwXbNAAAAAAAAds0AAP//k8GIMgAA//+TwXbNAAD//wAAiDIAAP//AACIMggO/78AAHbNAAD/vwAAds0IDv+/AACIMgAA/7+TwYgyCA6qKgAAiDIAAKoqAACIMggOqiqTwYgyAACqKgAAds0IDlTVk8F2zQAAVNWTwXbNCA5U1QAAds0AAFTVB9n/////18AOptbCepLXwAfZ//8acNfADqbWwp7d18AH2f//GnD/////////////B9n/////////////GnD/////SfledwAA///XCIz4AAD//0n5jPgAAP///////wAA//8AAP//AAD//9cIXncAAP//AAAacAAA/////xpwAAD//wAAGnAAAAfZAAD//wAA//8AAP//AAAH2QAAGnAAAAfZ//8acP////8AABpw////////GnD//wfZAAAacP//////////AAAH2QAA//8AAAfZ/////wAA//8AAP//AAAOpig9nt0AAA5y1sKe3QAADqbWwp7dAAAOcig9nt0AAAfZAAAacNfADqYoPZ7d18AH2QAA///XwA6mKD16ktfAB9kAAP//b64OptbCnt1vrgfZ/////2+uDqYoPZ7db64H2f//GnCP0Q6mKD16ko/RB9kAABpwj9EOptbCepKP0Q5yKD16kv+/DnLWwp7d/78Ocig9nt3/vw5y1sJ6kv+/DqbWwnqS//8Ocig9epL//w6mKD16kv//DnLWwnqS//8OptbCnt3//w5y1sJ6kv//DqbWwnqS//8OctbCnt3//w6mKD16kgAADnIoPZ7dAAAOpig9nt0AAA5yKD16kgAA//9J+Yz4AAD/////GnAAAP//SfledwAA////////AABUVaqqVFWqqlRVqqpUVaqq////f////3////9/////f6oqqiqqKqoqqiqqKqoqqioAAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////7//f/+//3//v/9//7//f////3////9/////f////3//f////3////9/////f///qipU1aoqVNWqKlTVqipU1aqqqqqqqqqqqqqqqqqqqqprjifja44n42uOJ+Nrjifj/3//v/9//7//f/+//3//v/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//3//P/9//z//f/8//3//P/9/////f////3////9/////f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//fydjk/EnY5PxJ2OT8Sdjk/H/f/7//3////9/////f/7//3/+//9/////f////3/+//9/////f////3////9/////f////3////9/////f////3//v/9//7//f/+//3//v/9//z//f/8//3//P/9//z//v/9//7//f/+//3//v/9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_vglxp")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_kqo6f"]
-_surfaces = [{
-"aabb": AABB(-0.20349295, -0.15298752, -0.035972487, 0.408549, 0.29388714, 0.08316735),
-"format": 34896613377,
-"index_count": 60,
-"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQABwAIAAAABQAJAAYABgAKAAcABwAKAAgABgAJAAoAAAAIAAsAAAALAAUACwAIAAoABQALAAkACwAKAAkA"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("dQI1CeI2AABKAv////8AAAAAiAMCjQAA//92/OX0AAC0/QAA6IEAALMEz/+KpwAAQv1Z/KmcAAAE+78FAiwAACsQ9iMAAAAAsO9q2wAAAACw7/YjAAAAACsQatsAAAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_mmoky"]
-resource_name = "Sketchfab_Scene_Management_004_Management_0"
-_surfaces = [{
-"aabb": AABB(-0.20349295, -0.15298752, -0.035972487, 0.408549, 0.29388714, 0.08316735),
-"attribute_data": PackedByteArray("XyRe4D0p4LWSKNzgCiVhtvHi3Twq5+gBKud4PfHiggKi7Ry1JPGZ39PxnrTz7Bjfjf3yqHH5+m1x+Yqpjf2XbjnnTq3L4h92XOfycirimKpcL/JypASdrlwvg66kBA1zO8PQda/hmKq0wkmqNuIfdlTh4TzM2aUFT+GHAlfZHjp8JFzgyB1ivfckYrZAISvcku0dtUrqQtoO7Rff0uZ5uw=="),
-"format": 34896613399,
-"index_count": 60,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
-"material": SubResource("StandardMaterial3D_nltbn"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 40,
-"vertex_data": PackedByteArray("dQI1CeI2mcVKAv////+ZxQAAiAMCjZnFswTP/4qnmcWzBM//iqeA1f//dvzl9IDVSgL/////gNVC/Vn8qZyA1UL9WfypnCgDtP0AAOiBKAP//3b85fQoAwT7vwUCLCgDBPu/BQIslSQAAIgDAo2VJLT9AADogZUkdQI1CeI2lSQE+78FAizH8isQ9iMAAMjydQI1CeI2yPKw7/YjAADH8v//dvzl9DhAAACIAwKNOEBKAv////84QLT9AADogThAKxBq2wAA//+w7/YjAAD//7DvatsAAP//KxD2IwAA//+zBM//iqfR5bDvatsAANHlQv1Z/Kmc0eUrEGrbAADR5XUCNQniNg3VKxBq2wAAD9WzBM//iqcP1SsQ9iMAAAzVQv1Z/KmcGwOw7/YjAAD5AgT7vwUCLPUCsO9q2wAAIAMQe7fzEHu38xB7t/MQe7fzJKtXqiWrV6okq1eqJatXqvbCe3z2wnt89sJ7fPbCe3xMUlRSTFJUUkxSVFJMUlRSsjnlxrM558a0OefGsjnlxtgGNvjYBjb42AY2+NgGNvhRQFHAUUBRwFFAUcBRQFHAdrMRs3ezELN3sxCzdrMRs9h7Cvake7n1oHuz9e17KvYD0Mx8LdAPfTLQFn39z8J8")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_kqo6f")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_kp3g8"]
-_surfaces = [{
-"aabb": AABB(-0.051987205, -0.10659967, -0.015221708, 0.10397442, 0.2148054, 0.04896055),
-"format": 34896613377,
-"index_count": 72,
-"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwACAAQABQAAAAMAAAAFAAEABgADAAQABQADAAYABwAEAAIABwACAAEABgAEAAcACAABAAUABgAJAAUABQAJAAgACgAGAAcABgAKAAkAAQALAAcABwALAAoAAQAIAAsACwAMAAoACQAKAAwACAAMAAsACQAMAA0ACAANAAwACQANAAgA"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 14,
-"vertex_data": PackedByteArray("AAAAAAAAAAAAAAnN//8AAAAAAAAqXwAA//8AAAAAAAD//wAAKl8AAAAACc0AAAAA//8JzQAAAAD//wnN//8AAAAAk+tE1wAAAAD//wAAAAD/////AAAAAP//k+tE1wAA/////91nAAAAAP//3WcAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_whfj1"]
-resource_name = "Sketchfab_Scene_Management_005_Management_0"
-_surfaces = [{
-"aabb": AABB(-0.051987205, -0.10659967, -0.015221708, 0.10397442, 0.2148054, 0.04896055),
-"attribute_data": PackedByteArray("Eus9Zyz2OkAy7z1nEus6QEGYHLrUr2qw1K8cukGYarBBmB/h1K8f4RLrowsy76YyLPajCxLrpjJ/acjaoG1b8qBtyNp/aVvy8AFJuIQZTN+EGUm48AFM34QZSbjwAXmy8AFJuIQZebJHXFvyyGDI2shgW/JHXMjanWVb8shgyNqdZcjayGBb8hLr8AES66MLLPajC2j00wWT7/ABaPRrOiz2OkAS6zpAEuuINpPviDY="),
-"format": 34896613399,
-"index_count": 72,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUABgAIAAQABgAJAAgACgALAAwACgANAAsADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAJAAlACIAJQAmACIAJwAoACkAKQAqACcAKgArACcA"),
-"material": SubResource("StandardMaterial3D_nltbn"),
-"name": "Management",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 44,
-"vertex_data": PackedByteArray("AAAAAAAA/78AAAnN////vwAAAAAqX/+/AAAJzQAA/7///wnNAAD//wAA//8AAP//AAAJzQAA////////AAD/////AAAAAP//AAAAAAAA/////wnNAAAAAP//AAAqXwAA//8Jzf//AAD//wAAAAAAAP//AAAAAKoqAAAAACpfqir//wAAKl+qKgAAAAAAAKoq//8Jzf//AAAAAAAAKl8AAAAACc3//wAA//8AACpfAAAAAAnN//8AAP//k+tE1wAA//8Jzf//AAAAAJPrRNcAAAAA//8AAFTV/////91nVNUAAP//3WdU1f////8AAFTVAACT60TXpcf/////3Welx///k+tE16XHAAD//91npcf/////AAAAAP//Cc0AAAAA//8Jzf//AAD//5PrRNcAAP/////dZwAAAACT60TX/78AAAnN////vwAACc0AAP+/AAD//wAA/78AAP//3Wf/v/9/////f////3////9/////f////3////9/////f////3////9/////v/9//7//f/+//3//v/9/qipU1aoqVNWqKlTVqipU1f9/knX/f5J1/3+Sdf9/knX/f4+Q/3+PkP9/j5D/f4+QqqqqqqqqqqqqqqqqqqqqqlCfUJ9Qn1CfUJ9Qn1CfUJ//v/9//7//f/+//3//v/9//7//f/9//v//f////3/+//9//v//f///")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_kp3g8")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rphpi"]
 _surfaces = [{
@@ -34397,6 +34287,69 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xm8lq")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svwjn"]
+resource_name = "Radio.001"
+cull_mode = 2
+albedo_texture = ExtResource("113_6i2b5")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kl1as"]
+_surfaces = [{
+"aabb": AABB(-0.30705863, -0.18036164, -0.2081221, 0.6172547, 0.3607233, 0.61218065),
+"format": 34896613377,
+"index_count": 270,
+"index_data": PackedByteArray("AAABAAIAAAACAAUAAgAQAAUAAgARABAAEQACAAEAEQASABAAEgAFABAAEQATABIAEQABABMAAwASABMAEgADAAUAAwATAAEABgAFAAMABgADAAEAAAAFAAcABgAHAAUAFAAAAAcABgABAAQAAAAEAAEAFQAGAAQAFgAEAAAABAAWABUAFgAAABQAFwAGABUAFwAVABYAFwAHAAYAFwAWABQABwAXABQACAAJAAoACAALAAkADAAIAAoACwANAAkADQAKAAkACwAOAA0ADAAKAA8ADgAMAA8ADQAPAAoADgAPAA0AGAAZABoAGAAbABkAGwAcABkAHQAYABoAHQAaAB4AHwAbABgAGwAfABwAHwAgABwAIQAfABgAHwAhACAAGAAdACEAIQAeACAAIQAdAB4AIgAjACQAJAAjACUAIgAmACMAJAAlACcAIgAkACcAJwAlACgAKQAmACIAKQAqACYAJwArACIAKwApACIAJwAoACsAKwAqACkAKwAoACoALAAtAC4ALgAtAC8ALAAwAC0ALgAvADEALAAuADEAMQAvADIAMwAwACwAMwA0ADAALAAxADUANQAzACwAMQAyADUANQA0ADMANQAyADQANgA3ADgANgA5ADcAOQA6ADcAOwA2ADgAOwA4ADwAPQA5ADYAOQA9ADoAPQA+ADoANgA/AD0APQA/AD4ANgA7AD8APwA8AD4APwA7ADwA"),
+"lods": [0.33456105, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUAAAACAAUABgADAAEABgABAAQABgAFAAMABwAEAAAABwAGAAQAAAAFAAcABgAHAAUACAAJAAoACAALAAkADAAIAAoACwANAAkADQAKAAkACwAOAA0ADAAKAA8ADgAMAA8ADQAPAAoADgAPAA0A")],
+"name": "Radio.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("/////6oTAAD//wAAu5UAAP////+7lQAAAAAAALuVAAD//wAAqhMAAAAA//+7lQAAAAAAAKoTAAAAAP//qhMAAMoqA3iumAAAxKJhg///AADEop18//8AAMoq+4eumAAA+TADeKGRAABipWGDAv0AAPkw+4ehkQAAYqWdfAL9AAAaC///yKAAAOT0///IoAAAGgsAAMigAADk9AAAyKAAAOT0//+dCAAAGgsAAJ0IAADk9AAAnQgAABoL//+dCAAARNTy6AAAAADX4tTWYgsAAETU8uhiCwAA1+LU1gAAAABG3YO5YgsAALHF1NYAAAAAscXU1mILAABG3YO5AAAAAELLg7liCwAAQsuDuQAAAABtKvLoAAAAANob1NZiCwAA2hvU1gAAAABrIYO5YgsAAG0q8uhiCwAAayGDuQAAAABvM4O5YgsAAAA51NYAAAAAADnU1mILAABvM4O5AAAAAETUDBcAAAAA1+IqKWILAADX4iopAAAAAEbde0ZiCwAARNQMF2ILAABG3XtGAAAAAELLe0ZiCwAAscUqKQAAAACxxSopYgsAAELLe0YAAAAAbSoMFwAAAADaGyopYgsAAG0qDBdiCwAA2hsqKQAAAABrIXtGYgsAAAA5KikAAAAAADkqKWILAABrIXtGAAAAAG8ze0ZiCwAAbzN7RgAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tcjmu"]
+resource_name = "radio_Radio_01_Radio_0_001"
+_surfaces = [{
+"aabb": AABB(-0.30705863, -0.18036164, -0.2081221, 0.6172547, 0.3607233, 0.61218065),
+"attribute_data": PackedByteArray("bc3foXL+t9py/t+hbc232kmzjAFxetJiSbPSYnF6jAFtzcWecv7sZXL+xZ5tzexlZToyx4wB7GVlOuxljAEyx/w4RDbcOf1KVzn9SjY6RDb8OEQ23Dn9Slc5/Uo2OkQ2NjpENlc5/UrcOf1K/DhENjY6RDZXOf1K3Dn9Svw4RDbcOeNAVzleQFc540DcOV5ALXOMASlC0mItc9JiKUKMAbs20mK3BYwBuzaMAbcF0mJJs8UFcXqaXkmzml5xesUFZTr6wowB+sKMASRqZTokaiSH2U+ykEBXJIdAV7KQ2U+VfdlPlX1AV0mJ2U8NfkBXSYlAVw1+2U8MjdlPPIFAVwyNQFc8gdlPDX7ZT0mJQFcNfkBXSYnZTySH2U+ykEBXspDZTySHQFeVfdlPlX1AV0mJ2U8NfkBXDX7ZT0mJQFcMjdlPPIFAVzyB2U8MjUBXDX7ZT0mJQFdJidlPDX5AVySH2U+ykEBXspDZTySHQFeVfdlPlX1AV0mJ2U8NfkBXDX7ZT0mJQFcMjdlPPIFAVzyB2U8MjUBXDX7ZT0mJQFdJidlPDX5AVySH2U+ykEBXJIdAV7KQ2U+VfdlPlX1AV0mJ2U8NfkBXSYlAVw1+2U8MjdlPPIFAVwyNQFc8gdlPDX7ZT0mJQFcNfkBXSYnZT1d3ml5Xd8UF/z2aXv89xQXlOsUF5TqaXowBxQWMAZpeJIejXJV9slU8gXZKDI12SrKQslUkh6NcspCyVQyNdko8gXZKlX2yVTyBdkqVfbJVJIejXAyNdkqykLJVDI12SrKQslUkh6NcPIF2SpV9slU="),
+"format": 34896613399,
+"index_count": 270,
+"index_data": PackedByteArray("AAABAAIAAAADAAEALAAtAC4ALQAGAC4ALQAFAAYALAAvAC0ALAAHAC8ALAAEAAcACAAJAAoACAALAAkAMAAPADEAMAAMAA8AMAAxADIAMAAyADMAMgAOADMAMgANAA4AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEANAA1ADYANAA3ADUAOAA0ADYAOAA2ADkAOgA7ADwAOgA9ADsAPgA/AEAAPgBBAD8AQgBDAEQAQgBFAEMARgBHAEgARgBJAEcASgBJAEYASgBLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABbAFgAXABdAFsAXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAZgBnAGgAZgBpAGcAagBrAGwAagBtAGsAbgBqAGwAbgBsAG8AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkAJgB8AH0AfQAkACYAJAAlACYAJAAnACUAJwB+ACUAJwB/AH4AKgCAAIEAgQAoACoAKAApACoAKAArACkAKwCCACkAKwCDAIIAhACFAIYAhgCHAIQAhwCIAIQAiQCKAIsAiwCMAIkAjACNAIkAjgCPAJAAkACRAI4AkACSAJEAkwCUAJUAlQCWAJMAlQCXAJYA"),
+"lods": [0.33456105, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkA")],
+"material": SubResource("StandardMaterial3D_svwjn"),
+"name": "Radio.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 152,
+"vertex_data": PackedByteArray("/////6oTAAD//wAAu5UAAP////+7lQAA//8AAKoTAAD/////u5VHMwAAAAC7lUczAAD//7uVRzP//wAAu5VHMwAAAACqEyHQAAD//7uV3a8AAAAAu5XdrwAA//+qEyHQAAD//6oTLt///wAAqhMu3/////+qEy7fAAAAAKoTLt/KKgN4rpjjxMSiYYP//+PExKKdfP//48TKKvuHrpjjxMoq+4eumFLGYqVhgwL9UsbEomGD//9Sxvkw+4ehkVLG+TD7h6GRGBVipZ18Av0YFWKlYYMC/RgV+TADeKGRGBX5MAN4oZGsOcSinXz//6w5YqWdfAL9rDnKKgN4rpisOWKlYYMC/X5dxKKdfP//fl3EomGD//9+XWKlnXwC/X5dAAAAAKoTqir//wAAu5WqKv//AACqE6oqAAAAALuVqir/////qhNU1QAA//+7lVTVAAD//6oTVNX/////u5VU1eT0///IoHk+GgsAAMigeT4aC///yKB5PuT0AADIoHk+Ggv//50Iz/QaCwAAnQjP9OT0AACdCM/05PT//50Iz/RE1PLoAAD/v9fi1NZiC17ORNTy6GIL/7/X4tTWAABezrHF1NYAAF7OscXU1mILXs7X4tTWAADtIkbdg7liCxo81+LU1mIL7SJG3YO5AAAbPEbdg7kAABo8QsuDuWILGjxG3YO5YgsaPELLg7kAABo8QsuDuQAAC+6xxdTWYgtezkLLg7liCwvuscXU1gAAXs5tKvLoAAAAANob1NZiC+0i2hvU1gAA7SJtKvLoYgsAAAA51NYAAO0iADnU1mIL7SLaG9TWAABezmshg7liCwvuayGDuQAAC+7aG9TWYgtezmshg7kAAAvubzODuWILC+5vM4O5AAAL7mshg7liCwvubzODuQAAGjwAOdTWYgvtIgA51NYAAO0ibzODuWILGjxE1AwXAAD/P9fiKiliC6Ax1+IqKQAAoDFE1AwXYgv/P7HFKikAAKAxscUqKWILoDHX4iopAAAP3Ubde0ZiC+TDRt17RgAA5MPX4iopYgsR3Ubde0YAAOTDQst7RmIL5MNCy3tGAADkw0bde0ZiC+TDQst7RgAA8xGxxSopYgugMbHFKikAAKAxQst7RmIL8xFtKgwXAAD//9obKiliCxHdbSoMF2IL///aGyopAAAR3QA5KikAABHdADkqKWILEd3aGyopAACgMWshe0ZiC/MR2hsqKWILoDFrIXtGAAD0EWshe0YAAPMRbzN7RmIL8xFrIXtGYgvzEW8ze0YAAPMRbzN7RgAA5MMAOSopYgsR3W8ze0ZiC+TDADkqKQAAEd3k9AAAnQiqKhoLAACdCKoq5PQAAMigqioaCwAAyKCqKhoL//+dCFTV5PT//50IVNUaC///yKBU1eT0///IoFTVRNTy6AAA//+xxdTWAAD//0LLg7kAAP//Rt2DuQAA///X4tTWAAD//20q8ugAAAAA2hvU1gAAAABrIYO5AAAAAG8zg7kAAAAAADnU1gAAAABCy3tGAAAAALHFKikAAAAARNQMFwAAAABG3XtGAAAAANfiKikAAAAAayF7RgAA///aGyopAAD//20qDBcAAP//bzN7RgAA//8AOSopAAD//9bM/38os/9/KLP/f9bM/3+MJIwkctty23LbctuMJIwk/3////9/////f////3////vP+88DMAMwAzADMPvP+8/T5NPk0+TT5NPk0+TT5NPkQuEKQ0LhCkNC4QpDQuEKQ5c1lzWXNZc1lzWXNZc1lzX0PEJh9DxCYfQ8QmH0PEJh/38AAP9/AAD/fwAA/38AAFRVVVVUVVVVVFVUVVVVVFVU1aoqVNWqKlTVqipU1aoqGhIaEuTt5O3k7eTtGhIaEr3FvcW9xb3FQTpBOkE6QTr///9/LLQWWv///38stBZaFdrRyxXa0cvxLhsiNRmUTfEuGyIzGZRNNRmUTWoyNJk1GZRNajI0mfHIG+4V2tHL8cgb7hfa0cv/f/+/4130ruNd8a7/f/+/8S4bIvEuGyIV2tHL8cgb7vHIG+4V2tHL8cgb7uOR8UjjkfFI8cgb7jUZlE3xLhsi8S4bIjUZlE0AAP9/6SUtNOklLTQAAP9/0kvopdJL6KUZog1RlM3KZpTNymYbog1RlM3KZsnmarLJ5mqylM3KZhtuDbfSS+il0kvopRtuDbf/f/8/DdHj3f9//z8N0ePdG6INURuiDVHSS+ilG24Nt9JL6KUdbg23G24Ntw034xEbbg23DTfjEZTNymYbog1RlM3KZhuiDVFUVVVVVFVVVVRVVVVVVVRVVNWqKlTVqipU1aoqVNWqKv///3/+//9//v//f/7//3/+//9//3////9//v//f/7//3/+//9//v/+//9//v//f////3/+//9//v//f/9//v//f/7//3////9//v//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kl1as")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_r1k6x"]
+shuffle = true
+stream_count = 19
+stream_0 = ExtResource("114_kj47f")
+stream_1 = ExtResource("115_1xca5")
+stream_2 = ExtResource("125_orf22")
+stream_3 = ExtResource("126_kh518")
+stream_4 = ExtResource("127_n0vft")
+stream_5 = ExtResource("128_k741j")
+stream_6 = ExtResource("129_noa1t")
+stream_7 = ExtResource("130_ihlne")
+stream_8 = ExtResource("131_66e14")
+stream_9 = ExtResource("132_pkcgn")
+stream_10 = ExtResource("116_8q2lc")
+stream_11 = ExtResource("117_6rkv3")
+stream_12 = ExtResource("118_krf3k")
+stream_13 = ExtResource("119_jl68e")
+stream_14 = ExtResource("120_cbjmt")
+stream_15 = ExtResource("121_rhhmh")
+stream_16 = ExtResource("122_8yufy")
+stream_17 = ExtResource("123_nfb5k")
+stream_18 = ExtResource("124_v3nl5")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1p4ks"]
 size = Vector3(296.5027, 0.13220215, 102.04877)
 
@@ -37512,65 +37465,30 @@ flat = true
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
-visible = false
 script = ExtResource("1_aebcy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TitleScreen" unique_id=533174369]
 layer = 200
-visible = false
 
-[node name="ControlNode" type="Control" parent="TitleScreen/CanvasLayer" unique_id=182194063]
+[node name="Control" type="Control" parent="TitleScreen/CanvasLayer" unique_id=267945825]
 layout_mode = 3
-anchor_top = 0.34800002
-anchor_right = 0.418
-anchor_bottom = 0.67600006
-offset_top = 164.15997
-offset_right = -802.56
-offset_bottom = -190.08008
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/CanvasLayer/ControlNode" unique_id=690722770]
+[node name="Label" type="Label" parent="TitleScreen/CanvasLayer/Control" unique_id=2127220323]
 layout_mode = 0
-offset_left = 111.0
-offset_top = 26.0
-offset_right = 327.0
-offset_bottom = 151.0
-theme_override_constants/separation = 23
-
-[node name="Start" type="Button" parent="TitleScreen/CanvasLayer/ControlNode/VBoxContainer" unique_id=1379238324]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
-theme_override_font_sizes/font_size = 36
-text = "Start Shift"
-flat = true
-alignment = 0
-autowrap_mode = 3
-
-[node name="Quit" type="Button" parent="TitleScreen/CanvasLayer/ControlNode/VBoxContainer" unique_id=1137263914]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
-theme_override_font_sizes/font_size = 26
-text = "Quit Game"
-flat = true
-alignment = 0
-
-[node name="Label" type="Label" parent="TitleScreen/CanvasLayer/ControlNode" unique_id=2127220323]
-layout_mode = 0
-offset_left = 113.0
-offset_top = -600.0
-offset_right = 691.0
-offset_bottom = -461.99976
+offset_left = 100.0
+offset_top = -185.0
+offset_right = 678.0
+offset_bottom = -46.999756
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 theme_override_fonts/font = ExtResource("2_wk1nr")
 theme_override_font_sizes/font_size = 120
 text = "The Night Shift"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="TitleScreen/CanvasLayer/ControlNode/Label" unique_id=266762780]
+[node name="Label2" type="Label" parent="TitleScreen/CanvasLayer/Control/Label" unique_id=266762780]
 layout_mode = 0
 offset_left = 345.0
 offset_top = 106.0
@@ -37579,6 +37497,39 @@ offset_bottom = 129.0
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 text = "A GAME BY PSEUDOSTAR"
 horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/CanvasLayer" unique_id=1481492615]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -430.0
+offset_right = 804.0
+offset_bottom = 78.00061
+grow_vertical = 0
+theme_override_constants/separation = 17
+
+[node name="Start" type="Button" parent="TitleScreen/CanvasLayer/VBoxContainer" unique_id=1379238324]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+theme_override_fonts/font = ExtResource("15_g7py6")
+theme_override_font_sizes/font_size = 40
+text = "Start Shift"
+flat = true
+alignment = 0
+
+[node name="Quit" type="Button" parent="TitleScreen/CanvasLayer/VBoxContainer" unique_id=1137263914]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+theme_override_fonts/font = ExtResource("15_wa347")
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+flat = true
+alignment = 0
 
 [node name="Animations" type="AnimationPlayer" parent="TitleScreen/CanvasLayer" unique_id=983867852]
 libraries/ = SubResource("AnimationLibrary_mvkfx")
@@ -37675,14 +37626,18 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "$0/$500"
 
-[node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite")]
+[node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite", "task_desc")]
+visible = false
 script = ExtResource("12_kc0vc")
 fade_duration = 0.2
+slide_duration = 0.45
 sprite = NodePath("Sprite2D")
+task_desc = NodePath("Label")
 task1 = ExtResource("14_86nqj")
 task2 = ExtResource("16_lm7bh")
 task3 = ExtResource("15_d4lju")
 hidden_color = Color(1, 1, 1, 0)
+hidden_position = Vector2(0, 960)
 
 [node name="ColorRect" type="ColorRect" parent="InGame/Receipt" unique_id=581992442]
 anchors_preset = 15
@@ -37694,8 +37649,18 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.3137255)
 
 [node name="Sprite2D" type="Sprite2D" parent="InGame/Receipt" unique_id=1950938635]
-position = Vector2(960, 960)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("14_86nqj")
+offset = Vector2(960, 960)
+
+[node name="Label" type="Label" parent="InGame/Receipt" unique_id=1030467690]
+offset_left = 1064.0
+offset_top = 366.0
+offset_right = 1564.0
+offset_bottom = 428.0
+theme_override_fonts/font = ExtResource("15_wa347")
+theme_override_font_sizes/font_size = 50
+text = "TASK DESCRIPTION"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="InGame/Receipt" unique_id=1255870422]
 stream = ExtResource("21_ml62m")
@@ -37766,18 +37731,18 @@ draw_pass_1 = SubResource("QuadMesh_bekt7")
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.856974, 0)
 stream = ExtResource("11_7kn7w")
-volume_db = -20.0
+volume_db = -40.0
 autoplay = true
 
 [node name="Lightning" type="AudioStreamPlayer3D" parent="Player" unique_id=2107546125 node_paths=PackedStringArray("sun_light")]
 process_mode = 1
 stream = ExtResource("12_lk3e2")
-volume_db = -20.0
+volume_db = -35.0
 script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500015, -0.00073383795, -0.00024333794, -0.0007656786, 0.5826748, 0.28807932, -0.00010710279, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500018, -0.00073383795, -0.00024333794, -0.00076567894, 0.5826748, 0.28807932, -0.00010710284, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -37986,7 +37951,7 @@ shape = SubResource("BoxShape3D_ir43x")
 [node name="FridgeBuzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Refrigerador_02_0" unique_id=1718446580]
 transform = Transform3D(-1.6548636e-08, 0.0013427844, -0.99999946, -0.0010134112, 0.9999989, 0.0013427838, 0.99999946, 0.0010134104, 1.3442586e-06, -4.867701, -0.17771721, -0.30218267)
 stream = ExtResource("36_6rjwa")
-volume_db = 10.0
+volume_db = -8.448
 unit_size = 0.2
 autoplay = true
 max_distance = 10.0
@@ -37997,7 +37962,7 @@ emission_angle_filter_attenuation_db = -80.0
 [node name="FridgeBuzz2" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Refrigerador_02_0" unique_id=1239826834]
 transform = Transform3D(1.4414819e-07, 0.0013427848, -0.9999998, -0.0010134105, 0.9999988, 0.0013427839, 0.9999989, 0.0010134098, 1.5797891e-06, -4.8675294, 0.88574505, -0.3009299)
 stream = ExtResource("36_6rjwa")
-volume_db = 10.0
+volume_db = -8.448
 unit_size = 0.2
 autoplay = true
 max_distance = 10.0
@@ -38008,7 +37973,7 @@ emission_angle_filter_attenuation_db = -80.0
 [node name="FridgeBuzz3" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Refrigerador_02_0" unique_id=1538204225]
 transform = Transform3D(1.4422817e-07, 0.0013427846, -0.9999993, -0.0010134117, 0.99999875, 0.001342784, 0.99999976, 0.0010134111, 1.2817146e-06, -4.8673596, 1.9086046, -0.29972482)
 stream = ExtResource("36_6rjwa")
-volume_db = 10.0
+volume_db = -8.448
 unit_size = 0.2
 autoplay = true
 max_distance = 10.0
@@ -38019,7 +37984,7 @@ emission_angle_filter_attenuation_db = -80.0
 [node name="FridgeBuzz4" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Refrigerador_02_0" unique_id=1083224673]
 transform = Transform3D(1.4422817e-07, 0.0013427846, -0.9999993, -0.0010134117, 0.99999875, 0.001342784, 0.99999976, 0.0010134111, 1.2817146e-06, -4.868034, -2.1860285, -0.30454874)
 stream = ExtResource("36_6rjwa")
-volume_db = 10.0
+volume_db = -8.448
 unit_size = 0.2
 autoplay = true
 max_distance = 10.0
@@ -38030,7 +37995,7 @@ emission_angle_filter_attenuation_db = -80.0
 [node name="FridgeBuzz5" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Refrigerador_02_0" unique_id=520573278]
 transform = Transform3D(1.4422817e-07, 0.0013427846, -0.9999993, -0.0010134117, 0.99999875, 0.001342784, 0.99999976, 0.0010134111, 1.2817146e-06, -4.8682256, -3.3487806, -0.30591857)
 stream = ExtResource("36_6rjwa")
-volume_db = 10.0
+volume_db = -8.448
 unit_size = 0.2
 autoplay = true
 max_distance = 10.0
@@ -38041,7 +38006,7 @@ emission_angle_filter_attenuation_db = -80.0
 [node name="FridgeBuzz6" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Refrigerador_02_0" unique_id=801446593]
 transform = Transform3D(1.4422817e-07, 0.0013427846, -0.9999993, -0.0010134117, 0.99999875, 0.001342784, 0.99999976, 0.0010134111, 1.2817146e-06, -4.8684, -4.411564, -0.30717063)
 stream = ExtResource("36_6rjwa")
-volume_db = 10.0
+volume_db = -8.448
 unit_size = 0.2
 autoplay = true
 max_distance = 10.0
@@ -38368,6 +38333,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_002/OmniLight3D" unique_id=1915124782]
 stream = ExtResource("49_rbd34")
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -38423,6 +38389,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_004/OmniLight3D" unique_id=897200802]
 stream = ExtResource("49_rbd34")
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -38478,6 +38445,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_006/OmniLight3D" unique_id=272039866]
 stream = ExtResource("49_rbd34")
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -38533,6 +38501,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_008/OmniLight3D" unique_id=1023704048]
 stream = ExtResource("49_rbd34")
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -38588,6 +38557,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_010/OmniLight3D" unique_id=214124281]
 stream = ExtResource("49_rbd34")
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -38618,6 +38588,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_011/OmniLight3D" unique_id=1245367444]
 stream = ExtResource("49_rbd34")
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -38923,6 +38894,11 @@ mesh = SubResource("ArrayMesh_3qui0")
 transform = Transform3D(100, -3.0758005e-05, -2.2427676e-05, 3.3813394e-05, 98.83476, 15.221354, 1.7484555e-05, -15.221354, 98.83476, 464.78668, 154.67882, -1752.3397)
 
 [node name="Frying_17_Foods_02_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Frying_17" unique_id=1946822624]
+gi_mode = 0
+mesh = SubResource("ArrayMesh_a6368")
+
+[node name="Frying_17_Foods_02_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Frying_17/Frying_17_Foods_02_0" unique_id=1340534768]
+transform = Transform3D(0.29140764, -0.14665408, 0.9452915, 0.14678779, 0.9833301, 0.10730503, -0.9452703, 0.10748744, 0.3080773, 3.360992, -0.19201827, 0.48815727)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_a6368")
 
@@ -39972,6 +39948,12 @@ mesh = SubResource("ArrayMesh_gp6vl")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 777.85187, 154.9384, -1799.2874)
 
 [node name="Candy_001_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001" unique_id=1321915028]
+transform = Transform3D(1, 5.820766e-11, 1.8019364e-11, 0, 1.0000004, 2.3283064e-10, -1.8431479e-11, 1.1641532e-10, 1.0000004, -0.00019961596, -1.2160339, 0.0040881634)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_fy6m4")
+
+[node name="Candy_001_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0" unique_id=2038944442]
+transform = Transform3D(1, 4.3655746e-11, -3.2983394e-11, 0, 1.0000001, -1.1641532e-10, -1.8545165e-11, 6.9849193e-10, 1.0000001, 6.043911e-05, 0.36675262, 0.00043225288)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_fy6m4")
 
@@ -40007,6 +39989,7 @@ mesh = SubResource("ArrayMesh_xe7x3")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 784.21405, 143.75679, -1849.0973)
 
 [node name="Candy_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy" unique_id=277953614]
+transform = Transform3D(1, 7.2759576e-11, 2.5323743e-11, 0, 1.0000005, 3.4924597e-10, -2.5707436e-11, 1.1641532e-10, 1.0000005, -0.00011867285, -0.7215042, -0.000849843)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_b6xj7")
 
@@ -40028,6 +40011,7 @@ mesh = SubResource("ArrayMesh_t6k5u")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 782.03406, 157.63867, -1684.1262)
 
 [node name="Gadgets_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets" unique_id=676480927]
+transform = Transform3D(1, 4.3655746e-11, 1.0700774e-11, 0, 1.0000002, 2.3283064e-10, -1.1155521e-11, 0, 1.0000002, 0.00028055906, 1.7041473, 0.0020077229)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_0pmk3")
 
@@ -40038,12 +40022,18 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 gi_mode = 0
 mesh = SubResource("ArrayMesh_f8i8u")
 
+[node name="Gadgets_01_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0" unique_id=653558148]
+transform = Transform3D(1, 1.1641532e-10, 3.9960923e-11, 0, 1.0000007, 5.820766e-10, -4.025935e-11, 1.1641532e-10, 1.0000007, -0.14418122, 3.2768183, 0.0038737059)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_f8i8u")
+
+[node name="Gadgets_01_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0" unique_id=150047851]
+transform = Transform3D(1, 4.3655746e-11, -3.6521897e-12, 0, 1.0000002, 6.9849193e-10, -6.954792e-11, 4.656613e-10, 1.0000002, 0.0032468736, -0.56015396, -0.0006605387)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_f8i8u")
+
 [node name="Management_001" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=577381605]
 transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 798.18976, 123.936775, -1748.4562)
-
-[node name="Management_001_Management_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_001" unique_id=745195410]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_5fg2e")
 
 [node name="Management_002" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1496420798]
 transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 798.18976, 123.93333, -1603.6632)
@@ -40058,27 +40048,6 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 [node name="Management_010_Management_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_010" unique_id=1715079682]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_gcann")
-
-[node name="Management_003" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1729675150]
-transform = Transform3D(42.53954, 90.50076, -6.9999905e-06, -4.5181914e-06, 9.85849e-06, 100, 90.50076, -42.53954, 8.282754e-06, 820.5622, 161.00978, -1801.8223)
-
-[node name="Management_003_Management_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_003" unique_id=680345325]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_5m2il")
-
-[node name="Management_004" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1089459386]
-transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 830.86566, 126.10434, -1734.9922)
-
-[node name="Management_004_Management_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_004" unique_id=1609214832]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_mmoky")
-
-[node name="Management_005" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1192689381]
-transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 831.8551, 124.268326, -1772.4325)
-
-[node name="Management_005_Management_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_005" unique_id=1444793859]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_whfj1")
 
 [node name="Management_009" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=744500541]
 transform = Transform3D(41.15379, -91.13926, 6.880823e-06, 0, 7.549789e-06, 100, -91.13926, -41.15379, 3.1070251e-06, 822.2456, 161.00978, -1543.4042)
@@ -44274,7 +44243,7 @@ shape = SubResource("ConvexPolygonShape3D_61cw4")
 [node name="FridgeBuzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Fridge" unique_id=1110869588]
 transform = Transform3D(-1.6530976e-08, 6.9195936e-05, 1.0000002, 0.00025986537, 1, -6.919598e-05, -1.0000002, 0.00025986528, -3.4691766e-08, 0.00017356873, 1.4066696e-05, -0.14685279)
 stream = ExtResource("36_6rjwa")
-volume_db = 15.0
+volume_db = -8.448
 unit_size = 0.25
 autoplay = true
 max_distance = 10.0
@@ -45208,7 +45177,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_024/OmniLight3D" unique_id=1755090126]
 stream = ExtResource("49_rbd34")
-volume_db = -5.0
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -45238,7 +45207,7 @@ omni_range = 4.0
 
 [node name="Buzz" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp/OmniLight3D" unique_id=2069012492]
 stream = ExtResource("49_rbd34")
-volume_db = -5.0
+volume_db = -8.448
 unit_size = 1.0
 autoplay = true
 
@@ -46360,6 +46329,33 @@ transform = Transform3D(100.00001, 7.450581e-09, 4.2564352e-10, -3.270543e-09, -
 gi_mode = 0
 mesh = SubResource("ArrayMesh_osqkc")
 
+[node name="spotlight2" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=805613139]
+transform = Transform3D(-4.367903e-06, -1.3933459e-09, 100.00003, 8.195639e-08, 100, -3.6779966e-09, -100.00004, 8.940697e-08, -4.371628e-06, 1056.4601, 299.53403, -2741.7976)
+
+[node name="spotlight_spotlight_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/spotlight2" unique_id=1138546991]
+gi_mode = 0
+mesh = SubResource("ArrayMesh_laebx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/spotlight2/spotlight_spotlight_0" unique_id=1280090513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1484108)
+light_energy = 0.2
+light_volumetric_fog_energy = 2.0
+shadow_blur = 0.1
+omni_range = 5.0857973
+
+[node name="Radio_01_Radio_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=890777201]
+transform = Transform3D(-33.71008, 36.927353, 0.05131013, -0.035434082, -0.101821214, 49.99989, 36.927353, 33.70997, 0.09481774, 823.60205, 132.455, -1706.3075)
+mesh = SubResource("ArrayMesh_tcjmu")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio_01_Radio_0" unique_id=986548547]
+transform = Transform3D(2.0405235, 1.8957376, 0.16593623, 0.40466177, -0.19452101, -2.7538166, -1.8594642, 2.0379975, -0.4171984, 0.106220245, -0.11639595, -0.0001487732)
+stream = SubResource("AudioStreamPlaylist_r1k6x")
+volume_db = -31.574
+autoplay = true
+panning_strength = 2.2
+emission_angle_enabled = true
+emission_angle_degrees = 40.6
+
 [node name="Ground" type="StaticBody3D" parent="Map" unique_id=1435172573]
 
 [node name="GroundCollision" type="CollisionShape3D" parent="Map/Ground" unique_id=1447098090]
@@ -46530,6 +46526,20 @@ unit_size = 1.0
 max_db = 6.0
 autoplay = true
 max_distance = 10.0
+
+[node name="spotlight_spotlight_0" type="MeshInstance3D" parent="Map" unique_id=514737218]
+transform = Transform3D(-4.3801265e-08, 6.421885e-11, -1.0000012, -5.820766e-10, 1.0000019, 4.5616844e-11, 1.0000007, -1.1641532e-10, -4.3713953e-08, 20.64858, 2.8443108, -20.540556)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_laebx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/spotlight_spotlight_0" unique_id=84070153]
+transform = Transform3D(0.9999993, 8.1490725e-10, -5.820766e-11, -2.3283064e-10, 0.9999981, 1.7323032e-11, -2.910383e-11, 9.947598e-12, 0.9999988, 0, -2.3841858e-07, 0.15124416)
+light_color = Color(1, 0.72156864, 0.3019608, 1)
+light_energy = 0.2
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.437
+shadow_blur = 0.1
+omni_range = 3.622872
 
 [node name="Camera1" type="SubViewport" parent="." unique_id=1717272481]
 canvas_item_default_texture_filter = 0
@@ -48247,8 +48257,8 @@ transform = Transform3D(0.11829668, 0.0725544, 0.018485172, 0.006290232, -0.0440
 shape = SubResource("BoxShape3D_u4f0w")
 
 [connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
-[connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
-[connection signal="pressed" from="TitleScreen/CanvasLayer/ControlNode/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
+[connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
+[connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/JumpscareTrigger" to="Monster2" method="_on_jumpscare_trigger_body_entered"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_exited"]
