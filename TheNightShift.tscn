@@ -30,7 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://difl4pcl02c2e" path="res://Task1.png" id="14_86nqj"]
 [ext_resource type="Texture2D" uid="uid://cc4axuslwmh08" path="res://map/gas_station_3.jpg" id="14_lvfn4"]
 [ext_resource type="Texture2D" uid="uid://b1vdmq8fp36y0" path="res://Task3.png" id="15_d4lju"]
+[ext_resource type="FontFile" uid="uid://b0c2ysn2wfoof" path="res://Fonts/PixeloidSans-Bold.ttf" id="15_g7py6"]
 [ext_resource type="Texture2D" uid="uid://b80gxsakrcvkx" path="res://map/gas_station_4.jpg" id="15_lk3e2"]
+[ext_resource type="FontFile" uid="uid://d18qtl4gbrt2t" path="res://Fonts/PixeloidSans.ttf" id="15_wa347"]
 [ext_resource type="Texture2D" uid="uid://dnpnv7lhoobbt" path="res://Task2.png" id="16_lm7bh"]
 [ext_resource type="Texture2D" uid="uid://bjkbsk6nsr0rm" path="res://map/gas_station_5.jpg" id="16_ygv6i"]
 [ext_resource type="Script" uid="uid://herx33nqv75a" path="res://scripts/RCastLogic.gd" id="17_61cw4"]
@@ -145,7 +147,9 @@
 [sub_resource type="Resource" id="Resource_sq8w8"]
 script = ExtResource("2_c7hx4")
 ChromaticAberration = true
-StrenghtCA = 3.3
+ColorCorrection = true
+ColorCorrectionTint = Color(1, 1, 1, 0.003)
+ColorCorrectionBrightness = 1.0
 PixelatePixelSize = 5
 metadata/_custom_type_script = "uid://bvqhrfw0ecawf"
 
@@ -37605,10 +37609,18 @@ layer = 200
 
 [node name="NewTaskAlert" type="Label" parent="InGame/CanvasLayer/CanvasLayer" unique_id=691076870]
 visible = false
-offset_left = 1560.0
-offset_top = 952.0
-offset_right = 1875.0
-offset_bottom = 1045.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -438.0
+offset_top = -119.0
+offset_right = -33.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("15_g7py6")
 theme_override_font_sizes/font_size = 32
 text = "NEW TASK RECEIVED
 HOLD [R] TO VIEW"
@@ -37625,6 +37637,7 @@ offset_right = 47.5
 offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_wa347")
 theme_override_font_sizes/font_size = 20
 text = "Door"
 horizontal_alignment = 1
@@ -37651,8 +37664,8 @@ script = ExtResource("12_kc0vc")
 fade_duration = 0.2
 sprite = NodePath("Sprite2D")
 task1 = ExtResource("14_86nqj")
-task2 = ExtResource("15_d4lju")
-task3 = ExtResource("16_lm7bh")
+task2 = ExtResource("16_lm7bh")
+task3 = ExtResource("15_d4lju")
 hidden_color = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="InGame/Receipt" unique_id=581992442]
@@ -37677,8 +37690,8 @@ position = Vector2(1562, -143)
 script = ExtResource("17_caos5")
 sprite = NodePath("Sprite2D")
 frame_21 = ExtResource("14_86nqj")
-frame_22 = ExtResource("15_d4lju")
-frame_23 = ExtResource("16_lm7bh")
+frame_22 = ExtResource("16_lm7bh")
+frame_23 = ExtResource("15_d4lju")
 
 [node name="Sprite2D" type="Sprite2D" parent="InGame/OTReceipt" unique_id=1230397516]
 position = Vector2(73.99999, -251.99998)
@@ -37747,7 +37760,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500013, -0.00073383795, -0.00024333794, -0.0007656783, 0.5826748, 0.28807932, -0.000107102744, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000135, -0.00073383795, -0.00024333794, -0.0007656784, 0.5826748, 0.28807932, -0.00010710276, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
