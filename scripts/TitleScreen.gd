@@ -36,8 +36,8 @@ func _on_start_pressed() -> void:
 	tween.tween_callback(BGM.stop)
 	BGM.autoplay = false
 	await get_tree().create_timer(2.0).timeout
-	#Intro.start()
-	#await Intro.finishedIntro
+	Intro.start()
+	await Intro.finishedIntro
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
 	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D".play()
@@ -51,5 +51,6 @@ func _on_start_pressed() -> void:
 	$"../InGame/CanvasLayer/RichTextLabel".visible = true
 	$"../InGame/CanvasLayer/CanvasLayer2/Budget".visible = true
 	Globals.in_game = true
+	## ADD NPC INTERACTIONS BUT CALL FROM A DIFFERENT SCRIPT BEFORE STARTING
 	await get_tree().create_timer(5.0).timeout
 	TaskManager.next_task()
