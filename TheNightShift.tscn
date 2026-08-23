@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://bvqhrfw0ecawf" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_c7hx4"]
 [ext_resource type="FontFile" uid="uid://b1avx2eyat61b" path="res://Fonts/Station.ttf" id="2_wk1nr"]
 [ext_resource type="Environment" uid="uid://dconbv55cgg4i" path="res://Env/Env.tres" id="3_d71h8"]
-[ext_resource type="Script" uid="uid://d0qibcmo5o5gt" path="res://scripts/introseq.gd" id="3_mvkfx"]
 [ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
 [ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
 [ext_resource type="Shader" uid="uid://lrjvu6p4sr8r" path="res://dithering.gdshader" id="4_x47wp"]
@@ -13117,10 +13116,10 @@ transform = Transform3D(0.5417151, -0.00053686416, 0.84056187, 0.0003806766, 0.9
 fov = 120.0
 far = 19.0
 
-[node name="Intro" type="Node2D" parent="." unique_id=1449257552]
+[node name="Intro" type="Node3D" parent="." unique_id=1061287263]
 process_mode = 3
+transform = Transform3D(1, 2.0222046e-11, -2.910383e-11, -1.6171953e-11, 1.0000002, -2.3283064e-10, 0, 0, 1.0000002, 0.027616061, 0.1975263, -167.68855)
 visible = false
-script = ExtResource("3_mvkfx")
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
@@ -13402,7 +13401,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.650002, -0.00073383795, -0.00024333794, -0.0007656792, 0.5826748, 0.28807932, -0.00010710287, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000206, -0.00073383795, -0.00024333794, -0.00076567923, 0.5826748, 0.28807932, -0.000107102875, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 

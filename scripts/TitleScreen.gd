@@ -36,8 +36,7 @@ func _on_start_pressed() -> void:
 	tween.tween_callback(BGM.stop)
 	BGM.autoplay = false
 	await get_tree().create_timer(2.0).timeout
-	Intro.start()
-	await Intro.finishedIntro
+	#INTRO HERE
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
 	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D".play()
