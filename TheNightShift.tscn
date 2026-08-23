@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
 [ext_resource type="AudioStream" uid="uid://bscwh83mkmvxy" path="res://Sounds/print.mp3" id="19_y87xx"]
 [ext_resource type="Texture2D" uid="uid://kis52ga1aqdx" path="res://map/gas_station_9.jpg" id="20_ietea"]
+[ext_resource type="Texture2D" uid="uid://btjlbb75uflc8" path="res://Task4.png" id="21_6rkv3"]
 [ext_resource type="AudioStream" uid="uid://d2qbwmj7ue4pi" path="res://Sounds/paper.mp3" id="21_ml62m"]
 [ext_resource type="Texture2D" uid="uid://dtucvkv3idlwb" path="res://map/gas_station_10.jpg" id="21_mvkfx"]
 [ext_resource type="Texture2D" uid="uid://d1e0e5i288i5b" path="res://map/gas_station_11.jpg" id="22_n57uf"]
@@ -13386,6 +13387,7 @@ task_desc = NodePath("Label")
 task1 = ExtResource("14_86nqj")
 task2 = ExtResource("16_lm7bh")
 task3 = ExtResource("15_d4lju")
+task4 = ExtResource("21_6rkv3")
 hidden_color = Color(1, 1, 1, 0)
 hidden_position = Vector2(0, 960)
 
@@ -13424,6 +13426,7 @@ sprite = NodePath("Sprite2D")
 frame_21 = ExtResource("14_86nqj")
 frame_22 = ExtResource("16_lm7bh")
 frame_23 = ExtResource("15_d4lju")
+frame_24 = ExtResource("21_6rkv3")
 
 [node name="Sprite2D" type="Sprite2D" parent="InGame/OTReceipt" unique_id=1230397516]
 position = Vector2(73.99999, -251.99998)
@@ -13492,7 +13495,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000224, -0.00073383795, -0.00024333794, -0.00076567946, 0.5826748, 0.28807932, -0.000107102904, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500023, -0.00073383795, -0.00024333794, -0.0007656795, 0.5826748, 0.28807932, -0.00010710291, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -16748,7 +16751,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.094239675, 4.886021e-05, 0.9955034, -1.8188341e-12, 0.9999266, -4.9080038e-05, -0.9954638, -4.625555e-06, -0.09424343, 0, 0, 0)
+transform = Transform3D(-0.094239675, 4.886021e-05, 0.99550337, -1.818834e-12, 0.9999266, -4.9080034e-05, -0.9954637, -4.625555e-06, -0.09424342, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -16799,7 +16802,7 @@ transform = Transform3D(1, 4.5275814e-11, 3.162477e-20, -4.5275783e-11, 1.000000
 curve = ExtResource("93_jtq2l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/SecondCar" unique_id=681389406]
-transform = Transform3D(-0.9999958, -0.00037487922, -9.687723e-06, -0.0003748779, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
+transform = Transform3D(-0.9999958, -0.00037487916, -9.687723e-06, -0.00037487785, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
 progress = 86.06855
 
 [node name="suv" type="StaticBody3D" parent="Map/SecondCar/PathFollow3D" unique_id=1519486724]
@@ -18610,6 +18613,8 @@ mesh = SubResource("ArrayMesh_cg0r4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slip" unique_id=1136422966]
 transform = Transform3D(0.11829668, 0.0725544, 0.018485172, 0.006290232, -0.044073164, 0.1327327, 0.07460748, -0.11132559, -0.040500715, 38.059956, 24.90194, -61.627014)
 shape = SubResource("BoxShape3D_u4f0w")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1020721394]
 
 [connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]

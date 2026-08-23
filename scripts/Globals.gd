@@ -22,6 +22,7 @@ var jumpscare_impending: bool = false
 var player_keys: Array[String] = []
 var earned_money: int = 0
 var radio_playing: bool = true
+var task_given: bool = false
 
 signal TASKCHANGED
 
