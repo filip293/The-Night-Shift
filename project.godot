@@ -115,6 +115,7 @@ scaling_3d/scale=0.25
 scaling_3d/fsr_sharpness=0.0
 textures/decals/filter=0
 textures/light_projectors/filter=0
+environment/glow/upscale_mode=0
 environment/volumetric_fog/use_filter=0
 lights_and_shadows/tighter_shadow_caster_culling=false
 occlusion_culling/use_occlusion_culling=true
