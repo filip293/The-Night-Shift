@@ -5,23 +5,27 @@ extends Node
 @onready var FCBeep: AudioStreamPlayer3D = $"../FirstCar/PathFollow3D/suv/BeepBeep"
 @onready var SCBeep: AudioStreamPlayer3D = $"../SecondCar/PathFollow3D/suv/BeepBeep"
 
-func _ready() -> void:
-	await Globals.calltime(50.0)
-	Globals.stationcar = true
-	await Globals.calltime(10.0)
-	go_car1()
-	await Globals.calltime(5.0)
-	Globals.stationcar = false
-	await Globals.calltime(120.0)
-	Globals.stationcar = true
-	await Globals.calltime(10.0)
-	go_car2()
-	await Globals.calltime(5.0)
-	Globals.stationcar = false
+var first = true
+
+func _process(delta: float) -> void:
+	if Globals.in_game == true and first == true:
+		first = false
+		await Globals.calltime(50.0)
+		Globals.stationcar = true
+		await Globals.calltime(10.0)
+		go_car1()
+		await Globals.calltime(5.0)
+		Globals.stationcar = false
+		await Globals.calltime(120.0)
+		Globals.stationcar = true
+		await Globals.calltime(10.0)
+		go_car2()
+		await Globals.calltime(5.0)
+		Globals.stationcar = false
 	
 func go_car1() -> void:
 	FirstCar.play("ENTER")
-	await Globals.calltime(40.0) #make it annoying by repeating it all the time?
+	await Globals.calltime(40.0)
 	FCBeep.play()
 
 func go_car2() -> void:

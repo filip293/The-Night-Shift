@@ -111,7 +111,6 @@ anti_aliasing/screen_space_roughness_limiter/enabled=false
 scaling_3d/mode=5
 scaling_3d/mode.ios=5
 scaling_3d/mode.macos=5
-scaling_3d/scale=0.25
 scaling_3d/fsr_sharpness=0.0
 textures/decals/filter=0
 textures/light_projectors/filter=0

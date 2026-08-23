@@ -906,7 +906,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ueim")
 
 [sub_resource type="BoxOccluder3D" id="BoxOccluder3D_sq8w8"]
-size = Vector3(12.570651, 0.06118335, 3.8863804)
+size = Vector3(7.474337, 0.06118335, 3.8863804)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ms8p1"]
 render_priority = 0
@@ -6224,7 +6224,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dliyw")
 
 [sub_resource type="FogMaterial" id="FogMaterial_sq8w8"]
-density = -10.82
+density = -8.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yt6sh"]
 resource_name = "TilesPlain"
@@ -13219,6 +13219,7 @@ script = ExtResource("10_l5miw")
 layer = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="InGame/CanvasLayer" unique_id=1527159912]
+process_mode = 1
 visible = false
 offset_left = 40.0
 offset_top = 30.0
@@ -13401,7 +13402,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000206, -0.00073383795, -0.00024333794, -0.00076567923, 0.5826748, 0.28807932, -0.000107102875, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500021, -0.00073383795, -0.00024333794, -0.0007656793, 0.5826748, 0.28807932, -0.00010710288, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -15102,8 +15103,8 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_w3wyq")
 
 [node name="FogVolume" type="FogVolume" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/StaticBody3D/Bathrooms_Brick_0" unique_id=929895628]
-transform = Transform3D(1, 0, 0, 0, -4.371138e-08, 1, 0, -1, -4.371138e-08, 0.044607162, 0.040208817, -2.0494986)
-size = Vector3(4.451294, 4.8390503, 7.4707603)
+transform = Transform3D(1, -3.2827074e-12, 4.947651e-10, -4.947651e-10, -4.3655746e-08, 1, -2.4459723e-10, -1, -4.3655746e-08, -0.005628586, 0.03912258, -0.61392117)
+size = Vector3(4.350647, 3.815155, 7.4707603)
 material = SubResource("FogMaterial_sq8w8")
 
 [node name="Bathrooms_TilesPlain_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms" unique_id=1244075361]
@@ -15678,11 +15679,12 @@ mesh = SubResource("ArrayMesh_i8574")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23679924, 0.0038700104, -2.8420484)
 size = Vector3(13.136288, 15.537796, 5.6813965)
 
-[node name="Area3D" type="Area3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0" unique_id=755561078 node_paths=PackedStringArray("rain_audio", "lightning_audio")]
+[node name="Area3D" type="Area3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0" unique_id=755561078 node_paths=PackedStringArray("rain_audio", "lightning_audio", "pump")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.0793698)
 script = ExtResource("76_eqbcs")
 rain_audio = NodePath("../../../../../../../Player/Rain2")
 lightning_audio = NodePath("../../../../../../../Player/Lightning")
+pump = NodePath("../../../Fuel_pump_01/Fuel_pump_01_Fuel_pump_0/Pump1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve_003/6twelve_003_Roof_tiles_0/Area3D" unique_id=345846535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26493835, 6.1035156e-05, -0.31102324)
@@ -16588,7 +16590,7 @@ shadow_enabled = true
 [node name="Trash" parent="Map/Extras" unique_id=729185252 instance=ExtResource("79_ygv6i")]
 transform = Transform3D(-0.019321714, 0, -0.9998133, 0, 1, 0, 0.9998133, 0, -0.019321714, -2.9990063, 0.03107059, -25.844105)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 1393469802) index="0" unique_id=426790543]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open" parent_id_path=PackedInt32Array(729185252, 2116333938) index="0" unique_id=426790543]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Extras/Trash/RootNode/TrashContainer_Open/StaticBody3D" unique_id=1847923633]
 shape = SubResource("ConvexPolygonShape3D_jtq2l")
@@ -16610,8 +16612,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(0.9999993, 0, 0, 0, 1, 0, 0, 0, 0.9999993, -59, 0, -19.971722)
-progress = 78.95998
+transform = Transform3D(-0.09423969, 4.886021e-05, 0.99550354, -1.8188344e-12, 0.9999266, -4.908004e-05, -0.9954639, -4.625555e-06, -0.09424344, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -16662,8 +16663,8 @@ transform = Transform3D(1, 4.5275814e-11, 3.162477e-20, -4.5275783e-11, 1.000000
 curve = ExtResource("93_jtq2l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/SecondCar" unique_id=681389406]
-transform = Transform3D(0.9999988, 0, 0, 0, 1, 0, 0, 0, 0.9999988, -67, 0, -19.886051)
-progress = 86.87997
+transform = Transform3D(-0.9999958, -0.00037487922, -9.687723e-06, -0.0003748779, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
+progress = 86.06855
 
 [node name="suv" type="StaticBody3D" parent="Map/SecondCar/PathFollow3D" unique_id=1519486724]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -16687,6 +16688,7 @@ mesh = SubResource("ArrayMesh_otled")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=2004051117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71565115, 0.07618606)
 shape = SubResource("BoxShape3D_caos5")
+disabled = true
 
 [node name="RLWheel" type="MeshInstance3D" parent="Map/SecondCar/PathFollow3D/suv" unique_id=691588580]
 transform = Transform3D(1, 0, 0, 0, 1, 1.1125674e-06, 0, -1.1125674e-06, 1, 0.521813, 0.24429658, -0.6042478)
@@ -16752,6 +16754,7 @@ shadow_blur = 0.1
 omni_range = 3.622872
 
 [node name="Camera1" type="SubViewport" parent="." unique_id=1717272481]
+scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
@@ -16776,6 +16779,7 @@ near = 0.5
 far = 15.0
 
 [node name="Camera2" type="SubViewport" parent="." unique_id=978714634]
+scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
@@ -16800,6 +16804,7 @@ near = 0.5
 far = 11.0
 
 [node name="Camera3" type="SubViewport" parent="." unique_id=319322709]
+scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
@@ -16825,6 +16830,7 @@ near = 0.5
 far = 25.0
 
 [node name="Camera4" type="SubViewport" parent="." unique_id=765481618]
+scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)

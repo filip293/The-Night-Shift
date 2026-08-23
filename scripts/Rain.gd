@@ -2,12 +2,14 @@ extends Area3D
 
 @export var rain_audio: AudioStreamPlayer3D
 @export var lightning_audio: AudioStreamPlayer3D
+@export var pump: AudioStreamPlayer3D
 
 const OUTDOOR_VOLUME: float = 0.0
 const INDOOR_VOLUME: float = -20.0 
 
 var rain_tween: Tween
 var lightning_tween: Tween
+var pump_tween: Tween
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
@@ -29,3 +31,9 @@ func _fade_volume(target_db: float) -> void:
 			lightning_tween.kill()
 		lightning_tween = create_tween()
 		lightning_tween.tween_property(lightning_audio, "volume_db", target_db-20, 0.05)
+		
+	if pump:
+		if pump_tween and pump_tween.is_running():
+			pump_tween.kill()
+		pump_tween = create_tween()
+		pump_tween.tween_property(pump, "volume_db", target_db-10, 0.05)
