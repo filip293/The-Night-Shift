@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
 [ext_resource type="AudioStream" uid="uid://bscwh83mkmvxy" path="res://Sounds/print.mp3" id="19_y87xx"]
 [ext_resource type="Texture2D" uid="uid://kis52ga1aqdx" path="res://map/gas_station_9.jpg" id="20_ietea"]
+[ext_resource type="Texture2D" uid="uid://btjlbb75uflc8" path="res://Task4.png" id="21_6rkv3"]
 [ext_resource type="AudioStream" uid="uid://d2qbwmj7ue4pi" path="res://Sounds/paper.mp3" id="21_ml62m"]
 [ext_resource type="Texture2D" uid="uid://dtucvkv3idlwb" path="res://map/gas_station_10.jpg" id="21_mvkfx"]
 [ext_resource type="Texture2D" uid="uid://d1e0e5i288i5b" path="res://map/gas_station_11.jpg" id="22_n57uf"]
@@ -13425,6 +13426,7 @@ task_desc = NodePath("Label")
 task1 = ExtResource("14_86nqj")
 task2 = ExtResource("16_lm7bh")
 task3 = ExtResource("15_d4lju")
+task4 = ExtResource("21_6rkv3")
 hidden_color = Color(1, 1, 1, 0)
 hidden_position = Vector2(0, 960)
 
@@ -13463,6 +13465,7 @@ sprite = NodePath("Sprite2D")
 frame_21 = ExtResource("14_86nqj")
 frame_22 = ExtResource("16_lm7bh")
 frame_23 = ExtResource("15_d4lju")
+frame_24 = ExtResource("21_6rkv3")
 
 [node name="Sprite2D" type="Sprite2D" parent="InGame/OTReceipt" unique_id=1230397516]
 position = Vector2(73.99999, -251.99998)

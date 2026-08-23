@@ -12,13 +12,13 @@ var pressed_r = false
 @export var sprite: Sprite2D
 
 @export_group("Tear Frames")
-@export var frame_21: Texture2D # Initial intact receipt frame
-@export var frame_22: Texture2D # Partial tear frame
-@export var frame_23: Texture2D # Fully torn frame
+@export var frame_21: Texture2D
+@export var frame_22: Texture2D 
+@export var frame_23: Texture2D 
+@export var frame_24: Texture2D
 
 func _ready() -> void:
 	sprite.texture = frame_21
-	
 	Globals.TASKCHANGED.connect(_on_globals_taskchanged)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -38,7 +38,10 @@ func _animate_receipt() -> void:
 		Globals.earned_money += 170
 	elif Globals.task_idx == 3:
 		sprite.texture = frame_23
-		Globals.earned_money += 120
+		Globals.earned_money += 130
+	elif Globals.task_idx == 4:
+		sprite.texture = frame_24
+		Globals.earned_money += 220
 	print("Playing animation!")
 	animation_player.play("slide_down_slice")
 	await animation_player.animation_finished
@@ -50,5 +53,9 @@ func _animate_receipt() -> void:
 		await Globals.calltime(1.0)
 
 func _on_globals_taskchanged() -> void:
+	Globals.task_given = false
+	await Globals.calltime(2.0)
 	print("Caught it!")
 	_animate_receipt()
+	await Globals.calltime(1.0)
+	Globals.task_given = true

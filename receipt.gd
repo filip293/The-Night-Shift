@@ -10,6 +10,7 @@ extends CanvasLayer
 @export var task1: Texture2D
 @export var task2: Texture2D
 @export var task3: Texture2D
+@export var task4: Texture2D
 @export var hidden_color: Color
 @export var visible_color: Color = Color.WHITE
 
@@ -23,7 +24,7 @@ func _ready() -> void:
 	modulator.color = hidden_color
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ReceiptOpen") and Globals.in_game:
+	if event.is_action_pressed("ReceiptOpen") and Globals.in_game and Globals.task_given:
 		if Globals.task_idx == 1: 
 			sprite.texture = task1
 			task_desc.text = """
@@ -35,11 +36,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif Globals.task_idx == 2: 
 			sprite.texture = task2
 			task_desc.text = """
-			Take out the trash in front 
-			of the store.
+			There's trash out front,
+			take it and throw it in the
+			dumpster out back.
 			"""
 		elif Globals.task_idx == 3: 
-			sprite.texture = task2
+			sprite.texture = task3
 			task_desc.text = """
 			The restrooms behind
 			the gas station need a
@@ -47,7 +49,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Go do your job.
 			"""
 		elif Globals.task_idx == 4:
-			sprite.texture = task3
+			sprite.texture = task4
 			task_desc.text = """
 			Delivery's here.
 			Leave it in the back
@@ -56,7 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		animate_to_color(visible_color)
 		animate_to_position(visible_position)
 		$AudioStreamPlayer.play()
-	elif event.is_action_released("ReceiptOpen"):
+	elif event.is_action_released("ReceiptOpen") or !Globals.task_given:
 		animate_to_position(hidden_position)
 		animate_to_color(hidden_color)
 
