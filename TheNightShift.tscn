@@ -169,6 +169,7 @@
 [ext_resource type="AudioStream" uid="uid://cyu3xax302m24" path="res://Sounds/Monster/Scream.mp3" id="140_u6x02"]
 [ext_resource type="AudioStream" uid="uid://dcyn5p3pkvpue" path="res://Sounds/Monster/Moan.mp3" id="141_ml62m"]
 [ext_resource type="AudioStream" uid="uid://doqt5af05fkxy" path="res://Sounds/TakeBroom.mp3" id="156_1xca5"]
+[ext_resource type="PackedScene" uid="uid://co5xar7risxeg" path="res://MapAssets/Flashlight.glb" id="170_6rkv3"]
 
 [sub_resource type="Resource" id="Resource_sq8w8"]
 script = ExtResource("2_c7hx4")
@@ -13042,6 +13043,44 @@ shadow_mesh = SubResource("ArrayMesh_6cx1y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_u4f0w"]
 size = Vector3(30.407543, 27.774628, 51.174828)
 
+[sub_resource type="Animation" id="Animation_krf3k"]
+resource_name = "Flicker"
+length = 3.0000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.67560935, 0.68631065, 0.69739413, 0.7091854, 0.72, 0.72548515, 0.72777826, 0.7347921, 0.7386141, 0.74492013, 0.7519906, 0.76666665, 0.79370606, 0.80440736, 0.81549084, 0.82728213, 0.83809674, 0.84358186, 0.84587497, 0.8528888, 0.8567108, 0.86301684, 0.8700873, 0.88476336, 0.8885609, 0.8992622, 0.9103457, 0.92213696, 0.93295157, 0.9384367, 0.9407298, 0.94774365, 0.9515656, 0.9578717, 0.96494216, 0.9796182, 0.9844893, 0.9951906, 1.0062741, 1.0180655, 1.02888, 1.0343652, 1.0366583, 1.0436721, 1.047494, 1.0538001, 1.0608706, 1.0755466, 1.0849835, 1.0956848, 1.1067683, 1.1185596, 1.1293741, 1.1348593, 1.1371524, 1.1441662, 1.1479882, 1.1542943, 1.1613648, 1.1760408, 2.2345924, 2.245407, 2.2508922, 2.2531853, 2.260199, 2.264021, 2.270327, 2.2773976, 2.2920737, 2.3015103, 2.3122118, 2.323295, 2.3350866, 2.345901, 2.3513863, 2.3536794, 2.3606932, 2.3645153, 2.3708212, 2.3778918, 2.3925676),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jl68e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbjmt"]
+_data = {
+&"Flicker": SubResource("Animation_krf3k"),
+&"RESET": SubResource("Animation_jl68e")
+}
+
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 transform = Transform3D(1, -9.5291e-05, 0.00016457436, 9.509707e-05, 0.9999993, 0.0011779503, -0.0001646865, -0.0011779347, 0.9999993, 0, 0, 0)
 
@@ -13492,7 +13531,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000224, -0.00073383795, -0.00024333794, -0.00076567946, 0.5826748, 0.28807932, -0.000107102904, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500023, -0.00073383795, -0.00024333794, -0.0007656795, 0.5826748, 0.28807932, -0.00010710291, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -16748,7 +16787,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.094239675, 4.886021e-05, 0.9955034, -1.8188341e-12, 0.9999266, -4.9080038e-05, -0.9954638, -4.625555e-06, -0.09424343, 0, 0, 0)
+transform = Transform3D(-0.094239675, 4.886021e-05, 0.99550337, -1.818834e-12, 0.9999266, -4.9080034e-05, -0.9954637, -4.625555e-06, -0.09424342, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -16799,7 +16838,7 @@ transform = Transform3D(1, 4.5275814e-11, 3.162477e-20, -4.5275783e-11, 1.000000
 curve = ExtResource("93_jtq2l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/SecondCar" unique_id=681389406]
-transform = Transform3D(-0.9999958, -0.00037487922, -9.687723e-06, -0.0003748779, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
+transform = Transform3D(-0.9999958, -0.00037487916, -9.687723e-06, -0.00037487785, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
 progress = 86.06855
 
 [node name="suv" type="StaticBody3D" parent="Map/SecondCar/PathFollow3D" unique_id=1519486724]
@@ -18610,6 +18649,18 @@ mesh = SubResource("ArrayMesh_cg0r4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slip" unique_id=1136422966]
 transform = Transform3D(0.11829668, 0.0725544, 0.018485172, 0.006290232, -0.044073164, 0.1327327, 0.07460748, -0.11132559, -0.040500715, 38.059956, 24.90194, -61.627014)
 shape = SubResource("BoxShape3D_u4f0w")
+
+[node name="Root Scene" parent="." unique_id=1114529601 instance=ExtResource("170_6rkv3")]
+transform = Transform3D(0.096596785, 0.025866274, -9.972204e-06, -0.0007138849, 0.0026274342, -0.09996299, -0.025856422, 0.0965611, 0.0027226808, -13.644579, 0.03560395, -28.666565)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Root Scene" unique_id=1841453223]
+transform = Transform3D(10, 5.291767e-10, -7.425178e-11, -1.6520174e-11, -4.3784152e-07, -10, -7.1107564e-10, 10, -4.3711393e-07, 0, 1.0696878, 0)
+light_indirect_energy = 0.0
+light_specular = 0.0
+spot_angle = 19.404823
+
+[node name="Flashlight" type="AnimationPlayer" parent="Root Scene" unique_id=1459924890]
+libraries/ = SubResource("AnimationLibrary_cbjmt")
 
 [connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
