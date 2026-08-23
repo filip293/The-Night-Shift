@@ -2,7 +2,6 @@ extends StaticBody3D
 
 @export var whoami_value: String = "Object"
 
-
 enum ObjectType { GENERIC, DOOR, PUDDLE }
 @export var object_type: ObjectType = ObjectType.GENERIC:
 	set(value):
@@ -69,7 +68,6 @@ func _init_shaders() -> void:
 		task_glow_mat = ShaderMaterial.new()
 		task_glow_mat.shader = glow_shader
 
-# Detects if this item is currently carried by the player
 func is_held_by_player() -> bool:
 	var curr: Node = self
 	while curr:
@@ -88,11 +86,9 @@ func get_all_meshes() -> Array[MeshInstance3D]:
 				meshes.append(child)
 	return meshes
 
-# Kept empty for safety in case called elsewhere
 func set_hovered(_hovered: bool) -> void:
 	pass
 
-# Set task target yellow glow (Disabled for Held Items and Invisible Items)
 func set_task_target(active: bool) -> void:
 	if is_held_by_player() or not is_visible_in_tree():
 		is_task_target = false
@@ -105,7 +101,6 @@ func _update_overlay() -> void:
 	var meshes = get_all_meshes()
 	var target_mat: Material = null
 
-	# Only apply yellow glow if item is active task target and NOT held/hidden
 	if not is_held_by_player() and is_visible_in_tree() and is_task_target:
 		target_mat = task_glow_mat
 
@@ -171,7 +166,7 @@ func _toggle_door(other: bool = false) -> void:
 		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
 		await Globals.calltime(3.0)
 		$/root/Node3D/Credits.ShowCredits()
-		
+
 func start_mopping() -> void:
 	if Engine.is_editor_hint() or is_being_mopped:
 		return
@@ -247,7 +242,9 @@ func _finish_mopping() -> void:
 
 func _on_interact_generic() -> void:
 	if not Engine.is_editor_hint():
-		if whoami_value == "Take crate":
+		if whoami_value == "Trash bag":
+			queue_free()
+		elif whoami_value == "Take crate":
 			queue_free()
 			$/root/Node3D/Player/Crate.visible = true
 		elif whoami_value == "Take cans":

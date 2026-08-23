@@ -86,8 +86,36 @@ func _physics_process(delta: float) -> void:
 							$"../../../../Bwoom2".visible = false
 							$"../../../Bwoom2".visible = true
 
-				# TASK 2: Mop
-				elif object_name == "Mop" and current_task == 2:
+				# TASK 2: Take out the trash
+				elif current_task == 2:
+					var has_trash = Globals.get("has_trash_bag")
+					if object_name == "Trash bag":
+						if has_trash:
+							target_text = "Already carrying trash bag"
+						else:
+							target_text = "[E] Take trash bag"
+							if Input.is_action_just_pressed("Interact"):
+								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/StaticBody3D/PickUpGarbage".play()
+								Globals.set("has_trash_bag", true)
+								collider.interact()
+					elif object_name == "Trash can":
+						if has_trash:
+							target_text = "[E] Dispose trash"
+							if Input.is_action_just_pressed("Interact"):
+								Globals.set("has_trash_bag", false)
+								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_1/ThrowGarbage".play()
+								collider.interact()
+								collider.set_collision_layer_value(9, false)
+								
+								if task_mgr and task_mgr.has_method("next_task"):
+									task_mgr.next_task()
+								else:
+									Globals.task_idx += 1
+						else:
+							target_text = "I need to take the trash bag first."
+
+				# TASK 3: Mop
+				elif object_name == "Mop" and current_task == 3:
 					if mop_held:
 						var puddles_left = get_tree().get_nodes_in_group("puddles").size()
 						if puddles_left == 0:
@@ -111,8 +139,8 @@ func _physics_process(delta: float) -> void:
 							$"../../../Bwooom".visible = true
 							collider.interact()
 
-				# TASK 3 OBJECTS: Crate, Cans, Restock
-				elif current_task == 3:
+				# TASK 4 OBJECTS: Crate, Cans, Restock
+				elif current_task == 4:
 					var has_crate = Globals.get("has_crate")
 					var crate_delivered = Globals.get("crate_delivered")
 					var has_cans = Globals.get("has_cans")
@@ -211,7 +239,6 @@ func _physics_process(delta: float) -> void:
 							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D.play()
 							Globals.radio_playing = true
 								
-					
 			# --- PUDDLES & DIRT ---
 			elif object_type == ObjectType.PUDDLE:
 				var broom_held = $"../../../Bwoom2".visible
@@ -227,7 +254,7 @@ func _physics_process(delta: float) -> void:
 					else:
 						target_text = "I need a broom first."
 
-				elif current_task == 2 and p_type == 1:
+				elif current_task == 3 and p_type == 1:
 					if mop_held:
 						target_text = "[E] Mop Puddle"
 						if Input.is_action_just_pressed("Interact"):

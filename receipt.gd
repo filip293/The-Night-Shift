@@ -35,12 +35,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif Globals.task_idx == 2: 
 			sprite.texture = task2
 			task_desc.text = """
+			Take out the trash in front 
+			of the store.
+			"""
+		elif Globals.task_idx == 3: 
+			sprite.texture = task2
+			task_desc.text = """
 			The restrooms behind
 			the gas station need a
 			good cleaning.
 			Go do your job.
 			"""
-		elif Globals.task_idx == 3:
+		elif Globals.task_idx == 4:
 			sprite.texture = task3
 			task_desc.text = """
 			Delivery's here.

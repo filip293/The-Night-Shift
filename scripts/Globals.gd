@@ -6,10 +6,17 @@ var playerlookallow = true
 var stationcar = false
 var task_idx: int = 0
 var chk_task: int = 0
+
+# --- Task 2: Trash ---
+var has_trash_bag: bool = false
+var trash_disposed: bool = false
+
+# --- Task 4: Crate & Cans ---
 var has_crate: bool = false
 var crate_delivered: bool = false
 var has_cans: bool = false
 var cans_restocked: bool = false
+
 var in_game: bool = false
 var jumpscare_impending: bool = false
 var player_keys: Array[String] = []

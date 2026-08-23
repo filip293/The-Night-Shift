@@ -3,6 +3,7 @@ extends Node
 const TASKS: Array[String] = [
 	"NO TASK ASSIGNED",
 	"Sweep the aisles",
+	"Take out the trash",
 	"Clean the restroom",
 	"Restock the cans"
 ]
@@ -33,7 +34,7 @@ func _on_task_changed() -> void:
 	_update_task_ui()
 
 func _update_task_ui() -> void:
-	if Globals.task_idx == 3:
+	if Globals.task_idx == 4:
 		var crate = get_node_or_null("../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Crate2")
 		if crate:
 			crate.visible = true
@@ -69,31 +70,30 @@ func _update_task_highlights() -> void:
 		else:
 			_glow_by_name("Broom")
 
-	# TASK 2: Mop & Puddles
+	# TASK 2: Take out the trash
 	elif task == 2:
+		var has_trash = Globals.get("has_trash_bag")
+		if not has_trash:
+			_glow_by_name("Trash bag")
+		else:
+			_glow_by_name("Trash can")
+
+	# TASK 3: Mop & Puddles
+	elif task == 3:
 		var mop_held = mop_held_node and mop_held_node.visible
 		
 		if not mop_held:
 			_glow_by_name("Mop")
-		# Puddles are no longer highlighted here
 
-	# TASK 3: Crate, Cans, Shelf
-	elif task == 3:
+	# TASK 4: Crate, Cans, Shelf
+	elif task == 4:
 		var has_crate = Globals.get("has_crate")
 		var crate_delivered = Globals.get("crate_delivered")
-		var has_cans = Globals.get("has_cans")
-		var cans_restocked = Globals.get("cans_restocked")
 
 		if not crate_delivered:
-			# Glows Crate and 'Take cans' location together so player knows where to drop it off
 			if not has_crate:
 				_glow_by_name("Take crate")
 			_glow_by_name("Take cans")
-		#elif not cans_restocked:
-			#if not has_cans:
-				#_glow_by_name("Take cans")
-			#else:
-				#_glow_by_name("Restock cans")
 
 # Case-insensitive and space-trimmed string matching
 func _glow_by_name(target_whoami: String) -> void:

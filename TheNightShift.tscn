@@ -110,7 +110,9 @@
 [ext_resource type="Script" uid="uid://c50dmi4t4n4fo" path="res://scripts/car_manager.gd" id="90_m2ggc"]
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
+[ext_resource type="AudioStream" uid="uid://dk4vwen7e4wj6" path="res://Sounds/ThrowGarbage.mp3" id="92_kj47f"]
 [ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
+[ext_resource type="AudioStream" uid="uid://mbxrc2nl7lau" path="res://Sounds/PickUpGarbage.mp3" id="93_1xca5"]
 [ext_resource type="Shader" uid="uid://dwq11yc5gon0l" path="res://shaders/Neon.gdshader" id="93_8k4jg"]
 [ext_resource type="AudioStream" uid="uid://8836liklyh85" path="res://Sounds/car-horn-sound-effect.mp3" id="93_d71h8"]
 [ext_resource type="Curve3D" uid="uid://d3r83ae70gb26" path="res://pathsCar/car2.tres" id="93_jtq2l"]
@@ -6008,9 +6010,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5a5xy")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_66lcd"]
-size = Vector3(1.2713339, 1.9616569, 1.172908)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8lr4"]
 size = Vector3(1.2713339, 1.9616569, 1.172908)
 
@@ -6122,6 +6121,9 @@ shadow_mesh = SubResource("ArrayMesh_kli2g")
 [sub_resource type="BoxShape3D" id="BoxShape3D_8q2lc"]
 size = Vector3(0.80791855, 0.7566016, 0.7853689)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6rkv3"]
+size = Vector3(0.795596, 0.7966471, 0.9245208)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_tyk7s"]
 _surfaces = [{
 "aabb": AABB(-0.40339547, -0.38302654, -0.3784418, 0.795596, 0.7966471, 0.9245208),
@@ -6155,9 +6157,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tyk7s")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6rkv3"]
-size = Vector3(0.795596, 0.7966471, 0.9245208)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p8ymf"]
 _surfaces = [{
@@ -15052,16 +15051,6 @@ shape = SubResource("BoxShape3D_ywnit")
 [node name="Dumpster" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1242956480]
 transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 2402.1426, 62.44544, -2229.7122)
 
-[node name="Dumpster_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster" unique_id=652626250]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_7couv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_0" unique_id=130641254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00046300888, 0.005806744, -0.06872761)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_0/StaticBody3D" unique_id=1007414407]
-shape = SubResource("BoxShape3D_66lcd")
-
 [node name="Dumpster_Trash_1" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster" unique_id=1269480537]
 transform = Transform3D(1.3438985e-06, -0.9999999, 0.0012730038, 0.9999997, -3.4604454e-08, -0.0010828978, 0.0010828971, 0.0012730045, 0.9999992, -4.5724983, -26.767284, 0.09026462)
 gi_mode = 0
@@ -15069,16 +15058,18 @@ mesh = SubResource("ArrayMesh_7couv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_1" unique_id=1044563960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00046300888, 0.005806744, -0.06872761)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Trash can"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_1/StaticBody3D" unique_id=866908245]
 shape = SubResource("BoxShape3D_k8lr4")
 
+[node name="ThrowGarbage" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_1" unique_id=2114872251]
+stream = ExtResource("92_kj47f")
+
 [node name="Dumpster_T" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1074751174]
 transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 2448.5322, 115.02522, -2171.2122)
-
-[node name="Dumpster_T_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster_T" unique_id=1141686292]
-gi_mode = 0
-mesh = SubResource("ArrayMesh_tjrhr")
 
 [node name="Dumpster_T_Trash_1" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster_T" unique_id=756435804]
 transform = Transform3D(1.3438985e-06, -0.9999999, 0.0012730038, 0.9999997, -3.4604454e-08, -0.0010828978, 0.0010828971, 0.0012730045, 0.9999992, -5.62072, -26.646755, 0.091488004)
@@ -15086,7 +15077,7 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_tjrhr")
 
 [node name="Trash" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1921907890]
-transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 2264.1692, 22.299908, -2211.6228)
+transform = Transform3D(-99.999985, 8.8848174e-07, 0.1273047, 0.12730464, -0.10828982, 99.99987, 0.00013875216, 99.99998, 0.108289704, -390.08002, 23.10433, -2680.2349)
 
 [node name="Trash_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash" unique_id=955278254]
 gi_mode = 0
@@ -15099,7 +15090,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, -0.054504335, 
 shape = SubResource("BoxShape3D_kj47f")
 
 [node name="Trash_001" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=398393604]
-transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 2165.1204, 36.343056, -2222.1963)
+transform = Transform3D(-99.999985, 8.8848174e-07, 0.1273047, 0.12730464, -0.10828982, 99.99987, 0.00013875216, 99.99998, 0.108289704, -379.48846, 37.241245, -2779.268)
 
 [node name="Trash_001_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash_001" unique_id=287357080]
 gi_mode = 0
@@ -15111,21 +15102,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016774535, 0.009380609, 0.
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash_001/Trash_001_Trash_0/StaticBody3D" unique_id=1222632450]
 shape = SubResource("BoxShape3D_8q2lc")
 
-[node name="Trash_002" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1027559260]
-transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 2199.9053, 33.65843, -2285.221)
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=2038996086]
+transform = Transform3D(4.362315e-06, 100.00001, 4.3711534e-06, -1.4901161e-07, -4.3809086e-06, 100, 100.00005, -4.3697655e-06, 1.6391277e-07, 733.33575, 41.12419, -1389.5518)
+collision_layer = 257
+script = ExtResource("62_l5miw")
+whoami_value = "Trash bag"
 
-[node name="Trash_002_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash_002" unique_id=1144653683]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/StaticBody3D" unique_id=1262984163]
+shape = SubResource("BoxShape3D_6rkv3")
+
+[node name="Trash_002_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/StaticBody3D" unique_id=1144653683]
+transform = Transform3D(1, 0, -3.4924597e-10, -1.4551915e-11, 1, -1.463718e-12, 1.1641532e-10, 1.31592515e-11, 1, 0.0055980682, -0.0152977705, -0.083818585)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_e57kr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash_002/Trash_002_Trash_0" unique_id=2038996086]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005597472, 0.015296996, 0.083818585)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash_002/Trash_002_Trash_0/StaticBody3D" unique_id=1262984163]
-shape = SubResource("BoxShape3D_6rkv3")
+[node name="PickUpGarbage" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/StaticBody3D" unique_id=899393658]
+stream = ExtResource("93_1xca5")
 
 [node name="Trash_003" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=2038955809]
-transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 2122.647, 21.497261, -2263.9165)
+transform = Transform3D(-99.999985, 8.8848174e-07, 0.1273047, 0.12730464, -0.10828982, 99.99987, 0.00013875216, 99.99998, 0.108289704, -337.78778, 22.38836, -2821.7585)
 
 [node name="Trash_003_Trash_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Trash_003" unique_id=635433315]
 gi_mode = 0
@@ -17351,7 +17346,7 @@ pitch_scale = 2.5
 transform = Transform3D(0.5, 4.754855e-05, -8.234327e-05, -4.7645513e-05, 0.49999964, -0.0005889674, 8.2287195e-05, 0.0005889752, 0.4999997, 12.959828, 0.06266697, -15.301293)
 
 [node name="Bucket_Cube" type="MeshInstance3D" parent="BucketAndMop" unique_id=86136656]
-transform = Transform3D(1, 0, 0, 6.7762628e-21, 1, 0, 0, 0, 1, -0.53871536, 0, 1.4560833)
+transform = Transform3D(1, -3.469447e-18, 0, 3.3881318e-21, 1, 0, 0, 3.0092655e-36, 1, -0.53871536, 0.10254458, 1.4560833)
 mesh = SubResource("ArrayMesh_205qq")
 
 [node name="Water_Cube_002" type="MeshInstance3D" parent="BucketAndMop/Bucket_Cube" unique_id=581549671]
