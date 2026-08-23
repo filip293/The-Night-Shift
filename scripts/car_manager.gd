@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		await Globals.calltime(120.0)
 		Globals.stationcar = true
 		await Globals.calltime(10.0)
-		go_car2()
+		#go_car2()
 		await Globals.calltime(5.0)
 		Globals.stationcar = false
 	

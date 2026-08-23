@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 						target_text = "[E] Take Broom"
 						if Input.is_action_just_pressed("Interact"):
 							$"../../../../Bwoom2".visible = false
+							$"../../../../Bwoom2/TakeBroom".play()
 							$"../../../Bwoom2".visible = true
 
 				# TASK 2: Take out the trash
@@ -136,6 +137,7 @@ func _physics_process(delta: float) -> void:
 						target_text = "[E] Take Mop"
 						if Input.is_action_just_pressed("Interact"):
 							$"../../../../BucketAndMop/StaticBody3D".visible = false
+							$"../../../../BucketAndMop/StaticBody3D/TakeBroom".play()
 							$"../../../Bwooom".visible = true
 							collider.interact()
 
