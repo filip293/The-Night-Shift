@@ -105,6 +105,7 @@
 [ext_resource type="Texture2D" uid="uid://b667mpuqsyd86" path="res://map/gas_station_62.jpg" id="73_8k4jg"]
 [ext_resource type="Texture2D" uid="uid://dlwtjwefb2g3r" path="res://map/gas_station_63.png" id="74_3j2pq"]
 [ext_resource type="Script" uid="uid://dq48vxi0x83vh" path="res://scripts/Rain.gd" id="76_eqbcs"]
+[ext_resource type="Shader" uid="uid://cbw3p5k62wfwh" path="res://shaders/psx_object.gdshader" id="79_8q2lc"]
 [ext_resource type="Script" uid="uid://ccrs7rk1n5g71" path="res://scripts/RandomCars.gd" id="86_g7npq"]
 [ext_resource type="Curve3D" uid="uid://dw1ncrubui364" path="res://pathsCar/car1.tres" id="90_ayo1f"]
 [ext_resource type="Script" uid="uid://c50dmi4t4n4fo" path="res://scripts/car_manager.gd" id="90_m2ggc"]
@@ -3230,6 +3231,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x1lq2")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2skny"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibsf7"]
 resource_name = "Sweets_others"
 cull_mode = 2
@@ -3269,6 +3276,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bkauq")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1r1w"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_8f1qw"]
 _surfaces = [{
 "aabb": AABB(-0.15636428, -0.19182774, -0.31859976, 0.2599144, 0.3836555, 0.64379895),
@@ -3300,6 +3313,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8f1qw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kh518"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a3g3p"]
 _surfaces = [{
@@ -3506,6 +3525,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cinpo")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_an4rv"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_j44kt"]
 _surfaces = [{
 "aabb": AABB(-0.1920094, -0.25519225, -0.35223588, 0.30509627, 0.5103845, 0.70447177),
@@ -3540,6 +3565,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j44kt")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihlne"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_x6lie"]
 _surfaces = [{
 "aabb": AABB(-0.11308687, -0.2733825, -0.35223588, 0.22617374, 0.52857476, 0.70447177),
@@ -3571,6 +3602,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x6lie")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pkcgn"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66e14"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("42_qklhp")
+shader_parameter/jitter_precision = 20.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nltbn"]
 resource_name = "Management"
@@ -3642,6 +3685,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q7y70")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0vft"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("44_m2ggc")
+shader_parameter/jitter_precision = 20.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rphpi"]
 _surfaces = [{
@@ -3931,6 +3980,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5tknl")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfb5k"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("18_yppyl")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_bdge7"]
 _surfaces = [{
 "aabb": AABB(-0.2832226, -1.308512, -0.80157626, 0.9886081, 3.0208604, 1.0162873),
@@ -4039,6 +4094,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vabfa")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rkv3"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("46_6sbuq")
+shader_parameter/jitter_precision = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krf3k"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("47_rq0r2")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62lxj"]
 resource_name = "Others"
 cull_mode = 2
@@ -4080,6 +4147,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ev6tb")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jl68e"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("47_rq0r2")
+shader_parameter/jitter_precision = 20.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_8nyfm"]
 _surfaces = [{
 "aabb": AABB(-0.2790687, -0.08773402, -0.42978573, 0.455155, 0.17645776, 0.8999051),
@@ -4113,6 +4186,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8nyfm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbjmt"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("48_22s6k")
+shader_parameter/jitter_precision = 20.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6u25"]
 resource_name = "ice_slush_machine"
@@ -4154,6 +4233,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iak3m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhhmh"]
+render_priority = 0
+shader = ExtResource("79_8q2lc")
+shader_parameter/albedo_texture = ExtResource("48_22s6k")
+shader_parameter/jitter_precision = 20.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4k7ip"]
 _surfaces = [{
@@ -13407,7 +13492,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500021, -0.00073383795, -0.00024333794, -0.0007656793, 0.5826748, 0.28807932, -0.00010710288, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500022, -0.00073383795, -0.00024333794, -0.0007656794, 0.5826748, 0.28807932, -0.0001071029, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -13704,7 +13789,7 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_3vo3j")
 
 [node name="6twelve_Shelves" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve" unique_id=542530072]
-transform = Transform3D(1, 1.1641532e-10, 3.9960923e-11, 0, 1.0000007, 5.820766e-10, -4.025935e-11, 1.1641532e-10, 1.0000007, 0.30147505, 4.428096, -0.98890734)
+transform = Transform3D(1, 1.3096724e-10, 4.7279514e-11, 0, 1.0000008, 6.9849193e-10, -4.753531e-11, 1.1641532e-10, 1.0000008, 0.30147457, 4.428096, -0.98890746)
 mesh = SubResource("ArrayMesh_vakb4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/6twelve_Shelves" unique_id=1854651856]
@@ -14356,11 +14441,13 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 
 [node name="Candy_001_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001" unique_id=1321915028]
 transform = Transform3D(1, 5.820766e-11, 1.8019364e-11, 0, 1.0000004, 2.3283064e-10, -1.8431479e-11, 1.1641532e-10, 1.0000004, -0.00019961596, -1.2160339, 0.0040881634)
+material_override = SubResource("ShaderMaterial_2skny")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_fy6m4")
 
 [node name="Candy_001_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0" unique_id=2038944442]
 transform = Transform3D(1, 4.3655746e-11, -3.2983394e-11, 0, 1.0000001, -1.1641532e-10, -1.8545165e-11, 6.9849193e-10, 1.0000001, 6.043911e-05, 0.36675262, 0.00043225288)
+material_override = SubResource("ShaderMaterial_v1r1w")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_fy6m4")
 
@@ -14375,6 +14462,7 @@ mesh = SubResource("ArrayMesh_heq55")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 1025.7635, 224.74637, -1691.9053)
 
 [node name="Cigars_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Cigars" unique_id=782863700]
+material_override = SubResource("ShaderMaterial_kh518")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_c2o5x")
 
@@ -14419,6 +14507,7 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 
 [node name="Gadgets_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets" unique_id=676480927]
 transform = Transform3D(1, 4.3655746e-11, 1.0700774e-11, 0, 1.0000002, 2.3283064e-10, -1.1155521e-11, 0, 1.0000002, 0.00028055906, 1.7041473, 0.0020077229)
+material_override = SubResource("ShaderMaterial_an4rv")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_0pmk3")
 
@@ -14426,16 +14515,19 @@ mesh = SubResource("ArrayMesh_0pmk3")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 820.21875, 157.39313, -1475.2451)
 
 [node name="Gadgets_01_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01" unique_id=1030304085]
+material_override = SubResource("ShaderMaterial_ihlne")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_f8i8u")
 
 [node name="Gadgets_01_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0" unique_id=653558148]
 transform = Transform3D(1, 1.1641532e-10, 3.9960923e-11, 0, 1.0000007, 5.820766e-10, -4.025935e-11, 1.1641532e-10, 1.0000007, -0.14418122, 3.2768183, 0.0038737059)
+material_override = SubResource("ShaderMaterial_pkcgn")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_f8i8u")
 
 [node name="Gadgets_01_Sweets_others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0" unique_id=150047851]
 transform = Transform3D(1, 4.3655746e-11, -3.6521897e-12, 0, 1.0000002, 6.9849193e-10, -6.954792e-11, 4.656613e-10, 1.0000002, 0.0032468736, -0.56015396, -0.0006605387)
+material_override = SubResource("ShaderMaterial_66e14")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_f8i8u")
 
@@ -14460,6 +14552,7 @@ mesh = SubResource("ArrayMesh_gcann")
 transform = Transform3D(41.15379, -91.13926, 6.880823e-06, 0, 7.549789e-06, 100, -91.13926, -41.15379, 3.1070251e-06, 822.2456, 161.00978, -1543.4042)
 
 [node name="Management_009_Management_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009" unique_id=772914169]
+material_override = SubResource("ShaderMaterial_n0vft")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_8wetb")
 
@@ -14515,6 +14608,7 @@ mesh = SubResource("ArrayMesh_kt5tm")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 961.0161, 90.586334, -2282.7896)
 
 [node name="Management_001_Plaster_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_0012" unique_id=1163563828]
+material_override = SubResource("ShaderMaterial_nfb5k")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_qmsv3")
 
@@ -14534,11 +14628,13 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 [node name="Coffee_machine_Coffee_machine_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Coffee_machine" unique_id=2139466568]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_wjtwk")
+surface_material_override/0 = SubResource("ShaderMaterial_6rkv3")
 
 [node name="Others" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1222009141]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 970.2215, 171.76494, -2253.4395)
 
 [node name="Others_Others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Others" unique_id=914087363]
+material_override = SubResource("ShaderMaterial_krf3k")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_p8r11")
 
@@ -14546,6 +14642,7 @@ mesh = SubResource("ArrayMesh_p8r11")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 974.7386, 165.56961, -2293.4226)
 
 [node name="Others_01_Others_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Others_01" unique_id=1187167673]
+material_override = SubResource("ShaderMaterial_jl68e")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_7t4va")
 
@@ -14553,6 +14650,7 @@ mesh = SubResource("ArrayMesh_7t4va")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 981.9415, 172.61732, -2349.763)
 
 [node name="ice_slush_machine_ice_slush_machine_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/ice_slush_machine" unique_id=98417610]
+material_override = SubResource("ShaderMaterial_cbjmt")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_dqvo4")
 
@@ -14560,6 +14658,7 @@ mesh = SubResource("ArrayMesh_dqvo4")
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 981.9415, 172.61732, -2406.2368)
 
 [node name="ice_slush_machine_001_ice_slush_machine_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/ice_slush_machine_001" unique_id=920940560]
+material_override = SubResource("ShaderMaterial_rhhmh")
 gi_mode = 0
 mesh = SubResource("ArrayMesh_qbhl8")
 
@@ -16649,7 +16748,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.09423969, 4.886021e-05, 0.99550354, -1.8188344e-12, 0.9999266, -4.908004e-05, -0.9954639, -4.625555e-06, -0.09424344, 0, 0, 0)
+transform = Transform3D(-0.09423968, 4.886021e-05, 0.9955035, -1.8188343e-12, 0.9999266, -4.9080038e-05, -0.99546385, -4.625555e-06, -0.09424344, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -16791,7 +16890,6 @@ shadow_blur = 0.1
 omni_range = 3.622872
 
 [node name="Camera1" type="SubViewport" parent="." unique_id=1717272481]
-scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
@@ -16816,7 +16914,6 @@ near = 0.5
 far = 15.0
 
 [node name="Camera2" type="SubViewport" parent="." unique_id=978714634]
-scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
@@ -16841,7 +16938,6 @@ near = 0.5
 far = 11.0
 
 [node name="Camera3" type="SubViewport" parent="." unique_id=319322709]
-scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
@@ -16867,7 +16963,6 @@ near = 0.5
 far = 25.0
 
 [node name="Camera4" type="SubViewport" parent="." unique_id=765481618]
-scaling_3d_scale = 0.25
 canvas_item_default_texture_filter = 0
 oversampling = false
 size = Vector2i(160, 90)
