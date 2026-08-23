@@ -16552,8 +16552,10 @@ mesh = SubResource("ArrayMesh_tcjmu")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0" unique_id=986548547]
 transform = Transform3D(2.0405235, 1.8957376, 0.16593623, 0.40466177, -0.19452101, -2.7538166, -1.8594642, 2.0379975, -0.4171984, 0.106220245, -0.11639595, -0.0001487732)
 stream = SubResource("AudioStreamPlaylist_r1k6x")
-volume_db = -31.574
+volume_db = -30.0
+unit_size = 30.0
 autoplay = true
+max_distance = 10.0
 panning_strength = 2.2
 emission_angle_enabled = true
 emission_angle_degrees = 40.6
