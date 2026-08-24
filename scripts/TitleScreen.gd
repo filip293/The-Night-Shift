@@ -8,10 +8,10 @@ extends Node2D
 @onready var BGM := $BackgroundMusic
 @onready var Intro := $"../Intro"
 @onready var TaskManager: Node = $"../InGame/TaskManager"
+@onready var DL3D: DirectionalLight3D = $"../Map/DirectionalLight3D"
 
-func _ready() -> void:
-	Player.process_mode = Node.PROCESS_MODE_DISABLED
-	Map.process_mode = Node.PROCESS_MODE_DISABLED
+func start() -> void:
+	DL3D.visible = true
 	TitleCam.make_current()
 	$CanvasLayer.visible = true
 	TitleCamAnim.play("CamAnim/handheld_sway")
@@ -36,7 +36,6 @@ func _on_start_pressed() -> void:
 	tween.tween_callback(BGM.stop)
 	BGM.autoplay = false
 	await get_tree().create_timer(2.0).timeout
-	#INTRO HERE
 	$"../InGame/CanvasLayer".visible = true
 	PlayerCam.make_current()
 	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D".play()

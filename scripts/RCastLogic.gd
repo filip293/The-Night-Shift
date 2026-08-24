@@ -13,7 +13,7 @@ var active_puddle: Node3D = null
 
 func _ready() -> void:
 	enabled = true
-	$"../../../../Root Scene/Flashlight".play("Flicker")
+	$"../../../../Flashlight/Flashlight".play("Flicker")
 	if label:
 		label.text = ""
 		label.modulate.a = 0.0
