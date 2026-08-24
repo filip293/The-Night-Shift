@@ -21,6 +21,8 @@ func _ready() -> void:
 	Map.process_mode = Node.PROCESS_MODE_DISABLED
 	IntroCamera.make_current()
 	
+	await Globals.calltime(3.0)
+		
 	if play_intro:
 		# 1. Ringing Sequence
 		await Globals.calltime(1.5)
@@ -99,8 +101,9 @@ func _ready() -> void:
 		# 7. Start Title Screen Menu
 		await Globals.calltime(1.0)
 	
-	TitleScreen.start()
-	GUI.visible = false
+	if TitleScreen:
+		TitleScreen.start()
+		GUI.visible = false
 
 func _boss_speak(text: String, voice_clip: AudioStream) -> void:
 	GUI.show_dialogue("Boss", text)
