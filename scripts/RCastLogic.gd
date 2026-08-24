@@ -98,6 +98,7 @@ func _physics_process(delta: float) -> void:
 							target_text = "[E] Take trash bag"
 							if Input.is_action_just_pressed("Interact"):
 								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/StaticBody3D/PickUpGarbage".play()
+								$"../../../Trash_002_Trash_0".visible = true
 								Globals.set("has_trash_bag", true)
 								collider.interact()
 					elif object_name == "Trash can":
@@ -106,6 +107,7 @@ func _physics_process(delta: float) -> void:
 							if Input.is_action_just_pressed("Interact"):
 								Globals.set("has_trash_bag", false)
 								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_1/ThrowGarbage".play()
+								$"../../../Trash_002_Trash_0".visible = false
 								collider.interact()
 								collider.set_collision_layer_value(9, false)
 								
