@@ -17,7 +17,7 @@ const mat4 bayer_matrix = mat4(
 
 void fragment() {
     vec3 col = texture(screen_texture, SCREEN_UV).rgb;
-
+    col = max(col, vec3(0.04, 0.05, 0.07));
     // Get pixel coordinate inside the 4x4 grid
     ivec2 dither_pos = ivec2(FRAGCOORD.xy / dither_scale) % 4;
     float dither_val = (bayer_matrix[dither_pos.x][dither_pos.y] - 0.5) * dither_strength;
