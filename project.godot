@@ -118,7 +118,6 @@ textures/light_projectors/filter=0
 environment/glow/upscale_mode=0
 environment/volumetric_fog/use_filter=0
 lights_and_shadows/tighter_shadow_caster_culling=false
-occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=3
 lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=0
 lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=0
