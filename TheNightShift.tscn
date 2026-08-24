@@ -968,12 +968,12 @@ shader_parameter/puddle_color = Color(0.25, 0.28, 0.35, 1)
 shader_parameter/min_ambient_brightness = 0.12
 shader_parameter/puddle_noise = SubResource("NoiseTexture2D_jpkxj")
 shader_parameter/uv_scale = Vector2(6, 6)
-shader_parameter/puddle_amount = 0.55
-shader_parameter/puddle_softness = 0.08
-shader_parameter/enable_rain_ripples = true
+shader_parameter/puddle_amount = 0.33999999240032
+shader_parameter/puddle_softness = 0.37999999150624
+shader_parameter/enable_rain_ripples = false
 shader_parameter/ripple_speed = 0.90000000596048
 shader_parameter/ripple_density = 35.0
-shader_parameter/ripple_strength = 0.1499999966472
+shader_parameter/ripple_strength = 0.02999999932944
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_obgan"]
 _surfaces = [{
