@@ -78,6 +78,7 @@ func startPoliceWoman() -> void:
 	
 	if head_look_script_C:
 		head_look_script_C.set_tracking(false)
+		
 	Globals.can_talk_policewoman = false
 	$"../../../Path3D2/AnimationPlayer".play()
 	$"../../../Path3D2/PathFollow3D/PoliceWoman/AnimationPlayer".play("Walking")
