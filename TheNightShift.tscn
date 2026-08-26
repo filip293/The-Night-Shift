@@ -5047,6 +5047,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x3lai")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkcgn"]
+size = Vector3(3.249754, 2.2680686, 0.045234833)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_0m40h"]
 _surfaces = [{
 "aabb": AABB(-0.48112074, -0.41569722, -0.022617392, 0.96224153, 0.83139443, 0.045234773),
@@ -14926,7 +14929,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000325, -0.00073383795, -0.00024333794, -0.0007656806, 0.5826748, 0.28807932, -0.00010710307, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500033, -0.00073383795, -0.00024333794, -0.00076568074, 0.5826748, 0.28807932, -0.00010710308, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -16187,6 +16190,13 @@ transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, 0, 4.371139e-06, 100, 
 [node name="Glass_003_Glass_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Glass_003" unique_id=994460725]
 gi_mode = 0
 mesh = SubResource("ArrayMesh_hj4im")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Glass_003/Glass_003_Glass_0" unique_id=1800736700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, -1.8626451e-09)
+collision_layer = 257
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Glass_003/Glass_003_Glass_0/StaticBody3D" unique_id=1351531763]
+shape = SubResource("BoxShape3D_pkcgn")
 
 [node name="Glass" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=2143666064]
 transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, 0, 4.371139e-06, 100, 618.2375, 311.36026, -1429.1829)
@@ -18177,7 +18187,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.09423958, 4.886021e-05, 0.9955024, -1.8188323e-12, 0.9999266, -4.9079987e-05, -0.9954628, -4.625555e-06, -0.09424333, 0, 0, 0)
+transform = Transform3D(-0.09423958, 4.886021e-05, 0.99550235, -1.8188322e-12, 0.9999266, -4.9079983e-05, -0.9954627, -4.625555e-06, -0.094243325, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
