@@ -24,6 +24,10 @@ var earned_money: int = 0
 var radio_playing: bool = true
 var task_given: bool = false
 
+var can_talk_policewoman: bool = false
+var can_talk_babushka: bool = false
+var is_in_dialogue: bool = false
+
 signal TASKCHANGED
 
 func _physics_process(delta: float) -> void:

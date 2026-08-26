@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 		first = false
 		await Globals.calltime(50.0)
 		Globals.stationcar = true
-		$"../../Path3D/PathFollow3D/Babushka".startOldWoman()
 		await Globals.calltime(10.0)
 		go_car1()
 		await Globals.calltime(5.0)

@@ -4,6 +4,7 @@ extends RayCast3D
 @export var label: Label
 
 @onready var task_mgr: Node = $"../../../../InGame/TaskManager"
+@onready var dialogue_ui: Node = $"../../../../InGame/CanvasLayer2/Control"
 
 enum ObjectType { GENERIC, DOOR, PUDDLE }
 
@@ -19,6 +20,11 @@ func _ready() -> void:
 		label.modulate.a = 0.0
 
 func _physics_process(delta: float) -> void:
+	# Block all world interactions while a dialogue is actively open
+	if Globals.get("is_in_dialogue"):
+		_animate_label("")
+		return
+
 	var target_text = ""
 
 	# 1. Active cleaning tick
@@ -63,8 +69,25 @@ func _physics_process(delta: float) -> void:
 				var broom_held = $"../../../Bwoom2".visible
 				var mop_held = $"../../../Bwooom".visible
 
+				# --- NPC INTERACTIONS ---
+				if object_name == "PoliceWoman":
+					if Globals.get("can_talk_policewoman"):
+						target_text = "[E] Talk to Police Officer"
+						if Input.is_action_just_pressed("Interact"):
+							_start_policewoman_dialogue()
+					else:
+						target_text = "She looks busy right now..."
+
+				elif object_name == "Babushka" or object_name == "OldWoman":
+					if Globals.get("can_talk_babushka"):
+						target_text = "[E] Talk to Babushka"
+						if Input.is_action_just_pressed("Interact"):
+							_start_babushka_dialogue()
+					else:
+						target_text = "She looks busy right now..."
+
 				# TASK 1: Broom
-				if object_name == "Broom" and current_task == 1:
+				elif object_name == "Broom" and current_task == 1:
 					if broom_held:
 						var dirt_left = get_tree().get_nodes_in_group("dirt").size()
 						if dirt_left == 0:
@@ -292,3 +315,21 @@ func _animate_label(new_text: String) -> void:
 			label_tween.tween_property(label, "modulate:a", 0.0, 0.15)
 			label_tween.tween_callback(func(): label.text = new_text)
 			label_tween.tween_property(label, "modulate:a", 1.0, 0.25)
+
+func _start_policewoman_dialogue() -> void:
+	if dialogue_ui and dialogue_ui.has_method("start_dialogue"):
+		var dialogue: Array[Dictionary] = [
+			{"speaker": "Police Officer", "text": "Evening, worker. Keep your eyes open out here."},
+			{"speaker": "You", "text": "Is everything alright, Officer?"},
+			{"speaker": "Police Officer", "text": "Just perform your shift tasks and stay inside when night falls."}
+		]
+		dialogue_ui.start_dialogue(dialogue)
+
+func _start_babushka_dialogue() -> void:
+	if dialogue_ui and dialogue_ui.has_method("start_dialogue"):
+		var dialogue: Array[Dictionary] = [
+			{"speaker": "Babushka", "text": "Ah, dear child... the air feels so heavy tonight."},
+			{"speaker": "You", "text": "Do you need help finding anything?"},
+			{"speaker": "Babushka", "text": "No, sweetie. Just mind the shadows in the dark corners."}
+		]
+		dialogue_ui.start_dialogue(dialogue)
