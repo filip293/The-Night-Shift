@@ -13773,7 +13773,7 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro/Prologue" unique_id=1171069178]
 stream = ExtResource("21_66e14")
-volume_db = -48.981
+volume_db = -30.0
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
