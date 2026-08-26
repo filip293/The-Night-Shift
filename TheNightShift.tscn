@@ -185,7 +185,7 @@
 [ext_resource type="AudioStream" uid="uid://doqt5af05fkxy" path="res://Sounds/TakeBroom.mp3" id="156_1xca5"]
 [ext_resource type="AudioStream" uid="uid://kcmgf6bgqcvy" path="res://Sounds/run.mp3" id="164_krf3k"]
 [ext_resource type="PackedScene" uid="uid://co5xar7risxeg" path="res://MapAssets/Flashlight.glb" id="170_6rkv3"]
-[ext_resource type="Script" uid="uid://cgqsyd4vntd86" path="res://characters/Persons/LoopAnimations.gd" id="184_pkcgn"]
+[ext_resource type="Script" uid="uid://cgqsyd4vntd86" path="res://scripts/LoopAnimations.gd" id="184_pkcgn"]
 [ext_resource type="Texture2D" uid="uid://dksrkhbm0bsrr" path="res://characters/Persons/Babushka_Character_31_Female.png" id="185_an4rv"]
 [ext_resource type="Texture2D" uid="uid://cyh3fujfcpts8" path="res://characters/Persons/PoliceWoman_Character_17_Female_Police.png" id="186_an4rv"]
 [ext_resource type="Script" uid="uid://b2y477eqo3wdf" path="res://scripts/NPCHeadLook.gd" id="187_h452q"]
@@ -16141,7 +16141,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500033, -0.00073383795, -0.00024333794, -0.00076568074, 0.5826748, 0.28807932, -0.00010710308, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500034, -0.00073383795, -0.00024333794, -0.0007656808, 0.5826748, 0.28807932, -0.00010710309, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -19456,7 +19456,7 @@ transform = Transform3D(1, 4.5275814e-11, 3.162477e-20, -4.5275783e-11, 1.000000
 curve = ExtResource("93_jtq2l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/SecondCar" unique_id=681389406]
-transform = Transform3D(-0.9999958, -0.00037487922, -9.687723e-06, -0.0003748779, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
+transform = Transform3D(-0.9999958, -0.00037487916, -9.687723e-06, -0.00037487785, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
 progress = 86.06855
 
 [node name="suv" type="StaticBody3D" parent="Map/SecondCar/PathFollow3D" unique_id=1519486724]
