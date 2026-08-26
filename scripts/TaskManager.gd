@@ -34,7 +34,7 @@ func _on_task_changed() -> void:
 	_update_task_ui()
 
 func _update_task_ui() -> void:
-	if Globals.task_idx == 4:
+	if Globals.task_idx == 4 and Globals.task_given:
 		var crate = get_node_or_null("../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Crate2")
 		if crate:
 			crate.visible = true
@@ -58,7 +58,7 @@ func _update_task_highlights() -> void:
 		_set_task_target(node, false)
 
 	# TASK 1: Broom & Dirt
-	if task == 1:
+	if task == 1 and Globals.task_given:
 		var broom_held = broom_held_node and broom_held_node.visible
 		var dirt_left = get_tree().get_nodes_in_group("dirt").size()
 		
@@ -71,7 +71,7 @@ func _update_task_highlights() -> void:
 			_glow_by_name("Broom")
 
 	# TASK 2: Take out the trash
-	elif task == 2:
+	elif task == 2 and Globals.task_given:
 		var has_trash = Globals.get("has_trash_bag")
 		if not has_trash:
 			_glow_by_name("Trash bag")
@@ -79,14 +79,14 @@ func _update_task_highlights() -> void:
 			_glow_by_name("Trash can")
 
 	# TASK 3: Mop & Puddles
-	elif task == 3:
+	elif task == 3 and Globals.task_given:
 		var mop_held = mop_held_node and mop_held_node.visible
 		
 		if not mop_held:
 			_glow_by_name("Mop")
 
 	# TASK 4: Crate, Cans, Shelf
-	elif task == 4:
+	elif task == 4 and Globals.task_given:
 		var has_crate = Globals.get("has_crate")
 		var crate_delivered = Globals.get("crate_delivered")
 
