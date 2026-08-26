@@ -24,9 +24,10 @@
 [ext_resource type="Script" uid="uid://374vdsmmtpmt" path="res://scripts/TaskManager.gd" id="10_l5miw"]
 [ext_resource type="Script" uid="uid://3bqbystut1tk" path="res://Timer.gd" id="11_4e8dr"]
 [ext_resource type="AudioStream" uid="uid://2f52cvs4vbrq" path="res://Sounds/Rain.mp3" id="11_7kn7w"]
-[ext_resource type="AudioStream" uid="uid://61reo1rnpdrt" path="res://introAssets/ringtone.mp3" id="11_orf22"]
+[ext_resource type="AudioStream" uid="uid://qsv334yo7n8" path="res://introAssets/ringtone.wav" id="11_kh518"]
 [ext_resource type="Texture2D" uid="uid://bpufhvqlalrhc" path="res://map/gas_station_1.jpg" id="12_7kn7w"]
 [ext_resource type="Script" uid="uid://cjim0s61maq0e" path="res://receipt.gd" id="12_kc0vc"]
+[ext_resource type="AudioStream" uid="uid://boroeqdci7pjw" path="res://Sounds/vibrate.mp3" id="12_kh518"]
 [ext_resource type="AudioStream" uid="uid://cqr2wrmew7ep4" path="res://Sounds/Lightning.mp3" id="12_lk3e2"]
 [ext_resource type="Script" uid="uid://c363t3ssxw88g" path="res://IntroGUI.gd" id="12_nfb5k"]
 [ext_resource type="Texture2D" uid="uid://bj6qcg3w65wjb" path="res://map/gas_station_2.png" id="13_eqbcs"]
@@ -43,11 +44,15 @@
 [ext_resource type="Script" uid="uid://herx33nqv75a" path="res://scripts/RCastLogic.gd" id="17_61cw4"]
 [ext_resource type="Script" uid="uid://6qmtqur0d5bj" path="res://ot_receipt.gd" id="17_caos5"]
 [ext_resource type="Texture2D" uid="uid://kft1r60ydo65" path="res://map/gas_station_6.jpg" id="17_fniig"]
+[ext_resource type="Script" uid="uid://dookwsqr3he0y" path="res://prologue.gd" id="18_n0vft"]
 [ext_resource type="Texture2D" uid="uid://b6noyfbaw22lv" path="res://map/gas_station_7.jpg" id="18_yppyl"]
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
+[ext_resource type="AudioStream" uid="uid://bx8wvxiutg3cq" path="res://introAssets/typing.mp3" id="19_ihlne"]
+[ext_resource type="AudioStream" uid="uid://c8givrckh8ulg" path="res://Sounds/selection-made.mp3" id="19_k741j"]
 [ext_resource type="AudioStream" uid="uid://bscwh83mkmvxy" path="res://Sounds/print.mp3" id="19_y87xx"]
 [ext_resource type="Texture2D" uid="uid://kis52ga1aqdx" path="res://map/gas_station_9.jpg" id="20_ietea"]
 [ext_resource type="Texture2D" uid="uid://btjlbb75uflc8" path="res://Task4.png" id="21_6rkv3"]
+[ext_resource type="AudioStream" uid="uid://xrh4voo1p5vv" path="res://introAssets/selection-made.mp3" id="21_66e14"]
 [ext_resource type="AudioStream" uid="uid://d2qbwmj7ue4pi" path="res://Sounds/paper.mp3" id="21_ml62m"]
 [ext_resource type="Texture2D" uid="uid://dtucvkv3idlwb" path="res://map/gas_station_10.jpg" id="21_mvkfx"]
 [ext_resource type="Texture2D" uid="uid://d1e0e5i288i5b" path="res://map/gas_station_11.jpg" id="22_n57uf"]
@@ -261,21 +266,23 @@ roughness = 0.25
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex2w0"]
 resource_name = "Material.002"
 cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+metallic = 0.7
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8yufy"]
 resource_name = "Material.003"
 cull_mode = 2
-albedo_color = Color(0.68, 0.68, 0.68, 1)
+albedo_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+metallic = 0.6
 roughness = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijiw7"]
 resource_name = "Material.005"
 cull_mode = 2
 albedo_texture = ExtResource("6_jl68e")
-metallic = 1.0
-roughness = 0.5
+metallic_specular = 0.53
+roughness = 0.35
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nfb5k"]
@@ -386,13 +393,13 @@ shadow_mesh = SubResource("ArrayMesh_nfb5k")
 resource_name = "Material.001"
 cull_mode = 2
 albedo_texture = ExtResource("7_cbjmt")
-roughness = 0.5
+roughness = 0.0
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwfq7"]
 resource_name = "Material.008"
 cull_mode = 2
-metallic = 0.504545
+metallic = 0.8
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d2ln"]
@@ -412,12 +419,15 @@ roughness = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orf22"]
 resource_name = "Material.006"
 cull_mode = 2
-albedo_color = Color(0.68, 0.68, 0.68, 1)
+albedo_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+metallic = 0.3
 roughness = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx7w2"]
 resource_name = "material_0"
 cull_mode = 2
+albedo_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+metallic = 1.0
 roughness = 0.6
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kh518"]
@@ -13615,15 +13625,17 @@ process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
 
-[node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "screen_light", "hinge")]
+[node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
 script = ExtResource("7_rhhmh")
 audio_player = NodePath("RingAndSFX")
+vibrate_audio_player = NodePath("Vibrate")
 screen_light = NodePath("Hinge/SecondScreenLight")
+main_screen_light = NodePath("Hinge/LidAndScreen/MainScreenLight")
 hinge = NodePath("Hinge")
 wobble_speed = 3.2
-ring_duration = 1.3
-pause_duration = 0.8
+ring_duration = 0.7
+pause_duration = 0.7
 flash_energy = 5.0
 open_angle_x = -130.0
 flip_speed = 1.0
@@ -13648,19 +13660,23 @@ mesh = SubResource("ArrayMesh_n0vft")
 [node name="MainScreenLight" type="OmniLight3D" parent="Intro/moto-v3i/Hinge/LidAndScreen" unique_id=1908029241]
 transform = Transform3D(1.5709715, -4.7683716e-07, 2.3841858e-07, 8.940697e-08, 1.5709705, 1.4901161e-06, -8.34465e-07, -1.4305115e-06, 1.5709705, 0.89312744, -0.29327393, 1.5840759)
 light_color = Color(0.65, 0.8308333, 1, 1)
-light_energy = 0.3
+light_energy = 0.0
 light_size = 0.392
 omni_range = 1.6480765
 
 [node name="RingAndSFX" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=1583138395]
-stream = ExtResource("11_orf22")
-attenuation_model = 1
-volume_db = -59.21
+stream = ExtResource("11_kh518")
+volume_db = -35.0
+unit_size = 3.8
 max_db = 6.0
-pitch_scale = 1.3
 panning_strength = 1.76
 
 [node name="Voice" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=469386040]
+
+[node name="Vibrate" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=1335148161]
+stream = ExtResource("12_kh518")
+volume_db = -45.0
+pitch_scale = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Intro" unique_id=955447945]
 transform = Transform3D(1, -1.6058266e-12, 1.4551915e-11, -9.066525e-12, 0.99999994, -1.1641532e-10, -1.4551915e-11, 0, 1, 3.941357e-05, 0.41443825, 0.00048828125)
@@ -13718,7 +13734,45 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro/GUI" unique_id=635850680]
 stream = ExtResource("16_orf22")
-volume_db = -20.0
+volume_db = -40.0
+
+[node name="Prologue" type="Node2D" parent="Intro" unique_id=1409862693 node_paths=PackedStringArray("TextBox", "AudioPlayer")]
+script = ExtResource("18_n0vft")
+type_sound = ExtResource("19_ihlne")
+select_sound = ExtResource("19_k741j")
+TextBox = NodePath("CanvasLayer/RichTextLabel")
+AudioPlayer = NodePath("AudioStreamPlayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Intro/Prologue" unique_id=1216524429]
+layer = 201
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Intro/Prologue/CanvasLayer" unique_id=51046624]
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -220.0
+offset_right = 704.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("15_wa347")
+theme_override_fonts/bold_font = ExtResource("15_g7py6")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro/Prologue" unique_id=1171069178]
+stream = ExtResource("21_66e14")
+volume_db = -48.981
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
@@ -13887,7 +13941,6 @@ bbcode_enabled = true
 text = "$0/$500"
 
 [node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite", "task_desc")]
-visible = false
 script = ExtResource("12_kc0vc")
 fade_duration = 0.2
 slide_duration = 0.45
@@ -14004,7 +14057,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500031, -0.00073383795, -0.00024333794, -0.00076568045, 0.5826748, 0.28807932, -0.00010710304, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000314, -0.00073383795, -0.00024333794, -0.0007656805, 0.5826748, 0.28807932, -0.00010710305, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17255,7 +17308,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.0942396, 4.886021e-05, 0.9955026, -1.8188326e-12, 0.9999266, -4.9079994e-05, -0.99546295, -4.625555e-06, -0.09424335, 0, 0, 0)
+transform = Transform3D(-0.09423959, 4.886021e-05, 0.99550253, -1.8188325e-12, 0.9999266, -4.9079994e-05, -0.9954629, -4.625555e-06, -0.09424335, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -17306,7 +17359,7 @@ transform = Transform3D(1, 4.5275814e-11, 3.162477e-20, -4.5275783e-11, 1.000000
 curve = ExtResource("93_jtq2l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/SecondCar" unique_id=681389406]
-transform = Transform3D(-0.9999958, -0.00037487922, -9.687723e-06, -0.0003748779, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
+transform = Transform3D(-0.9999958, -0.00037487916, -9.687723e-06, -0.00037487785, 0.99999756, -6.992255e-05, 9.713911e-06, -6.991887e-05, -0.9999983, -67.00018, -0.0013067644, -18.688711)
 progress = 86.06855
 
 [node name="suv" type="StaticBody3D" parent="Map/SecondCar/PathFollow3D" unique_id=1519486724]

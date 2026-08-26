@@ -5,7 +5,9 @@ var close_sound: AudioStream = preload("res://Sounds/shutNEW.mp3")
 
 @export_group("Nodes")
 @export var audio_player: AudioStreamPlayer3D
+@export var vibrate_audio_player: AudioStreamPlayer3D
 @export var screen_light: OmniLight3D
+@export var main_screen_light: OmniLight3D
 @export var hinge: Node3D
 
 @export_group("Talking Wobble (Adjustable)")
@@ -59,14 +61,17 @@ func _process(delta: float) -> void:
 	if is_calling:
 		pulse_timer += delta
 		if is_pulse_active:
+			
 			position.x = base_pos.x + randf_range(-vibrate_intensity, vibrate_intensity)
 			position.z = base_pos.z + randf_range(-vibrate_intensity, vibrate_intensity)
 			rotation_degrees.y = base_rot.y + randf_range(-vibrate_rot_intensity, vibrate_rot_intensity)
 			if pulse_timer >= ring_duration:
 				_end_pulse()
+				vibrate_audio_player.stop()
 		else:
 			if pulse_timer >= pause_duration:
 				_start_pulse()
+				vibrate_audio_player.play()
 
 	# 2. Subtle Talking Wobble
 	if is_talking and wobble_enabled:
@@ -96,12 +101,12 @@ func snap_open() -> Tween:
 		return null
 	
 	if audio_player and open_sound:
-		audio_player.volume_db = -20.0
+		audio_player.volume_db = -5.0
 		audio_player.stream = open_sound
 		audio_player.play()
 		
 	if screen_light:
-		create_tween().tween_property(screen_light, "light_energy", 1.2, 0.15)
+		create_tween().tween_property(main_screen_light, "light_energy", 0.3, 0.15)
 		
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(hinge, "rotation_degrees:x", open_angle_x, flip_speed)
@@ -114,12 +119,12 @@ func snap_shut() -> Tween:
 	is_talking = false
 	
 	if audio_player and close_sound:
-		audio_player.volume_db = -20.0
+		audio_player.volume_db = -5.0
 		audio_player.stream = close_sound
 		audio_player.play()
 		
 	if screen_light:
-		create_tween().tween_property(screen_light, "light_energy", 0.0, 0.08)
+		create_tween().tween_property(main_screen_light, "light_energy", 0.0, 0.08)
 		
 	var tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tween.tween_property(hinge, "rotation_degrees:x", base_hinge_rot_x, 0.08)

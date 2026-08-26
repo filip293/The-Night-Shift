@@ -2,6 +2,7 @@ extends Node3D
 
 @export var play_intro: bool = true
 @onready var TitleScreen: Node = $"../TitleScreen"
+@onready var Prologue: Node2D = $"Prologue"
 @onready var IntroCamera: Camera3D = $Camera3D
 @onready var IntroSpotLight: SpotLight3D = $SpotLight3D
 @onready var MotoV3i: Node3D = $"moto-v3i"
@@ -26,18 +27,21 @@ func _ready() -> void:
 	await Globals.calltime(3.0)
 		
 	if play_intro:
+		await Prologue.play()
+		
 		# 1. Ringing Sequence
-		await Globals.calltime(1.5)
+		await Globals.calltime(5.0)
 		MotoV3i.start_calling()
+		await Globals.calltime(3.0)
 		turn_on_light()
-		await Globals.calltime(2.0)
+		await Globals.calltime(3.0)
 		
 		# 2. Answering the phone prompt
 		GUI.show_choices("Pick the phone up?", ["Yes", "No"])
 		var initial_choice = await GUI.choice_made
 		
 		if initial_choice[0] == 1: # Chose "No"
-			GUI.show_choices("It's your boss.", ["Fine..."])
+			GUI.show_choices("You're gonna get fired.", ["Fine..."])
 			await GUI.choice_made
 
 		# 3. Answer Call $\rightarrow$ Stop Ringing $\rightarrow$ Snap Open Phone
@@ -98,15 +102,13 @@ func _ready() -> void:
 		
 		await turn_off_light()
 
-		# 6. Hide Intro
-		visible = false
-
-		# 7. Start Title Screen Menu
-		await Globals.calltime(1.0)
+		await Globals.calltime(3.0)
+		# DO SOMETHING HERE?
 	
 	if TitleScreen:
 		TitleScreen.start()
 		GUI.visible = false
+		visible = false
 
 func _boss_speak(text: String, voice_clip: AudioStream) -> void:
 	GUI.show_dialogue("Boss", text)
