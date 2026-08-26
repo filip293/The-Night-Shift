@@ -8,6 +8,10 @@
 
 config_version=5
 
+[ResCleaner]
+
+data/keep_list=Array[String](["res://.DS_Store", "res://.editorconfig", "res://characters/.DS_Store", "res://characters/Monster.glb", "res://default_bus_layout.tres", "res://Fonts/PixeloidMono.ttf", "res://introAssets/moto-v3i.glb", "res://map/gas_station.glb", "res://MapAssets/.DS_Store", "res://MapAssets/broom_psx.glb", "res://MapAssets/Bucket and mop/BucketAndMop.glb", "res://MapAssets/Cars/Car1.glb", "res://MapAssets/Cars/Car2.glb", "res://MapAssets/Cars/Car3.glb", "res://MapAssets/Cars/Car4.glb", "res://MapAssets/Crate/Crate.glb", "res://MapAssets/Ice/.DS_Store", "res://MapAssets/Ice/Ice.glb", "res://MapAssets/optimized_shelf.glb", "res://MapAssets/Puddle/Puddle.glb", "res://MapAssets/radio.glb", "res://MapAssets/SUV/suv.glb", "res://MapAssets/wet_floor_sign.glb", "res://monster.gd", "res://monsterAnim/fall_back.res", "res://PSX_NIGHTSKY.hdr", "res://scripts/AutoSetNearest.gd", "res://scripts/tvscreen.gd", "res://shaders/glass.gdshader", "res://Sounds/.DS_Store", "res://Sounds/cartoon-sliping-and-crash.mp3", "res://Sounds/Car_Engine_Loop.ogg", "res://Sounds/Car_Engine_Loop_2.ogg", "res://Sounds/drone.mp3", "res://Sounds/jumpscare.mp3", "res://Sounds/MetalDoorClose.mp3", "res://Sounds/MetalDoorOpen.mp3", "res://Sounds/openNEW.mp3", "res://Sounds/Radio/.DS_Store", "res://Sounds/shutNEW.mp3", "res://Sounds/voiceline/v1.mp3", "res://Sounds/voiceline/v2.mp3", "res://Sounds/voiceline/v3.mp3", "res://Sounds/voiceline/v4.mp3", "res://TheNightShift.tscn"])
+
 [accessibility]
 
 general/accessibility_support=2
@@ -50,7 +54,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/post_processing/plugin.cfg")
+enabled=PackedStringArray("res://addons/godotresourcecleaner/plugin.cfg", "res://addons/post_processing/plugin.cfg")
 
 [filesystem]
 
