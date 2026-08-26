@@ -12,10 +12,19 @@ extends Node3D
 @onready var Map: Node3D = $"../Map"
 
 # Preload your boss voicelines here (or leave null if not recorded yet)
-var voice_boss_1: AudioStream = preload("res://Sounds/voiceline/v1.mp3")
-var voice_boss_2: AudioStream = preload("res://Sounds/voiceline/v2.mp3")
-var voice_boss_3: AudioStream = preload("res://Sounds/voiceline/v3.mp3")
-var voice_boss_4: AudioStream = preload("res://Sounds/voiceline/v4.mp3")
+var voice_boss_1: AudioStream = preload("res://introAssets/boss_voicelines/voiceline1_degraded_5800Hz.wav")
+var voice_boss_2a: AudioStream = preload("res://introAssets/boss_voicelines/voiceline2a_degraded_5800Hz.wav")
+var voice_boss_2b: AudioStream = preload("res://introAssets/boss_voicelines/voiceline2b_degraded_5800Hz.wav")
+var voice_boss_3: AudioStream = preload("res://introAssets/boss_voicelines/voiceline3_degraded_5800Hz.wav")
+var voice_boss_4a: AudioStream = preload("res://introAssets/boss_voicelines/voiceline4a_degraded_5800Hz.wav")
+var voice_boss_4b: AudioStream = preload("res://introAssets/boss_voicelines/voiceline4b_degraded_5800Hz.wav")
+var voice_boss_5a: AudioStream = preload("res://introAssets/boss_voicelines/voiceline5a_degraded_5800Hz.wav")
+var voice_boss_5b: AudioStream = preload("res://introAssets/boss_voicelines/voiceline5b_degraded_5800Hz.wav")
+var voice_boss_final1: AudioStream = preload("res://introAssets/boss_voicelines/voicelinefinal1_degraded_5800Hz.wav")
+var voice_boss_final2: AudioStream = preload("res://introAssets/boss_voicelines/voicelinefinal2_degraded_5800Hz.wav")
+
+var choice
+var index: int
 
 var light_tween: Tween
 
@@ -54,39 +63,61 @@ func _ready() -> void:
 		# =========================================================================
 		
 		# --- BEAT 1: Boss asks if you're awake ---
-		_boss_speak("Did I wake you up?", voice_boss_1)
+		_boss_speak("Look who finally decided to pick up. Don't tell me you were actually asleep.", voice_boss_1)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 
 		# --- BEAT 1 (Player Response): ---
 		MotoV3i.set_talking(false)
-		GUI.show_choices("You:", ["Yes, you did.", "No. I was doing something."])
-		await GUI.choice_made
-
+		GUI.show_choices("You:", ["It's my night off.", "I was doing something."])
+		choice = await GUI.choice_made
+		
 		# --- BEAT 2: Boss explains the shift ---
-		_boss_speak("The kid that was supposed to work tonight bailed on me.", voice_boss_2)
+		index = choice[0]
+		if index == 0:
+			_boss_speak("Well congratulations, your night off is cancelled.", voice_boss_2a)
+		elif index == 1:
+			_boss_speak("Doesn't matter. I need you at the gas station.", voice_boss_2b)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 
-		# --- BEAT 2 (Player Response): ---
-		MotoV3i.set_talking(false)
-		GUI.show_choices("You:", ["And?", "Let me guess..."])
-		await GUI.choice_made
-		
-		# --- BEAT 3: Boss final demand ---
-		_boss_speak("I need you to get up and cover for him. You'll be working the night shift.", voice_boss_3)
+		_boss_speak("Kyle had some kind of nervous breakdown twenty minutes into his shift, he threw his name tag in the slushie machine, and bolted out the back.", voice_boss_3)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 		
 		# --- BEAT 3 (Player Response): ---
 		MotoV3i.set_talking(false)
-		GUI.show_choices("You:", ["I have other plans.", "I'm straight up jorking it."])
-		await GUI.choice_made
+		GUI.show_choices("You:", ["Not my problem.", "Why did he run out?"])
+		choice = await GUI.choice_made
 		
 		# --- BEAT 4: Boss final demand ---
-		_boss_speak("I couldn't care less what you're up to, get to the store... NOW!", voice_boss_4)
+		index = choice[0]
+		if index == 0:
+			_boss_speak("Listen. I don't pay Kyle to run off whenever he wants to, and I certainly don't pay you to be a smug prick.", voice_boss_4a)
+		elif index == 1:
+			_boss_speak("Apparently he heard a noise in the vents. It was probably a racoon or the HVAC rattling.", voice_boss_4b)
 		await VoiceAudioPlayer.finished
-
+		await Globals.calltime(0.7)
+		
+		MotoV3i.set_talking(false)
+		GUI.show_choices("You:", ["Will I get paid overtime for this?", "Can I just not show up?"])
+		choice = await GUI.choice_made
+		
+		index = choice[0]
+		if index == 0:
+			_boss_speak("You wish. You'll get minimum wage and store credit.", voice_boss_5a)
+		elif index == 1:
+			_boss_speak("Then you're fired. Not yet though.", voice_boss_5b)
+		await VoiceAudioPlayer.finished
+		await Globals.calltime(0.7)
+		
+		_boss_speak("Sweep the aisles, throw away the garbage and clean the bathrooms. We also have a delivery coming tonight as well.", voice_boss_final1)
+		await VoiceAudioPlayer.finished
+		await Globals.calltime(0.7)
+		
+		_boss_speak("Get to the store. NOW.", voice_boss_final2)
+		await VoiceAudioPlayer.finished
+		
 		# =========================================================================
 		# END OF CALL
 		# =========================================================================

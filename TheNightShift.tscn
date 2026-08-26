@@ -13672,6 +13672,9 @@ max_db = 6.0
 panning_strength = 1.76
 
 [node name="Voice" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=469386040]
+transform = Transform3D(1, -1.7462298e-10, 2.682209e-07, 5.820766e-11, 0.99999964, 1.1641532e-10, 5.9604645e-08, 1.1641532e-10, 0.99999964, -0.24401093, 0.56661606, -0.12097168)
+volume_db = -10.0
+unit_size = 4.0
 
 [node name="Vibrate" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=1335148161]
 stream = ExtResource("12_kh518")
@@ -14058,7 +14061,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000314, -0.00073383795, -0.00024333794, -0.0007656805, 0.5826748, 0.28807932, -0.00010710305, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500032, -0.00073383795, -0.00024333794, -0.00076568057, 0.5826748, 0.28807932, -0.000107103064, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17309,7 +17312,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.09423959, 4.886021e-05, 0.99550253, -1.8188325e-12, 0.9999266, -4.9079994e-05, -0.9954629, -4.625555e-06, -0.09424335, 0, 0, 0)
+transform = Transform3D(-0.094239585, 4.886021e-05, 0.9955025, -1.8188324e-12, 0.9999266, -4.907999e-05, -0.99546283, -4.625555e-06, -0.09424334, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
