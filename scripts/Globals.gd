@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 		print("Task changed!")
 	chk_task = task_idx
 	
+	if Input.is_physical_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
+		
 func calltime(time: float) -> Signal:
 	var timer := Timer.new()
 	timer.process_mode = Node.PROCESS_MODE_ALWAYS

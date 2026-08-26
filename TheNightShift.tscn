@@ -14000,7 +14000,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500029, -0.00073383795, -0.00024333794, -0.0007656802, 0.5826748, 0.28807932, -0.00010710301, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000296, -0.00073383795, -0.00024333794, -0.0007656803, 0.5826748, 0.28807932, -0.00010710302, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17250,7 +17250,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.094239615, 4.886021e-05, 0.99550277, -1.818833e-12, 0.9999266, -4.9080005e-05, -0.99546313, -4.625555e-06, -0.09424337, 0, 0, 0)
+transform = Transform3D(-0.09423961, 4.886021e-05, 0.9955027, -1.8188328e-12, 0.9999266, -4.908e-05, -0.9954631, -4.625555e-06, -0.09424336, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
