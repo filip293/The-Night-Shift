@@ -50,6 +50,9 @@ func startOldWoman() -> void:
 	_open_door_if_closed()
 	
 	startPoliceWoman()
+	
+	await Globals.calltime(40)
+	$"../..".queue_free()
 
 func startPoliceWoman() -> void:
 	$"../../../Path3D2/AnimationPlayer".play("Walking")
@@ -81,3 +84,5 @@ func startPoliceWoman() -> void:
 	await Globals.calltime(0.5)
 	
 	_open_door_if_closed()
+	await Globals.calltime(10)
+	$"../../../Path3D2".queue_free()

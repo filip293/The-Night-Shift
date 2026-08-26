@@ -21295,7 +21295,7 @@ transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -2.344791e-11, 1.000000
 curve = SubResource("Curve3D_v1r1w")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3" unique_id=2144093215]
-transform = Transform3D(7.766695e-05, 4.4885877e-05, 0.9998346, -5.4559994e-12, 0.9998355, -4.4885837e-05, -0.9998224, 3.4813121e-09, 7.766789e-05, 0, 0, 0)
+transform = Transform3D(7.766695e-05, 4.488588e-05, 0.99983466, -5.456e-12, 0.99983555, -4.488584e-05, -0.99982244, 3.4813123e-09, 7.76679e-05, 0, 0, 0)
 
 [node name="Babushka" type="Node3D" parent="Path3D3/PathFollow3D" unique_id=518219255]
 transform = Transform3D(-1.1999936, -0.0011926612, 0.0015063058, -0.0011100755, 1.1982595, 0.06442786, -0.0015681782, 0.06442689, -1.1982956, 0.10198593, -0.017128982, 0.069366455)
