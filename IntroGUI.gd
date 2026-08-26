@@ -4,7 +4,6 @@ signal choice_made(index: int, text: String)
 signal dialogue_advanced
 
 @export_group("Sounds")
-## Drag your navigation beep sound here in the Inspector (or assign to AudioStreamPlayer)
 @export var nav_sound: AudioStream = preload("res://Sounds/blip.mp3")
 @export var select_sound: AudioStream = null # OBNOXIOUS, I REMOVED IT
 

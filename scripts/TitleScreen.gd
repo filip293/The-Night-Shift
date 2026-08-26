@@ -7,8 +7,10 @@ extends Node2D
 @onready var PlayerCam := $"../Player/Neck/Camera"
 @onready var BGM := $BackgroundMusic
 @onready var TaskManager: Node = $"../InGame/TaskManager"
+@onready var DL3D: DirectionalLight3D = $"../Map/DirectionalLight3D"
 
 func start() -> void:
+	DL3D.visible = true
 	TitleCam.make_current()
 	$CanvasLayer.visible = true
 	TitleCamAnim.play("CamAnim/handheld_sway")

@@ -21,10 +21,10 @@
 [ext_resource type="Script" uid="uid://cox0ym0orutj6" path="res://motov3i.gd" id="7_rhhmh"]
 [ext_resource type="FontFile" uid="uid://coflg0jb5fl2j" path="res://Fonts/digital-7.ttf" id="8_n57uf"]
 [ext_resource type="Environment" uid="uid://dtdfrx8i84242" path="res://introAssets/introEnv.tres" id="8_rhhmh"]
-[ext_resource type="AudioStream" uid="uid://boroeqdci7pjw" path="res://Sounds/vibrate.mp3" id="10_8yufy"]
 [ext_resource type="Script" uid="uid://374vdsmmtpmt" path="res://scripts/TaskManager.gd" id="10_l5miw"]
 [ext_resource type="Script" uid="uid://3bqbystut1tk" path="res://Timer.gd" id="11_4e8dr"]
 [ext_resource type="AudioStream" uid="uid://2f52cvs4vbrq" path="res://Sounds/Rain.mp3" id="11_7kn7w"]
+[ext_resource type="AudioStream" uid="uid://61reo1rnpdrt" path="res://introAssets/ringtone.mp3" id="11_orf22"]
 [ext_resource type="Texture2D" uid="uid://bpufhvqlalrhc" path="res://map/gas_station_1.jpg" id="12_7kn7w"]
 [ext_resource type="Script" uid="uid://cjim0s61maq0e" path="res://receipt.gd" id="12_kc0vc"]
 [ext_resource type="AudioStream" uid="uid://cqr2wrmew7ep4" path="res://Sounds/Lightning.mp3" id="12_lk3e2"]
@@ -13622,9 +13622,11 @@ audio_player = NodePath("RingAndSFX")
 screen_light = NodePath("Hinge/SecondScreenLight")
 hinge = NodePath("Hinge")
 wobble_speed = 3.2
-ring_duration = 0.9
+ring_duration = 1.3
+pause_duration = 0.8
+flash_energy = 5.0
 open_angle_x = -130.0
-flip_speed = 3.0
+flip_speed = 1.0
 
 [node name="Base" type="MeshInstance3D" parent="Intro/moto-v3i" unique_id=311293865]
 transform = Transform3D(0.6097718, 0, 0, 0, 0.6097719, 0, 0, 0, 0.6097719, -0.45394146, 0, 0.64748245)
@@ -13651,10 +13653,12 @@ light_size = 0.392
 omni_range = 1.6480765
 
 [node name="RingAndSFX" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=1583138395]
-stream = ExtResource("10_8yufy")
-volume_db = -16.0
-unit_size = 5.0
-pitch_scale = 0.6
+stream = ExtResource("11_orf22")
+attenuation_model = 1
+volume_db = -59.21
+max_db = 6.0
+pitch_scale = 1.3
+panning_strength = 1.76
 
 [node name="Voice" type="AudioStreamPlayer3D" parent="Intro/moto-v3i" unique_id=469386040]
 
@@ -13673,7 +13677,7 @@ fov = 100.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Intro" unique_id=1508155983]
 transform = Transform3D(0.91229194, -0.010809553, 0.4093979, -0.40953293, -0.0178806, 0.9121198, -0.0025393257, -0.99978137, -0.02073919, 3.833, 8.724, 0.593)
-light_energy = 1.19
+light_energy = 0.0
 light_specular = 1.0
 light_bake_mode = 0
 spot_range = 94.357
@@ -14000,7 +14004,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000296, -0.00073383795, -0.00024333794, -0.0007656803, 0.5826748, 0.28807932, -0.00010710302, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.650003, -0.00073383795, -0.00024333794, -0.00076568034, 0.5826748, 0.28807932, -0.000107103035, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17236,6 +17240,7 @@ material = SubResource("FogMaterial_sq8w8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map" unique_id=586173759]
 transform = Transform3D(3.588812e-08, -0.8210243, -0.5708932, 2.4954545e-08, -0.5708932, 0.8210243, -1, -4.37114e-08, 3.5527137e-15, -87.97259, 124.79947, -1.5118818)
+visible = false
 light_color = Color(0.47609282, 0.121185906, 0.66288584, 1)
 light_energy = 0.2
 light_indirect_energy = 0.658
@@ -17250,7 +17255,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.09423961, 4.886021e-05, 0.9955027, -1.8188328e-12, 0.9999266, -4.908e-05, -0.9954631, -4.625555e-06, -0.09424336, 0, 0, 0)
+transform = Transform3D(-0.0942396, 4.886021e-05, 0.99550265, -1.8188327e-12, 0.9999266, -4.9079998e-05, -0.995463, -4.625555e-06, -0.094243355, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)

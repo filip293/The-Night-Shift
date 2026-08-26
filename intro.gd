@@ -16,6 +16,8 @@ var voice_boss_2: AudioStream = preload("res://Sounds/voiceline/v2.mp3")
 var voice_boss_3: AudioStream = preload("res://Sounds/voiceline/v3.mp3")
 var voice_boss_4: AudioStream = preload("res://Sounds/voiceline/v4.mp3")
 
+var light_tween: Tween
+
 func _ready() -> void:
 	Player.process_mode = Node.PROCESS_MODE_DISABLED
 	Map.process_mode = Node.PROCESS_MODE_DISABLED
@@ -27,6 +29,7 @@ func _ready() -> void:
 		# 1. Ringing Sequence
 		await Globals.calltime(1.5)
 		MotoV3i.start_calling()
+		turn_on_light()
 		await Globals.calltime(2.0)
 		
 		# 2. Answering the phone prompt
@@ -92,10 +95,10 @@ func _ready() -> void:
 		# 5. Snap Phone Shut (plays shut.mp3)
 		await MotoV3i.snap_shut().finished
 		await Globals.calltime(0.4)
+		
+		await turn_off_light()
 
-		# 6. Cut spotlight and hide Intro
-		if IntroSpotLight:
-			IntroSpotLight.visible = false
+		# 6. Hide Intro
 		visible = false
 
 		# 7. Start Title Screen Menu
@@ -113,3 +116,13 @@ func _boss_speak(text: String, voice_clip: AudioStream) -> void:
 		VoiceAudioPlayer.play()
 		
 	MotoV3i.set_talking(true)
+
+func turn_on_light() -> void:
+	light_tween = create_tween()
+	light_tween.tween_property(IntroSpotLight, "light_energy", 1.1, 3.0)
+	await light_tween.finished
+	
+func turn_off_light() -> void:
+	light_tween = create_tween()
+	light_tween.tween_property(IntroSpotLight, "light_energy", 0.0, 1.0)
+	await light_tween.finished
