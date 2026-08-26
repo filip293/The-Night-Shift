@@ -13614,10 +13614,9 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
-play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "screen_light", "hinge")]
-transform = Transform3D(0.87035567, 0, 0.49242356, 0, 0.99999994, 0, -0.49242356, 0, 0.87035567, 0, 0.079, 0.292)
+transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
 script = ExtResource("7_rhhmh")
 audio_player = NodePath("RingAndSFX")
 screen_light = NodePath("Hinge/SecondScreenLight")
@@ -13668,18 +13667,19 @@ transform = Transform3D(-4.3704986e-08, 0.9999999, 1.4551915e-11, -0.9999997, -4
 mesh = SubResource("PlaneMesh_sq8w8")
 
 [node name="Camera3D" type="Camera3D" parent="Intro" unique_id=1512298269]
-transform = Transform3D(0.93108445, 0.23721425, -0.27714822, -0.000518264, 0.76057774, 0.649246, 0.3648031, -0.6043592, 0.70828503, 0.764, 2.184, 2.888)
+transform = Transform3D(0.93108445, 0.23721425, -0.27714822, -0.000518264, 0.76057774, 0.649246, 0.3648031, -0.6043592, 0.70828503, 0.494, 1.754, 2.758)
 environment = ExtResource("8_rhhmh")
 fov = 100.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Intro" unique_id=1508155983]
-transform = Transform3D(0.91229194, -0.010809553, 0.4093979, -0.40953293, -0.0178806, 0.9121198, -0.0025393257, -0.99978137, -0.02073919, 3.833, 7.8640003, 0.59298706)
-light_energy = 0.8
+transform = Transform3D(0.91229194, -0.010809553, 0.4093979, -0.40953293, -0.0178806, 0.9121198, -0.0025393257, -0.99978137, -0.02073919, 3.833, 8.724, 0.593)
+light_energy = 1.19
 light_specular = 1.0
 light_bake_mode = 0
-spot_range = 16.200397
-spot_angle = 30.0
-spot_angle_attenuation = 3.0314307
+spot_range = 94.357
+spot_attenuation = 0.3
+spot_angle = 12.37
+spot_angle_attenuation = 0.3077861
 
 [node name="GUI" type="Node2D" parent="Intro" unique_id=21583940]
 script = ExtResource("12_nfb5k")
