@@ -96,6 +96,7 @@ func snap_open() -> Tween:
 		return null
 	
 	if audio_player and open_sound:
+		audio_player.volume_db = -20.0
 		audio_player.stream = open_sound
 		audio_player.play()
 		
@@ -113,6 +114,7 @@ func snap_shut() -> Tween:
 	is_talking = false
 	
 	if audio_player and close_sound:
+		audio_player.volume_db = -20.0
 		audio_player.stream = close_sound
 		audio_player.play()
 		
