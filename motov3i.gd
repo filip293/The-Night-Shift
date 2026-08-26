@@ -1,7 +1,7 @@
 extends Node3D
 
-var open_sound: AudioStream = preload("res://Sounds/open.mp3")
-var close_sound: AudioStream = preload("res://Sounds/shut.mp3")
+var open_sound: AudioStream = preload("res://Sounds/openNEW.mp3")
+var close_sound: AudioStream = preload("res://Sounds/shutNEW.mp3")
 
 @export_group("Nodes")
 @export var audio_player: AudioStreamPlayer3D
