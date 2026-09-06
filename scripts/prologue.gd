@@ -11,11 +11,10 @@ signal part_advanced
 	"And right on cue..."
 ]
 
-@export var char_speed: float = 0.035
+@export var char_speed: float = 0.08
 
 @export_group("Audio")
 @export var type_sound: AudioStream # Drag your typing click / blip sound here!
-@export var select_sound: AudioStream = preload("res://Sounds/selection-made.mp3") if ResourceLoader.exists("res://Sounds/selection-made.mp3") else null
 
 @export var TextBox: RichTextLabel
 @export var AudioPlayer: AudioStreamPlayer
@@ -86,11 +85,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if is_confirm:
 		if is_typing:
-			# 1. Skip typing immediately and reveal the prompt
 			is_typing = false
 		else:
-			# 2. Advance to the next part
-			_play_sound(select_sound)
 			part_advanced.emit()
 			
 		get_viewport().set_input_as_handled()
@@ -98,7 +94,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _play_type_sound() -> void:
 	if AudioPlayer and type_sound:
 		AudioPlayer.stream = type_sound
-		# Subtle pitch variation makes typing sound organic
 		AudioPlayer.pitch_scale = randf_range(0.95, 1.05)
 		AudioPlayer.play()
 

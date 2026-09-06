@@ -46,9 +46,9 @@
 [ext_resource type="Texture2D" uid="uid://kft1r60ydo65" path="res://map/gas_station_6.jpg" id="17_fniig"]
 [ext_resource type="Script" uid="uid://dookwsqr3he0y" path="res://scripts/prologue.gd" id="18_n0vft"]
 [ext_resource type="Texture2D" uid="uid://b6noyfbaw22lv" path="res://map/gas_station_7.jpg" id="18_yppyl"]
+[ext_resource type="AudioStream" uid="uid://coeevv7kagnwj" path="res://Sounds/key.mp3" id="19_al4hb"]
 [ext_resource type="Texture2D" uid="uid://bixtosbwrsfod" path="res://map/gas_station_8.jpg" id="19_dl752"]
 [ext_resource type="AudioStream" uid="uid://bx8wvxiutg3cq" path="res://introAssets/typing.mp3" id="19_ihlne"]
-[ext_resource type="AudioStream" uid="uid://c8givrckh8ulg" path="res://Sounds/selection-made.mp3" id="19_k741j"]
 [ext_resource type="AudioStream" uid="uid://bscwh83mkmvxy" path="res://Sounds/print.mp3" id="19_y87xx"]
 [ext_resource type="Texture2D" uid="uid://kis52ga1aqdx" path="res://map/gas_station_9.jpg" id="20_ietea"]
 [ext_resource type="Texture2D" uid="uid://btjlbb75uflc8" path="res://Task4.png" id="21_6rkv3"]
@@ -15643,7 +15643,6 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
-play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
@@ -15761,8 +15760,7 @@ volume_db = -40.0
 
 [node name="Prologue" type="Node2D" parent="Intro" unique_id=1409862693 node_paths=PackedStringArray("TextBox", "AudioPlayer")]
 script = ExtResource("18_n0vft")
-type_sound = ExtResource("19_ihlne")
-select_sound = ExtResource("19_k741j")
+type_sound = ExtResource("19_al4hb")
 TextBox = NodePath("CanvasLayer/RichTextLabel")
 AudioPlayer = NodePath("AudioStreamPlayer")
 
@@ -15796,7 +15794,7 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro/Prologue" unique_id=1171069178]
 stream = ExtResource("21_66e14")
-volume_db = -30.0
+volume_db = -16.0
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
@@ -19428,7 +19426,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.09423773, 4.885992e-05, 0.9954876, -1.8187965e-12, 0.9999207, -4.907925e-05, -0.9954432, -4.6255277e-06, -0.094241925, 0, 0, 0)
+transform = Transform3D(-0.09423773, 4.885992e-05, 0.99548805, -1.8187965e-12, 0.9999207, -4.9079277e-05, -0.9954432, -4.6255277e-06, -0.09424197, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)

@@ -43,7 +43,7 @@ func _ready() -> void:
 		MotoV3i.start_calling()
 		await Globals.calltime(3.0)
 		turn_on_light()
-		await Globals.calltime(3.0)
+		await Globals.calltime(8.0)
 		
 		# 2. Answering the phone prompt
 		GUI.show_choices("Pick the phone up?", ["Yes", "No"])
