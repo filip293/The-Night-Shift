@@ -126,9 +126,11 @@
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
 [ext_resource type="AudioStream" uid="uid://dk4vwen7e4wj6" path="res://Sounds/ThrowGarbage.mp3" id="92_kj47f"]
+[ext_resource type="Texture2D" uid="uid://bv8kuc2ghgwkc" path="res://MapAssets/MonitorAlert/CarNotHere.png" id="92_lwl8w"]
 [ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
 [ext_resource type="AudioStream" uid="uid://mbxrc2nl7lau" path="res://Sounds/PickUpGarbage.mp3" id="93_1xca5"]
 [ext_resource type="Shader" uid="uid://dwq11yc5gon0l" path="res://shaders/Neon.gdshader" id="93_8k4jg"]
+[ext_resource type="Texture2D" uid="uid://3y4mwef2b4ft" path="res://MapAssets/MonitorAlert/CarArrived.png" id="93_al4hb"]
 [ext_resource type="AudioStream" uid="uid://8836liklyh85" path="res://Sounds/car-horn-sound-effect.mp3" id="93_d71h8"]
 [ext_resource type="Curve3D" uid="uid://d3r83ae70gb26" path="res://pathsCar/car2.tres" id="93_jtq2l"]
 [ext_resource type="AnimationLibrary" uid="uid://balxj2sfpw604" path="res://pathsCar/car2anim.res" id="94_d71h8"]
@@ -4119,6 +4121,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rphpi")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ftei"]
+viewport_path = NodePath("Camera5")
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_36kej"]
 _surfaces = [{
 "aabb": AABB(-0.20349295, -0.15298752, -0.035972487, 0.408549, 0.29388714, 0.08316735),
@@ -7839,9 +7844,7 @@ shadow_mesh = SubResource("ArrayMesh_t0jih")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4lju"]
 resource_name = "mat_DecalFuel"
-transparency = 3
-alpha_hash_scale = 2.0
-alpha_antialiasing_mode = 0
+transparency = 1
 cull_mode = 2
 albedo_color = Color(0, 0, 1, 1)
 albedo_texture = ExtResource("91_ccbeu")
@@ -16141,7 +16144,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500036, -0.00073383795, -0.00024333794, -0.0007656811, 0.5826748, 0.28807932, -0.00010710313, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500037, -0.00073383795, -0.00024333794, -0.00076568115, 0.5826748, 0.28807932, -0.00010710314, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17200,12 +17203,19 @@ transform = Transform3D(41.15379, -91.13926, 6.880823e-06, 0, 7.549789e-06, 100,
 gi_mode = 0
 mesh = SubResource("ArrayMesh_8wetb")
 
-[node name="Label3D" type="Label3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=866286683]
-transform = Transform3D(0.0056309104, -0.045846112, 1.2211585, 0.3608322, 0.0022007748, -0.018680543, -0.0011386675, 0.47069773, 0.11902845, 0.09155846, 0.010685921, 0.13665211)
+[node name="SubViewport" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=731152014]
+transform = Transform3D(-3.2298267e-06, 0.00042932283, 0.14699799, 0.058996767, 0.0008586896, -1.4901161e-08, -0.0006178292, 0.081994385, -0.0007696817, 0.09102249, -0.10748768, 0.10161245)
+transparent = false
+texture = SubResource("ViewportTexture_5ftei")
+
+[node name="Sprite3D" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=1044280981]
+transform = Transform3D(1.9203871e-06, -8.723885e-05, 0.049999923, 0.04498657, 0.0012216103, 0, -0.0010994478, 0.049984988, 8.7264925e-05, 0.08806038, -0.0027565956, 0.11518693)
 visible = false
-outline_modulate = Color(0, 0, 0, 0)
-text = "REFUEL THE CAR"
-font_size = 34
+texture = ExtResource("92_lwl8w")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=518823732]
+transform = Transform3D(1.9203865e-06, -8.723883e-05, 0.049999923, 0.04498657, 0.0012216102, -1.6879235e-09, -0.0010994478, 0.049984988, 8.726493e-05, 0.08806038, -0.0027565956, 0.11518693)
+texture = ExtResource("93_al4hb")
 
 [node name="Management_006" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=120837284]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 830.86566, 126.10434, -1609.5852)
@@ -18338,7 +18348,7 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_o5ffa")
 
 [node name="Puddle1" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=75023644 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
-transform = Transform3D(1, -0.00025986574, 6.928342e-05, -6.928335e-05, -1.7695129e-08, 1.0000008, -0.00025986557, -1.0000008, -3.410969e-08, -0.82043004, -3.3343754, 0.014731027)
+transform = Transform3D(1.6999999, -0.00025986577, -1.9310444e-11, 0, -4.3711424e-08, 1.7, -0.0004417715, -1.0000007, -7.4309355e-08, -0.82043004, -3.3343754, 0.014731027)
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
@@ -18358,7 +18368,7 @@ transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-
 shape = SubResource("BoxShape3D_6sbuq")
 
 [node name="Puddle2" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=489766201 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
-transform = Transform3D(0.70715636, 0.00060094503, -0.7070585, 0.70705855, 0.00027769257, 0.7071575, 0.0006212762, -1.0000008, -0.00022849842, 1.3929498, -0.038360596, 0.018221684)
+transform = Transform3D(1.2021645, 0.0006009568, -1.2019981, 1.2019981, 0.00027769787, 1.2021649, 0.0010562403, -1.0000008, -0.00038851, 1.3929498, -0.038360596, 0.018221684)
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
@@ -18378,7 +18388,7 @@ transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-
 shape = SubResource("BoxShape3D_6sbuq")
 
 [node name="Puddle3" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=1480895281 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
-transform = Transform3D(0.25888628, 0.00094848726, -0.9659094, 0.9659085, 0.0007811183, 0.25888777, 0.001000046, -1.0000002, -0.0007139581, -2.0535839, -0.14020157, 0.016128756)
+transform = Transform3D(0.44010618, 0.00094849634, -1.6420426, 1.6420426, 0.0007811033, 0.4401075, 0.0017000437, -1.0000001, -0.0012137018, -2.0535839, -0.14020157, 0.016128756)
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
@@ -18398,7 +18408,7 @@ transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-
 shape = SubResource("BoxShape3D_6sbuq")
 
 [node name="Puddle4" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=1931115185 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
-transform = Transform3D(0.86606115, 0.00034185871, -0.49994084, 0.49994045, 0.000110208755, 0.86606294, 0.0003511301, -1.0000013, -7.543655e-05, -0.016484976, 3.1529217, 0.011135124)
+transform = Transform3D(1.4723022, 0.00034182047, -0.8498977, 0.8498977, 0.00011017401, 1.4723023, 0.00059689896, -1.0000013, -0.00012830283, -0.016484976, 3.1529217, 0.011135124)
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
@@ -18418,7 +18428,7 @@ transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-
 shape = SubResource("BoxShape3D_6sbuq")
 
 [node name="Puddle5" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=1123216776 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
-transform = Transform3D(0.9659099, -0.0005635279, 0.25888574, -0.25887144, -0.012327115, 0.9658352, 0.0026470656, -0.99992555, -0.012052757, 4.4117517, 1.3376675, 0.011393197)
+transform = Transform3D(1.6420441, -0.00056349207, 0.44010293, -0.44008094, -0.0123271365, 1.6419165, 0.0044999975, -0.99992555, -0.02048965, 4.4117517, 1.3376675, 0.011393197)
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
@@ -18438,7 +18448,7 @@ transform = Transform3D(0.23396575, 0, -1.5241142e-12, 8.643752e-12, 1.7695129e-
 shape = SubResource("BoxShape3D_6sbuq")
 
 [node name="Puddle6" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles/Tiles_Tiles_0" unique_id=37289336 node_paths=PackedStringArray("puddle_mesh", "mop_animation_player", "audio_player_mop")]
-transform = Transform3D(0.70705944, -0.0010649224, 0.7071577, -0.70715696, 0.00041229656, 0.7070606, -0.0010445303, -1.0000011, -0.00046155648, 2.2492795, -2.7836924, 0.009717636)
+transform = Transform3D(1.201998, -0.0010649372, 1.2021638, -1.2021639, 0.00041227855, 1.2019991, -0.0017756771, -1.000001, -0.00078467, 2.2492795, -2.7836924, 0.009717636)
 collision_layer = 256
 script = ExtResource("62_l5miw")
 whoami_value = "Puddle"
@@ -19648,6 +19658,31 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_ymoa6")
 
 [node name="Camera3D" type="Camera3D" parent="Camera4/Camera_02_001/Camera_02_Camera_0" unique_id=1822811042]
+transform = Transform3D(-4.371141e-08, -1, -1.509958e-07, 1, -4.371139e-08, -1.509958e-07, 1.509958e-07, -1.509958e-07, 1, -0.10360527, 0, -0.16752052)
+near = 0.4
+far = 26.0
+
+[node name="Camera5" type="SubViewport" parent="." unique_id=1511454720]
+canvas_item_default_texture_filter = 0
+oversampling = false
+size = Vector2i(565, 332)
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="Camera_02_001" type="Node3D" parent="Camera5" unique_id=585483079]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.1529083, 6.141433, 3.1181726)
+
+[node name="Camera_02_001_Camera_0" type="MeshInstance3D" parent="Camera5/Camera_02_001" unique_id=1778537596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004656434, 0, 0)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_f5vhp")
+
+[node name="Camera_02_Camera_0" type="MeshInstance3D" parent="Camera5/Camera_02_001" unique_id=827393301]
+transform = Transform3D(0.2968017, -0.8326874, 0.4674831, 0.474458, 0.5534302, 0.6845472, -0.82873315, 0.018626416, 0.5593343, -0.2757187, -0.0030593872, 0.051812172)
+gi_mode = 0
+mesh = SubResource("ArrayMesh_ymoa6")
+
+[node name="Camera3D" type="Camera3D" parent="Camera5/Camera_02_001/Camera_02_Camera_0" unique_id=555199694]
 transform = Transform3D(-4.371141e-08, -1, -1.509958e-07, 1, -4.371139e-08, -1.509958e-07, 1.509958e-07, -1.509958e-07, 1, -0.10360527, 0, -0.16752052)
 near = 0.4
 far = 26.0
