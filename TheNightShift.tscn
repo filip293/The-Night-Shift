@@ -126,7 +126,6 @@
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
 [ext_resource type="AudioStream" uid="uid://dk4vwen7e4wj6" path="res://Sounds/ThrowGarbage.mp3" id="92_kj47f"]
-[ext_resource type="Texture2D" uid="uid://bv8kuc2ghgwkc" path="res://MapAssets/MonitorAlert/CarNotHere.png" id="92_lwl8w"]
 [ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
 [ext_resource type="AudioStream" uid="uid://mbxrc2nl7lau" path="res://Sounds/PickUpGarbage.mp3" id="93_1xca5"]
 [ext_resource type="Shader" uid="uid://dwq11yc5gon0l" path="res://shaders/Neon.gdshader" id="93_8k4jg"]
@@ -16144,7 +16143,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500037, -0.00073383795, -0.00024333794, -0.00076568115, 0.5826748, 0.28807932, -0.00010710314, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000373, -0.00073383795, -0.00024333794, -0.0007656812, 0.5826748, 0.28807932, -0.00010710315, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17203,19 +17202,18 @@ transform = Transform3D(41.15379, -91.13926, 6.880823e-06, 0, 7.549789e-06, 100,
 gi_mode = 0
 mesh = SubResource("ArrayMesh_8wetb")
 
-[node name="SubViewport" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=731152014]
-transform = Transform3D(-3.2298267e-06, 0.00042932283, 0.14699799, 0.058996767, 0.0008586896, -1.4901161e-08, -0.0006178292, 0.081994385, -0.0007696817, 0.09102249, -0.10748768, 0.10161245)
+[node name="Sprite3D2" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=518823732]
+transform = Transform3D(-1.3707991e-07, -8.726478e-05, 0.049999923, 0.04499993, -8.726928e-05, 0, 7.854225e-05, 0.049999833, 8.726493e-05, 0.088, 0.002, 0.115)
+transparent = false
+double_sided = false
+texture = ExtResource("93_al4hb")
+
+[node name="SubViewport" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0/Sprite3D2" unique_id=731152014]
+transform = Transform3D(1.3111091, -0.0031803297, 0.00013935566, 0.0020595482, 1.6399951, -0.0051297713, -4.6789646e-05, 0.0028616237, 2.9399955, -2.3308868, -0.3151245, 0.018325806)
 transparent = false
 texture = SubResource("ViewportTexture_5ftei")
 
-[node name="Sprite3D" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=1044280981]
-transform = Transform3D(1.9203871e-06, -8.723885e-05, 0.049999923, 0.04498657, 0.0012216103, 0, -0.0010994478, 0.049984988, 8.7264925e-05, 0.08806038, -0.0027565956, 0.11518693)
-visible = false
-texture = ExtResource("92_lwl8w")
-
-[node name="Sprite3D2" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=518823732]
-transform = Transform3D(1.9203865e-06, -8.723883e-05, 0.049999923, 0.04498657, 0.0012216102, -1.6879235e-09, -0.0010994478, 0.049984988, 8.726493e-05, 0.08806038, -0.0027565956, 0.11518693)
-texture = ExtResource("93_al4hb")
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=2003516258]
 
 [node name="Management_006" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=120837284]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 830.86566, 126.10434, -1609.5852)
