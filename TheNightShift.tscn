@@ -52,7 +52,6 @@
 [ext_resource type="AudioStream" uid="uid://bscwh83mkmvxy" path="res://Sounds/print.mp3" id="19_y87xx"]
 [ext_resource type="Texture2D" uid="uid://kis52ga1aqdx" path="res://map/gas_station_9.jpg" id="20_ietea"]
 [ext_resource type="Texture2D" uid="uid://btjlbb75uflc8" path="res://Task4.png" id="21_6rkv3"]
-[ext_resource type="AudioStream" uid="uid://xrh4voo1p5vv" path="res://introAssets/selection-made.mp3" id="21_66e14"]
 [ext_resource type="AudioStream" uid="uid://d2qbwmj7ue4pi" path="res://Sounds/paper.mp3" id="21_ml62m"]
 [ext_resource type="Texture2D" uid="uid://dtucvkv3idlwb" path="res://map/gas_station_10.jpg" id="21_mvkfx"]
 [ext_resource type="Texture2D" uid="uid://d1e0e5i288i5b" path="res://map/gas_station_11.jpg" id="22_n57uf"]
@@ -4121,8 +4120,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rphpi")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5ftei"]
-viewport_path = NodePath("Camera5")
+[sub_resource type="ViewportTexture" id="ViewportTexture_lwl8w"]
+viewport_path = NodePath("Camera4")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_36kej"]
 _surfaces = [{
@@ -15793,8 +15792,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro/Prologue" unique_id=1171069178]
-stream = ExtResource("21_66e14")
-volume_db = -16.0
+stream = ExtResource("19_al4hb")
+volume_db = -40.0
 
 [node name="TitleScreen" type="Node2D" parent="." unique_id=1135678558]
 process_mode = 3
@@ -15945,6 +15944,25 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="InGame/CanvasLayer" unique_id=1057066665]
+
+[node name="Crosshair" type="Label" parent="InGame/CanvasLayer/CanvasLayer2" unique_id=54257191]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -13.5
+offset_right = 21.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("37_2skny")
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Budget" type="RichTextLabel" parent="InGame/CanvasLayer/CanvasLayer2" unique_id=266782913]
 visible = false
@@ -16142,7 +16160,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000373, -0.00073383795, -0.00024333794, -0.0007656812, 0.5826748, 0.28807932, -0.00010710315, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000385, -0.00073383795, -0.00024333794, -0.0007656813, 0.5826748, 0.28807932, -0.000107103166, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17209,10 +17227,10 @@ double_sided = false
 texture = ExtResource("92_lwl8w")
 
 [node name="SubViewport" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0/Sprite3D2" unique_id=731152014]
-transform = Transform3D(1.3111091, -0.0031803297, 0.00013935566, 0.0020595482, 1.6399951, -0.0051297713, -4.6789646e-05, 0.0028616237, 2.9399955, -2.3308868, -0.3151245, 0.018325806)
+transform = Transform3D(4.502994, -0.008843478, 0.00038896684, 0.0070735016, 5.6299844, -0.01766107, -0.0001606987, 0.009823666, 10.1219845, -2.3308868, -0.3151245, 0.018325806)
 cast_shadow = 0
 transparent = false
-texture = SubResource("ViewportTexture_5ftei")
+texture = SubResource("ViewportTexture_lwl8w")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=2003516258]
 stream = ExtResource("93_lwl8w")
@@ -19426,7 +19444,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.09423773, 4.885992e-05, 0.99548805, -1.8187965e-12, 0.9999207, -4.9079277e-05, -0.9954432, -4.6255277e-06, -0.09424197, 0, 0, 0)
+transform = Transform3D(-0.09423773, 4.885992e-05, 0.9954884, -1.8187965e-12, 0.9999207, -4.907929e-05, -0.9954432, -4.6255277e-06, -0.094242, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
@@ -19661,31 +19679,6 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_ymoa6")
 
 [node name="Camera3D" type="Camera3D" parent="Camera4/Camera_02_001/Camera_02_Camera_0" unique_id=1822811042]
-transform = Transform3D(-4.371141e-08, -1, -1.509958e-07, 1, -4.371139e-08, -1.509958e-07, 1.509958e-07, -1.509958e-07, 1, -0.10360527, 0, -0.16752052)
-near = 0.4
-far = 26.0
-
-[node name="Camera5" type="SubViewport" parent="." unique_id=1511454720]
-canvas_item_default_texture_filter = 0
-oversampling = false
-size = Vector2i(565, 332)
-render_target_clear_mode = 1
-render_target_update_mode = 4
-
-[node name="Camera_02_001" type="Node3D" parent="Camera5" unique_id=585483079]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.1529083, 6.141433, 3.1181726)
-
-[node name="Camera_02_001_Camera_0" type="MeshInstance3D" parent="Camera5/Camera_02_001" unique_id=1778537596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004656434, 0, 0)
-gi_mode = 0
-mesh = SubResource("ArrayMesh_f5vhp")
-
-[node name="Camera_02_Camera_0" type="MeshInstance3D" parent="Camera5/Camera_02_001" unique_id=827393301]
-transform = Transform3D(0.2968017, -0.8326874, 0.4674831, 0.474458, 0.5534302, 0.6845472, -0.82873315, 0.018626416, 0.5593343, -0.2757187, -0.0030593872, 0.051812172)
-gi_mode = 0
-mesh = SubResource("ArrayMesh_ymoa6")
-
-[node name="Camera3D" type="Camera3D" parent="Camera5/Camera_02_001/Camera_02_Camera_0" unique_id=555199694]
 transform = Transform3D(-4.371141e-08, -1, -1.509958e-07, 1, -4.371139e-08, -1.509958e-07, 1.509958e-07, -1.509958e-07, 1, -0.10360527, 0, -0.16752052)
 near = 0.4
 far = 26.0

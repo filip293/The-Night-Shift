@@ -94,7 +94,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _play_type_sound() -> void:
 	if AudioPlayer and type_sound:
 		AudioPlayer.stream = type_sound
-		AudioPlayer.pitch_scale = randf_range(0.95, 1.05)
+		AudioPlayer.pitch_scale = randf_range(1.0, 1.05)
 		AudioPlayer.play()
 
 func _play_sound(stream_to_play: AudioStream) -> void:
