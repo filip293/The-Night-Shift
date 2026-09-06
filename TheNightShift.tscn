@@ -126,12 +126,13 @@
 [ext_resource type="Texture2D" uid="uid://dp7qj1v1mo3p1" path="res://MapAssets/Puddle/Puddle_0.png" id="91_ccbeu"]
 [ext_resource type="AnimationLibrary" uid="uid://cc3eqhx81cyqm" path="res://pathsCar/car1anim.res" id="92_7pwrw"]
 [ext_resource type="AudioStream" uid="uid://dk4vwen7e4wj6" path="res://Sounds/ThrowGarbage.mp3" id="92_kj47f"]
+[ext_resource type="Texture2D" uid="uid://bv8kuc2ghgwkc" path="res://MapAssets/MonitorAlert/CarNotHere.png" id="92_lwl8w"]
 [ext_resource type="Texture2D" uid="uid://cga8ea0emfktp" path="res://MapAssets/Puddle/Puddle_2.png" id="92_xjyhy"]
 [ext_resource type="AudioStream" uid="uid://mbxrc2nl7lau" path="res://Sounds/PickUpGarbage.mp3" id="93_1xca5"]
 [ext_resource type="Shader" uid="uid://dwq11yc5gon0l" path="res://shaders/Neon.gdshader" id="93_8k4jg"]
-[ext_resource type="Texture2D" uid="uid://3y4mwef2b4ft" path="res://MapAssets/MonitorAlert/CarArrived.png" id="93_al4hb"]
 [ext_resource type="AudioStream" uid="uid://8836liklyh85" path="res://Sounds/car-horn-sound-effect.mp3" id="93_d71h8"]
 [ext_resource type="Curve3D" uid="uid://d3r83ae70gb26" path="res://pathsCar/car2.tres" id="93_jtq2l"]
+[ext_resource type="AudioStream" uid="uid://bcs66u0ctkdvk" path="res://Sounds/ding.mp3" id="93_lwl8w"]
 [ext_resource type="AnimationLibrary" uid="uid://balxj2sfpw604" path="res://pathsCar/car2anim.res" id="94_d71h8"]
 [ext_resource type="AudioStream" uid="uid://d2rt5kkcdqxkk" path="res://Sounds/Driving.mp3" id="94_jtq2l"]
 [ext_resource type="Texture2D" uid="uid://cianmpi3txhf4" path="res://MapAssets/Cars/Car1_5Car 1_Car 1 mat_Diffuse.png" id="100_evgcj"]
@@ -17204,16 +17205,22 @@ mesh = SubResource("ArrayMesh_8wetb")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=518823732]
 transform = Transform3D(-1.3707991e-07, -8.726478e-05, 0.049999923, 0.04499993, -8.726928e-05, 0, 7.854225e-05, 0.049999833, 8.726493e-05, 0.088, 0.002, 0.115)
+cast_shadow = 0
 transparent = false
 double_sided = false
-texture = ExtResource("93_al4hb")
+texture = ExtResource("92_lwl8w")
 
 [node name="SubViewport" type="Sprite3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0/Sprite3D2" unique_id=731152014]
 transform = Transform3D(1.3111091, -0.0031803297, 0.00013935566, 0.0020595482, 1.6399951, -0.0051297713, -4.6789646e-05, 0.0028616237, 2.9399955, -2.3308868, -0.3151245, 0.018325806)
+cast_shadow = 0
 transparent = false
 texture = SubResource("ViewportTexture_5ftei")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0" unique_id=2003516258]
+stream = ExtResource("93_lwl8w")
+volume_db = 16.0
+unit_size = 0.1
+panning_strength = 2.2
 
 [node name="Management_006" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=120837284]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 830.86566, 126.10434, -1609.5852)
@@ -19421,7 +19428,7 @@ transform = Transform3D(1, 6.399148e-11, -8.731149e-11, -4.5275783e-11, 1.000000
 curve = ExtResource("90_ayo1f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Map/FirstCar" unique_id=1651380190]
-transform = Transform3D(-0.094239, 4.886021e-05, 0.99549717, -1.818821e-12, 0.99992657, -4.9079725e-05, -0.99545664, -4.6255545e-06, -0.09424283, 0, 0, 0)
+transform = Transform3D(-0.09423773, 4.885992e-05, 0.9954876, -1.8187965e-12, 0.9999207, -4.907925e-05, -0.9954432, -4.6255277e-06, -0.094241925, 0, 0, 0)
 
 [node name="suv" type="StaticBody3D" parent="Map/FirstCar/PathFollow3D" unique_id=144453862]
 transform = Transform3D(-1.8, 0, 1.57361e-07, 0, 1.8, 0, -1.57361e-07, 0, -1.8, 0, 0, 0)
