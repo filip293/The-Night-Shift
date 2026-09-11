@@ -2,184 +2,73 @@ extends Control
 
 signal dialogue_finished
 
-@export_group("UI Elements")
 @export var dialogue_label: Label
 @export var speaker_label: Label
+@export var text_speed = 0.04
 
-@export_group("Text & Audio Settings")
-@export var text_speed: float = 0.04
-@export var typewriter_sound: AudioStream
-@export var audio_player: AudioStreamPlayer
-@export var pitch_min: float = 0.85
-@export var pitch_max: float = 1.15
-
-# Distance check configuration
-@export var max_dialogue_distance: float = 3.5
-
-var typewriter_tween: Tween
 var dialogue_queue: Array[Dictionary] = []
 var current_line_index: int = 0
-var last_char_count: int = 0
-
-var active_speaker_node: Node3D = null
-var player_node: Node3D = null
+var typewriter_tween: Tween
 
 func _ready() -> void:
-	visible = false
-	set_process_input(false)
-	set_process(false)
+	hide()
 
-func _process(_delta: float) -> void:
-	if not Globals.is_in_dialogue:
-		return
-
-	if not is_instance_valid(player_node):
-		player_node = get_tree().get_first_node_in_group("Player") if get_tree().has_group("Player") else $"../../../Player"
-
-	# Distance check to cancel if player walks away
-	if is_instance_valid(player_node) and is_instance_valid(active_speaker_node):
-		var dist = player_node.global_position.distance_to(active_speaker_node.global_position)
-		if dist > max_dialogue_distance:
-			_end_dialogue(false)
-
-## Pass the NPC node directly when starting dialogue
-func start_dialogue(lines: Array[Dictionary], speaker_npc: Node3D = null) -> void:
+func start_dialogue(lines: Array[Dictionary], _speaker: Node = null) -> void:
 	dialogue_queue = lines
 	current_line_index = 0
-	active_speaker_node = speaker_npc
-	
-	# Enable tracking on the NPC if available
-	_set_speaker_tracking(true)
-
-	Globals.is_in_dialogue = true
-	visible = true
-	set_process_input(true)
-	set_process(true)
+	show()
 	_show_next_line()
 
 func _input(event: InputEvent) -> void:
-	if not Globals.is_in_dialogue:
+	if not visible or not event.is_action_pressed("ui_accept"):
 		return
 
-	var is_next_pressed: bool = false
-	
-	if event is InputEventKey and event.pressed and not event.is_echo():
-		match event.keycode:
-			KEY_E, KEY_ENTER, KEY_KP_ENTER, KEY_SPACE:
-				is_next_pressed = true
+	get_viewport().set_input_as_handled()
 
-	if event.is_action_pressed("Interact") and not event.is_echo():
-		is_next_pressed = true
+	if typewriter_tween and typewriter_tween.is_running():
+		typewriter_tween.kill()
+		dialogue_label.visible_characters = -1
+		return
 
-	if is_next_pressed:
-		get_viewport().set_input_as_handled()
-
-		# Skip typing animation if active
-		if typewriter_tween and typewriter_tween.is_running():
-			typewriter_tween.kill()
-			if dialogue_label:
-				dialogue_label.visible_characters = -1
-		else:
-			current_line_index += 1
-			if current_line_index < dialogue_queue.size():
-				_show_next_line()
-			else:
-				_end_dialogue(true)
+	current_line_index += 1
+	if current_line_index < dialogue_queue.size():
+		_show_next_line()
+	else:
+		_end_dialogue()
 
 func _show_next_line() -> void:
-	if dialogue_queue.is_empty() or current_line_index >= dialogue_queue.size():
-		return
-
 	var line_data = dialogue_queue[current_line_index]
-	
-	if speaker_label:
-		speaker_label.text = line_data.get("speaker", "")
-		
-	var full_text = line_data.get("text", "")
-	
-	if dialogue_label:
-		dialogue_label.text = full_text
-		dialogue_label.visible_characters = 0
-		last_char_count = 0
-		
-		var total_chars = full_text.length()
-		var duration = total_chars * text_speed
-		
-		if typewriter_tween and typewriter_tween.is_valid():
-			typewriter_tween.kill()
-			
-		typewriter_tween = create_tween()
-		typewriter_tween.tween_method(_update_visible_characters, 0, total_chars, duration)\
-			.set_trans(Tween.TRANS_LINEAR)
+	speaker_label.text = line_data.get("speaker", "")
+	dialogue_label.text = line_data.get("text", "")
+	dialogue_label.visible_characters = 0
 
-func _update_visible_characters(char_count: int) -> void:
-	if not dialogue_label:
-		return
-		
-	dialogue_label.visible_characters = char_count
+	var duration = dialogue_label.text.length() * text_speed
 	
-	if char_count > last_char_count:
-		var text_len = dialogue_label.text.length()
-		if char_count <= text_len:
-			var current_char = dialogue_label.text[char_count - 1]
-			if current_char.strip_edges() != "":
-				_play_typewriter_sound()
-				
-		last_char_count = char_count
-
-func _play_typewriter_sound() -> void:
-	if audio_player and typewriter_sound:
-		audio_player.pitch_scale = randf_range(pitch_min, pitch_max)
-		audio_player.stream = typewriter_sound
-		audio_player.play()
-
-func _set_speaker_tracking(tracking: bool) -> void:
-	if not is_instance_valid(active_speaker_node):
-		return
-	
-	if active_speaker_node.has_method("set_tracking"):
-		active_speaker_node.call("set_tracking", tracking)
-		
-	var head_look_node = active_speaker_node.find_child("*HeadLook*", true, false)
-	if is_instance_valid(head_look_node) and head_look_node.has_method("set_tracking"):
-		head_look_node.call("set_tracking", tracking)
-
-func _end_dialogue(completed_fully: bool = false) -> void:
-	if typewriter_tween and typewriter_tween.is_valid():
+	if typewriter_tween:
 		typewriter_tween.kill()
 
-	_set_speaker_tracking(false)
+	typewriter_tween = create_tween()
+	typewriter_tween.tween_property(dialogue_label, "visible_characters", dialogue_label.text.length(), duration)
 
-	if is_instance_valid(active_speaker_node):
-		var speaker_name = active_speaker_node.name
+func _end_dialogue() -> void:
+	hide()
+	dialogue_finished.emit()
+	
+	
+func _start_policewoman_dialogue(npc_node: Node3D = null) -> void:
+	if self.has_method("start_dialogue"):
+		var dialogue: Array[Dictionary] = [
+			{"speaker": "Police Officer", "text": "Evening, worker. Keep your eyes open out here."},
+			{"speaker": "You", "text": "Is everything alright, Officer?"},
+			{"speaker": "Police Officer", "text": "Just perform your shift tasks and stay inside when night falls."}
+		]
+		start_dialogue(dialogue, npc_node)
 
-		if completed_fully:
-			# Player finished talking: NPC should leave
-			if active_speaker_node.has_method("start_walking"):
-				active_speaker_node.call("start_walking")
-			elif active_speaker_node.has_method("resume_path"):
-				active_speaker_node.call("resume_path")
-			elif active_speaker_node.has_node("AnimationPlayer"):
-				active_speaker_node.get_node("AnimationPlayer").play("Walk")
-
-			if speaker_name == "PoliceWoman":
-				Globals.can_talk_policewoman = false
-			elif speaker_name in ["Babushka", "OldWoman"]:
-				Globals.can_talk_babushka = false
-
-			# Only emit finished when ACTUALLY finished!
-			dialogue_finished.emit()
-		else:
-			# Player walked away: tell the NPC specifically to stay idle / wait
-			if active_speaker_node.has_method("stop_walking"):
-				active_speaker_node.call("stop_walking")
-			elif active_speaker_node.has_method("pause_path"):
-				active_speaker_node.call("pause_path")
-			elif active_speaker_node.has_node("AnimationPlayer"):
-				active_speaker_node.get_node("AnimationPlayer").play("Idle")
-
-	visible = false
-	Globals.is_in_dialogue = false
-	set_process_input(false)
-	set_process(false)
-	active_speaker_node = null
+func _start_babushka_dialogue(npc_node: Node3D = null) -> void:
+	if self.has_method("start_dialogue"):
+		var dialogue: Array[Dictionary] = [
+			{"speaker": "Babushka", "text": "Ah, dear child... the air feels so heavy tonight."},
+			{"speaker": "You", "text": "Do you need help finding anything?"},
+			{"speaker": "Babushka", "text": "No, sweetie. Just mind the shadows in the dark corners."}
+		]
+		start_dialogue(dialogue, npc_node)

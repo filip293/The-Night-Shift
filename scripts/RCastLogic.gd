@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 					if Globals.get("can_talk_policewoman"):
 						target_text = "[E] Talk to Police Officer"
 						if Input.is_action_just_pressed("Interact"):
-							_start_policewoman_dialogue(collider)
+							dialogue_ui.start_policewoman_dialogue(collider)
 					else:
 						target_text = "She looks busy right now..."
 
@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 					if Globals.get("can_talk_babushka"):
 						target_text = "[E] Talk to Babushka"
 						if Input.is_action_just_pressed("Interact"):
-							_start_babushka_dialogue(collider)
+							dialogue_ui._start_babushka_dialogue(collider)
 					else:
 						target_text = "She looks busy right now..."
 
@@ -315,21 +315,3 @@ func _animate_label(new_text: String) -> void:
 			label_tween.tween_property(label, "modulate:a", 0.0, 0.15)
 			label_tween.tween_callback(func(): label.text = new_text)
 			label_tween.tween_property(label, "modulate:a", 1.0, 0.25)
-
-func _start_policewoman_dialogue(npc_node: Node3D = null) -> void:
-	if dialogue_ui and dialogue_ui.has_method("start_dialogue"):
-		var dialogue: Array[Dictionary] = [
-			{"speaker": "Police Officer", "text": "Evening, worker. Keep your eyes open out here."},
-			{"speaker": "You", "text": "Is everything alright, Officer?"},
-			{"speaker": "Police Officer", "text": "Just perform your shift tasks and stay inside when night falls."}
-		]
-		dialogue_ui.start_dialogue(dialogue, npc_node)
-
-func _start_babushka_dialogue(npc_node: Node3D = null) -> void:
-	if dialogue_ui and dialogue_ui.has_method("start_dialogue"):
-		var dialogue: Array[Dictionary] = [
-			{"speaker": "Babushka", "text": "Ah, dear child... the air feels so heavy tonight."},
-			{"speaker": "You", "text": "Do you need help finding anything?"},
-			{"speaker": "Babushka", "text": "No, sweetie. Just mind the shadows in the dark corners."}
-		]
-		dialogue_ui.start_dialogue(dialogue, npc_node)

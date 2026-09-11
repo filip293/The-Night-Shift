@@ -15574,6 +15574,7 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
+play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
@@ -15976,7 +15977,7 @@ stream = ExtResource("19_y87xx")
 [node name="CanvasLayer2" type="CanvasLayer" parent="InGame" unique_id=1160535350]
 layer = 1000
 
-[node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=22959108 node_paths=PackedStringArray("dialogue_label", "speaker_label", "audio_player")]
+[node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=22959108 node_paths=PackedStringArray("dialogue_label", "speaker_label")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -15992,8 +15993,6 @@ grow_vertical = 0
 script = ExtResource("36_v1r1w")
 dialogue_label = NodePath("Label")
 speaker_label = NodePath("Label2")
-typewriter_sound = ExtResource("19_ihlne")
-audio_player = NodePath("Typing")
 
 [node name="Label" type="Label" parent="InGame/CanvasLayer2/Control" unique_id=1543213737]
 layout_mode = 1
