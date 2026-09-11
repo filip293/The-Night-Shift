@@ -13448,7 +13448,6 @@ point_count = 21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv1ge"]
 resource_name = "Character_31_Female.003"
-transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("185_an4rv")
 metadata/_gltf_primary_texture_coord = 0
@@ -14337,7 +14336,6 @@ point_count = 21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1w0to"]
 resource_name = "Character_17_Female_Police.010"
-transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("186_an4rv")
 metadata/_gltf_primary_texture_coord = 0
@@ -16139,7 +16137,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.650004, -0.00073383795, -0.00024333794, -0.00076568156, 0.5826748, 0.28807932, -0.000107103195, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500041, -0.00073383795, -0.00024333794, -0.0007656816, 0.5826748, 0.28807932, -0.00010710321, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -21324,7 +21322,6 @@ transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, 
 script = ExtResource("187_h452q")
 player_node = NodePath("../../../../Player")
 look_at_modifier = NodePath("Skeleton3D/LookAtModifier3D")
-model_forward_offset_deg = 260.0
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D3/PathFollow3D/Babushka/Armature" unique_id=219506038]
 bones/0/name = "mixamorig_Hips"
