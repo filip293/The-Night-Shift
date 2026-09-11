@@ -4,11 +4,12 @@ signal part_advanced
 
 @export_group("Monologue Parts")
 @export var monologue_parts: Array[String] = [
-	"Sunday night. 1:34 AM.",
-	"My only night off this entire week.",
-	"I had it all planned out: staring at the ceiling, drinking flat soda, and doing absolutely nothing.",
-	"I hate the Six-Twelve. I hate the smell of expired roller-dogs... and most of all, I hate my boss.",
-	"And right on cue..."
+	"SUNDAY NIGHT. 1:32 AM.",
+	"This is my only night off this entire week.",
+	"Long enough for me to catch my breath but I have to admit, working at the Six-Twelve is hell on Earth.",
+	"Dealing with people isn't as easy as I wanted it to be. Especially with an asshole for a boss.",
+	"I'm underpaid, overworked and I still stick around. I'll quit sooner or later.",
+	"I'll take my chance to rest while I still can."
 ]
 
 @export var char_speed: float = 0.08
