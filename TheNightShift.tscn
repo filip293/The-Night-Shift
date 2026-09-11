@@ -202,9 +202,9 @@ metadata/_custom_type_script = "uid://bvqhrfw0ecawf"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sq8w8"]
 shader = ExtResource("4_x47wp")
-shader_parameter/virtual_resolution = Vector2(640, 360)
+shader_parameter/virtual_resolution = Vector2(1280, 720)
 shader_parameter/color_depth = 6.0
-shader_parameter/dither_strength = 0.70000001043084
+shader_parameter/dither_strength = 0.45
 
 [sub_resource type="Animation" id="Animation_8k4jg"]
 length = 0.001
@@ -16141,7 +16141,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000415, -0.00073383795, -0.00024333794, -0.0007656817, 0.5826748, 0.28807932, -0.00010710322, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500042, -0.00073383795, -0.00024333794, -0.0007656818, 0.5826748, 0.28807932, -0.00010710323, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
