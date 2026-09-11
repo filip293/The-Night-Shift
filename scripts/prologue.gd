@@ -16,7 +16,6 @@ signal part_advanced
 
 @export_group("Audio")
 @export var type_sound: AudioStream # Drag your typing click / blip sound here!
-
 @export var TextBox: RichTextLabel
 @export var AudioPlayer: AudioStreamPlayer
 
