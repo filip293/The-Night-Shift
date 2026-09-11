@@ -37,16 +37,22 @@ func _process(_delta: float) -> void:
 	if not is_instance_valid(player_node):
 		player_node = get_tree().get_first_node_in_group("Player") if get_tree().has_group("Player") else $"../../../Player"
 
-	# Locate speaker node matching current label
+	# Resolve speaker node name mapping ("Police Officer" -> "PoliceWoman")
 	if speaker_label and speaker_label.text != "":
-		if not is_instance_valid(active_speaker_node) or active_speaker_node.name != speaker_label.text:
-			active_speaker_node = get_tree().root.find_child(speaker_label.text, true, false) as Node3D
+		var target_node_name = speaker_label.text
+		if target_node_name == "Police Officer":
+			target_node_name = "PoliceWoman"
+		elif target_node_name == "You":
+			return # Skip distance checks when player is speaking line
 
-	# Distance check for walking away
+		if not is_instance_valid(active_speaker_node) or active_speaker_node.name != target_node_name:
+			active_speaker_node = get_tree().root.find_child(target_node_name, true, false) as Node3D
+
+	# Distance check for walking away mid-dialogue
 	if is_instance_valid(player_node) and is_instance_valid(active_speaker_node):
 		var dist = player_node.global_position.distance_to(active_speaker_node.global_position)
 		if dist > max_dialogue_distance:
-			# Interrupted dialogue: walk away without finishing
+			# Player walked away! Cancel dialogue without triggering exit walk/script
 			_end_dialogue(false)
 
 func start_dialogue(lines: Array[Dictionary]) -> void:
@@ -75,18 +81,18 @@ func _input(event: InputEvent) -> void:
 	if is_next_pressed:
 		get_viewport().set_input_as_handled()
 
-		# If text is still typing, skip to full text immediately
+		# Skip typing animation
 		if typewriter_tween and typewriter_tween.is_running():
 			typewriter_tween.kill()
 			if dialogue_label:
 				dialogue_label.visible_characters = -1
 		else:
-			# Advance line or finish dialogue completely
 			current_line_index += 1
 			if current_line_index < dialogue_queue.size():
 				_show_next_line()
 			else:
-				_end_dialogue(true) # Completed whole dialogue
+				# Completed dialogue fully -> execute NPC exit sequence
+				_end_dialogue(true)
 
 func _show_next_line() -> void:
 	if dialogue_queue.is_empty() or current_line_index >= dialogue_queue.size():
@@ -113,7 +119,7 @@ func _show_next_line() -> void:
 		typewriter_tween = create_tween()
 		typewriter_tween.tween_method(_update_visible_characters, 0, total_chars, duration)\
 			.set_trans(Tween.TRANS_LINEAR)
-			
+
 func _update_visible_characters(char_count: int) -> void:
 	if not dialogue_label:
 		return
@@ -139,25 +145,35 @@ func _end_dialogue(completed_fully: bool = false) -> void:
 	if typewriter_tween and typewriter_tween.is_valid():
 		typewriter_tween.kill()
 
-	# If player completed full dialogue, mark as talked and resume movement
-	if completed_fully and is_instance_valid(active_speaker_node):
-		var speaker_name = active_speaker_node.name
+	if is_instance_valid(active_speaker_node):
+		# 1. STOP HEAD TRACKING (Check node and direct children)
+		if active_speaker_node.has_method("set_tracking"):
+			active_speaker_node.call("set_tracking", false)
 		
-		if speaker_name == "PoliceWoman" or speaker_name == "Police Officer":
-			Globals.set("can_talk_policewoman", false)
-			Globals.set("policewoman_done", true)
-			
-			# Trigger walk / animation method on PoliceWoman if available
-			if active_speaker_node.has_method("start_walking"):
-				active_speaker_node.start_walking()
-			elif active_speaker_node.has_method("resume_path"):
-				active_speaker_node.resume_path()
-			elif active_speaker_node.has_node("AnimationPlayer"):
-				active_speaker_node.get_node("AnimationPlayer").play("Walk")
+		var head_look_node = active_speaker_node.find_child("*HeadLook*", true, false)
+		if is_instance_valid(head_look_node):
+			head_look_node.set("is_tracking", false)
+			if head_look_node.has_method("set_tracking"):
+				head_look_node.call("set_tracking", false)
+			head_look_node.set_script(null) # Disables head look logic execution completely
 
-		elif speaker_name == "Babushka" or speaker_name == "OldWoman":
-			Globals.set("can_talk_babushka", false)
-			Globals.set("babushka_done", true)
+		# 2. IF COMPLETED FULLY: Trigger exit walk logic
+		if completed_fully:
+			var speaker_name = active_speaker_node.name
+			
+			if speaker_name == "PoliceWoman":
+				Globals.can_talk_policewoman = false
+				
+				# Call NPC's explicit walk function if available
+				if active_speaker_node.has_method("start_walking"):
+					active_speaker_node.call("start_walking")
+				elif active_speaker_node.has_method("resume_path"):
+					active_speaker_node.call("resume_path")
+				elif active_speaker_node.has_node("AnimationPlayer"):
+					active_speaker_node.get_node("AnimationPlayer").play("Walk")
+
+			elif speaker_name == "Babushka" or speaker_name == "OldWoman":
+				Globals.can_talk_babushka = false
 
 	visible = false
 	Globals.is_in_dialogue = false
