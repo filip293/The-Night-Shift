@@ -202,8 +202,8 @@ metadata/_custom_type_script = "uid://bvqhrfw0ecawf"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sq8w8"]
 shader = ExtResource("4_x47wp")
+shader_parameter/virtual_resolution = Vector2(640, 360)
 shader_parameter/color_depth = 6.0
-shader_parameter/dither_scale = 1.0
 shader_parameter/dither_strength = 0.70000001043084
 
 [sub_resource type="Animation" id="Animation_8k4jg"]
