@@ -34,14 +34,14 @@ func startOldWoman() -> void:
 	$AnimationPlayer.play("Idle")
 	$"../../AnimationPlayer".pause()
 	
-	if head_look_script_B:
-		head_look_script_B.set_tracking(true)
+	#if head_look_script_B:
+		#head_look_script_B.set_tracking(true)
 	
 	Globals.can_talk_babushka = true
 	
-	await dialogue_ui.dialogue_finished
-	if head_look_script_B:
-		head_look_script_B.set_tracking(false)
+	await dialogue_ui.babushka_dialogue_finished
+	#if head_look_script_B:
+		#head_look_script_B.set_tracking(false)
 	Globals.can_talk_babushka = false
 	$"../../AnimationPlayer".play()
 	$AnimationPlayer.play("Walking")
@@ -52,7 +52,6 @@ func startOldWoman() -> void:
 	startPoliceWoman()
 	
 	await Globals.calltime(40)
-	$"../..".queue_free()
 
 func startPoliceWoman() -> void:
 	$"../../../Path3D2/AnimationPlayer".play("Walking")
@@ -69,15 +68,15 @@ func startPoliceWoman() -> void:
 	$"../../../Path3D2/PathFollow3D/PoliceWoman/AnimationPlayer".play("Idle")
 	$"../../../Path3D2/AnimationPlayer".pause()
 	
-	if head_look_script_C:
-		head_look_script_C.set_tracking(true)
+	#if head_look_script_C:
+		#head_look_script_C.set_tracking(true)
 	
 	Globals.can_talk_policewoman = true
 	
-	await dialogue_ui.dialogue_finished
+	await dialogue_ui.policewoman_dialogue_finished
 	
-	if head_look_script_C:
-		head_look_script_C.set_tracking(false)
+	#if head_look_script_C:
+		#head_look_script_C.set_tracking(false)
 		
 	Globals.can_talk_policewoman = false
 	$"../../../Path3D2/AnimationPlayer".play()

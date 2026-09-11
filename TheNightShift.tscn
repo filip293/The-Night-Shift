@@ -21254,12 +21254,9 @@ transform = Transform3D(7.766696e-05, 4.4885885e-05, 0.9998348, -5.4560002e-12, 
 transform = Transform3D(-1.1999936, -0.0011926612, 0.0015063058, -0.0011100755, 1.1982595, 0.06442786, -0.0015681782, 0.06442689, -1.1982956, 0.10198593, -0.017128982, 0.069366455)
 script = ExtResource("184_pkcgn")
 
-[node name="Armature" type="Node3D" parent="Path3D3/PathFollow3D/Babushka" unique_id=2050911359 node_paths=PackedStringArray("player_node", "look_at_modifier")]
+[node name="Armature" type="Node3D" parent="Path3D3/PathFollow3D/Babushka" unique_id=2050911359]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 0, 0, 0)
 script = ExtResource("187_h452q")
-player_node = NodePath("../../../../Player")
-look_at_modifier = NodePath("Skeleton3D/LookAtModifier3D")
-model_forward_offset_deg = 260.0
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D3/PathFollow3D/Babushka/Armature" unique_id=219506038]
 bones/0/name = "mixamorig_Hips"
@@ -21536,6 +21533,7 @@ skeleton = NodePath("..")
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="Path3D3/PathFollow3D/Babushka/Armature/Skeleton3D" unique_id=275086951]
 transform = Transform3D(0.9999999, 0, -3.7252903e-09, 7.450581e-09, 1, 1.5599653e-08, 0, 0, 0.9999998, 0, 0, 0)
+active = false
 target_node = NodePath("../../../../../../Player/Neck/Camera")
 bone_name = "mixamorig_Head"
 bone = 5
@@ -21572,17 +21570,14 @@ transform = Transform3D(1, 3.4788172e-11, -4.3655746e-11, -2.344791e-11, 1.00000
 curve = SubResource("Curve3D_pkcgn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=724721153]
-transform = Transform3D(7.766615e-05, 4.4884964e-05, 0.9998233, -5.455943e-12, 0.99981517, -4.4885328e-05, -0.99981207, 3.4812415e-09, 7.766701e-05, 0, 0, 0)
+transform = Transform3D(7.766611e-05, 4.4885e-05, 0.9998233, -5.455941e-12, 0.999816, -4.4885328e-05, -0.99981165, 3.4812444e-09, 7.766701e-05, 0, 0, 0)
 
 [node name="PoliceWoman" type="Node3D" parent="Path3D2/PathFollow3D" unique_id=1042460772]
 transform = Transform3D(-1.3001941, -0.0015315562, 0.00011310528, -0.0015315523, 1.3001959, 6.5527056e-05, -0.0001131812, 6.539307e-05, -1.3001819, 0.13269806, -0.012728808, 0.27030182)
 
-[node name="Armature_001" type="Node3D" parent="Path3D2/PathFollow3D/PoliceWoman" unique_id=621135721 node_paths=PackedStringArray("player_node", "look_at_modifier")]
+[node name="Armature_001" type="Node3D" parent="Path3D2/PathFollow3D/PoliceWoman" unique_id=621135721]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 0, 0, 0)
 script = ExtResource("187_h452q")
-player_node = NodePath("../../../../Player")
-look_at_modifier = NodePath("Skeleton3D/LookAtModifier3D")
-model_forward_offset_deg = 260.0
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D2/PathFollow3D/PoliceWoman/Armature_001" unique_id=1148807041]
 bones/0/name = "mixamorig_Hips"
@@ -21859,6 +21854,7 @@ skeleton = NodePath("..")
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="Path3D2/PathFollow3D/PoliceWoman/Armature_001/Skeleton3D" unique_id=139584297]
 transform = Transform3D(0.9999999, 0, -3.7252903e-09, 7.450581e-09, 1, 1.5599653e-08, 0, 0, 0.9999998, 0, 0, 0)
+active = false
 target_node = NodePath("../../../../../../Player/Neck/Camera")
 bone_name = "mixamorig_Head"
 bone = 5

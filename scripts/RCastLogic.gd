@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 					if Globals.get("can_talk_policewoman"):
 						target_text = "[E] Talk to Police Officer"
 						if Input.is_action_just_pressed("Interact"):
-							dialogue_ui.start_policewoman_dialogue(collider)
+							dialogue_ui._start_policewoman_dialogue(collider)
 					else:
 						target_text = "She looks busy right now..."
 

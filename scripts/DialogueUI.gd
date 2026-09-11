@@ -1,6 +1,7 @@
 extends Control
 
-signal dialogue_finished
+signal babushka_dialogue_finished
+signal policewoman_dialogue_finished
 
 @export var dialogue_label: Label
 @export var speaker_label: Label
@@ -52,7 +53,10 @@ func _show_next_line() -> void:
 
 func _end_dialogue() -> void:
 	hide()
-	dialogue_finished.emit()
+	if Globals.can_talk_babushka:
+		babushka_dialogue_finished.emit()
+	elif Globals.can_talk_policewoman:
+		policewoman_dialogue_finished.emit()
 	
 	
 func _start_policewoman_dialogue(npc_node: Node3D = null) -> void:
