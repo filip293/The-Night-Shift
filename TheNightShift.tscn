@@ -9,7 +9,7 @@
 [ext_resource type="Environment" uid="uid://dconbv55cgg4i" path="res://Env/Env.tres" id="3_d71h8"]
 [ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
 [ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
-[ext_resource type="Shader" uid="uid://lrjvu6p4sr8r" path="res://shaders/dithering.gdshader" id="4_x47wp"]
+[ext_resource type="Shader" uid="uid://c4basafgiwoeq" path="res://postprocess.gdshader" id="4_fxxet"]
 [ext_resource type="AudioStream" uid="uid://cr2sxw705mov8" path="res://Sounds/bgm.mp3" id="5_dl752"]
 [ext_resource type="Script" uid="uid://dptyl21sv3svu" path="res://scripts/Credits.gd" id="5_lm7bh"]
 [ext_resource type="AudioStream" uid="uid://b6ycsctiadjpe" path="res://Sounds/Plastic_003.wav" id="5_wk1nr"]
@@ -200,11 +200,12 @@ ColorCorrectionBrightness = 1.0
 PixelatePixelSize = 5
 metadata/_custom_type_script = "uid://bvqhrfw0ecawf"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sq8w8"]
-shader = ExtResource("4_x47wp")
-shader_parameter/virtual_resolution = Vector2(1280, 720)
-shader_parameter/color_depth = 6.0
-shader_parameter/dither_strength = 0.45
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jpkxj"]
+shader = ExtResource("4_fxxet")
+shader_parameter/grain_amount = 0.025
+shader_parameter/vignette_intensity = 0.35
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/brightness_boost = 0.02
 
 [sub_resource type="Animation" id="Animation_8k4jg"]
 length = 0.001
@@ -15471,7 +15472,7 @@ metadata/_custom_type_script = "uid://dcnlel7767ud6"
 [node name="CanvasLayer" type="CanvasLayer" parent="PSXEffects" unique_id=227839171]
 
 [node name="ColorRect" type="ColorRect" parent="PSXEffects/CanvasLayer" unique_id=2030595268]
-material = SubResource("ShaderMaterial_sq8w8")
+material = SubResource("ShaderMaterial_jpkxj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15622,7 +15623,6 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
-play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
@@ -16141,7 +16141,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500042, -0.00073383795, -0.00024333794, -0.0007656818, 0.5826748, 0.28807932, -0.00010710323, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500043, -0.00073383795, -0.00024333794, -0.0007656819, 0.5826748, 0.28807932, -0.000107103246, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
