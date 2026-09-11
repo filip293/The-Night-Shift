@@ -14,10 +14,13 @@ var pump_tween: Tween
 func _on_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		_fade_volume(INDOOR_VOLUME)
+		$"../../../../../../../WorldEnvironment".environment.fog_density = 0.05
 
 func _on_body_exited(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		_fade_volume(OUTDOOR_VOLUME)
+		$"../../../../../../../WorldEnvironment".environment.fog_density = 0.07
+		
 
 func _fade_volume(target_db: float) -> void:
 	if rain_audio:
