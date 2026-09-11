@@ -21322,6 +21322,7 @@ transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, 
 script = ExtResource("187_h452q")
 player_node = NodePath("../../../../Player")
 look_at_modifier = NodePath("Skeleton3D/LookAtModifier3D")
+model_forward_offset_deg = 260.0
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D3/PathFollow3D/Babushka/Armature" unique_id=219506038]
 bones/0/name = "mixamorig_Hips"
@@ -21644,6 +21645,7 @@ transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, 
 script = ExtResource("187_h452q")
 player_node = NodePath("../../../../Player")
 look_at_modifier = NodePath("Skeleton3D/LookAtModifier3D")
+model_forward_offset_deg = 260.0
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D2/PathFollow3D/PoliceWoman/Armature_001" unique_id=1148807041]
 bones/0/name = "mixamorig_Hips"
