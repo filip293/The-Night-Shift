@@ -65,7 +65,6 @@
 [ext_resource type="Texture2D" uid="uid://bb6177m5vludn" path="res://map/gas_station_20.jpg" id="31_54ol5"]
 [ext_resource type="Texture2D" uid="uid://dynvjwk7xal4j" path="res://map/gas_station_21.jpg" id="32_ywnit"]
 [ext_resource type="Texture2D" uid="uid://dqws5jkae3bim" path="res://map/gas_station_22.jpg" id="33_ir43x"]
-[ext_resource type="Shader" uid="uid://i3y5vfh0fhrh" path="res://shaders/Ground.gdshader" id="33_ms8p1"]
 [ext_resource type="AudioStream" uid="uid://db0arpksttc6q" path="res://Sounds/gas_pump.wav" id="33_ryxve"]
 [ext_resource type="Texture2D" uid="uid://l8mpqr3koyxf" path="res://map/gas_station_23.png" id="34_5xyid"]
 [ext_resource type="Texture2D" uid="uid://n4swu370200m" path="res://map/gas_station_24.png" id="35_7pwrw"]
@@ -89,6 +88,7 @@
 [ext_resource type="Shader" uid="uid://g1hq1lmbivkw" path="res://shaders/CCTV.gdshader" id="50_yppyl"]
 [ext_resource type="Texture2D" uid="uid://71yvj4y1gyii" path="res://map/gas_station_40.png" id="51_800gg"]
 [ext_resource type="Script" uid="uid://0buaexjsiqoh" path="res://scripts/cctv_monitor.gd" id="51_dl752"]
+[ext_resource type="Texture2D" uid="uid://c8k5jen1166cx" path="res://map/gas_station_0.jpg" id="51_fxxet"]
 [ext_resource type="Texture2D" uid="uid://c5cdivxaae6ab" path="res://map/gas_station_41.png" id="52_nl73c"]
 [ext_resource type="Texture2D" uid="uid://f71h3280twfv" path="res://MapAssets/optimized_shelf_Image_13.png" id="53_8q2lc"]
 [ext_resource type="Texture2D" uid="uid://dguuujm6706ah" path="res://map/gas_station_42.png" id="53_xq2hv"]
@@ -1302,15 +1302,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tyk7s")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ms8p1"]
-render_priority = 0
-shader = ExtResource("33_ms8p1")
-shader_parameter/asphalt_color = Color(0.42, 0.44, 0.5, 1)
-shader_parameter/wet_darkening = 0.6
-shader_parameter/min_ambient_floor = 0.12
-shader_parameter/uv_scale = Vector2(6, 6)
-shader_parameter/wet_specular = 0.35
-shader_parameter/surface_roughness = 0.3
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwl8w"]
+albedo_texture = ExtResource("51_fxxet")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_obgan"]
 _surfaces = [{
@@ -1334,7 +1327,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("ShaderMaterial_ms8p1"),
+"material": SubResource("StandardMaterial3D_lwl8w"),
 "name": "AsphaltDamaged",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -16143,7 +16136,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000397, -0.00073383795, -0.00024333794, -0.0007656815, 0.5826748, 0.28807932, -0.00010710319, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.650004, -0.00073383795, -0.00024333794, -0.00076568156, 0.5826748, 0.28807932, -0.000107103195, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
