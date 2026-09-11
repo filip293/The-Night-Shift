@@ -21935,7 +21935,6 @@ bones/37/rotation = Quaternion(-3.6372516e-08, 5.7625593e-09, -2.837624e-09, 1)
 bones/37/scale = Vector3(0.99999994, 0.9999999, 0.99999994)
 
 [node name="Character_17_Female_Police" type="MeshInstance3D" parent="Path3D2/PathFollow3D/PoliceWoman/Armature_001/Skeleton3D" unique_id=1683190169]
-visible = false
 mesh = SubResource("ArrayMesh_k0e6q")
 skin = SubResource("Skin_nlo5o")
 skeleton = NodePath("..")
