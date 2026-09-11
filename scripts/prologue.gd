@@ -6,9 +6,9 @@ signal part_advanced
 @export var monologue_parts: Array[String] = [
 	"SUNDAY NIGHT. 1:32 AM.",
 	"This is my only night off this entire week.",
-	"Long enough for me to catch my breath but I have to admit, working at the Six-Twelve is hell on Earth.",
-	"Dealing with people isn't as easy as I wanted it to be. Especially with an asshole for a boss.",
-	"I'm underpaid, overworked and I still stick around. I'll quit sooner or later.",
+	"Long enough for me to catch my breath but I have to admit,\nworking at the Six-Twelve is hell on Earth.",
+	"Dealing with people isn't as easy as I wanted it to be.\nEspecially with an asshole for a boss.",
+	"I'm underpaid, overworked and I still stick around.\nI'll quit sooner or later.",
 	"I'll take my chance to rest while I still can."
 ]
 
@@ -16,7 +16,6 @@ signal part_advanced
 
 @export_group("Audio")
 @export var type_sound: AudioStream # Drag your typing click / blip sound here!
-
 @export var TextBox: RichTextLabel
 @export var AudioPlayer: AudioStreamPlayer
 
