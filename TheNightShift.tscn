@@ -1302,30 +1302,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tyk7s")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4i7a8"]
-noise_type = 0
-frequency = 0.0019
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jpkxj"]
-noise = SubResource("FastNoiseLite_4i7a8")
-seamless = true
-invert = true
-seamless_blend_skirt = 1.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ms8p1"]
 render_priority = 0
 shader = ExtResource("33_ms8p1")
 shader_parameter/asphalt_color = Color(0.42, 0.44, 0.5, 1)
-shader_parameter/puddle_color = Color(0.25, 0.28, 0.35, 1)
-shader_parameter/min_ambient_brightness = 0.12
-shader_parameter/puddle_noise = SubResource("NoiseTexture2D_jpkxj")
+shader_parameter/wet_darkening = 0.6
+shader_parameter/min_ambient_floor = 0.12
 shader_parameter/uv_scale = Vector2(6, 6)
-shader_parameter/puddle_amount = 0.33999999240032
-shader_parameter/puddle_softness = 0.37999999150624
-shader_parameter/enable_rain_ripples = false
-shader_parameter/ripple_speed = 0.90000000596048
-shader_parameter/ripple_density = 35.0
-shader_parameter/ripple_strength = 0.02999999932944
+shader_parameter/wet_specular = 0.35
+shader_parameter/surface_roughness = 0.3
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_obgan"]
 _surfaces = [{
