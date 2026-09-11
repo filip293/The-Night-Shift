@@ -10,6 +10,7 @@ extends Node3D
 @onready var VoiceAudioPlayer: AudioStreamPlayer3D = $"moto-v3i/Voice"
 @onready var Player: CharacterBody3D = $"../Player"
 @onready var Map: Node3D = $"../Map"
+@onready var Animations: AnimationPlayer = $"../TitleScreen/CanvasLayer/Animations"
 
 # Preload your boss voicelines here (or leave null if not recorded yet)
 var voice_boss_1: AudioStream = preload("res://introAssets/boss_voicelines/voiceline1_degraded_5800Hz.wav")
@@ -25,7 +26,6 @@ var voice_boss_final2: AudioStream = preload("res://introAssets/boss_voicelines/
 
 var choice
 var index: int
-
 var light_tween: Tween
 
 func _ready() -> void:
@@ -53,7 +53,7 @@ func _ready() -> void:
 			GUI.show_choices("You're gonna get fired.", ["Fine..."])
 			await GUI.choice_made
 
-		# 3. Answer Call $\rightarrow$ Stop Ringing $\rightarrow$ Snap Open Phone
+		# 3. Answer Call -> Stop Ringing -> Snap Open Phone
 		MotoV3i.stop_calling()
 		await MotoV3i.snap_open().finished
 		await Globals.calltime(0.3)
@@ -62,17 +62,14 @@ func _ready() -> void:
 		# INTERACTIVE DIALOGUE
 		# =========================================================================
 		
-		# --- BEAT 1: Boss asks if you're awake ---
 		_boss_speak("Look who finally decided to pick up. Don't tell me you were actually asleep.", voice_boss_1)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 
-		# --- BEAT 1 (Player Response): ---
 		MotoV3i.set_talking(false)
 		GUI.show_choices("You:", ["It's my night off.", "I was doing something."])
 		choice = await GUI.choice_made
 		
-		# --- BEAT 2: Boss explains the shift ---
 		index = choice[0]
 		if index == 0:
 			_boss_speak("Well congratulations, your night off is cancelled.", voice_boss_2a)
@@ -85,12 +82,10 @@ func _ready() -> void:
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 		
-		# --- BEAT 3 (Player Response): ---
 		MotoV3i.set_talking(false)
 		GUI.show_choices("You:", ["Not my problem.", "Why did he run out?"])
 		choice = await GUI.choice_made
 		
-		# --- BEAT 4: Boss final demand ---
 		index = choice[0]
 		if index == 0:
 			_boss_speak("Listen. I don't pay Kyle to run off whenever he wants to, and I certainly don't pay you to be a smug prick.", voice_boss_4a)
@@ -119,23 +114,36 @@ func _ready() -> void:
 		await VoiceAudioPlayer.finished
 		
 		# =========================================================================
-		# END OF CALL
+		# END OF CALL & TRANSITION TO TITLE SCREEN
 		# =========================================================================
 		
-		# 4. Stop talking wobble, hide GUI
 		MotoV3i.set_talking(false)
 		GUI.hide_text()
 		await Globals.calltime(0.2)
 
-		# 5. Snap Phone Shut (plays shut.mp3)
 		await MotoV3i.snap_shut().finished
 		await Globals.calltime(0.4)
 		
 		await turn_off_light()
-
-		await Globals.calltime(3.0)
-		# DO SOMETHING HERE?
+		
+		# 1. Fade the screen to pitch BLACK
+		Animations.play("fade")
+		await Animations.animation_finished
+		
+		# 2. While the screen is completely BLACK, switch the scene elements underneath
+		visible = false
+		GUI.visible = false
+		if TitleScreen:
+			TitleScreen.start()
+		
+		# Small breath pause while fully black
+		await Globals.calltime(0.5)
+		
+		# 3. Fade BACK IN from black to reveal the TitleScreen
+		Animations.play_backwards("fade")
+		await Animations.animation_finished
 	
+	# Only start TitleScreen and hide after the transition finishes completely
 	if TitleScreen:
 		TitleScreen.start()
 		GUI.visible = false
