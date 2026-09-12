@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://bw2njfn37y3nr"]
 
-[ext_resource type="Script" uid="uid://dd1yobt5cerai" path="res://scripts/Globals.gd" id="1_7e3ks"]
 [ext_resource type="Script" uid="uid://dcnlel7767ud6" path="res://addons/post_processing/node/post_process.gd" id="1_054il"]
 [ext_resource type="Script" uid="uid://bc455vqhp1q0n" path="res://scripts/TitleScreen.gd" id="1_aebcy"]
 [ext_resource type="Script" uid="uid://dwpo7kvxlkig5" path="res://scripts/Player.gd" id="2_1c0n7"]
@@ -15409,10 +15408,6 @@ _data = {
 [node name="Node3D" type="Node3D" unique_id=1654516073]
 transform = Transform3D(1, -9.5291e-05, 0.00016457436, 9.509707e-05, 0.9999993, 0.0011779503, -0.0001646865, -0.0011779347, 0.9999993, 0, 0, 0)
 
-[node name="GLOBALS" type="Node" parent="." unique_id=799061585]
-process_mode = 3
-script = ExtResource("1_7e3ks")
-
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=638400386]
 script = ExtResource("1_054il")
 configuration = SubResource("Resource_sq8w8")
@@ -21888,7 +21883,6 @@ shape = SubResource("CapsuleShape3D_ncv88")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path3D2" unique_id=147865321]
 libraries/ = SubResource("AnimationLibrary_lwl8w")
 
-[connection signal="TASKCHANGED" from="GLOBALS" to="InGame/OTReceipt" method="_on_globals_taskchanged"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/JumpscareTrigger" to="Monster2" method="_on_jumpscare_trigger_body_entered"]
