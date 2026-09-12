@@ -30,6 +30,24 @@ var is_in_dialogue: bool = false
 
 signal TASKCHANGED
 
+func _ready() -> void:
+	var maindisplay = DisplayServer.get_primary_screen()
+	print("Grabbing info from display %s." % maindisplay) 
+	var disp_refresh = DisplayServer.screen_get_refresh_rate(maindisplay)
+
+	if disp_refresh > 0:
+		print("DisplayHz: %s." % disp_refresh)
+		Engine.max_fps = int(round(disp_refresh))
+		Engine.physics_ticks_per_second = int(round(disp_refresh))
+		get_tree().physics_interpolation = false
+		print("Game is set to Lockstep Sync.\n")
+	else:
+		print("Grabbing DisplayHz failed.")
+		Engine.max_fps = 60
+		Engine.physics_ticks_per_second = 60
+		get_tree().physics_interpolation = true
+		print("Defaulting to 60ticks/s and 60FPS with interp.")
+		
 func _physics_process(delta: float) -> void:
 	if chk_task != task_idx:
 		TASKCHANGED.emit()

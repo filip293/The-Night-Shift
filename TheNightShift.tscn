@@ -16036,6 +16036,7 @@ stream = ExtResource("19_ihlne")
 volume_db = -10.0
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
+physics_interpolation_mode = 1
 transform = Transform3D(-4.3626642e-08, 6.399148e-11, 1, 5.820766e-10, 1.0000007, -4.472156e-11, -1.0000007, -1.1641532e-10, -4.3713953e-08, 0.6791784, 1.0047945, -11.748428)
 script = ExtResource("2_1c0n7")
 footstep_sounds = Array[AudioStream]([ExtResource("3_qq1mn"), ExtResource("4_aebcy"), ExtResource("5_wk1nr"), ExtResource("6_054il"), ExtResource("7_c7hx4")])
@@ -16046,6 +16047,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9203657, -0.035341263)
 [node name="Camera" type="Camera3D" parent="Player/Neck" unique_id=1119632877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12260544, 0)
 cull_mask = 1048573
+fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Player/Neck/Camera" unique_id=440477432 node_paths=PackedStringArray("label")]
 transform = Transform3D(0.9999987, 0.0010132035, 0.0013426645, 0.0013426639, 1.3438224e-06, -0.9999991, -0.0010132041, 0.9999993, -1.659971e-08, 4.1007996e-05, 2.336502e-05, -0.25211385)
@@ -16091,7 +16093,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500044, -0.00073383795, -0.00024333794, -0.00076568197, 0.5826748, 0.28807932, -0.00010710326, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500045, -0.00073383795, -0.00024333794, -0.00076568214, 0.5826748, 0.28807932, -0.000107103275, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
