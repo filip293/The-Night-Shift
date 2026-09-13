@@ -62,17 +62,17 @@ func _end_dialogue() -> void:
 func _start_policewoman_dialogue(npc_node: Node3D = null) -> void:
 	if self.has_method("start_dialogue"):
 		var dialogue: Array[Dictionary] = [
-			{"speaker": "Police Officer", "text": "Evening, worker. Keep your eyes open out here."},
-			{"speaker": "You", "text": "Is everything alright, Officer?"},
-			{"speaker": "Police Officer", "text": "Just perform your shift tasks and stay inside when night falls."}
+			{"speaker": "Officer", "text": "God, it's pouring. You can barely see ten feet past the pumps out there."},
+			{"speaker": "You", "text": "Yeah... wipers on my car barely made it here."},
+			{"speaker": "Officer", "text": "Keep the doors locked tight once three o'clock hits. Bad weather brings out the weird ones."}
 		]
 		start_dialogue(dialogue, npc_node)
 
 func _start_babushka_dialogue(npc_node: Node3D = null) -> void:
 	if self.has_method("start_dialogue"):
 		var dialogue: Array[Dictionary] = [
-			{"speaker": "Babushka", "text": "Ah, dear child... the air feels so heavy tonight."},
-			{"speaker": "You", "text": "Do you need help finding anything?"},
-			{"speaker": "Babushka", "text": "No, sweetie. Just mind the shadows in the dark corners."}
+			{"speaker": "Old Woman", "text": "They always send the quiet ones on the graveyard shift."},
+			{"speaker": "You", "text": "I didn't really have a choice tonight, ma'am."},
+			{"speaker": "Old Woman", "text": "...Check the latches on the stockroom. The wind out here opens things that ought to stay shut."}
 		]
 		start_dialogue(dialogue, npc_node)
