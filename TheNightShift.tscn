@@ -3648,6 +3648,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bkauq")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2skny"]
+size = Vector3(0.16767964, 0.2943566, 0.6718652)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h452q"]
+size = Vector3(0.16767964, 0.2943566, 0.6718652)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_8f1qw"]
 _surfaces = [{
 "aabb": AABB(-0.15636428, -0.19182774, -0.31859976, 0.2599144, 0.3836555, 0.64379895),
@@ -3819,6 +3825,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1m0nr")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxxet"]
+size = Vector3(0.28275946, 0.6665877, 0.47719467)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_vg2pb"]
 _surfaces = [{
 "aabb": AABB(-0.14262927, -0.072123356, -0.15230486, 0.25572836, 0.14424747, 0.28804177),
@@ -3950,6 +3959,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x6lie")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwl8w"]
+size = Vector3(0.22617374, 0.52857476, 0.70447177)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_al4hb"]
+size = Vector3(0.22617374, 0.52857476, 0.70447177)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nltbn"]
 resource_name = "Management"
@@ -16088,7 +16103,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500045, -0.00073383795, -0.00024333794, -0.00076568214, 0.5826748, 0.28807932, -0.000107103275, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000457, -0.00073383795, -0.00024333794, -0.0007656822, 0.5826748, 0.28807932, -0.00010710329, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -16479,7 +16494,6 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_gjsff")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management/Management_Plaster_0" unique_id=1672028491]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Management/Management_Plaster_0/StaticBody3D" unique_id=163797589]
 shape = SubResource("ConvexPolygonShape3D_ietea")
@@ -17041,6 +17055,18 @@ transform = Transform3D(1, 4.3655746e-11, -3.2983394e-11, 0, 1.0000001, -1.16415
 gi_mode = 0
 mesh = SubResource("ArrayMesh_fy6m4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0/Candy_001_Sweets_others_0" unique_id=1406750757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021059364, 0.00015489757, -0.0010339022)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0/Candy_001_Sweets_others_0/StaticBody3D" unique_id=1224663235]
+shape = SubResource("BoxShape3D_2skny")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0" unique_id=481212433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021059364, 0.00015489757, -0.0010339022)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0/StaticBody3D" unique_id=532758986]
+shape = SubResource("BoxShape3D_h452q")
+
 [node name="Candy_002" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1121587381]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 790.48535, 153.15533, -1532.3589)
 
@@ -17076,6 +17102,12 @@ transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-
 transform = Transform3D(1, 7.2759576e-11, 2.5323743e-11, 0, 1.0000005, 3.4924597e-10, -2.5707436e-11, 1.1641532e-10, 1.0000005, -0.00011867285, -0.7215042, -0.000849843)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_b6xj7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy/Candy_Sweets_others_0" unique_id=339956991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029326573, 0.0013490319, 0.015398726)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy/Candy_Sweets_others_0/StaticBody3D" unique_id=354568026]
+shape = SubResource("BoxShape3D_fxxet")
 
 [node name="Candy_004" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1256272196]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 783.91003, 136.43893, -1562.0244)
@@ -17115,6 +17147,18 @@ mesh = SubResource("ArrayMesh_f8i8u")
 transform = Transform3D(1, 4.3655746e-11, -3.6521897e-12, 0, 1.0000002, 6.9849193e-10, -6.954792e-11, 4.656613e-10, 1.0000002, 0.0032468736, -0.56015396, -0.0006605387)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_f8i8u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0" unique_id=1546475521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009095132, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/StaticBody3D" unique_id=475777250]
+shape = SubResource("BoxShape3D_lwl8w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0" unique_id=555341931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009095132, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/StaticBody3D" unique_id=912998033]
+shape = SubResource("BoxShape3D_al4hb")
 
 [node name="Management_001" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=577381605]
 transform = Transform3D(4.371139e-06, 100, 4.371139e-06, 1.110223e-14, -4.371139e-06, 100, 100, -4.371139e-06, -1.9984014e-13, 798.18976, 123.936775, -1748.4562)
