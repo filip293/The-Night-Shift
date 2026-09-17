@@ -7,4 +7,5 @@ func ShowCredits() -> void:
 	$"../Player/Rain2".stop()
 	$"../Map".queue_free()
 	$"../Player/Feet".queue_free()
+	Globals.task_given = false
 	
