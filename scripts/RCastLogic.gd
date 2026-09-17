@@ -47,7 +47,6 @@ func _physics_process(delta: float) -> void:
 	if is_colliding():
 		var collider = get_collider()
 		
-		# Ignore items held in the player's hands
 		if collider and collider.has_method("is_held_by_player") and collider.is_held_by_player():
 			pass
 		elif collider and collider.has_method("interact") and "object_type" in collider:
@@ -73,7 +72,8 @@ func _physics_process(delta: float) -> void:
 				if object_name == "PoliceWoman":
 					if Globals.get("can_talk_policewoman"):
 						target_text = "[E] Talk to Police Officer"
-						if Input.is_action_just_pressed("Interact"):
+						if Input.is_action_just_pressed("Interact") and not Globals.get("is_in_dialogue"):
+							Globals.set("is_in_dialogue", true)
 							dialogue_ui._start_policewoman_dialogue(collider)
 					else:
 						target_text = "She looks busy right now..."
@@ -81,7 +81,8 @@ func _physics_process(delta: float) -> void:
 				elif object_name == "Babushka" or object_name == "OldWoman":
 					if Globals.get("can_talk_babushka"):
 						target_text = "[E] Talk to Babushka"
-						if Input.is_action_just_pressed("Interact"):
+						if Input.is_action_just_pressed("Interact") and not Globals.get("is_in_dialogue"):
+							Globals.set("is_in_dialogue", true)
 							dialogue_ui._start_babushka_dialogue(collider)
 					else:
 						target_text = "She looks busy right now..."

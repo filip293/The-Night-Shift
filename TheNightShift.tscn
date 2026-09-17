@@ -13393,7 +13393,6 @@ point_count = 21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv1ge"]
 resource_name = "Character_31_Female.003"
-transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("185_an4rv")
 metadata/_gltf_primary_texture_coord = 0
@@ -14282,7 +14281,6 @@ point_count = 21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1w0to"]
 resource_name = "Character_17_Female_Police.010"
-transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("186_an4rv")
 metadata/_gltf_primary_texture_coord = 0
@@ -15965,61 +15963,60 @@ stream = ExtResource("19_y87xx")
 [node name="CanvasLayer2" type="CanvasLayer" parent="InGame" unique_id=1160535350]
 layer = 1000
 
-[node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=22959108 node_paths=PackedStringArray("dialogue_label", "speaker_label")]
+[node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=495574881 node_paths=PackedStringArray("dialogue_label", "speaker_label", "typing_audio_player")]
+visible = false
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -708.0
-offset_top = -223.0
-offset_right = 709.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("36_v1r1w")
-dialogue_label = NodePath("Label")
-speaker_label = NodePath("Label2")
+dialogue_label = NodePath("Control/Label")
+speaker_label = NodePath("Control/Label2")
+typing_audio_player = NodePath("Control/Typing")
+typing_sound = ExtResource("19_ihlne")
 
-[node name="Label" type="Label" parent="InGame/CanvasLayer2/Control" unique_id=1543213737]
+[node name="ColorRect" type="ColorRect" parent="InGame/CanvasLayer2/Control" unique_id=2030595647]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -553.5
-offset_top = -155.0
-offset_right = 553.5
+offset_left = 84.0
+offset_top = 764.0
+offset_right = 1796.0
+offset_bottom = 990.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("37_2skny")
-theme_override_font_sizes/font_size = 36
-text = "Ah, dear child... the air feels so heavy tonight."
-horizontal_alignment = 1
-autowrap_mode = 2
+color = Color(0, 0, 0, 0.45490196)
 
-[node name="Label2" type="Label" parent="InGame/CanvasLayer2/Control" unique_id=347496356]
+[node name="Control" type="VBoxContainer" parent="InGame/CanvasLayer2/Control" unique_id=1994544173]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -553.5
-offset_top = -199.0
-offset_right = 553.5
-offset_bottom = -146.0
+offset_left = 232.0
+offset_top = 817.0
+offset_right = 1649.0
+offset_bottom = 992.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Label2" type="Label" parent="InGame/CanvasLayer2/Control/Control" unique_id=347496356]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("37_2skny")
 theme_override_font_sizes/font_size = 36
 text = "Babushka:"
-horizontal_alignment = 1
-autowrap_mode = 2
 
-[node name="Typing" type="AudioStreamPlayer" parent="InGame/CanvasLayer2/Control" unique_id=467568970]
+[node name="Label" type="Label" parent="InGame/CanvasLayer2/Control/Control" unique_id=1543213737]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("37_2skny")
+theme_override_font_sizes/font_size = 36
+text = "Ah, dear child... the air feels so heavy tonight."
+
+[node name="Typing" type="AudioStreamPlayer" parent="InGame/CanvasLayer2/Control/Control" unique_id=467568970]
 stream = ExtResource("19_ihlne")
 volume_db = -10.0
 

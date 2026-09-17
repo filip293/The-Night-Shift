@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		print("Task changed!")
 	chk_task = task_idx
 	
-	if Input.is_physical_key_pressed(KEY_ESCAPE):
+	if Input.is_physical_key_pressed(KEY_ESCAPE) and not is_in_dialogue:
 		get_tree().quit()
 		
 func calltime(time: float) -> Signal:
