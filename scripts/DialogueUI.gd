@@ -73,6 +73,6 @@ func _start_babushka_dialogue(npc_node: Node3D = null) -> void:
 		var dialogue: Array[Dictionary] = [
 			{"speaker": "Old Woman", "text": "They always send the quiet ones on the graveyard shift."},
 			{"speaker": "You", "text": "I didn't really have a choice tonight, ma'am."},
-			{"speaker": "Old Woman", "text": "...Check the latches on the stockroom. The wind out here opens things that ought to stay shut."}
+			{"speaker": "Old Woman", "text": "You should watch out for strangers, there are weird people coming and going this time of night"}
 		]
 		start_dialogue(dialogue, npc_node)
