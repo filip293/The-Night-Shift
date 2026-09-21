@@ -59,6 +59,8 @@ func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 		return
 
 	is_dialogue_active = true
+	
+	# Freeze player movement and mouse look
 	Globals.playermoveallow = false
 	Globals.playerlookallow = false
 	Globals.set("is_in_dialogue", true)
@@ -89,7 +91,7 @@ func _input(event: InputEvent) -> void:
 	if not is_dialogue_active or not visible:
 		return
 
-	# ESC cancels dialogue without exiting game
+	# ESC cancels incomplete dialogue without exiting game
 	var is_cancel = event.is_action_pressed("ui_cancel") or (event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_ESCAPE)
 	if is_cancel:
 		get_viewport().set_input_as_handled()
@@ -118,7 +120,7 @@ func _input(event: InputEvent) -> void:
 	if current_line_index < dialogue_queue.size():
 		_show_next_line()
 	else:
-		_end_dialogue()
+		_end_dialogue(true) # Completed naturally to the end
 
 func _show_next_line() -> void:
 	var line_data = dialogue_queue[current_line_index]
@@ -159,12 +161,13 @@ func _cancel_dialogue() -> void:
 		typewriter_tween.kill()
 	if typing_audio_player and typing_audio_player.is_playing():
 		typing_audio_player.stop()
-	_end_dialogue()
+	_end_dialogue(false) # Incomplete exit
 
-func _end_dialogue() -> void:
+func _end_dialogue(completed: bool = true) -> void:
 	hide()
 	is_dialogue_active = false
-	_reset_dialogue_state()
+	current_line_index = 0 # Reset to first line
+	_reset_dialogue_state(completed)
 
 # --- NPC RESOLUTION, TURNING & RESTORATION ---
 
@@ -259,7 +262,7 @@ func _zoom_camera_to_npc(npc: Node3D) -> void:
 			cam.global_basis = Basis(start_quat.slerp(target_quat, weight))
 	, 0.0, 1.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-func _reset_dialogue_state() -> void:
+func _reset_dialogue_state(completed: bool) -> void:
 	var reset_duration: float = 0.4
 
 	# 1. Smoothly return NPC back to their pre-interaction Path3D rotation
@@ -293,25 +296,27 @@ func _reset_dialogue_state() -> void:
 				cam.global_basis = Basis(start_quat.slerp(target_quat, weight))
 		, 0.0, 1.0, reset_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-		# Only notify LoopAnimations after NPC and Camera have returned to normal
-		cam_zoom_tween.chain().tween_callback(_on_dialogue_fully_closed)
+		cam_zoom_tween.chain().tween_callback(func(): _on_dialogue_fully_closed(completed))
 	else:
-		_on_dialogue_fully_closed()
+		_on_dialogue_fully_closed(completed)
 
-func _on_dialogue_fully_closed() -> void:
+func _on_dialogue_fully_closed(completed: bool) -> void:
 	is_camera_zoomed = false
 	has_saved_npc_rotation = false
 	active_npc = null
 
+	# Unfreeze player movement and mouse look
 	Globals.playermoveallow = true
 	Globals.playerlookallow = true
 	Globals.set("is_in_dialogue", false)
 
-	# Signals unpause the Path3D AnimationPlayer in LoopAnimations.gd
-	if Globals.get("can_talk_babushka"):
-		babushka_dialogue_finished.emit()
-	elif Globals.get("can_talk_policewoman"):
-		policewoman_dialogue_finished.emit()
+	# ONLY emit finished signal if dialogue reached the end.
+	# If incomplete, the NPC stays and waits for the player to talk again.
+	if completed:
+		if Globals.get("can_talk_babushka"):
+			babushka_dialogue_finished.emit()
+		elif Globals.get("can_talk_policewoman"):
+			policewoman_dialogue_finished.emit()
 
 func _get_npc_head_pos(npc: Node3D) -> Vector3:
 	if not is_instance_valid(npc):
