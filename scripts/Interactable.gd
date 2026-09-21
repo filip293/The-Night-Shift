@@ -32,9 +32,12 @@ var is_open: bool = false
 var door_tween: Tween
 var is_being_mopped: bool = false
 var current_mop_progress: float = 0.0
+var runonce = false
 
 # State tracking for task highlight
 var is_task_target: bool = false
+
+@onready var door_node: Node = $/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Door
 
 # Static yellow glow material generated once
 static var task_glow_mat: ShaderMaterial
@@ -48,6 +51,12 @@ func _ready() -> void:
 			add_to_group("dirt")
 		else:
 			add_to_group("puddles")
+			
+func _open_door_if_closed() -> void:
+	if is_instance_valid(door_node):
+		var is_door_open: bool = door_node.get("is_open") if "is_open" in door_node else false
+		if not is_door_open:
+			door_node._toggle_door(false)
 
 func _init_shaders() -> void:
 	if task_glow_mat == null:
@@ -157,10 +166,12 @@ func _toggle_door(other: bool = false) -> void:
 		).set_delay(close_sound_delay)
 	
 	if Globals.jumpscare_impending and self.whoami_value == "DoorSpecific":
-		$/root/Node3D/Monster/Idle.play("Idle")
-		await Globals.calltime(5.0)
-		$/root/Node3D/Monster/Idle.stop()
+		#$/root/Node3D/Monster/Idle.play("Idle")
+		#await Globals.calltime(0.1)
+		#$/root/Node3D/Monster/Idle.stop()
 		$/root/Node3D/Monster/AnimationPlayer.play("run")
+		await Globals.calltime(0.1)
+		_open_door_if_closed()
 		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
 		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
 		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
@@ -261,3 +272,17 @@ func _on_interact_generic() -> void:
 
 func whoami() -> String:
 	return whoami_value
+
+
+func _on_jumpscare_trigger_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		if Globals.task_idx == 4 and !runonce: 
+			Globals.playermoveallow = false
+			runonce = true
+			_open_door_if_closed()
+			$/root/Node3D/Monster/AnimationPlayer.play("run")
+			await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+			$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
+			await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+			await Globals.calltime(3.0)
+			$/root/Node3D/Credits.ShowCredits()

@@ -16512,7 +16512,7 @@ collision_layer = 257
 script = ExtResource("62_l5miw")
 whoami_value = "DoorSpecific"
 object_type = 1
-open_rotation_y = 0.0
+open_rotation_y = 180.0
 closed_rotation_y = 90.0
 audio_player = NodePath("Door")
 open_sound = ExtResource("42_nl73c")
@@ -20889,11 +20889,11 @@ libraries/ = ExtResource("134_lm7bh")
 transform = Transform3D(0.1, 9.509708e-06, -1.6468652e-05, -9.529102e-06, 0.09999993, -0.00011779347, 1.6457438e-05, 0.00011779504, 0.09999993, -3.328, -2.08, -13.366)
 
 [node name="Object_6" type="MeshInstance3D" parent="Slip" unique_id=1273577987]
-transform = Transform3D(0.11829668, 0.0725544, 0.018485172, 0.006290232, -0.044073164, 0.1327327, 0.07460748, -0.11132559, -0.040500715, 37.039246, 20.377138, -64.53917)
+transform = Transform3D(0.123760276, -0.060133584, -0.025832064, 0.0062902314, -0.04407316, 0.1327327, -0.065144196, -0.11849673, -0.03625898, 18.902561, 20.377138, -64.332794)
 mesh = SubResource("ArrayMesh_cg0r4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slip" unique_id=1136422966]
-transform = Transform3D(0.11829668, 0.0725544, 0.018485172, 0.006290232, -0.044073164, 0.1327327, 0.07460748, -0.11132559, -0.040500715, 38.059956, 24.90194, -61.627014)
+transform = Transform3D(0.123760276, -0.060133584, -0.025832064, 0.0062902314, -0.04407316, 0.1327327, -0.065144196, -0.11849673, -0.03625898, 21.934921, 24.90194, -63.760696)
 shape = SubResource("BoxShape3D_u4f0w")
 
 [node name="Flashlight" parent="." unique_id=1114529601 instance=ExtResource("170_6rkv3")]
@@ -21555,6 +21555,7 @@ libraries/ = SubResource("AnimationLibrary_lwl8w")
 
 [connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Start" to="TitleScreen" method="_on_start_pressed"]
 [connection signal="pressed" from="TitleScreen/CanvasLayer/VBoxContainer/Quit" to="TitleScreen" method="_on_quit_pressed"]
+[connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/JumpscareTrigger" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" method="_on_jumpscare_trigger_body_entered"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/6twelve/JumpscareTrigger" to="Monster2" method="_on_jumpscare_trigger_body_entered"]
 [connection signal="body_entered" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" to="Map/Sketchfab_model/Gas_station_fbx/RootNode/Bathrooms/Bathrooms_Roof_tiles_0/Area3D" method="_on_body_exited"]
