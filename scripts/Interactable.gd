@@ -165,18 +165,18 @@ func _toggle_door(other: bool = false) -> void:
 					audio_player.play()
 		).set_delay(close_sound_delay)
 	
-	if Globals.jumpscare_impending and self.whoami_value == "DoorSpecific":
+	#if Globals.jumpscare_impending and self.whoami_value == "DoorSpecific":
 		#$/root/Node3D/Monster/Idle.play("Idle")
 		#await Globals.calltime(0.1)
 		#$/root/Node3D/Monster/Idle.stop()
-		$/root/Node3D/Monster/AnimationPlayer.play("run")
-		await Globals.calltime(0.1)
-		_open_door_if_closed()
-		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
-		$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
-		await $/root/Node3D/Monster/AnimationPlayer.animation_finished
-		await Globals.calltime(3.0)
-		$/root/Node3D/Credits.ShowCredits()
+		#$/root/Node3D/Monster/AnimationPlayer.play("run")
+		#await Globals.calltime(0.1)
+		#_open_door_if_closed()
+		#await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		#$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
+		#await $/root/Node3D/Monster/AnimationPlayer.animation_finished
+		#await Globals.calltime(3.0)
+		#$/root/Node3D/Credits.ShowCredits()
 
 func start_mopping() -> void:
 	if Engine.is_editor_hint() or is_being_mopped:
@@ -276,10 +276,11 @@ func whoami() -> String:
 
 func _on_jumpscare_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
-		if Globals.task_idx == 4 and !runonce: 
+		if Globals.task_idx == 4 and !runonce:
+			runonce = true 
 			Globals.playermoveallow = false
-			runonce = true
 			_open_door_if_closed()
+			await Globals.calltime(0.5)
 			$/root/Node3D/Monster/AnimationPlayer.play("run")
 			await $/root/Node3D/Monster/AnimationPlayer.animation_finished
 			$/root/Node3D/Monster/AnimationPlayer.play("fall_back")
