@@ -276,9 +276,8 @@ func whoami() -> String:
 
 func _on_jumpscare_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
-		if Globals.task_idx == 4 and !runonce:
+		if Globals.jumpscare_impending and !runonce:
 			runonce = true 
-			Globals.playermoveallow = false
 			_open_door_if_closed()
 			await Globals.calltime(0.5)
 			$/root/Node3D/Monster/AnimationPlayer.play("run")
