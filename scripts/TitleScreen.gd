@@ -14,6 +14,7 @@ func start() -> void:
 	TitleCam.make_current()
 	$CanvasLayer.visible = true
 	TitleCamAnim.play("CamAnim/handheld_sway")
+	await Globals.calltime(3.0)
 	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Car7/AnimationPlayer".play("go")
 	await Globals.calltime(1.0)
 	$CanvasLayer/Animations.play("startup")

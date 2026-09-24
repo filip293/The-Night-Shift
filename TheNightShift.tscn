@@ -15883,6 +15883,7 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
+play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
