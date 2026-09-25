@@ -662,6 +662,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(100, -185)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/Start:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer/Quit:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_n57uf"]
 resource_name = "fade"
@@ -803,6 +827,30 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(100, -185), Vector2(100, -125.77928), Vector2(100, -69.5056), Vector2(100, -16.178955), Vector2(100, 34.200684), Vector2(100, 81.63327), Vector2(100, 126.118835), Vector2(100, 167.65732), Vector2(100, 206.24884), Vector2(100, 241.89328), Vector2(100, 274.5907), Vector2(100, 304.3411), Vector2(100, 331.14447), Vector2(100, 355.0008), Vector2(100, 375.9101), Vector2(100, 393.87238), Vector2(100, 408.88763), Vector2(100, 420.9558), Vector2(100, 430.07697), Vector2(100, 436.25116), Vector2(100, 439.4782), Vector2(100, 440)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/Start:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2.26),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VBoxContainer/Quit:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mvkfx"]
@@ -13087,9 +13135,10 @@ transparency = 2
 alpha_scissor_threshold = 0.1508576
 alpha_antialiasing_mode = 0
 cull_mode = 2
+albedo_color = Color(0.10843601, 0.7736814, 0.9999997, 1)
 albedo_texture = ExtResource("91_ccbeu")
 roughness = 0.11
-roughness_texture_channel = 1
+roughness_texture_channel = 2
 normal_enabled = true
 normal_texture = ExtResource("92_xjyhy")
 metadata/_gltf_primary_texture_coord = 0
@@ -16066,6 +16115,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
 theme_override_fonts/font = ExtResource("15_g7py6")
 theme_override_font_sizes/font_size = 40
+disabled = true
 text = "Start Shift"
 flat = true
 alignment = 0
@@ -16077,6 +16127,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
 theme_override_fonts/font = ExtResource("15_wa347")
 theme_override_font_sizes/font_size = 32
+disabled = true
 text = "Quit Game"
 flat = true
 alignment = 0
