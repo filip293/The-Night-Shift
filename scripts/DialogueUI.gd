@@ -19,8 +19,8 @@ signal policewoman_dialogue_finished
 @export var flip_npc_180: bool = true
 
 @export_group("Camera Settings")
-@export var zoom_fov_multiplier: float = 0.75
-@export var min_zoom_fov: float = 38.0
+## Set your desired dialogue FOV here
+@export var target_dialogue_fov: float = 50.0
 
 var dialogue_queue: Array[Dictionary] = []
 var current_line_index: int = 0
@@ -30,6 +30,7 @@ var cam_zoom_tween: Tween
 
 var is_dialogue_active: bool = false
 var can_advance_dialogue: bool = false
+var dialogue_start_time: float = 0.0
 var last_sound_char_index: int = 0
 
 # Cached NPC state for Path3D restoration
@@ -37,10 +38,13 @@ var active_npc: Node3D = null
 var saved_npc_rot_y: float = 0.0
 var has_saved_npc_rotation: bool = false
 
-# Cached camera state
+# Cached Player / Neck / Camera state
 var active_camera: Camera3D = null
+var active_neck: Node3D = null
+var active_player: Node3D = null
 var original_camera_fov: float = 75.0
-var original_camera_basis: Basis
+var saved_player_rot_y: float = 0.0
+var saved_neck_rot_x: float = 0.0
 var is_camera_zoomed: bool = false
 
 func _ready() -> void:
@@ -59,6 +63,7 @@ func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 		return
 
 	is_dialogue_active = true
+	dialogue_start_time = Time.get_ticks_msec() / 1000.0
 	
 	# Freeze player movement and mouse look
 	Globals.playermoveallow = false
@@ -85,14 +90,18 @@ func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 
 	# Debounce so the interact key doesn't accidentally skip line 1
 	can_advance_dialogue = false
-	get_tree().create_timer(0.18).timeout.connect(func(): can_advance_dialogue = true)
+	get_tree().create_timer(0.35).timeout.connect(func(): can_advance_dialogue = true)
 
 func _input(event: InputEvent) -> void:
 	if not is_dialogue_active or not visible:
 		return
 
+	# Ignore key-repeats from holding down a key
+	if event.is_echo():
+		return
+
 	# ESC cancels incomplete dialogue without exiting game
-	var is_cancel = event.is_action_pressed("ui_cancel") or (event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_ESCAPE)
+	var is_cancel = event.is_action_pressed("ui_cancel") or (event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE)
 	if is_cancel:
 		get_viewport().set_input_as_handled()
 		Input.action_release("ui_cancel")
@@ -120,7 +129,7 @@ func _input(event: InputEvent) -> void:
 	if current_line_index < dialogue_queue.size():
 		_show_next_line()
 	else:
-		_end_dialogue(true) # Completed naturally to the end
+		_end_dialogue(true)
 
 func _show_next_line() -> void:
 	var line_data = dialogue_queue[current_line_index]
@@ -157,16 +166,20 @@ func _play_typing_sound() -> void:
 		typing_audio_player.play()
 
 func _cancel_dialogue() -> void:
+	# Guard: Don't allow cancellation within 0.3s of opening
+	if (Time.get_ticks_msec() / 1000.0) - dialogue_start_time < 0.3:
+		return
+		
 	if typewriter_tween and typewriter_tween.is_valid():
 		typewriter_tween.kill()
 	if typing_audio_player and typing_audio_player.is_playing():
 		typing_audio_player.stop()
-	_end_dialogue(false) # Incomplete exit
+	_end_dialogue(false)
 
 func _end_dialogue(completed: bool = true) -> void:
 	hide()
 	is_dialogue_active = false
-	current_line_index = 0 # Reset to first line
+	current_line_index = 0
 	_reset_dialogue_state(completed)
 
 # --- NPC RESOLUTION, TURNING & RESTORATION ---
@@ -213,12 +226,10 @@ func _turn_npc_to_player(npc: Node3D) -> void:
 
 	var start_rot_y = npc.global_rotation.y
 
-	# Calculate rotation to face player
 	var original_transform = npc.global_transform
 	npc.look_at(look_target, Vector3.UP)
 	var target_rot_y = npc.global_rotation.y
 	
-	# Flip 180 degrees so the front of the model faces the camera
 	if flip_npc_180:
 		target_rot_y += PI
 		
@@ -233,39 +244,75 @@ func _turn_npc_to_player(npc: Node3D) -> void:
 			npc.global_rotation.y = lerp_angle(start_rot_y, target_rot_y, weight)
 	, 0.0, 1.0, 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-# --- CAMERA ZOOM & RESET ---
+# --- CAMERA & PLAYER LOOK SYSTEM ---
+
+func _resolve_player_hierarchy(cam: Camera3D) -> void:
+	active_camera = cam
+	active_neck = null
+	active_player = null
+	
+	if not cam:
+		return
+
+	var p = cam.get_parent()
+	if p is Node3D:
+		active_neck = p
+		var gp = p.get_parent()
+		if gp is Node3D:
+			active_player = gp
 
 func _zoom_camera_to_npc(npc: Node3D) -> void:
 	var cam = get_viewport().get_camera_3d()
 	if not cam:
 		return
 
-	active_camera = cam
+	_resolve_player_hierarchy(cam)
+	
+	# Camera stays strictly level with Neck (no roll)
+	cam.rotation = Vector3.ZERO
+
 	original_camera_fov = cam.fov
-	original_camera_basis = cam.global_basis
 	is_camera_zoomed = true
 
 	var head_pos = _get_npc_head_pos(npc)
-	var target_fov = max(cam.fov * zoom_fov_multiplier, min_zoom_fov)
-
-	var target_transform = cam.global_transform.looking_at(head_pos, Vector3.UP)
-	var start_quat = cam.global_basis.get_rotation_quaternion()
-	var target_quat = target_transform.basis.get_rotation_quaternion()
 
 	if cam_zoom_tween and cam_zoom_tween.is_valid():
 		cam_zoom_tween.kill()
 
 	cam_zoom_tween = create_tween().set_parallel(true)
-	cam_zoom_tween.tween_property(cam, "fov", target_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	cam_zoom_tween.tween_method(func(weight: float):
-		if is_instance_valid(cam):
-			cam.global_basis = Basis(start_quat.slerp(target_quat, weight))
-	, 0.0, 1.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	# ONLY FOV IS TWEENED — NO POSITION SLIDING
+	cam_zoom_tween.tween_property(cam, "fov", target_dialogue_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	# Turn Player Yaw and Neck Pitch to face NPC
+	if is_instance_valid(active_player) and is_instance_valid(active_neck):
+		saved_player_rot_y = active_player.global_rotation.y
+		saved_neck_rot_x = active_neck.rotation.x
+
+		var diff = head_pos - active_player.global_position
+		var target_player_yaw = atan2(-diff.x, -diff.z)
+		var start_player_yaw = saved_player_rot_y
+
+		var ground_dist = Vector2(head_pos.x - cam.global_position.x, head_pos.z - cam.global_position.z).length()
+		var height_diff = head_pos.y - cam.global_position.y
+		var target_neck_pitch = clamp(atan2(height_diff, ground_dist), deg_to_rad(-75.0), deg_to_rad(75.0))
+		var start_neck_pitch = saved_neck_rot_x
+
+		cam_zoom_tween.tween_method(func(weight: float):
+			if is_instance_valid(active_player):
+				active_player.global_rotation.y = lerp_angle(start_player_yaw, target_player_yaw, weight)
+			if is_instance_valid(active_neck):
+				active_neck.rotation.x = lerp_angle(start_neck_pitch, target_neck_pitch, weight)
+				active_neck.rotation.y = 0.0
+				active_neck.rotation.z = 0.0
+			if is_instance_valid(active_camera):
+				active_camera.rotation = Vector3.ZERO
+		, 0.0, 1.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func _reset_dialogue_state(completed: bool) -> void:
 	var reset_duration: float = 0.4
 
-	# 1. Smoothly return NPC back to their pre-interaction Path3D rotation
+	# 1. Return NPC back to pre-interaction Path3D rotation
 	if has_saved_npc_rotation and is_instance_valid(active_npc):
 		var current_rot = active_npc.global_rotation.y
 		var target_rot = saved_npc_rot_y
@@ -280,23 +327,39 @@ func _reset_dialogue_state(completed: bool) -> void:
 				npc_ref.global_rotation.y = lerp_angle(current_rot, target_rot, weight)
 		, 0.0, 1.0, reset_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-	# 2. Smoothly zoom camera back out to normal view
+	# 2. Return FOV and Player/Neck rotation (NO position change)
 	if is_camera_zoomed and is_instance_valid(active_camera):
 		var cam = active_camera
-		var start_quat = cam.global_basis.get_rotation_quaternion()
-		var target_quat = original_camera_basis.get_rotation_quaternion()
 
 		if cam_zoom_tween and cam_zoom_tween.is_valid():
 			cam_zoom_tween.kill()
 
 		cam_zoom_tween = create_tween().set_parallel(true)
 		cam_zoom_tween.tween_property(cam, "fov", original_camera_fov, reset_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		cam_zoom_tween.tween_method(func(weight: float):
-			if is_instance_valid(cam):
-				cam.global_basis = Basis(start_quat.slerp(target_quat, weight))
-		, 0.0, 1.0, reset_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-		cam_zoom_tween.chain().tween_callback(func(): _on_dialogue_fully_closed(completed))
+		if is_instance_valid(active_player) and is_instance_valid(active_neck):
+			var cur_p_yaw = active_player.global_rotation.y
+			var cur_n_pitch = active_neck.rotation.x
+			var target_p_yaw = saved_player_rot_y
+			var target_n_pitch = saved_neck_rot_x
+
+			cam_zoom_tween.tween_method(func(weight: float):
+				if is_instance_valid(active_player):
+					active_player.global_rotation.y = lerp_angle(cur_p_yaw, target_p_yaw, weight)
+				if is_instance_valid(active_neck):
+					active_neck.rotation.x = lerp_angle(cur_n_pitch, target_n_pitch, weight)
+					active_neck.rotation.y = 0.0
+					active_neck.rotation.z = 0.0
+				if is_instance_valid(active_camera):
+					active_camera.rotation = Vector3.ZERO
+			, 0.0, 1.0, reset_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+		cam_zoom_tween.chain().tween_callback(func():
+			if is_instance_valid(active_camera):
+				active_camera.rotation = Vector3.ZERO
+				active_camera.fov = original_camera_fov
+			_on_dialogue_fully_closed(completed)
+		)
 	else:
 		_on_dialogue_fully_closed(completed)
 
@@ -304,14 +367,14 @@ func _on_dialogue_fully_closed(completed: bool) -> void:
 	is_camera_zoomed = false
 	has_saved_npc_rotation = false
 	active_npc = null
+	active_neck = null
+	active_player = null
 
 	# Unfreeze player movement and mouse look
 	Globals.playermoveallow = true
 	Globals.playerlookallow = true
 	Globals.set("is_in_dialogue", false)
 
-	# ONLY emit finished signal if dialogue reached the end.
-	# If incomplete, the NPC stays and waits for the player to talk again.
 	if completed:
 		if Globals.get("can_talk_babushka"):
 			babushka_dialogue_finished.emit()
@@ -322,12 +385,10 @@ func _get_npc_head_pos(npc: Node3D) -> Vector3:
 	if not is_instance_valid(npc):
 		return Vector3.ZERO
 
-	# 1. Look for a Head node or marker
 	var head_node = npc.find_child("*[Hh]ead*", true, false)
 	if head_node and head_node is Node3D:
 		return head_node.global_position
 
-	# 2. Look for Skeleton3D head/neck bone
 	var skeleton = npc.find_child("*[Ss]keleton*", true, false) as Skeleton3D
 	if skeleton:
 		for bone_name in ["Head", "head", "HEAD", "Neck"]:
@@ -335,7 +396,6 @@ func _get_npc_head_pos(npc: Node3D) -> Vector3:
 			if bone_idx != -1:
 				return skeleton.to_global(skeleton.get_bone_global_pose(bone_idx).origin)
 
-	# 3. CollisionShape3D height estimation
 	var col_shape = npc.find_child("*CollisionShape3D*", true, false) as CollisionShape3D
 	if col_shape and col_shape.shape:
 		if col_shape.shape is CapsuleShape3D:
@@ -343,7 +403,6 @@ func _get_npc_head_pos(npc: Node3D) -> Vector3:
 		elif col_shape.shape is BoxShape3D:
 			return col_shape.global_position + Vector3(0, col_shape.shape.size.y * 0.35, 0)
 
-	# 4. Fallback: approximate eye level
 	return npc.global_position + Vector3(0, 1.6, 0)
 
 # --- DIALOGUE TRIGGERS ---

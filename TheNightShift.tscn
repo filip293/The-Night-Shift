@@ -188,7 +188,6 @@
 [ext_resource type="Script" uid="uid://cgqsyd4vntd86" path="res://scripts/LoopAnimations.gd" id="184_pkcgn"]
 [ext_resource type="Texture2D" uid="uid://dksrkhbm0bsrr" path="res://characters/Persons/Babushka_Character_31_Female.png" id="185_an4rv"]
 [ext_resource type="Texture2D" uid="uid://cyh3fujfcpts8" path="res://characters/Persons/PoliceWoman_Character_17_Female_Police.png" id="186_an4rv"]
-[ext_resource type="Script" uid="uid://b2y477eqo3wdf" path="res://scripts/NPCHeadLook.gd" id="187_h452q"]
 
 [sub_resource type="Resource" id="Resource_sq8w8"]
 script = ExtResource("2_c7hx4")
@@ -18554,7 +18553,7 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_otcn0")
 
 [node name="Tiles_Tiles_0" type="MeshInstance3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Tiles" unique_id=1541267028]
-transform = Transform3D(1, 1.0186341e-10, 3.2642333e-11, 0, 1.0000006, 4.656613e-10, -3.2983394e-11, 1.1641532e-10, 1.0000006, 0.24881244, 0.19933605, -0.03173724)
+transform = Transform3D(1, 1.4551915e-10, 4.7307935e-11, 0, 1.0000008, 8.1490725e-10, -5.4811267e-11, 1.1641532e-10, 1.0000008, -0.011048079, 0.008299828, -0.03193757)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_o5ffa")
 
@@ -19668,6 +19667,7 @@ transform = Transform3D(0.9999994, 9.3132124e-10, -1.7477257e-07, 1.110223e-16, 
 light_color = Color(1, 0.53333336, 0.3254902, 1)
 
 [node name="DriveSound" type="AudioStreamPlayer3D" parent="RandomCars/Car1" unique_id=1942740309]
+stream = ExtResource("94_jtq2l")
 volume_db = 17.0
 unit_size = 2.0
 max_db = 6.0
@@ -19737,6 +19737,7 @@ transform = Transform3D(0.9999994, 9.3132124e-10, -1.7477257e-07, 1.110223e-16, 
 light_color = Color(1, 0.53333336, 0.3254902, 1)
 
 [node name="DriveSound" type="AudioStreamPlayer3D" parent="RandomCars/Car2" unique_id=441715639]
+stream = ExtResource("94_jtq2l")
 volume_db = 17.0
 unit_size = 2.0
 max_db = 6.0
@@ -19806,6 +19807,7 @@ transform = Transform3D(0.9999994, 9.3132124e-10, -1.7477257e-07, 1.110223e-16, 
 light_color = Color(1, 0.53333336, 0.3254902, 1)
 
 [node name="DriveSound" type="AudioStreamPlayer3D" parent="RandomCars/Car3" unique_id=812288836]
+stream = ExtResource("94_jtq2l")
 volume_db = 17.0
 unit_size = 2.0
 max_db = 6.0
@@ -19875,6 +19877,7 @@ transform = Transform3D(0.9999994, 9.3132124e-10, -1.7477257e-07, 1.110223e-16, 
 light_color = Color(1, 0.53333336, 0.3254902, 1)
 
 [node name="DriveSound" type="AudioStreamPlayer3D" parent="RandomCars/Car4" unique_id=1219636281]
+stream = ExtResource("94_jtq2l")
 volume_db = 17.0
 unit_size = 2.0
 max_db = 6.0
@@ -19944,6 +19947,7 @@ transform = Transform3D(0.9999994, 9.3132124e-10, -1.7477257e-07, 1.110223e-16, 
 light_color = Color(1, 0.53333336, 0.3254902, 1)
 
 [node name="DriveSound" type="AudioStreamPlayer3D" parent="RandomCars/Car5" unique_id=1753968725]
+stream = ExtResource("94_jtq2l")
 volume_db = 17.0
 unit_size = 2.0
 max_db = 6.0
@@ -20013,6 +20017,7 @@ transform = Transform3D(0.9999994, 9.3132124e-10, -1.7477257e-07, 1.110223e-16, 
 light_color = Color(1, 0.53333336, 0.3254902, 1)
 
 [node name="DriveSound" type="AudioStreamPlayer3D" parent="RandomCars/Car6" unique_id=544927217]
+stream = ExtResource("94_jtq2l")
 volume_db = 17.0
 unit_size = 2.0
 max_db = 6.0
@@ -21219,7 +21224,6 @@ script = ExtResource("184_pkcgn")
 
 [node name="Armature" type="Node3D" parent="Path3D3/PathFollow3D/Babushka" unique_id=2050911359]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 0, 0, 0)
-script = ExtResource("187_h452q")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D3/PathFollow3D/Babushka/Armature" unique_id=219506038]
 bones/0/name = "mixamorig_Hips"
@@ -21539,8 +21543,7 @@ transform = Transform3D(7.7666096e-05, 4.4885015e-05, 0.99982315, -5.4559395e-12
 transform = Transform3D(-1.3001941, -0.0015315562, 0.00011310528, -0.0015315523, 1.3001959, 6.5527056e-05, -0.0001131812, 6.539307e-05, -1.3001819, 0.13269806, -0.012728808, 0.27030182)
 
 [node name="Armature_001" type="Node3D" parent="Path3D2/PathFollow3D/PoliceWoman" unique_id=621135721]
-transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 0, 0, 0)
-script = ExtResource("187_h452q")
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Path3D2/PathFollow3D/PoliceWoman/Armature_001" unique_id=1148807041]
 bones/0/name = "mixamorig_Hips"
