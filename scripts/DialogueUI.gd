@@ -348,22 +348,22 @@ func _get_npc_head_pos(npc: Node3D) -> Vector3:
 
 # --- DIALOGUE TRIGGERS ---
 
-func _start_policewoman_dialogue(npc_node: Node3D = null) -> void:
-	if is_dialogue_active:
-		return
-	var dialogue: Array[Dictionary] = [
-		{"speaker": "Officer", "text": "God, it's pouring. You can barely see ten\nfeet past the pumps out there."},
-		{"speaker": "You", "text": "Yeah... wipers on my car barely made it here."},
-		{"speaker": "Officer", "text": "Keep the doors locked tight once three o'clock hits.\nBad weather brings out the weird ones."}
-	]
-	start_dialogue(dialogue, npc_node)
-
 func _start_babushka_dialogue(npc_node: Node3D = null) -> void:
 	if is_dialogue_active:
 		return
 	var dialogue: Array[Dictionary] = [
-		{"speaker": "Old Woman", "text": "They always send the quiet ones on\nthe graveyard shift."},
-		{"speaker": "You", "text": "I didn't really have a choice tonight, ma'am."},
-		{"speaker": "Old Woman", "text": "You should watch out for strangers, there are weird\npeople coming and going this time of night"}
+		{"speaker": "Old Woman", "text": "Oh, the rain is finally letting up a little.\nI thought I would take my walk while I still can."},
+		{"speaker": "You", "text": "You come through here a lot this late, ma'am?"},
+		{"speaker": "Old Woman", "text": "Most nights, dear. It gives me something to do.\nMy grandchildren don't come to visit as often as they used to,\nso I keep myself busy this way."}
+	]
+	start_dialogue(dialogue, npc_node)
+
+func _start_policewoman_dialogue(npc_node: Node3D = null) -> void:
+	if is_dialogue_active:
+		return
+	var dialogue: Array[Dictionary] = [
+		{"speaker": "Officer", "text": "It's picked back up out there. Can barely\nsee past the pumps now."},
+		{"speaker": "You", "text": "Yeah, my wipers could barely keep up on the drive in."},
+		{"speaker": "Officer", "text": "Careful driving home later. Roads get slick\nthis time of night."}
 	]
 	start_dialogue(dialogue, npc_node)
