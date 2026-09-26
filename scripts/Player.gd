@@ -31,8 +31,6 @@ func _ready() -> void:
 	add_to_group("player")
 	if camera:
 		default_cam_pos = camera.position
-		
-	$"../Map/Sketchfab_model/Gas_station_fbx/RootNode/Lamp_018/SpotLight3D/Flicker".play("Flicker")
 
 
 func _physics_process(delta: float) -> void:

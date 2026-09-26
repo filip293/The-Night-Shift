@@ -49,6 +49,7 @@ func _on_start_pressed() -> void:
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
 	Globals.task_idx = 0
 	$"../InGame/CanvasLayer/RichTextLabel".visible = true
+	$"../InGame/CanvasLayer/CanvasLayer2/Crosshair".visible = true
 	$"../InGame/CanvasLayer/CanvasLayer2/Budget".visible = true
 	Globals.in_game = true
 	## ADD NPC INTERACTIONS BUT CALL FROM A DIFFERENT SCRIPT BEFORE STARTING
