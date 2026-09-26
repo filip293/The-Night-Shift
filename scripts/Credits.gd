@@ -1,6 +1,7 @@
 extends Node2D
 
 func ShowCredits() -> void:
+	$"../InGame/CanvasLayer/CanvasLayer2/Crosshair".visible = false
 	$Credits/ColorRect.visible = true
 	$Credits/RichTextLabel.visible = true
 	$Credits/Scroll.play("Scroll")
