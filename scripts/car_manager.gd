@@ -27,6 +27,15 @@ func go_car1() -> void:
 	FirstCar.play("ENTER")
 	await Globals.calltime(40.0)
 	FCBeep.play()
+	await Globals.calltime(10.0)
+	FCBeep.play()
+	await Globals.calltime(5.0)
+	FCBeep.play()
+	await Globals.calltime(5.0)
+	FCBeep.play()
+	await Globals.calltime(5.0)
+	FCBeep.play()
+	await Globals.calltime(5.0)
 
 func go_car2() -> void:
 	SecondCar.play("ENTER")

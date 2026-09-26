@@ -14,3 +14,4 @@ func _on_jumpscare_trigger_body_entered(body: Node3D) -> void:
 			$"../Player/JumpscareAndDrone".autoplay = true
 			$"../Player/JumpscareAndDrone".stream = drone
 			$"../Player/JumpscareAndDrone".play()
+			$"../Player/30".play()

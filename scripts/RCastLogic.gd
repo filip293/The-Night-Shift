@@ -233,7 +233,7 @@ func _physics_process(delta: float) -> void:
 					target_text = "[E] Fuel car"
 					if Input.is_action_just_pressed("Interact"):
 						$"../../../../Map/FirstCar/PathFollow3D/suv".set_collision_layer_value(9, false)
-						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Management_009/Management_009_Management_0/AudioStreamPlayer3D".volume_db = -100
+						$"../../../../Map/FirstCar/PathFollow3D/suv/BeepBeep".volume_db = -100
 						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_01/Fuel_pump_01_Fuel_pump_0/Pump1".play()
 						Globals.stationcar = true
 						await $"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_01/Fuel_pump_01_Fuel_pump_0/Pump1".finished
