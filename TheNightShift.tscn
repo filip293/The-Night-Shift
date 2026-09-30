@@ -16259,7 +16259,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000546, -0.00073383795, -0.00024333794, -0.00076568325, 0.5826748, 0.28807932, -0.000107103435, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.6500055, -0.00073383795, -0.00024333794, -0.0007656833, 0.5826748, 0.28807932, -0.00010710344, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -16693,7 +16693,7 @@ shape = SubResource("BoxShape3D_61cw4")
 [node name="LockedDoor" type="AudioStreamPlayer3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02" unique_id=372574627]
 transform = Transform3D(1, 2.910383e-11, 2.0150992e-11, 0, 1.0000002, 1.1641532e-10, -1.6910917e-12, 0, 1.0000002, 0.11198163, 0.43276978, 0.0004990101)
 stream = ExtResource("76_lwl8w")
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="Door" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=1788677707 node_paths=PackedStringArray("audio_player")]
 transform = Transform3D(4.371139e-06, -100, -4.371139e-06, -1.110223e-14, -4.371139e-06, 100, -100, -4.371139e-06, -1.9984014e-13, 885.39124, 126.91011, -2457.4888)
