@@ -6,20 +6,27 @@
 [ext_resource type="Script" uid="uid://bvqhrfw0ecawf" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_c7hx4"]
 [ext_resource type="FontFile" uid="uid://b1avx2eyat61b" path="res://Fonts/Station.ttf" id="2_wk1nr"]
 [ext_resource type="Environment" uid="uid://dconbv55cgg4i" path="res://Env/Env.tres" id="3_d71h8"]
+[ext_resource type="Script" uid="uid://xuo7morvxotw" path="res://VirtualJoystick.gd" id="3_m3wq5"]
 [ext_resource type="AudioStream" uid="uid://bto1y7lqoyfv" path="res://Sounds/Plastic_001.wav" id="3_qq1mn"]
+[ext_resource type="Texture2D" uid="uid://djc85qv5cjn1x" path="res://MobileIcons/Joystick/Joystick.png" id="4_317yi"]
 [ext_resource type="AudioStream" uid="uid://bq4tvlgdwh06o" path="res://Sounds/Plastic_002.wav" id="4_aebcy"]
 [ext_resource type="Shader" uid="uid://c4basafgiwoeq" path="res://postprocess.gdshader" id="4_fxxet"]
 [ext_resource type="AudioStream" uid="uid://cr2sxw705mov8" path="res://Sounds/bgm.mp3" id="5_dl752"]
+[ext_resource type="Texture2D" uid="uid://dkkhrg54tck6m" path="res://MobileIcons/Joystick/SmallHandleFilled.png" id="5_kde1l"]
 [ext_resource type="Script" uid="uid://dptyl21sv3svu" path="res://scripts/Credits.gd" id="5_lm7bh"]
 [ext_resource type="AudioStream" uid="uid://b6ycsctiadjpe" path="res://Sounds/Plastic_003.wav" id="5_wk1nr"]
+[ext_resource type="Script" uid="uid://dh08rkyqms4ab" path="res://TouchLookArea.gd" id="6_1qgvs"]
 [ext_resource type="AudioStream" uid="uid://b1m7kudq44fxb" path="res://Sounds/Plastic_004.wav" id="6_054il"]
 [ext_resource type="Script" uid="uid://bem3i6ulw0sib" path="res://scripts/intro.gd" id="6_cbjmt"]
 [ext_resource type="Texture2D" uid="uid://cejuklxkvawtt" path="res://introAssets/moto-v3i_Image_0.png" id="6_jl68e"]
+[ext_resource type="Texture2D" uid="uid://chwq0k023b36l" path="res://MobileIcons/Group 37.png" id="7_317yi"]
 [ext_resource type="AudioStream" uid="uid://bpoow5hx2be81" path="res://Sounds/Plastic_005.wav" id="7_c7hx4"]
 [ext_resource type="Texture2D" uid="uid://cc3r87u3jneqq" path="res://introAssets/moto-v3i_Image_1.jpg" id="7_cbjmt"]
 [ext_resource type="Script" uid="uid://cox0ym0orutj6" path="res://scripts/motov3i.gd" id="7_rhhmh"]
+[ext_resource type="Script" uid="uid://bcqq6bjjmqnhi" path="res://ReceiptButton.gd" id="8_k34yy"]
 [ext_resource type="FontFile" uid="uid://coflg0jb5fl2j" path="res://Fonts/digital-7.ttf" id="8_n57uf"]
 [ext_resource type="Environment" uid="uid://dtdfrx8i84242" path="res://introAssets/introEnv.tres" id="8_rhhmh"]
+[ext_resource type="Texture2D" uid="uid://retf3uwgnp5c" path="res://MobileIcons/Group 36.png" id="9_kde1l"]
 [ext_resource type="Script" uid="uid://374vdsmmtpmt" path="res://scripts/TaskManager.gd" id="10_l5miw"]
 [ext_resource type="Script" uid="uid://3bqbystut1tk" path="res://scripts/Timer.gd" id="11_4e8dr"]
 [ext_resource type="AudioStream" uid="uid://2f52cvs4vbrq" path="res://Sounds/Rain.mp3" id="11_7kn7w"]
@@ -15551,6 +15558,67 @@ script = ExtResource("1_054il")
 configuration = SubResource("Resource_sq8w8")
 metadata/_custom_type_script = "uid://dcnlel7767ud6"
 
+[node name="MobileUI" type="CanvasLayer" parent="." unique_id=250941095]
+layer = 10000
+visible = false
+
+[node name="MovementJoystick" type="Control" parent="MobileUI" unique_id=679583352]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -461.0
+offset_right = 461.0
+grow_vertical = 0
+script = ExtResource("3_m3wq5")
+
+[node name="Base" type="Sprite2D" parent="MobileUI/MovementJoystick" unique_id=843800616]
+position = Vector2(232.855, 213.445)
+scale = Vector2(1.3123333, 1.3123333)
+texture = ExtResource("4_317yi")
+
+[node name="Knob" type="Sprite2D" parent="MobileUI/MovementJoystick" unique_id=1566688924]
+position = Vector2(232.275, 216.21)
+texture = ExtResource("5_kde1l")
+
+[node name="TouchLookArea" type="Control" parent="MobileUI" unique_id=1924899078 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -677.0
+offset_top = -536.5
+offset_bottom = 536.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("6_1qgvs")
+player = NodePath("../../Player")
+
+[node name="ReceiptButton" type="TextureRect" parent="MobileUI" unique_id=659181245]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -221.25
+offset_top = -219.755
+offset_right = -21.25
+offset_bottom = -19.755371
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+texture = ExtResource("7_317yi")
+expand_mode = 2
+script = ExtResource("8_k34yy")
+receipt_ui_path = NodePath("../../InGame/Receipt")
+button_1 = ExtResource("7_317yi")
+button_2 = ExtResource("9_kde1l")
+
+[node name="HoldTimer" type="Timer" parent="MobileUI/ReceiptButton" unique_id=595505795]
+
 [node name="PSXEffects" type="Node2D" parent="." unique_id=1431045722]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PSXEffects" unique_id=227839171]
@@ -15707,6 +15775,7 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
+play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
@@ -15973,24 +16042,6 @@ script = ExtResource("11_4e8dr")
 [node name="CanvasLayer" type="CanvasLayer" parent="InGame/CanvasLayer" unique_id=903571100]
 layer = 200
 
-[node name="NewTaskAlert" type="Label" parent="InGame/CanvasLayer/CanvasLayer" unique_id=691076870]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -438.0
-offset_top = -119.0
-offset_right = -33.0
-offset_bottom = -26.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("15_g7py6")
-theme_override_font_sizes/font_size = 32
-text = "NEW TASK RECEIVED
-HOLD [R] TO VIEW"
-
 [node name="Label" type="Label" parent="InGame/CanvasLayer/CanvasLayer" unique_id=756000603]
 anchors_preset = 8
 anchor_left = 0.5
@@ -16047,11 +16098,12 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "$0/$500"
 
-[node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("sprite", "task_desc")]
+[node name="Receipt" type="CanvasLayer" parent="InGame" unique_id=523495525 node_paths=PackedStringArray("movement_joystick", "sprite", "task_desc")]
 layer = 1000
 script = ExtResource("12_kc0vc")
 fade_duration = 0.2
 slide_duration = 0.45
+movement_joystick = NodePath("../../MobileUI/MovementJoystick")
 sprite = NodePath("Sprite2D")
 task_desc = NodePath("Label")
 task1 = ExtResource("14_86nqj")
@@ -16112,7 +16164,7 @@ stream = ExtResource("19_y87xx")
 [node name="CanvasLayer2" type="CanvasLayer" parent="InGame" unique_id=1160535350]
 layer = 1000
 
-[node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=495574881 node_paths=PackedStringArray("dialogue_label", "speaker_label", "typing_audio_player")]
+[node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=495574881 node_paths=PackedStringArray("dialogue_label", "speaker_label", "movement_joystick", "receipt_button", "typing_audio_player")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -16127,6 +16179,8 @@ grow_vertical = 0
 script = ExtResource("36_v1r1w")
 dialogue_label = NodePath("Control/Label")
 speaker_label = NodePath("Control/Label2")
+movement_joystick = NodePath("../../../MobileUI/MovementJoystick")
+receipt_button = NodePath("../../../MobileUI/ReceiptButton")
 typing_audio_player = NodePath("Control/Typing")
 typing_sound = ExtResource("19_ihlne")
 
@@ -16198,7 +16252,7 @@ offset_bottom = 9.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
 theme_override_fonts/font = ExtResource("37_2skny")
 theme_override_font_sizes/font_size = 22
-text = "Press [ENTER] to proceed"
+text = "Press to proceed"
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 physics_interpolation_mode = 1
@@ -16258,7 +16312,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.65000564, -0.00073383795, -0.00024333794, -0.0007656835, 0.5826748, 0.28807932, -0.000107103464, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000576, -0.00073383795, -0.00024333794, -0.0007656836, 0.5826748, 0.28807932, -0.000107103486, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 

@@ -15,7 +15,7 @@ general/accessibility_driver="dummy"
 
 [application]
 
-config/name="The Night Shift"
+config/name="The Night Shift (Mobile)"
 run/main_scene="uid://bw2njfn37y3nr"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -40,8 +40,7 @@ settings/stdout/print_fps=true
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
-window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
+window/stretch/mode="viewport"
 window/dpi/allow_hidpi=false
 window/scale=1.0
 
@@ -91,6 +90,10 @@ ReceiptOpen={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 3d/run_on_separate_thread=true
@@ -100,6 +103,7 @@ ReceiptOpen={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=1024
 lights_and_shadows/directional_shadow/size.mobile=512
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0

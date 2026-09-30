@@ -8,6 +8,10 @@ signal policewoman_dialogue_finished
 @export var speaker_label: Label
 @export var text_speed: float = 0.04
 
+@export_group("HUD Controls to Hide")
+@export var movement_joystick: Control
+@export var receipt_button: Control
+
 @export_group("Punctuation Pauses")
 @export var enable_punctuation_pauses: bool = true
 ## Pause after periods (.), exclamation marks (!), and question marks (?)
@@ -67,6 +71,21 @@ func _ready() -> void:
 	if typing_sound and typing_audio_player:
 		typing_audio_player.stream = typing_sound
 
+	# Automatic fallback node lookup if not assigned via Inspector
+	_find_touch_controls()
+
+func _find_touch_controls() -> void:
+	if not movement_joystick:
+		movement_joystick = get_tree().root.find_child("MovementJoystick", true, false) as Control
+	if not receipt_button:
+		receipt_button = get_tree().root.find_child("ReceiptButton", true, false) as Control
+
+func _set_hud_controls_visible(visible_state: bool) -> void:
+	if is_instance_valid(movement_joystick):
+		movement_joystick.visible = visible_state
+	if is_instance_valid(receipt_button):
+		receipt_button.visible = visible_state
+
 func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 	if is_dialogue_active:
 		return
@@ -79,6 +98,9 @@ func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 	Globals.playermoveallow = false
 	Globals.playerlookallow = false
 	Globals.set("is_in_dialogue", true)
+
+	# Hide Joystick and Receipt Button during dialogue
+	_set_hud_controls_visible(false)
 
 	dialogue_queue = lines
 	current_line_index = 0
@@ -98,9 +120,8 @@ func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 
 	_show_next_line()
 
-	# Debounce so the interact key doesn't accidentally skip line 1
-	can_advance_dialogue = false
-	get_tree().create_timer(0.35).timeout.connect(func(): can_advance_dialogue = true)
+	# Initial delay so opening dialogue doesn't immediately skip line 1
+	_start_advance_debounce(0.35)
 
 func _input(event: InputEvent) -> void:
 	if not is_dialogue_active or not visible:
@@ -121,11 +142,23 @@ func _input(event: InputEvent) -> void:
 	if not can_advance_dialogue:
 		return
 
-	var is_advance = event.is_action_pressed("ui_accept") or event.is_action_pressed("Interact")
-	if not is_advance:
-		return
+	var is_advance_action = event.is_action_pressed("ui_accept") or event.is_action_pressed("Interact")
+	var is_touch_tap = event is InputEventScreenTouch and event.pressed
+	var is_mouse_tap = event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
 
-	get_viewport().set_input_as_handled()
+	if is_advance_action or is_touch_tap or is_mouse_tap:
+		get_viewport().set_input_as_handled()
+		_advance_dialogue()
+
+func _start_advance_debounce(duration: float = 0.3) -> void:
+	can_advance_dialogue = false
+	get_tree().create_timer(duration).timeout.connect(func():
+		can_advance_dialogue = true
+	)
+
+func _advance_dialogue() -> void:
+	# Trigger debounce immediately to block rapid double-taps
+	_start_advance_debounce(0.3)
 
 	# Fast-forward text if still typing
 	if typewriter_tween and typewriter_tween.is_running():
@@ -183,12 +216,9 @@ func _get_char_delay(text: String, index: int) -> float:
 	var next_c = text[index + 1] if index + 1 < text.length() else ""
 	var prev_c = text[index - 1] if index > 0 else ""
 
-	# If a closing quote/bracket follows punctuation (e.g. "Wait!"),
-	# transfer the pause to the quote so punctuation and quote appear together.
 	if c in ["\"", "'", "”", "’", ")", "]", "}"] and prev_c in [".", "!", "?", ",", ";", ":", "—", "–"]:
 		return _get_punctuation_pause(prev_c, text, index - 1)
 
-	# If this punctuation is immediately followed by a closing quote/bracket, don't pause yet
 	if next_c in ["\"", "'", "”", "’", ")", "]", "}"]:
 		return text_speed
 
@@ -198,32 +228,24 @@ func _get_punctuation_pause(c: String, text: String, index: int) -> float:
 	var next_c = text[index + 1] if index + 1 < text.length() else ""
 	var prev_c = text[index - 1] if index > 0 else ""
 
-	# Single-character unicode ellipsis (…)
 	if c == "…":
 		return ellipsis_pause
 
-	# Period handling & standard three-dot ellipsis (...)
 	if c == ".":
-		# Not the end of an ellipsis yet
 		if next_c == ".":
 			return text_speed
-		# Last dot of an ellipsis
 		if prev_c == ".":
 			return ellipsis_pause
 		return sentence_pause
 
-	# Question and Exclamation marks
 	if c in ["!", "?"]:
-		# If chained (e.g., "?!" or "!!"), wait until the final mark
 		if next_c in ["!", "?"]:
 			return text_speed
 		return sentence_pause
 
-	# Commas, colons, semicolons
 	if c in [",", ";", ":"]:
 		return comma_pause
 
-	# Dashes (Em-dash, En-dash, or double-hyphen)
 	if c in ["—", "–"]:
 		return comma_pause
 
@@ -342,7 +364,6 @@ func _zoom_camera_to_npc(npc: Node3D) -> void:
 
 	_resolve_player_hierarchy(cam)
 	
-	# Camera stays strictly level with Neck (no roll)
 	cam.rotation = Vector3.ZERO
 
 	original_camera_fov = cam.fov
@@ -355,10 +376,8 @@ func _zoom_camera_to_npc(npc: Node3D) -> void:
 
 	cam_zoom_tween = create_tween().set_parallel(true)
 	
-	# ONLY FOV IS TWEENED — NO POSITION SLIDING
 	cam_zoom_tween.tween_property(cam, "fov", target_dialogue_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-	# Turn Player Yaw and Neck Pitch to face NPC
 	if is_instance_valid(active_player) and is_instance_valid(active_neck):
 		saved_player_rot_y = active_player.global_rotation.y
 		saved_neck_rot_x = active_neck.rotation.x
@@ -386,7 +405,6 @@ func _zoom_camera_to_npc(npc: Node3D) -> void:
 func _reset_dialogue_state(completed: bool) -> void:
 	var reset_duration: float = 0.4
 
-	# 1. Return NPC back to pre-interaction Path3D rotation
 	if has_saved_npc_rotation and is_instance_valid(active_npc):
 		var current_rot = active_npc.global_rotation.y
 		var target_rot = saved_npc_rot_y
@@ -401,7 +419,6 @@ func _reset_dialogue_state(completed: bool) -> void:
 				npc_ref.global_rotation.y = lerp_angle(current_rot, target_rot, weight)
 		, 0.0, 1.0, reset_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-	# 2. Return FOV and Player/Neck rotation (NO position change)
 	if is_camera_zoomed and is_instance_valid(active_camera):
 		var cam = active_camera
 
@@ -444,6 +461,9 @@ func _on_dialogue_fully_closed(completed: bool) -> void:
 	active_npc = null
 	active_neck = null
 	active_player = null
+
+	# Restore Movement Joystick and Receipt Button visibility
+	_set_hud_controls_visible(true)
 
 	# Unfreeze player movement and mouse look
 	Globals.playermoveallow = true

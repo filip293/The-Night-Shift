@@ -32,7 +32,6 @@ func _ready() -> void:
 	if camera:
 		default_cam_pos = camera.position
 
-
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -42,14 +41,14 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Back")
 	var target_h_vel := Vector3.ZERO
 
-	if Globals.playermoveallow and input_dir != Vector2.ZERO:
+	if Globals.get("playermoveallow") and input_dir != Vector2.ZERO:
 		var direction := (transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)).normalized()
 		target_h_vel = direction * walk_speed
 
-	# Realistic Exponential Decay Physics (Smooth & Framerate-Independent)
+	# Realistic Exponential Decay Physics
 	var current_h_vel := Vector3(velocity.x, 0.0, velocity.z)
 	var rate := acceleration if target_h_vel != Vector3.ZERO else deceleration
-	var weight := 1.0 - exp(-rate * delta) # Mathematically correct lerp weight
+	var weight := 1.0 - exp(-rate * delta)
 	
 	current_h_vel = current_h_vel.lerp(target_h_vel, weight)
 
@@ -58,12 +57,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Get actual horizontal velocity AFTER collisions are calculated by move_and_slide()
+	# Get actual horizontal velocity AFTER collisions
 	var real_h_vel := Vector3(get_real_velocity().x, 0.0, get_real_velocity().z)
 	var real_speed_sq := real_h_vel.length_squared()
 
-	# Head Bobbing & Footsteps (Uses real horizontal movement)
-	if is_on_floor() and real_speed_sq > 0.25 and Globals.playermoveallow:
+	# Head Bobbing & Footsteps
+	if is_on_floor() and real_speed_sq > 0.25 and Globals.get("playermoveallow"):
 		_process_head_bob_and_steps(delta, sqrt(real_speed_sq))
 	else:
 		_reset_camera_bob(delta)
@@ -96,7 +95,6 @@ func play_footstep_sound() -> void:
 	if footstep_sounds.is_empty():
 		return
 
-	# Sequential non-repeating shuffle sequence
 	if current_footstep_index >= footstep_sounds.size():
 		current_footstep_index = 0
 		footstep_sounds.shuffle()
@@ -109,6 +107,17 @@ func play_footstep_sound() -> void:
 	current_footstep_index += 1
 	is_left_foot = not is_left_foot
 
+## Unified look method for Mouse Motion and Touch Drag
+func apply_look(look_delta: Vector2) -> void:
+	if not Globals.get("playerlookallow"):
+		return
+
+	# Yaw on CharacterBody3D
+	rotate_y(-look_delta.x)
+
+	# Pitch on Neck node
+	neck.rotation.x = clampf(neck.rotation.x - look_delta.y, -MAX_PITCH_RAD, MAX_PITCH_RAD)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -116,7 +125,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and Globals.playerlookallow:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var sens := deg_to_rad(Globals.mouse_sensitivity)
-		rotate_y(-event.relative.x * sens)
-		neck.rotation.x = clampf(neck.rotation.x - (event.relative.y * sens), -MAX_PITCH_RAD, MAX_PITCH_RAD)
+		apply_look(event.relative * sens)

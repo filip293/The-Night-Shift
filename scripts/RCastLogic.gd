@@ -33,25 +33,31 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Block all world interactions while a dialogue is actively open
 	if Globals.get("is_in_dialogue"):
+		if is_instance_valid(active_puddle):
+			active_puddle.cancel_mopping()
+			active_puddle = null
 		_animate_label("")
 		_animate_crosshair(false)
 		return
 
 	var target_text = ""
 
-	# 1. Active cleaning tick
+	# 1. Active cleaning tick (Latched state: cleans continuously without needing to hold)
 	if is_instance_valid(active_puddle):
-		if Input.is_action_pressed("Interact"):
+		var collider = get_collider()
+		# Cancel if player stops looking at the active puddle/dirt or if it gets deleted
+		if collider != active_puddle or not active_puddle.is_being_mopped:
+			active_puddle.cancel_mopping()
+			active_puddle = null
+		else:
 			target_text = "Cleaning..."
 			active_puddle.mop_tick(delta)
 			
+			# Check again after tick in case it finished
 			if not is_instance_valid(active_puddle) or not active_puddle.is_being_mopped:
 				active_puddle = null
 				target_text = ""
-		else:
-			active_puddle.cancel_mopping()
-			active_puddle = null
-			
+				
 		_animate_label(target_text)
 		_animate_crosshair(target_text != "")
 		return
@@ -71,7 +77,7 @@ func _physics_process(delta: float) -> void:
 
 			# --- DOOR ---
 			if object_type == ObjectType.DOOR:
-				target_text = "[E] Close Door" if collider.is_open else "[E] Open Door"
+				target_text = "[Tap] Close Door" if collider.is_open else "[Tap] Open Door"
 				if Input.is_action_just_pressed("Interact"):
 					collider.interact()
 					
@@ -84,7 +90,7 @@ func _physics_process(delta: float) -> void:
 				# --- NPC INTERACTIONS ---
 				if object_name == "PoliceWoman":
 					if Globals.get("can_talk_policewoman"):
-						target_text = "[E] Talk to Police Officer"
+						target_text = "[Tap] Talk to Police Officer"
 						if Input.is_action_just_pressed("Interact") and not Globals.get("is_in_dialogue"):
 							Globals.set("is_in_dialogue", true)
 							dialogue_ui._start_policewoman_dialogue(collider)
@@ -93,7 +99,7 @@ func _physics_process(delta: float) -> void:
 
 				elif object_name == "Babushka" or object_name == "OldWoman":
 					if Globals.get("can_talk_babushka"):
-						target_text = "[E] Talk to Babushka"
+						target_text = "[Tap] Talk to Babushka"
 						if Input.is_action_just_pressed("Interact") and not Globals.get("is_in_dialogue"):
 							Globals.set("is_in_dialogue", true)
 							dialogue_ui._start_babushka_dialogue(collider)
@@ -105,7 +111,7 @@ func _physics_process(delta: float) -> void:
 					if broom_held:
 						var dirt_left = get_tree().get_nodes_in_group("dirt").size()
 						if dirt_left == 0:
-							target_text = "[E] Return Broom"
+							target_text = "[Tap] Return Broom"
 							if Input.is_action_just_pressed("Interact"):
 								$"../../../../Bwoom2".visible = true
 								$"../../../Bwoom2".visible = false
@@ -119,7 +125,7 @@ func _physics_process(delta: float) -> void:
 						else:
 							target_text = "Sweep all dirt first! (%d left)" % dirt_left
 					else:
-						target_text = "[E] Take Broom"
+						target_text = "[Tap] Take Broom"
 						if Input.is_action_just_pressed("Interact"):
 							$"../../../../Bwoom2".visible = false
 							$"../../../../Bwoom2/TakeBroom".play()
@@ -132,7 +138,7 @@ func _physics_process(delta: float) -> void:
 						if has_trash:
 							target_text = "Already carrying trash bag"
 						else:
-							target_text = "[E] Take trash bag"
+							target_text = "[Tap] Take trash bag"
 							if Input.is_action_just_pressed("Interact"):
 								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/StaticBody3D/PickUpGarbage".play()
 								$"../../../Trash_002_Trash_0".visible = true
@@ -140,7 +146,7 @@ func _physics_process(delta: float) -> void:
 								collider.interact()
 					elif object_name == "Trash can":
 						if has_trash:
-							target_text = "[E] Dispose trash"
+							target_text = "[Tap] Dispose trash"
 							if Input.is_action_just_pressed("Interact"):
 								Globals.set("has_trash_bag", false)
 								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Dumpster/Dumpster_Trash_1/ThrowGarbage".play()
@@ -160,7 +166,7 @@ func _physics_process(delta: float) -> void:
 					if mop_held:
 						var puddles_left = get_tree().get_nodes_in_group("puddles").size()
 						if puddles_left == 0:
-							target_text = "[E] Return Mop"
+							target_text = "[Tap] Return Mop"
 							if Input.is_action_just_pressed("Interact"):
 								$"../../../../BucketAndMop/StaticBody3D".visible = true
 								$"../../../Bwooom".visible = false
@@ -174,7 +180,7 @@ func _physics_process(delta: float) -> void:
 						else:
 							target_text = "Clean remaining puddles first! (%d left)" % puddles_left
 					else:
-						target_text = "[E] Take Mop"
+						target_text = "[Tap] Take Mop"
 						if Input.is_action_just_pressed("Interact"):
 							$"../../../../BucketAndMop/StaticBody3D".visible = false
 							$"../../../../BucketAndMop/StaticBody3D/TakeBroom".play()
@@ -194,7 +200,7 @@ func _physics_process(delta: float) -> void:
 						elif has_crate:
 							target_text = "Already carrying crate"
 						else:
-							target_text = "[E] Take crate"
+							target_text = "[Tap] Take crate"
 							if Input.is_action_just_pressed("Interact"):
 								Globals.set("has_crate", true)
 								$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Door"._toggle_door(true)
@@ -204,7 +210,7 @@ func _physics_process(delta: float) -> void:
 					elif object_name == "Take cans":
 						if not crate_delivered:
 							if has_crate:
-								target_text = "[E] Place crate"
+								target_text = "[Tap] Place crate"
 								if Input.is_action_just_pressed("Interact"):
 									Globals.set("has_crate", false)
 									Globals.set("crate_delivered", true)
@@ -218,7 +224,7 @@ func _physics_process(delta: float) -> void:
 							elif has_cans:
 								target_text = "Already carrying cans"
 							else:
-								target_text = "[E] Take cans"
+								target_text = "[Tap] Take cans"
 								if Input.is_action_just_pressed("Interact"):
 									Globals.set("has_cans", true)
 									collider.interact()
@@ -228,7 +234,7 @@ func _physics_process(delta: float) -> void:
 							target_text = "Shelf is stocked"
 							collider.set_collision_layer_value(9, false)
 						elif has_cans:
-							target_text = "[E] Restock cans"
+							target_text = "[Tap] Restock cans"
 							if Input.is_action_just_pressed("Interact"):
 								Globals.set("has_cans", false)
 								Globals.set("cans_restocked", true)
@@ -243,7 +249,7 @@ func _physics_process(delta: float) -> void:
 							target_text = "I need to get cans first."
 					
 				if object_name == "Car1":
-					target_text = "[E] Fuel car"
+					target_text = "[Tap] Fuel car"
 					if Input.is_action_just_pressed("Interact"):
 						$"../../../../Map/FirstCar/PathFollow3D/suv".set_collision_layer_value(9, false)
 						$"../../../../Map/FirstCar/PathFollow3D/suv/BeepBeep".volume_db = -100
@@ -256,7 +262,7 @@ func _physics_process(delta: float) -> void:
 						Globals.stationcar = false
 					
 				if object_name == "Car2":
-					target_text = "[E] Fuel car"
+					target_text = "[Tap] Fuel car"
 					if Input.is_action_just_pressed("Interact"):
 						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Fuel_pump_03/Fuel_pump_03_Fuel_pump_0/Pump2".play()
 						Globals.stationcar = true
@@ -273,13 +279,13 @@ func _physics_process(delta: float) -> void:
 				
 				if object_name == "Radio":
 					if Globals.radio_playing:
-						target_text = "[E] Turn off radio"
+						target_text = "[Tap] Turn off radio"
 						if Input.is_action_just_pressed("Interact"):
 							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/Click.play()
 							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D.stop()
 							Globals.radio_playing = false
 					else:
-						target_text = "[E] Turn on radio"
+						target_text = "[Tap] Turn on radio"
 						if Input.is_action_just_pressed("Interact"):
 							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/Click.play()
 							$/root/Node3D/Map/Sketchfab_model/Gas_station_fbx/RootNode/Radio/Radio_01_Radio_0/AudioStreamPlayer3D.play()
@@ -293,7 +299,7 @@ func _physics_process(delta: float) -> void:
 
 				if current_task == 1 and p_type == 0:
 					if broom_held:
-						target_text = "[E] Sweep dirt"
+						target_text = "[Tap] Sweep dirt"
 						if Input.is_action_just_pressed("Interact"):
 							active_puddle = collider
 							collider.start_mopping()
@@ -302,7 +308,7 @@ func _physics_process(delta: float) -> void:
 
 				elif current_task == 3 and p_type == 1:
 					if mop_held:
-						target_text = "[E] Mop Puddle"
+						target_text = "[Tap] Mop Puddle"
 						if Input.is_action_just_pressed("Interact"):
 							active_puddle = collider
 							collider.start_mopping()

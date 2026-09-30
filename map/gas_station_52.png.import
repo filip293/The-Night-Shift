@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csllu7sb08kww"
 path.s3tc="res://.godot/imported/gas_station_52.png-d2fb08ed1b0f4adc58f0a2d02b40ad33.s3tc.ctex"
+path.etc2="res://.godot/imported/gas_station_52.png-d2fb08ed1b0f4adc58f0a2d02b40ad33.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://map/gas_station_52.png"
-dest_files=["res://.godot/imported/gas_station_52.png-d2fb08ed1b0f4adc58f0a2d02b40ad33.s3tc.ctex"]
+dest_files=["res://.godot/imported/gas_station_52.png-d2fb08ed1b0f4adc58f0a2d02b40ad33.s3tc.ctex", "res://.godot/imported/gas_station_52.png-d2fb08ed1b0f4adc58f0a2d02b40ad33.etc2.ctex"]
 
 [params]
 

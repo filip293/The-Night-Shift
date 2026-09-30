@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://3y4mwef2b4ft"
 path.s3tc="res://.godot/imported/CarArrived.png-c0d260cf923506eb20b7de9e5d0f71f2.s3tc.ctex"
+path.etc2="res://.godot/imported/CarArrived.png-c0d260cf923506eb20b7de9e5d0f71f2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://MapAssets/MonitorAlert/CarArrived.png"
-dest_files=["res://.godot/imported/CarArrived.png-c0d260cf923506eb20b7de9e5d0f71f2.s3tc.ctex"]
+dest_files=["res://.godot/imported/CarArrived.png-c0d260cf923506eb20b7de9e5d0f71f2.s3tc.ctex", "res://.godot/imported/CarArrived.png-c0d260cf923506eb20b7de9e5d0f71f2.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyh3fujfcpts8"
 path.s3tc="res://.godot/imported/PoliceWoman_Character_17_Female_Police.png-d7c12215531d54454796b12dbf67e9c1.s3tc.ctex"
+path.etc2="res://.godot/imported/PoliceWoman_Character_17_Female_Police.png-d7c12215531d54454796b12dbf67e9c1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://characters/Persons/PoliceWoman_Character_17_Female_Police.png"
-dest_files=["res://.godot/imported/PoliceWoman_Character_17_Female_Police.png-d7c12215531d54454796b12dbf67e9c1.s3tc.ctex"]
+dest_files=["res://.godot/imported/PoliceWoman_Character_17_Female_Police.png-d7c12215531d54454796b12dbf67e9c1.s3tc.ctex", "res://.godot/imported/PoliceWoman_Character_17_Female_Police.png-d7c12215531d54454796b12dbf67e9c1.etc2.ctex"]
 
 [params]
 

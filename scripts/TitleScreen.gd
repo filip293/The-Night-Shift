@@ -44,7 +44,6 @@ func _on_start_pressed() -> void:
 	$CanvasLayer/Animations.play_backwards("fade")
 	await $CanvasLayer/Animations.animation_finished
 	$BlackScreen.visible = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Player.process_mode = Node.PROCESS_MODE_INHERIT
 	Map.process_mode = Node.PROCESS_MODE_INHERIT
 	Globals.task_idx = 0
@@ -52,6 +51,7 @@ func _on_start_pressed() -> void:
 	$"../InGame/CanvasLayer/CanvasLayer2/Crosshair".visible = true
 	$"../InGame/CanvasLayer/CanvasLayer2/Budget".visible = true
 	Globals.in_game = true
+	$"../MobileUI".visible = true
 	## ADD NPC INTERACTIONS BUT CALL FROM A DIFFERENT SCRIPT BEFORE STARTING
 	await get_tree().create_timer(5.0).timeout
 	TaskManager.next_task()

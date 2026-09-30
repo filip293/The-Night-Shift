@@ -12,7 +12,7 @@ extends Node3D
 @onready var Map: Node3D = $"../Map"
 @onready var Animations: AnimationPlayer = $"../TitleScreen/CanvasLayer/Animations"
 
-# Preload your boss voicelines here (or leave null if not recorded yet)
+# Preload boss voicelines
 var voice_boss_1: AudioStream = preload("res://introAssets/boss_voicelines/voiceline1_degraded_5800Hz.wav")
 var voice_boss_2a: AudioStream = preload("res://introAssets/boss_voicelines/voiceline2a_degraded_5800Hz.wav")
 var voice_boss_2b: AudioStream = preload("res://introAssets/boss_voicelines/voiceline2b_degraded_5800Hz.wav")
@@ -27,6 +27,12 @@ var voice_boss_final2: AudioStream = preload("res://introAssets/boss_voicelines/
 var choice
 var index: int
 var light_tween: Tween
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Convert screen touch events into "ui_accept" action ONLY when prologue/intro is actively running
+	if visible and event is InputEventScreenTouch and event.pressed:
+		Input.action_press("ui_accept")
+		get_tree().create_timer(0.1).timeout.connect(func(): Input.action_release("ui_accept"))
 
 func _ready() -> void:
 	Player.process_mode = Node.PROCESS_MODE_DISABLED
@@ -59,10 +65,7 @@ func _ready() -> void:
 		await MotoV3i.snap_open().finished
 		await Globals.calltime(0.3)
 
-		# =========================================================================
-		# INTERACTIVE DIALOGUE
-		# =========================================================================
-		
+		# Dialogue sequence...
 		_boss_speak("Look who finally decided to pick up.\nDon't tell me you were actually asleep.", voice_boss_1)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
@@ -114,10 +117,7 @@ func _ready() -> void:
 		_boss_speak("Get to the store. NOW.", voice_boss_final2)
 		await VoiceAudioPlayer.finished
 		
-		# =========================================================================
-		# END OF CALL & TRANSITION TO TITLE SCREEN
-		# =========================================================================
-		
+		# End of Call Transition
 		MotoV3i.set_talking(false)
 		GUI.hide_text()
 		await Globals.calltime(0.2)
@@ -127,37 +127,33 @@ func _ready() -> void:
 		
 		await turn_off_light()
 		
-		# 1. Fade the screen to pitch BLACK
+		# Fade to black transition
 		Animations.play("fade")
 		await Animations.animation_finished
 		
-		# 2. While the screen is completely BLACK, switch the scene elements underneath
 		visible = false
 		GUI.visible = false
 		if TitleScreen:
 			TitleScreen.start()
-			$GUI/CanvasLayer/InteractiveText.set_mouse_filter(2)
-		# Small breath pause while fully black
+			if $GUI/CanvasLayer/InteractiveText:
+				$GUI/CanvasLayer/InteractiveText.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 		await Globals.calltime(0.5)
 		
-		# 3. Fade BACK IN from black to reveal the TitleScreen
 		Animations.play_backwards("fade")
 		await Animations.animation_finished
 	
-	# Only start TitleScreen and hide after the transition finishes completely
 	if TitleScreen:
 		TitleScreen.start()
 		GUI.visible = false
-		$GUI/CanvasLayer/InteractiveText.set_mouse_filter(2)
+		if $GUI/CanvasLayer/InteractiveText:
+			$GUI/CanvasLayer/InteractiveText.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 		visible = false
 
 func _boss_speak(text: String, voice_clip: AudioStream) -> void:
 	GUI.show_dialogue("Boss", text)
-	
 	if VoiceAudioPlayer and voice_clip:
 		VoiceAudioPlayer.stream = voice_clip
 		VoiceAudioPlayer.play()
-		
 	MotoV3i.set_talking(true)
 
 func turn_on_light() -> void:

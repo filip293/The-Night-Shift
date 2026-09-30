@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnf028t0tp85d"
 path.s3tc="res://.godot/imported/Monster_Image_70_001.png-6c2ed41d50428c66e61c249ab21d6b7a.s3tc.ctex"
+path.etc2="res://.godot/imported/Monster_Image_70_001.png-6c2ed41d50428c66e61c249ab21d6b7a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://characters/Monster_Image_70_001.png"
-dest_files=["res://.godot/imported/Monster_Image_70_001.png-6c2ed41d50428c66e61c249ab21d6b7a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Monster_Image_70_001.png-6c2ed41d50428c66e61c249ab21d6b7a.s3tc.ctex", "res://.godot/imported/Monster_Image_70_001.png-6c2ed41d50428c66e61c249ab21d6b7a.etc2.ctex"]
 
 [params]
 
