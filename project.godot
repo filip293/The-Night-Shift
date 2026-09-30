@@ -18,9 +18,10 @@ general/accessibility_driver="dummy"
 config/name="The Night Shift"
 run/main_scene="uid://bw2njfn37y3nr"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/use_filter=false
-config/icon="uid://cq2cvhv4nyx8h"
+config/icon="uid://c1kfrb4dlirqu"
 
 [audio]
 
