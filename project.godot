@@ -20,7 +20,7 @@ run/main_scene="uid://bw2njfn37y3nr"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="uid://cq2cvhv4nyx8h"
 
 [audio]
 
