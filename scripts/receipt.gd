@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var modulator := $CanvasModulate
+@onready var DialogueMana := $"../CanvasLayer2/Control"
 @export var fade_duration: float
 @export var slide_duration: float
 
@@ -24,7 +25,7 @@ func _ready() -> void:
 	modulator.color = hidden_color
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ReceiptOpen") and Globals.in_game and Globals.task_given:
+	if event.is_action_pressed("ReceiptOpen") and Globals.in_game and Globals.task_given and !DialogueMana.in_dialogue:
 		if Globals.task_idx == 1: 
 			sprite.texture = task1
 			task_desc.text = """
@@ -58,7 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		animate_to_color(visible_color)
 		animate_to_position(visible_position)
 		$AudioStreamPlayer.play()
-	elif event.is_action_released("ReceiptOpen") or !Globals.task_given:
+	elif event.is_action_released("ReceiptOpen") or !Globals.task_given or DialogueMana.in_dialogue:
 		animate_to_position(hidden_position)
 		animate_to_color(hidden_color)
 

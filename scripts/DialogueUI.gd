@@ -37,6 +37,7 @@ var typewriter_tween: Tween
 var npc_turn_tween: Tween
 var cam_zoom_tween: Tween
 
+var in_dialogue: bool = false
 var is_dialogue_active: bool = false
 var can_advance_dialogue: bool = false
 var dialogue_start_time: float = 0.0
@@ -69,7 +70,8 @@ func _ready() -> void:
 func start_dialogue(lines: Array[Dictionary], speaker: Node = null) -> void:
 	if is_dialogue_active:
 		return
-
+	
+	in_dialogue = true
 	is_dialogue_active = true
 	dialogue_start_time = Time.get_ticks_msec() / 1000.0
 	
@@ -250,6 +252,7 @@ func _cancel_dialogue() -> void:
 func _end_dialogue(completed: bool = true) -> void:
 	hide()
 	is_dialogue_active = false
+	in_dialogue = false
 	current_line_index = 0
 	_reset_dialogue_state(completed)
 
@@ -436,6 +439,7 @@ func _reset_dialogue_state(completed: bool) -> void:
 
 func _on_dialogue_fully_closed(completed: bool) -> void:
 	is_camera_zoomed = false
+	in_dialogue = false
 	has_saved_npc_rotation = false
 	active_npc = null
 	active_neck = null
