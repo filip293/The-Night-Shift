@@ -8,6 +8,15 @@ signal policewoman_dialogue_finished
 @export var speaker_label: Label
 @export var text_speed: float = 0.04
 
+@export_group("Punctuation Pauses")
+@export var enable_punctuation_pauses: bool = true
+## Pause after periods (.), exclamation marks (!), and question marks (?)
+@export var sentence_pause: float = 0.38
+## Pause after commas (,), semicolons (;), colons (:), and dashes (—)
+@export var comma_pause: float = 0.16
+## Pause at the end of an ellipsis (...)
+@export var ellipsis_pause: float = 0.45
+
 @export_group("Audio")
 @export var typing_audio_player: AudioStreamPlayer
 @export var typing_sound: AudioStream
@@ -31,7 +40,6 @@ var cam_zoom_tween: Tween
 var is_dialogue_active: bool = false
 var can_advance_dialogue: bool = false
 var dialogue_start_time: float = 0.0
-var last_sound_char_index: int = 0
 
 # Cached NPC state for Path3D restoration
 var active_npc: Node3D = null
@@ -136,29 +144,92 @@ func _show_next_line() -> void:
 	speaker_label.text = line_data.get("speaker", "")
 	dialogue_label.text = line_data.get("text", "")
 	dialogue_label.visible_characters = 0
-	last_sound_char_index = 0
 
-	var duration = dialogue_label.text.length() * text_speed
+	var full_text = dialogue_label.text
+	var total_chars = full_text.length()
 
 	if typewriter_tween and typewriter_tween.is_valid():
 		typewriter_tween.kill()
 
-	typewriter_tween = create_tween()
-	typewriter_tween.tween_method(_on_typewriter_step, 0, dialogue_label.text.length(), duration)
-
-func _on_typewriter_step(val: float) -> void:
-	var char_count = int(val)
-	if char_count == dialogue_label.visible_characters:
+	if total_chars == 0:
 		return
 
+	# Build a chained tween step-by-step to allow punctuation-based intervals
+	typewriter_tween = create_tween()
+	for i in range(total_chars):
+		var char_count = i + 1
+		typewriter_tween.tween_callback(_on_typewriter_step.bind(char_count))
+		
+		# Delay between characters (no trailing delay after the final character)
+		if i < total_chars - 1:
+			var delay = _get_char_delay(full_text, i)
+			typewriter_tween.tween_interval(delay)
+
+func _on_typewriter_step(char_count: int) -> void:
 	dialogue_label.visible_characters = char_count
 
 	if char_count > 0 and char_count <= dialogue_label.text.length():
-		if char_count != last_sound_char_index:
-			last_sound_char_index = char_count
-			var c = dialogue_label.text[char_count - 1]
-			if c != " " and c != "\n" and c != "\t":
-				_play_typing_sound()
+		var c = dialogue_label.text[char_count - 1]
+		if c != " " and c != "\n" and c != "\t":
+			_play_typing_sound()
+
+func _get_char_delay(text: String, index: int) -> float:
+	if not enable_punctuation_pauses:
+		return text_speed
+
+	var c = text[index]
+	var next_c = text[index + 1] if index + 1 < text.length() else ""
+	var prev_c = text[index - 1] if index > 0 else ""
+
+	# If a closing quote/bracket follows punctuation (e.g. "Wait!"),
+	# transfer the pause to the quote so punctuation and quote appear together.
+	if c in ["\"", "'", "”", "’", ")", "]", "}"] and prev_c in [".", "!", "?", ",", ";", ":", "—", "–"]:
+		return _get_punctuation_pause(prev_c, text, index - 1)
+
+	# If this punctuation is immediately followed by a closing quote/bracket, don't pause yet
+	if next_c in ["\"", "'", "”", "’", ")", "]", "}"]:
+		return text_speed
+
+	return _get_punctuation_pause(c, text, index)
+
+func _get_punctuation_pause(c: String, text: String, index: int) -> float:
+	var next_c = text[index + 1] if index + 1 < text.length() else ""
+	var prev_c = text[index - 1] if index > 0 else ""
+
+	# Single-character unicode ellipsis (…)
+	if c == "…":
+		return ellipsis_pause
+
+	# Period handling & standard three-dot ellipsis (...)
+	if c == ".":
+		# Not the end of an ellipsis yet
+		if next_c == ".":
+			return text_speed
+		# Last dot of an ellipsis
+		if prev_c == ".":
+			return ellipsis_pause
+		return sentence_pause
+
+	# Question and Exclamation marks
+	if c in ["!", "?"]:
+		# If chained (e.g., "?!" or "!!"), wait until the final mark
+		if next_c in ["!", "?"]:
+			return text_speed
+		return sentence_pause
+
+	# Commas, colons, semicolons
+	if c in [",", ";", ":"]:
+		return comma_pause
+
+	# Dashes (Em-dash, En-dash, or double-hyphen)
+	if c in ["—", "–"]:
+		return comma_pause
+
+	if c == "-":
+		if next_c == "-" or next_c == " " or prev_c == "-":
+			return comma_pause
+
+	return text_speed
 
 func _play_typing_sound() -> void:
 	if typing_audio_player and typing_audio_player.stream:

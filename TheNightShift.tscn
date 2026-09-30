@@ -3985,6 +3985,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j44kt")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pth2s"]
+size = Vector3(0.30509627, 0.5103845, 0.70447177)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_x6lie"]
 _surfaces = [{
 "aabb": AABB(-0.11308687, -0.2733825, -0.35223588, 0.22617374, 0.52857476, 0.70447177),
@@ -15704,7 +15707,6 @@ far = 19.0
 process_mode = 3
 transform = Transform3D(1, 4.2106763e-11, -5.820766e-11, -3.0723868e-11, 1.0000005, -3.4924597e-10, 0, -1.1641532e-10, 1.0000005, 0.03846457, 11.339486, -227.15576)
 script = ExtResource("6_cbjmt")
-play_intro = false
 
 [node name="moto-v3i" type="Node3D" parent="Intro" unique_id=542582087 node_paths=PackedStringArray("audio_player", "vibrate_audio_player", "screen_light", "main_screen_light", "hinge")]
 transform = Transform3D(0.89493436, 0, 0.4461978, 0, 0.99999994, 0, -0.4461978, 0, 0.89493436, 0, 0.079, 0.292)
@@ -15803,7 +15805,6 @@ offset_right = -37.0
 offset_bottom = 539.0
 grow_horizontal = 0
 grow_vertical = 2
-mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("15_wa347")
 theme_override_fonts/bold_font = ExtResource("15_g7py6")
 theme_override_font_sizes/normal_font_size = 32
@@ -16112,54 +16113,74 @@ stream = ExtResource("19_y87xx")
 layer = 1000
 
 [node name="Control" type="Control" parent="InGame/CanvasLayer2" unique_id=495574881 node_paths=PackedStringArray("dialogue_label", "speaker_label", "typing_audio_player")]
-visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("36_v1r1w")
 dialogue_label = NodePath("Control/Label")
 speaker_label = NodePath("Control/Label2")
 typing_audio_player = NodePath("Control/Typing")
 typing_sound = ExtResource("19_ihlne")
 
+[node name="ColorRect2" type="ColorRect" parent="InGame/CanvasLayer2/Control" unique_id=890307906]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -855.0
+offset_top = -304.0
+offset_right = -359.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8235294)
+
 [node name="ColorRect" type="ColorRect" parent="InGame/CanvasLayer2/Control" unique_id=2030595647]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 84.0
-offset_top = 764.0
-offset_right = 1796.0
-offset_bottom = 990.0
+anchor_bottom = 0.5
+offset_left = -856.0
+offset_top = -197.0
+offset_right = 856.0
+offset_bottom = -1.0
 grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 0.45490196)
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8235294)
 
 [node name="Control" type="VBoxContainer" parent="InGame/CanvasLayer2/Control" unique_id=1994544173]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 232.0
-offset_top = 817.0
-offset_right = 1649.0
-offset_bottom = 992.0
+offset_left = -787.0
+offset_top = -264.0
+offset_right = 787.0
+offset_bottom = -5.0
 grow_horizontal = 2
-grow_vertical = 0
+theme_override_constants/separation = 77
 
 [node name="Label2" type="Label" parent="InGame/CanvasLayer2/Control/Control" unique_id=347496356]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("37_2skny")
 theme_override_font_sizes/font_size = 36
-text = "Babushka:"
+text = "Policewoman:"
 
 [node name="Label" type="Label" parent="InGame/CanvasLayer2/Control/Control" unique_id=1543213737]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("37_2skny")
 theme_override_font_sizes/font_size = 36
 text = "Ah, dear child... the air feels so heavy tonight."
@@ -16167,6 +16188,17 @@ text = "Ah, dear child... the air feels so heavy tonight."
 [node name="Typing" type="AudioStreamPlayer" parent="InGame/CanvasLayer2/Control/Control" unique_id=467568970]
 stream = ExtResource("19_ihlne")
 volume_db = -10.0
+
+[node name="Label" type="Label" parent="InGame/CanvasLayer2/Control" unique_id=922120596]
+layout_mode = 0
+offset_left = 508.0
+offset_top = -18.0
+offset_right = 874.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("37_2skny")
+theme_override_font_sizes/font_size = 22
+text = "Press [ENTER] to proceed"
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1281215068]
 physics_interpolation_mode = 1
@@ -16226,7 +16258,7 @@ script = ExtResource("13_ygv6i")
 sun_light = NodePath("../../Map/DirectionalLight3D")
 
 [node name="Bwooom" type="MeshInstance3D" parent="Player" unique_id=1452232373]
-transform = Transform3D(-0.6500054, -0.00073383795, -0.00024333794, -0.0007656832, 0.5826748, 0.28807932, -0.00010710343, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
+transform = Transform3D(-0.65000546, -0.00073383795, -0.00024333794, -0.00076568325, 0.5826748, 0.28807932, -0.000107103435, 0.28807947, -0.58267516, -0.17908764, -1.0148182, -0.1531356)
 visible = false
 mesh = SubResource("ArrayMesh_0uahw")
 
@@ -17211,12 +17243,14 @@ mesh = SubResource("ArrayMesh_fy6m4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0/Candy_001_Sweets_others_0" unique_id=1406750757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021059364, 0.00015489757, -0.0010339022)
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0/Candy_001_Sweets_others_0/StaticBody3D" unique_id=1224663235]
 shape = SubResource("BoxShape3D_2skny")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0" unique_id=481212433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021059364, 0.00015489757, -0.0010339022)
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy_001/Candy_001_Sweets_others_0/StaticBody3D" unique_id=532758986]
 shape = SubResource("BoxShape3D_h452q")
@@ -17244,6 +17278,7 @@ mesh = SubResource("ArrayMesh_myfsv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Pack_lighters/Pack_lighters_Pack_lighters_0" unique_id=442140010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014860749, -0.0011782721, 0.005302772)
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Pack_lighters/Pack_lighters_Pack_lighters_0/StaticBody3D" unique_id=682028643]
 shape = SubResource("BoxShape3D_ugayw")
@@ -17265,6 +17300,7 @@ mesh = SubResource("ArrayMesh_b6xj7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy/Candy_Sweets_others_0" unique_id=339956991]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029326573, 0.0013490319, 0.015398726)
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Candy/Candy_Sweets_others_0/StaticBody3D" unique_id=354568026]
 shape = SubResource("BoxShape3D_fxxet")
@@ -17291,6 +17327,13 @@ transform = Transform3D(1, 4.3655746e-11, 1.0700774e-11, 0, 1.0000002, 2.3283064
 gi_mode = 0
 mesh = SubResource("ArrayMesh_0pmk3")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets/Gadgets_Sweets_others_0" unique_id=1201907517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03946127, 0, 0)
+collision_layer = 257
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets/Gadgets_Sweets_others_0/StaticBody3D" unique_id=1343574255]
+shape = SubResource("BoxShape3D_pth2s")
+
 [node name="Gadgets_01" type="Node3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode" unique_id=385196651]
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 820.21875, 157.39313, -1475.2451)
 
@@ -17310,12 +17353,14 @@ mesh = SubResource("ArrayMesh_f8i8u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0" unique_id=1546475521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009095132, 0)
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/StaticBody3D" unique_id=475777250]
 shape = SubResource("BoxShape3D_lwl8w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0" unique_id=555341931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009095132, 0)
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Sketchfab_model/Gas_station_fbx/RootNode/Gadgets_01/Gadgets_01_Sweets_others_0/Gadgets_01_Sweets_others_0/StaticBody3D" unique_id=912998033]
 shape = SubResource("BoxShape3D_al4hb")

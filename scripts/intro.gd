@@ -31,6 +31,7 @@ var light_tween: Tween
 func _ready() -> void:
 	Player.process_mode = Node.PROCESS_MODE_DISABLED
 	Map.process_mode = Node.PROCESS_MODE_DISABLED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	IntroCamera.make_current()
 	
 	await Globals.calltime(3.0)
@@ -62,7 +63,7 @@ func _ready() -> void:
 		# INTERACTIVE DIALOGUE
 		# =========================================================================
 		
-		_boss_speak("Look who finally decided to pick up. Don't tell me you were actually asleep.", voice_boss_1)
+		_boss_speak("Look who finally decided to pick up.\nDon't tell me you were actually asleep.", voice_boss_1)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 
@@ -90,7 +91,7 @@ func _ready() -> void:
 		if index == 0:
 			_boss_speak("Listen. I don't pay Kyle to run off whenever he wants to, and I certainly don't pay you to be a smug prick.", voice_boss_4a)
 		elif index == 1:
-			_boss_speak("Apparently he heard a noise in the vents. It was probably a racoon or the HVAC rattling.", voice_boss_4b)
+			_boss_speak("Apparently he heard a noise in the vents.\nIt was probably a racoon or the HVAC rattling.", voice_boss_4b)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 		
@@ -106,7 +107,7 @@ func _ready() -> void:
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 		
-		_boss_speak("Sweep the aisles, throw away the garbage and clean the bathrooms. We also have a delivery coming tonight as well.", voice_boss_final1)
+		_boss_speak("Sweep the aisles, throw away the garbage\nand clean the bathrooms. We also have a delivery coming tonight as well.", voice_boss_final1)
 		await VoiceAudioPlayer.finished
 		await Globals.calltime(0.7)
 		
