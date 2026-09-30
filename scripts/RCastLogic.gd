@@ -2,6 +2,7 @@ extends RayCast3D
 
 @export_group("UI Elements")
 @export var label: Label
+@export var crosshair: CanvasItem
 
 @onready var task_mgr: Node = $"../../../../InGame/TaskManager"
 @onready var dialogue_ui: Node = $"../../../../InGame/CanvasLayer2/Control"
@@ -9,20 +10,31 @@ extends RayCast3D
 enum ObjectType { GENERIC, DOOR, PUDDLE }
 
 var label_tween: Tween
+var crosshair_tween: Tween
 var current_displayed_text: String = ""
 var active_puddle: Node3D = null
+var is_crosshair_visible: bool = false
 
 func _ready() -> void:
 	enabled = true
 	$"../../../../Flashlight/Flashlight".play("Flicker")
+	
+	# Fallback if crosshair isn't assigned via the Inspector
+	if not crosshair and has_node("../../../../InGame/CanvasLayer/CanvasLayer2/Crosshair"):
+		crosshair = get_node("../../../../InGame/CanvasLayer/CanvasLayer2/Crosshair") as CanvasItem
+
 	if label:
 		label.text = ""
 		label.modulate.a = 0.0
+
+	if crosshair:
+		crosshair.modulate.a = 0.25
 
 func _physics_process(delta: float) -> void:
 	# Block all world interactions while a dialogue is actively open
 	if Globals.get("is_in_dialogue"):
 		_animate_label("")
+		_animate_crosshair(false)
 		return
 
 	var target_text = ""
@@ -41,6 +53,7 @@ func _physics_process(delta: float) -> void:
 			active_puddle = null
 			
 		_animate_label(target_text)
+		_animate_crosshair(target_text != "")
 		return
 
 	# 2. Raycast checking
@@ -255,6 +268,8 @@ func _physics_process(delta: float) -> void:
 				
 				if object_name == "LockedDoor":
 					target_text = "Door is locked."
+					if Input.is_action_just_pressed("Interact"):
+						$"../../../../Map/Sketchfab_model/Gas_station_fbx/RootNode/Door_02/LockedDoor".play()
 				
 				if object_name == "Radio":
 					if Globals.radio_playing:
@@ -295,6 +310,7 @@ func _physics_process(delta: float) -> void:
 						target_text = "I need a mop first."
 
 	_animate_label(target_text)
+	_animate_crosshair(target_text != "")
 
 func _animate_label(new_text: String) -> void:
 	if current_displayed_text == new_text:
@@ -318,3 +334,18 @@ func _animate_label(new_text: String) -> void:
 			label_tween.tween_property(label, "modulate:a", 0.0, 0.15)
 			label_tween.tween_callback(func(): label.text = new_text)
 			label_tween.tween_property(label, "modulate:a", 1.0, 0.25)
+
+func _animate_crosshair(should_show: bool) -> void:
+	if not crosshair or is_crosshair_visible == should_show:
+		return
+
+	is_crosshair_visible = should_show
+
+	if crosshair_tween and crosshair_tween.is_valid():
+		crosshair_tween.kill()
+
+	crosshair_tween = create_tween()
+	var target_alpha = 1.0 if should_show else 0.25
+	var duration = 0.2 if should_show else 0.15
+	
+	crosshair_tween.tween_property(crosshair, "modulate:a", target_alpha, duration)
