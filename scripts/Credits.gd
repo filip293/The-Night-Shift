@@ -17,3 +17,4 @@ func ShowCredits() -> void:
 	$"../RandomCars/Car4/DriveSound".stop()
 	$"../RandomCars/Car5/DriveSound".stop()
 	$"../RandomCars/Car6/DriveSound".stop()
+	$"../MobileUI".visible = false
