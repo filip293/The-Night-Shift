@@ -31,10 +31,10 @@ var is_in_dialogue: bool = false
 signal TASKCHANGED
 
 func _ready() -> void:
-	Engine.max_fps = 60
-	Engine.physics_ticks_per_second = 60
-	get_tree().physics_interpolation = true
-	print("Defaulting to 60ticks/s and 60FPS with interp.")
+		Engine.max_fps = 60
+		Engine.physics_ticks_per_second = 60
+		get_tree().physics_interpolation = false
+		print("Defaulting to 60ticks/s and 60FPS with interp.")
 		
 func _physics_process(delta: float) -> void:
 	if chk_task != task_idx:
