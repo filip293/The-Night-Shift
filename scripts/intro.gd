@@ -136,7 +136,7 @@ func _ready() -> void:
 		GUI.visible = false
 		if TitleScreen:
 			TitleScreen.start()
-		
+			$GUI/CanvasLayer/InteractiveText.set_mouse_filter(2)
 		# Small breath pause while fully black
 		await Globals.calltime(0.5)
 		
@@ -148,6 +148,7 @@ func _ready() -> void:
 	if TitleScreen:
 		TitleScreen.start()
 		GUI.visible = false
+		$GUI/CanvasLayer/InteractiveText.set_mouse_filter(2)
 		visible = false
 
 func _boss_speak(text: String, voice_clip: AudioStream) -> void:
